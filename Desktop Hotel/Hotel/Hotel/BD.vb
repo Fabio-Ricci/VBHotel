@@ -93,9 +93,9 @@ Public Class BD
         Catch ex As Exception
             Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
         End Try
-        Me.comando = New SqlCommand("exec dbo.adiciona_hCliente '" + nome + "'," + "'" + cpf + "'," + "'" + dataNascimento + "'," + "'" + CStr(sexo) + "','" + email + "','" +
-        telefone + "','" + celular + "','" + endereco + "','" + bairro + "','" + cidade + "'," + pais + ",'" + siglaUF + "','" + hashOfString(senha) + "','" + hashOfString(numeroCartao) + "','" + hashOfString(codigoSeguranca) +
-        "','" + hashOfString(nomeTitular) + "','" + hashOfString(dataValidade) + "'," + cpf, Me.conexao)
+        Me.comando = New SqlCommand("exec dbo.adiciona_hCliente '" + nome + "'," + "'" + dataNascimento + "'," + "'" + CStr(sexo) + "','" + email + "','" +
+        telefone + "','" + celular + "','" + endereco + "','" + bairro + "','" + cidade + "','" + pais + "','" + siglaUF + "','" + hashOfString(senha) + "','" + hashOfString(numeroCartao) + "','" + hashOfString(codigoSeguranca) +
+        "','" + hashOfString(nomeTitular) + "','" + hashOfString(dataValidade) + "','" + cpf + "'", Me.conexao)
         Try
             Me.comando.ExecuteNonQuery()
         Catch ex As Exception
