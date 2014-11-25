@@ -13,10 +13,12 @@ Public Class Checkout
     Dim valorDiaria As Double
 
     'Tipo Apartamento
+    Dim idTipoApartamento As Integer
     Dim diariaTipoQuarto As Double
     Dim descricaoTipoQuarto As String
 
     'Apartamento
+    Dim idApartamento As Integer
     Dim tipoQuarto As String
     Dim numero As Integer
     Dim andar As Integer
@@ -25,6 +27,7 @@ Public Class Checkout
     Dim frigobar As Char
 
     'Item
+    Dim qtdItens As Integer
     Dim custoUnitarioItem As Double
     Dim descricaoItem As String
 
@@ -35,10 +38,24 @@ Public Class Checkout
             Dim dr As SqlDataReader
 
             'dr = bd.getDadosCheckout(cpf)
+            dr.read()
 
             nome = dr.Item(0)
             email = dr.Item(1)
 
+            diariaTipoQuarto = dr.item(2)
+            descricaoTipoQuarto = dr.item(3)
+
+            tipoQuarto = dr.item(4)
+            numero = dr.item(5)
+            andar = dr.item(6)
+            camasCasal = dr.item(7)
+            camasSolteiro = dr.item(8)
+            frigobar = dr.item(9)
+
+            qtdItens =
+            custoUnitarioItem = dr.item(10)
+            descricaoItem = dr.item(11)
 
 
         Else
