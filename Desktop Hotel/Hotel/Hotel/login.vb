@@ -29,6 +29,12 @@
 
                         Dim item As New CadastroItem()
                         item.Show()
+
+                        Dim listagem As New Listagem()
+                        listagem.Show()
+
+                        Dim cadastroCliente As New CadastroCliente()
+                        cadastroCliente.Show()
                     Else
                         MessageBox.Show("Usuário inexistente, confira seu username e senha", "Atenção",
                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation)

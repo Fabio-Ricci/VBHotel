@@ -86,17 +86,16 @@ Public Class BD
         Me.conexao.Close()
     End Sub
 
-    Public Sub adicionaCliente(nome As String, cpf As String, dataNascimento As String, sexo As Char, email As String, telefone As String, celular As String, endereco As String,
-     bairro As String, cidade As String, pais As Integer, siglaUF As String, senha As String, codigoSeguranca As String, nomeTitular As String, dataValidade As String, foto As Byte())
+    Public Sub adicionaCliente(nome As String, dataNascimento As String, sexo As Char, email As String, telefone As String, celular As String, endereco As String,
+     bairro As String, cidade As String, pais As String, siglaUF As String, senha As String, numeroCartao As String, codigoSeguranca As String, nomeTitular As String, dataValidade As String, cpf As String)
         Try
             Me.conexao.Open()
         Catch ex As Exception
             Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
         End Try
         Me.comando = New SqlCommand("exec dbo.adiciona_hCliente '" + nome + "'," + "'" + cpf + "'," + "'" + dataNascimento + "'," + "'" + CStr(sexo) + "','" + email + "','" +
-        telefone + "','" + celular + "','" + endereco + "','" + bairro + "','" + cidade + "'," + pais + ",'" + siglaUF + "','" + hashOfString(senha) + "','" + hashOfString(codigoSeguranca) +
-        "','" + hashOfString(nomeTitular) + "','" + hashOfString(dataValidade) + "'," + "@img", Me.conexao)
-        Me.comando.Parameters.Add(New SqlParameter("@img", foto))
+        telefone + "','" + celular + "','" + endereco + "','" + bairro + "','" + cidade + "'," + pais + ",'" + siglaUF + "','" + hashOfString(senha) + "','" + hashOfString(numeroCartao) + "','" + hashOfString(codigoSeguranca) +
+        "','" + hashOfString(nomeTitular) + "','" + hashOfString(dataValidade) + "'," + cpf, Me.conexao)
         Try
             Me.comando.ExecuteNonQuery()
         Catch ex As Exception
@@ -175,6 +174,24 @@ Public Class BD
         End Try
         Me.conexao.Close()
     End Sub
+
+    Public Function infoCliente() As SqlDataReader 'MUDADO'
+        Try
+            Me.conexao.Open()
+        Catch ex As Exception
+            Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
+        End Try
+        Me.comando = New SqlCommand("select * from hCliente", Me.conexao)
+        Try
+            Me.dataReader = comando.ExecuteReader()
+        Catch ex As Exception
+            Me.conexao.Close()
+            Throw New System.Exception("Erro na pesquisa das informações do Cliente->Erro: " + ex.ToString)
+        End Try
+
+        ''Me.conexao.Close() // FECHAR DEPOIS DE USAR COM O MÉTODO FECHAR CONEXAO DA CLASSE BD  ".fecharConexao()"
+        Return Me.dataReader
+    End Function
 
     Public Sub editaTipoApartamento(descricao As String, diaria As Double, tipo As String, idTipo As Integer)
         Try

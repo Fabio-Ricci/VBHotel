@@ -77,6 +77,12 @@
     <Compile Include="CadastroApartamentos.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="CadastroCliente.designer.vb">
+      <DependentUpon>CadastroCliente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CadastroCliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="CadastroItem.Designer.vb">
       <DependentUpon>CadastroItem.vb</DependentUpon>
     </Compile>
@@ -108,6 +114,12 @@
     </Compile>
     <Compile Include="HosPDeirosDataSet1.vb">
       <DependentUpon>HosPDeirosDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Listagem.designer.vb">
+      <DependentUpon>Listagem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listagem.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="login.Designer.vb">
       <DependentUpon>login.vb</DependentUpon>
@@ -147,6 +159,9 @@
     <EmbeddedResource Include="CadastroApartamentos.resx">
       <DependentUpon>CadastroApartamentos.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CadastroCliente.resx">
+      <DependentUpon>CadastroCliente.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CadastroItem.resx">
       <DependentUpon>CadastroItem.vb</DependentUpon>
     </EmbeddedResource>
@@ -155,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CadastroUsuario.resx">
       <DependentUpon>CadastroUsuario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listagem.resx">
+      <DependentUpon>Listagem.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.vb</DependentUpon>
