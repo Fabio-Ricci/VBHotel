@@ -58,7 +58,7 @@ Public Class tipoQuarto
 
     Private Sub txtDiaria_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtDiaria.KeyPress
 
-        'se caracter for diferente de ponto e 
+        'se caracter for diferente de ponto e backspace
         If Asc(e.KeyChar) <> 8 And Asc(e.KeyChar) <> 44 Then
 
             'não permite aspas ou apóstrofo
@@ -189,7 +189,7 @@ Public Class tipoQuarto
     End Sub
 
     Private Sub txtDiariaEdicao_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtDiariaEdicao.KeyPress
-        'se caracter for diferente de ponto e 
+        'se caracter for diferente de ponto e backspace
         If Asc(e.KeyChar) <> 8 And Asc(e.KeyChar) <> 44 Then
 
             'não permite aspas ou apóstrofo
