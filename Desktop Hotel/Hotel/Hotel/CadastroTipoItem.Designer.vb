@@ -22,26 +22,27 @@ Partial Class CadastroTipoItem
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CadastroTipoItem))
         Me.tcTipoItem = New System.Windows.Forms.TabControl()
         Me.tbCadastroTipoItem = New System.Windows.Forms.TabPage()
-        Me.tbEdicaoTipoItem = New System.Windows.Forms.TabPage()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtCadastroTipoItem = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.cbxEdicaoIdTipoItem = New System.Windows.Forms.ComboBox()
-        Me.pnlEdicaoTipoItem = New System.Windows.Forms.Panel()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtEdicaoDescricaoTipoItem = New System.Windows.Forms.TextBox()
-        Me.tbRemocaoTipoItem = New System.Windows.Forms.TabPage()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.cbxRemocaoIdTipoItem = New System.Windows.Forms.ComboBox()
-        Me.pnlRemocaoTipoItem = New System.Windows.Forms.Panel()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.txtRemocaoDescricaoTipoItem = New System.Windows.Forms.TextBox()
-        Me.tbListagemTipoItem = New System.Windows.Forms.TabPage()
-        Me.btnSalvarEdicao = New System.Windows.Forms.Button()
-        Me.btnRemovarTipoItem = New System.Windows.Forms.Button()
         Me.btnCadastarTipoItem = New System.Windows.Forms.Button()
+        Me.txtCadastroTipoItem = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.tbEdicaoTipoItem = New System.Windows.Forms.TabPage()
+        Me.pnlEdicaoTipoItem = New System.Windows.Forms.Panel()
+        Me.btnSalvarEdicao = New System.Windows.Forms.Button()
+        Me.txtEdicaoDescricaoTipoItem = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.cbxEdicaoIdTipoItem = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.tbRemocaoTipoItem = New System.Windows.Forms.TabPage()
+        Me.pnlRemocaoTipoItem = New System.Windows.Forms.Panel()
+        Me.btnRemovarTipoItem = New System.Windows.Forms.Button()
+        Me.txtRemocaoDescricaoTipoItem = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.cbxRemocaoIdTipoItem = New System.Windows.Forms.ComboBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.tbListagemTipoItem = New System.Windows.Forms.TabPage()
         Me.tcTipoItem.SuspendLayout()
         Me.tbCadastroTipoItem.SuspendLayout()
         Me.tbEdicaoTipoItem.SuspendLayout()
@@ -78,6 +79,34 @@ Partial Class CadastroTipoItem
         Me.tbCadastroTipoItem.Text = "Cadastro de Tipo de Item"
         Me.tbCadastroTipoItem.UseVisualStyleBackColor = True
         '
+        'btnCadastarTipoItem
+        '
+        Me.btnCadastarTipoItem.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCadastarTipoItem.Location = New System.Drawing.Point(114, 45)
+        Me.btnCadastarTipoItem.Name = "btnCadastarTipoItem"
+        Me.btnCadastarTipoItem.Size = New System.Drawing.Size(100, 26)
+        Me.btnCadastarTipoItem.TabIndex = 2
+        Me.btnCadastarTipoItem.Text = "Cadastrar"
+        Me.btnCadastarTipoItem.UseVisualStyleBackColor = True
+        '
+        'txtCadastroTipoItem
+        '
+        Me.txtCadastroTipoItem.Location = New System.Drawing.Point(114, 19)
+        Me.txtCadastroTipoItem.MaxLength = 10
+        Me.txtCadastroTipoItem.Name = "txtCadastroTipoItem"
+        Me.txtCadastroTipoItem.Size = New System.Drawing.Size(100, 20)
+        Me.txtCadastroTipoItem.TabIndex = 1
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(20, 17)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(88, 20)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Descrição: "
+        '
         'tbEdicaoTipoItem
         '
         Me.tbEdicaoTipoItem.Controls.Add(Me.pnlEdicaoTipoItem)
@@ -91,43 +120,6 @@ Partial Class CadastroTipoItem
         Me.tbEdicaoTipoItem.Text = "Edição de Tipo de Item"
         Me.tbEdicaoTipoItem.UseVisualStyleBackColor = True
         '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(20, 17)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(88, 20)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Descrição: "
-        '
-        'txtCadastroTipoItem
-        '
-        Me.txtCadastroTipoItem.Location = New System.Drawing.Point(114, 19)
-        Me.txtCadastroTipoItem.MaxLength = 10
-        Me.txtCadastroTipoItem.Name = "txtCadastroTipoItem"
-        Me.txtCadastroTipoItem.Size = New System.Drawing.Size(100, 20)
-        Me.txtCadastroTipoItem.TabIndex = 1
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(19, 17)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(148, 20)
-        Me.Label2.TabIndex = 0
-        Me.Label2.Text = "ID do Tipo do Item: "
-        '
-        'cbxEdicaoIdTipoItem
-        '
-        Me.cbxEdicaoIdTipoItem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxEdicaoIdTipoItem.FormattingEnabled = True
-        Me.cbxEdicaoIdTipoItem.Location = New System.Drawing.Point(173, 19)
-        Me.cbxEdicaoIdTipoItem.Name = "cbxEdicaoIdTipoItem"
-        Me.cbxEdicaoIdTipoItem.Size = New System.Drawing.Size(121, 21)
-        Me.cbxEdicaoIdTipoItem.TabIndex = 1
-        '
         'pnlEdicaoTipoItem
         '
         Me.pnlEdicaoTipoItem.Controls.Add(Me.btnSalvarEdicao)
@@ -139,6 +131,24 @@ Partial Class CadastroTipoItem
         Me.pnlEdicaoTipoItem.TabIndex = 2
         Me.pnlEdicaoTipoItem.Visible = False
         '
+        'btnSalvarEdicao
+        '
+        Me.btnSalvarEdicao.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSalvarEdicao.Location = New System.Drawing.Point(125, 31)
+        Me.btnSalvarEdicao.Name = "btnSalvarEdicao"
+        Me.btnSalvarEdicao.Size = New System.Drawing.Size(141, 28)
+        Me.btnSalvarEdicao.TabIndex = 2
+        Me.btnSalvarEdicao.Text = "Salvar Alterações"
+        Me.btnSalvarEdicao.UseVisualStyleBackColor = True
+        '
+        'txtEdicaoDescricaoTipoItem
+        '
+        Me.txtEdicaoDescricaoTipoItem.Location = New System.Drawing.Point(166, 5)
+        Me.txtEdicaoDescricaoTipoItem.MaxLength = 10
+        Me.txtEdicaoDescricaoTipoItem.Name = "txtEdicaoDescricaoTipoItem"
+        Me.txtEdicaoDescricaoTipoItem.Size = New System.Drawing.Size(100, 20)
+        Me.txtEdicaoDescricaoTipoItem.TabIndex = 1
+        '
         'Label3
         '
         Me.Label3.AutoSize = True
@@ -149,13 +159,24 @@ Partial Class CadastroTipoItem
         Me.Label3.TabIndex = 0
         Me.Label3.Text = "Descrição:"
         '
-        'txtEdicaoDescricaoTipoItem
+        'cbxEdicaoIdTipoItem
         '
-        Me.txtEdicaoDescricaoTipoItem.Location = New System.Drawing.Point(166, 5)
-        Me.txtEdicaoDescricaoTipoItem.MaxLength = 10
-        Me.txtEdicaoDescricaoTipoItem.Name = "txtEdicaoDescricaoTipoItem"
-        Me.txtEdicaoDescricaoTipoItem.Size = New System.Drawing.Size(100, 20)
-        Me.txtEdicaoDescricaoTipoItem.TabIndex = 1
+        Me.cbxEdicaoIdTipoItem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxEdicaoIdTipoItem.FormattingEnabled = True
+        Me.cbxEdicaoIdTipoItem.Location = New System.Drawing.Point(173, 19)
+        Me.cbxEdicaoIdTipoItem.Name = "cbxEdicaoIdTipoItem"
+        Me.cbxEdicaoIdTipoItem.Size = New System.Drawing.Size(121, 21)
+        Me.cbxEdicaoIdTipoItem.TabIndex = 1
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(19, 17)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(148, 20)
+        Me.Label2.TabIndex = 0
+        Me.Label2.Text = "ID do Tipo do Item: "
         '
         'tbRemocaoTipoItem
         '
@@ -170,25 +191,6 @@ Partial Class CadastroTipoItem
         Me.tbRemocaoTipoItem.Text = "Remoção de Tipo de Item"
         Me.tbRemocaoTipoItem.UseVisualStyleBackColor = True
         '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(19, 17)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(148, 20)
-        Me.Label4.TabIndex = 0
-        Me.Label4.Text = "ID do Tipo do Item: "
-        '
-        'cbxRemocaoIdTipoItem
-        '
-        Me.cbxRemocaoIdTipoItem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxRemocaoIdTipoItem.FormattingEnabled = True
-        Me.cbxRemocaoIdTipoItem.Location = New System.Drawing.Point(173, 19)
-        Me.cbxRemocaoIdTipoItem.Name = "cbxRemocaoIdTipoItem"
-        Me.cbxRemocaoIdTipoItem.Size = New System.Drawing.Size(121, 21)
-        Me.cbxRemocaoIdTipoItem.TabIndex = 1
-        '
         'pnlRemocaoTipoItem
         '
         Me.pnlRemocaoTipoItem.Controls.Add(Me.btnRemovarTipoItem)
@@ -200,6 +202,25 @@ Partial Class CadastroTipoItem
         Me.pnlRemocaoTipoItem.TabIndex = 2
         Me.pnlRemocaoTipoItem.Visible = False
         '
+        'btnRemovarTipoItem
+        '
+        Me.btnRemovarTipoItem.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRemovarTipoItem.Location = New System.Drawing.Point(167, 34)
+        Me.btnRemovarTipoItem.Name = "btnRemovarTipoItem"
+        Me.btnRemovarTipoItem.Size = New System.Drawing.Size(100, 29)
+        Me.btnRemovarTipoItem.TabIndex = 2
+        Me.btnRemovarTipoItem.Text = "Remover"
+        Me.btnRemovarTipoItem.UseVisualStyleBackColor = True
+        '
+        'txtRemocaoDescricaoTipoItem
+        '
+        Me.txtRemocaoDescricaoTipoItem.Enabled = False
+        Me.txtRemocaoDescricaoTipoItem.Location = New System.Drawing.Point(167, 7)
+        Me.txtRemocaoDescricaoTipoItem.MaxLength = 10
+        Me.txtRemocaoDescricaoTipoItem.Name = "txtRemocaoDescricaoTipoItem"
+        Me.txtRemocaoDescricaoTipoItem.Size = New System.Drawing.Size(100, 20)
+        Me.txtRemocaoDescricaoTipoItem.TabIndex = 1
+        '
         'Label5
         '
         Me.Label5.AutoSize = True
@@ -210,14 +231,24 @@ Partial Class CadastroTipoItem
         Me.Label5.TabIndex = 0
         Me.Label5.Text = "Descrição: "
         '
-        'txtRemocaoDescricaoTipoItem
+        'cbxRemocaoIdTipoItem
         '
-        Me.txtRemocaoDescricaoTipoItem.Enabled = False
-        Me.txtRemocaoDescricaoTipoItem.Location = New System.Drawing.Point(167, 7)
-        Me.txtRemocaoDescricaoTipoItem.MaxLength = 10
-        Me.txtRemocaoDescricaoTipoItem.Name = "txtRemocaoDescricaoTipoItem"
-        Me.txtRemocaoDescricaoTipoItem.Size = New System.Drawing.Size(100, 20)
-        Me.txtRemocaoDescricaoTipoItem.TabIndex = 1
+        Me.cbxRemocaoIdTipoItem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxRemocaoIdTipoItem.FormattingEnabled = True
+        Me.cbxRemocaoIdTipoItem.Location = New System.Drawing.Point(173, 19)
+        Me.cbxRemocaoIdTipoItem.Name = "cbxRemocaoIdTipoItem"
+        Me.cbxRemocaoIdTipoItem.Size = New System.Drawing.Size(121, 21)
+        Me.cbxRemocaoIdTipoItem.TabIndex = 1
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(19, 17)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(148, 20)
+        Me.Label4.TabIndex = 0
+        Me.Label4.Text = "ID do Tipo do Item: "
         '
         'tbListagemTipoItem
         '
@@ -229,42 +260,13 @@ Partial Class CadastroTipoItem
         Me.tbListagemTipoItem.Text = "Listagem de Tipo de Item"
         Me.tbListagemTipoItem.UseVisualStyleBackColor = True
         '
-        'btnSalvarEdicao
-        '
-        Me.btnSalvarEdicao.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSalvarEdicao.Location = New System.Drawing.Point(125, 31)
-        Me.btnSalvarEdicao.Name = "btnSalvarEdicao"
-        Me.btnSalvarEdicao.Size = New System.Drawing.Size(141, 28)
-        Me.btnSalvarEdicao.TabIndex = 2
-        Me.btnSalvarEdicao.Text = "Salvar Alterações"
-        Me.btnSalvarEdicao.UseVisualStyleBackColor = True
-        '
-        'btnRemovarTipoItem
-        '
-        Me.btnRemovarTipoItem.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnRemovarTipoItem.Location = New System.Drawing.Point(167, 34)
-        Me.btnRemovarTipoItem.Name = "btnRemovarTipoItem"
-        Me.btnRemovarTipoItem.Size = New System.Drawing.Size(100, 29)
-        Me.btnRemovarTipoItem.TabIndex = 2
-        Me.btnRemovarTipoItem.Text = "Remover"
-        Me.btnRemovarTipoItem.UseVisualStyleBackColor = True
-        '
-        'btnCadastarTipoItem
-        '
-        Me.btnCadastarTipoItem.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCadastarTipoItem.Location = New System.Drawing.Point(114, 45)
-        Me.btnCadastarTipoItem.Name = "btnCadastarTipoItem"
-        Me.btnCadastarTipoItem.Size = New System.Drawing.Size(100, 26)
-        Me.btnCadastarTipoItem.TabIndex = 2
-        Me.btnCadastarTipoItem.Text = "Cadastrar"
-        Me.btnCadastarTipoItem.UseVisualStyleBackColor = True
-        '
         'CadastroTipoItem
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(345, 170)
         Me.Controls.Add(Me.tcTipoItem)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "CadastroTipoItem"
         Me.Text = "CadastroTipoItem"
         Me.tcTipoItem.ResumeLayout(False)

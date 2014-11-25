@@ -407,6 +407,7 @@ Partial Class CadastroItem
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.ClientSize = New System.Drawing.Size(371, 329)
         Me.Controls.Add(Me.tcItem)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "CadastroItem"
         Me.Text = "CadastroItem"
         Me.tcItem.ResumeLayout(False)

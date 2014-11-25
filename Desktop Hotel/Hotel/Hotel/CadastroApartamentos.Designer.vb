@@ -665,6 +665,7 @@ Partial Class CadastroApartamentos
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.ClientSize = New System.Drawing.Size(376, 338)
         Me.Controls.Add(Me.tcApartamento)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "CadastroApartamentos"
         Me.Text = "Cadastro de Apartamentos"
         CType(Me.HTipoApartamentoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
