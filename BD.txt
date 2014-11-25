@@ -1,0 +1,172 @@
+/*deve ser testada a versao previa da nota fical com as tabelas populadas pra depois fazer a versao definitiva*/
+-- RESERVA ATUAL
+
+
+--TABELAS
+create table hUsuario(username varchar(20) primary key, senha varchar(64) not null,NivelDePrivilegio int not null,foto image not null) --ok
+-------------------------------------------------------------------------------------------------------------------------------------------------
+create table hUF (siglaUF char(2) primary key,nome varchar(20) not null) --OK -->COLOCADO
+insert into hUF values('AC','ACRE'); --OK
+insert into hUF values('AL','ALAGOAS'); --OK
+insert into hUF values('AP','AMAP?') --OK
+insert into hUF values('AM','AMAZONAS') --OK
+insert into hUF values('BA','BAHIA')--OK
+insert into hUF values('CE','CEAR?')
+insert into hUF values('ES','ESP?RITO SANTO')--OK
+insert into hUF values('GO','GOI?S')--OK
+insert into hUF values('MA','MARANH?O')--OK
+insert into hUF values('MT','MATO GROSSO')--OK
+insert into hUF values('MS','MATO GROSSO DO SUL')--OK
+insert into hUF values('MG','MINAS GERAIS')--OK
+insert into hUF values('PA','PAR?')--OK
+insert into hUF values('PB','PARA?BA')--OK
+insert into hUF values('PR','PARAN?')--OK
+insert into hUF values('PE','PERNAMBUCO')--OK
+insert into hUF values('PI','PIAU?')--OK
+insert into hUF values('RJ','RIO DE JANEIRO')--OK
+insert into hUF values('RN','RIO GRANDE DO NORTE')--OK
+insert into hUF values('RS','RIO GRANDE DO SUL')--OK
+insert into hUF values('RO','ROND?NIA')--OK
+insert into hUF values('RR','RORAIMA')--OK
+insert into hUF values('SC','SANTA CATARINA')--OK
+insert into hUF values('SP','SAO PAULO')--OK
+insert into hUF values('SE','SERGIPE')--OK
+insert into hUF values('TO','TOCANTINS')--OK
+------------------------------------------------------------------------------------------
+create table hCliente
+(
+	idCliente int primary key identity,
+	nome varchar(50) not null,
+	CPF varchar(15)not null,
+	dataNascimento date not null,
+	sexo char(1) not null,
+	Email varchar(60) not null,
+	Telefone varchar(20),
+	Celular varchar(20),
+	Endereco varchar(50),
+	Bairro varchar(20),
+	cidade varchar(30),
+	Pais int,
+	SiglaUF char(2),
+	senha varchar(64),               --criptografado (SHA256)
+	numeroCartaoCredito varchar(64), --criptografado (SHA256)
+	codigoSeguranca varchar(64),	 --criptografado (SHA256)
+	nomeTitular varchar(64),	     --criptografado (SHA256)
+	dataValidade varchar(64),		 --criptografado (SHA256)
+	constraint fkUF foreign key (SiglaUF) references hUF(siglaUF)
+)
+
+
+------------------------------------------------------------------------------------------
+create table hTipoApartamento(idTipoApartamento int primary key identity, descricao varchar(40) , tarifaDiaria float not null); --OK
+-------------------------------------------------------------------------------------------------------------------------------------
+create table hFotoApartamento(idFoto int identity primary key, idTipoApartamento int not null ,urlFoto varchar(100) not null, --OK
+constraint fkTipoAptoFoto foreign key (idTipoApartamento) references hTipoApartamento(idTipoApartamento))
+
+-------------------------------------------------------------------------------------------------------------------------------
+create table hItem
+(
+	idItem int identity primary key,
+	tipoItem int,
+	descricao varchar(20),
+	custoUnitario real
+)
+-------------------------------------------------------------------------------------------------------------------------------
+create table hApartamento
+(
+	idApartamento int identity primary key,
+	idTipoApartamento int,
+	numero varchar(4),
+	andar int,
+	camaCasal int,
+	camaSolteiro int,
+	frigobar char(1),
+	fatorCorrecaoPreco real default 0.0,
+	constraint fkTipoApto foreign key (idTipoApartamento) references hTipoApartamento(idTipoApartamento)
+)
+-------------------------------------------------------------------------------------------------------------------------------
+create table hReserva
+(
+	idReserva int identity primary key, --Nao
+	idApartamento int, --Nao
+	idCliente int, --Nao
+	dataInicio date, 
+	dataFim date,
+	numeroBoleto int, 
+	dataPagamento date,
+	Situacao int,
+	constraint fkReservaTipoApto foreign key (idTipoApartamento) references hTipoApartamento(idTipoApartamento),
+	constraint fkCliente foreign key (idCliente) references hCliente(idCliente)
+)
+-------------------------------------------------------------------------------------------------------------------------------
+create table hHospedagem
+(
+	idHospedagem int identity primary key,
+	idApartamento int,
+	idReserva int,
+	Origem varchar(30),
+	Destino varchar(30),
+	tipoDoGrupo int, 
+	MotivoViagem int,
+	valorConsumo real,
+	valorEstadia real,
+	notaFiscal varchar(3500),
+	formaPagamento int,
+	constraint fkApto foreign key (idApartamento) references hApartamento(idApartamento)
+)
+-------------------------------------------------------------------------------------------------------------------------------
+create table hConsumo
+( 
+	idConsumo int identity primary key,
+	idItem int,
+	idHospedagem int,
+	quantidade int,
+	data datetime,   -- TROCAR PARA DATETIME
+	constraint fkItem foreign key (idItem) references hItem(idItem),
+	constraint fkHospedagem foreign key (idHospedagem) references hHospedagem(idHospedagem)
+
+)
+---------------------------------------------------------------------------------------------------------------------------------
+create table hPergunta
+(
+	idPergunta int identity primary key,
+	Pergunta varchar(200)
+)
+---------------------------------------------------------------------------------------------------------------------------------
+create table hResposta --COLOCAR PADR?O -1
+(   idResposta int identity primary key, -->ADCIONAR PK
+	idPergunta int,
+	idHospedagem int,
+	nota int default -1,
+	comentario varchar(200)
+)
+alter table Hresposta add constraint  fk_idPergunta foreign key(idPergunta) references HPergunta(idPergunta);
+alter table Hresposta add constraint  fk_idHospedagemPergunta foreign key(idHospedagem) references hHospedagem(idHospedagem)
+---------------------------------------------------------------------------------------------------------------------------------
+
+--MODIFICACOES
+alter table Hcliente drop column foto
+alter table hcliente alter column pais varchar(3)
+alter table hFotoApartamento add foto image
+ALTER TABLE hTipoApartamento ALTER COLUMN descricao varchar(40)
+alter table hHospedagem alter column notafiscal varchar(3500)
+alter table hConsumo alter column data datetime
+alter table hPergunta add idPergunta int identity  primary key
+alter table hpergunta alter column nota int default -1
+alter table Hresposta add constraint  fk_idPergunta foreign key(idPergunta) references HPergunta(idPergunta);
+alter table Hresposta add constraint  fk_idHospedagemPergunta foreign key(idHospedagem) references hHospedagem(idHospedagem)
+alter table hCliente  add unique(email)
+alter table hApartamento  add unique(numero)
+alter table hCliente alter column codigoseguranca varchar(152)
+alter table hCliente alter column nomeTitular varchar(152)
+alter table hCliente alter column datavalidade varchar(152)
+alter table hCliente alter column numerocartaocredito varchar(152)
+alter table htipoApartamento add tipo varchar(15) not null
+alter table htipoApartamento add unique (tipo)
+alter table  hfotoApartamento drop column urlFoto
+alter table  hApartamento drop column fatorCorrecaoPreco
+--alterei descrição de hTipoApartamento para varchar(300)
+alter table hReserva drop column idTipoApartamento
+alter table hReserva add idApartamento int
+alter table hreserva add constraint fk__idApartamento foreign key(idApartamento) references hApartamento(idApartamento)
+alter table hitem add unique(tipoItem)
