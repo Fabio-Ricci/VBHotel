@@ -36,7 +36,7 @@ Partial Class Splash
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Gill Sans MT", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Ivory
-        Me.Label1.Location = New System.Drawing.Point(53, 17)
+        Me.Label1.Location = New System.Drawing.Point(51, 17)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(468, 38)
         Me.Label1.TabIndex = 0
@@ -46,9 +46,9 @@ Partial Class Splash
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(75, 58)
+        Me.PictureBox1.Location = New System.Drawing.Point(82, 58)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(412, 275)
+        Me.PictureBox1.Size = New System.Drawing.Size(388, 246)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
@@ -58,7 +58,7 @@ Partial Class Splash
         Me.lblMensagem.AutoSize = True
         Me.lblMensagem.Font = New System.Drawing.Font("Gill Sans MT", 15.0!, System.Drawing.FontStyle.Bold)
         Me.lblMensagem.ForeColor = System.Drawing.Color.Ivory
-        Me.lblMensagem.Location = New System.Drawing.Point(216, 340)
+        Me.lblMensagem.Location = New System.Drawing.Point(152, 307)
         Me.lblMensagem.Name = "lblMensagem"
         Me.lblMensagem.Size = New System.Drawing.Size(75, 29)
         Me.lblMensagem.TabIndex = 2
@@ -66,7 +66,7 @@ Partial Class Splash
         '
         'pbProgresso
         '
-        Me.pbProgresso.Location = New System.Drawing.Point(185, 372)
+        Me.pbProgresso.Location = New System.Drawing.Point(185, 339)
         Me.pbProgresso.Name = "pbProgresso"
         Me.pbProgresso.Size = New System.Drawing.Size(147, 23)
         Me.pbProgresso.TabIndex = 3
