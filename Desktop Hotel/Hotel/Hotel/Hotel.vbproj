@@ -136,6 +136,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="tipoQuarto.Designer.vb">
+      <DependentUpon>tipoQuarto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="tipoQuarto.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CadastroApartamentos.resx">
@@ -161,6 +167,9 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tipoQuarto.resx">
+      <DependentUpon>tipoQuarto.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

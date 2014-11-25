@@ -106,13 +106,67 @@ Public Class BD
         Me.conexao.Close()
     End Sub
 
-    Public Sub adicionaTipoApartamento(descricao As String, diaria As Double)
+    '------Tipo Apartamento -------
+
+    Public Function infoApartamento(numeroApartamento As Integer) As SqlDataReader
         Try
             Me.conexao.Open()
         Catch ex As Exception
             Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
         End Try
-        Me.comando = New SqlCommand("exec dbo.adiciona_hTipoApartamento '" + descricao + "'," + CStr(diaria), Me.conexao)
+        Me.comando = New SqlCommand("Select * from dbo.infoApartamento(@numeroApartamento)", Me.conexao)
+        Me.comando.Parameters.Add(New SqlParameter("@numeroApartamento", numeroApartamento))
+        Try
+            Me.dataReader = comando.ExecuteReader()
+        Catch ex As Exception
+            Me.conexao.Close()
+            Throw New System.Exception("Erro na pesquisa das informações do apartamento->Erro: " + ex.ToString)
+        End Try
+        Return Me.dataReader
+    End Function
+
+    Public Function tiposApartamento() As SqlDataReader
+        Try
+            Me.conexao.Open()
+        Catch ex As Exception
+            Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
+        End Try
+        Me.comando = New SqlCommand("select tipo from hTipoApartamento", Me.conexao)
+        Try
+            Me.dataReader = comando.ExecuteReader()
+        Catch ex As Exception
+            Me.conexao.Close()
+            Throw New System.Exception("Erro na pesquisa das informações do apartamento->Erro: " + ex.ToString)
+        End Try
+        Return Me.dataReader
+    End Function
+
+    Public Function infoTipoApartamento(tipoApartamento As String) As SqlDataReader
+        Try
+            Me.conexao.Open()
+        Catch ex As Exception
+            Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
+        End Try
+        Me.comando = New SqlCommand("Select * from hTipoApartamento where tipo = '" + tipoApartamento + "'", Me.conexao)
+        Try
+            Me.dataReader = comando.ExecuteReader()
+        Catch ex As Exception
+            Me.conexao.Close()
+            Throw New System.Exception("Erro na busca de info tipo apartamento->Erro: " + ex.ToString)
+        End Try
+        Return Me.dataReader
+    End Function
+
+    Public Sub adicionaTipoApartamento(descricao As String, diaria As Double, tipo As String)
+        Try
+            Me.conexao.Open()
+        Catch ex As Exception
+            Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
+        End Try
+        Me.comando = New SqlCommand("exec dbo.adiciona_hTipoApartamento @descricao,@diaria,@tipo", Me.conexao)
+        Me.comando.Parameters.Add(New SqlParameter("@descricao", descricao))
+        Me.comando.Parameters.Add(New SqlParameter("@diaria", diaria))
+        Me.comando.Parameters.Add(New SqlParameter("@tipo", tipo))
         Try
             Me.comando.ExecuteNonQuery()
         Catch ex As Exception
@@ -122,14 +176,35 @@ Public Class BD
         Me.conexao.Close()
     End Sub
 
-    Public Sub adicionaFotoApartamento(idTipoApartamento As Integer, urlFoto As String, foto As Byte())
+    Public Sub editaTipoApartamento(descricao As String, diaria As Double, tipo As String, idTipo As Integer)
         Try
             Me.conexao.Open()
         Catch ex As Exception
             Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
         End Try
-        Me.comando = New SqlCommand("exec dbo.adiciona_hfotoApartamento " + CStr(idTipoApartamento) + ",'" + urlFoto + "'," + "@img", Me.conexao)
+        Me.comando = New SqlCommand("exec edita_hTipoApartamento @descricao,@tarifa,@tipo,@idTipo", Me.conexao)
+        Me.comando.Parameters.Add(New SqlParameter("@descricao", descricao))
+        Me.comando.Parameters.Add(New SqlParameter("@tarifa", diaria))
+        Me.comando.Parameters.Add(New SqlParameter("@tipo", tipo))
+        Me.comando.Parameters.Add(New SqlParameter("@idTipo", idTipo))
+        Try
+            Me.comando.ExecuteNonQuery()
+        Catch ex As Exception
+            Me.conexao.Close()
+            Throw New System.Exception("Erro ao efetuar a edicao do tipoApartamento->Erro: " + ex.ToString)
+        End Try
+        Me.conexao.Close()
+    End Sub
+
+    Public Sub adicionaFotoApartamento(idTipoApartamento As Integer, foto As Byte())
+        Try
+            Me.conexao.Open()
+        Catch ex As Exception
+            Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
+        End Try
+        Me.comando = New SqlCommand("exec dbo.adiciona_hfotoApartamento @idTipoApartamento,@img", Me.conexao)
         Me.comando.Parameters.Add(New SqlParameter("@img", foto))
+        Me.comando.Parameters.Add(New SqlParameter("@idTipoApartamento", idTipoApartamento))
         Try
             Me.comando.ExecuteNonQuery()
         Catch ex As Exception
@@ -138,6 +213,23 @@ Public Class BD
         End Try
         Me.conexao.Close()
     End Sub
+
+    Public Function fotosApartamento(idTipoApartamento As Integer) As SqlDataReader
+        Try
+            Me.conexao.Open()
+        Catch ex As Exception
+            Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
+        End Try
+        Me.comando = New SqlCommand("Select * from dbo.fotosApartamento(@idApartamento)", Me.conexao)
+        Me.comando.Parameters.Add(New SqlParameter("@idApartamento", idTipoApartamento))
+        Try
+            Me.dataReader = comando.ExecuteReader()
+        Catch ex As Exception
+            Me.conexao.Close()
+            Throw New System.Exception("Erro na pesquisa das fotos->Erro: " + ex.ToString)
+        End Try
+        Return Me.dataReader
+    End Function
 
     '
     'Apartamento
