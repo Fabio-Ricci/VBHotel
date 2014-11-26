@@ -90,7 +90,6 @@ Partial Class Checkout
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlCheckout.BackColor = System.Drawing.Color.Transparent
-        Me.pnlCheckout.BackgroundImage = CType(resources.GetObject("pnlCheckout.BackgroundImage"), System.Drawing.Image)
         Me.pnlCheckout.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.pnlCheckout.Controls.Add(Me.gbQuarto)
         Me.pnlCheckout.Controls.Add(Me.gbItensConsumidos)
@@ -453,6 +452,7 @@ Partial Class Checkout
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.ClientSize = New System.Drawing.Size(710, 448)
         Me.Controls.Add(Me.btnBuscar)
         Me.Controls.Add(Me.pnlCheckout)

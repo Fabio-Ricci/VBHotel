@@ -9,11 +9,13 @@ Public Class Checkout
     Dim email As String
 
     'Hospedagem
+    Dim idHospedagem As Integer
     Dim consumoTotal As Double
     Dim valorDiaria As Double
 
     'Tipo Apartamento
     Dim idTipoApartamento As Integer
+    Dim tipoQuarto As String
     Dim diariaTipoQuarto As Double
     Dim descricaoTipoQuarto As String
 
@@ -27,7 +29,8 @@ Public Class Checkout
 
     'Item
     Dim qtdItens As Integer
-    Dim itens As Item()
+    Dim itens() As Item
+    Dim qtdItensConsumidos As Integer
     'Dim custoUnitarioItem As Double
     'Dim descricaoItem As String
 
@@ -54,8 +57,18 @@ Public Class Checkout
             frigobar = dr.item(9)
 
             qtdItens = dr.Item(10)
-            'custoUnitarioItem = dr.item(11)
-            'descricaoItem = dr.item(12)
+            ''''''''''''''''''''''''''''''''''''''''
+            dr = bd.qtdItensConsumidos(idHospedagem) 'conta quantos itens diferentes aquele cliente consumiu
+            qtdItensConsumidos = dr.item(0)
+            '''''''''''''''''''''''''''''''''''''''
+            Dim i As Integer = 0
+
+            dr = bd.getItens(idHospedagem) 'retorna um data reader com todos os itens que tem esse idHospedagem
+            While dr.hasRows
+                dr.read()
+                itens(i) = dr.item(0)
+                i = i + 1
+            End While
         Else
             MsgBox("Digite o CPF.")
         End If

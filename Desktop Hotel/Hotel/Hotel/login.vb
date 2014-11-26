@@ -24,6 +24,9 @@
                         Dim ca As New CadastroApartamentos()
                         ca.Show()
 
+                        Dim checkout As New Checkout()
+                        checkout.show()
+
                         Dim tipoItem As New CadastroTipoItem()
                         tipoItem.Show()
 
