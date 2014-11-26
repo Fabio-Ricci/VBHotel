@@ -57,9 +57,9 @@ Public Class Checkout
             frigobar = dr.item(9)
 
             qtdItens = dr.Item(10)
+            dr = Nothing
             ''''''''''''''''''''''''''''''''''''''''
-            dr = bd.qtdItensConsumidos(idHospedagem) 'conta quantos itens diferentes aquele cliente consumiu
-            qtdItensConsumidos = dr.item(0)
+            qtdItensConsumidos = bd.qtdItensConsumidos(idHospedagem) 'conta quantos itens diferentes aquele cliente consumidos
             '''''''''''''''''''''''''''''''''''''''
             Dim i As Integer = 0
 
@@ -69,6 +69,28 @@ Public Class Checkout
                 itens(i) = dr.item(0)
                 i = i + 1
             End While
+
+            txtNome.Text = nome
+            txtEmail.Text = email
+
+            txtConsumoTotal.Text = consumoTotal
+            txtValorDiaria.Text = valorDiaria
+
+            txtTipoQuarto.Text = tipoQuarto
+            txtCustoUnitario.Text = diariaTipoQuarto
+            txtDescricaoQuarto.Text = descricaoTipoQuarto
+
+            txtNumero.Text = numero
+            txtAndar.Text = andar
+            txtCamasCasal.Text = camasCasal
+            txtCamasSolteiro.Text = camasSolteiro
+            If frigobar = "S" Then
+                rbSim.Checked = True
+            Else
+                RbNao.Checked = True
+            End If
+
+
         Else
             MsgBox("Digite o CPF.")
         End If

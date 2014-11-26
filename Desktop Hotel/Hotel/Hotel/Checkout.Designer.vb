@@ -28,8 +28,8 @@ Partial Class Checkout
         Me.pnlCheckout = New System.Windows.Forms.Panel()
         Me.gbQuarto = New System.Windows.Forms.GroupBox()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.txtDescricaoQuarto = New System.Windows.Forms.TextBox()
+        Me.txtDiaria = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txtTipoQuarto = New System.Windows.Forms.TextBox()
@@ -46,8 +46,8 @@ Partial Class Checkout
         Me.rbSim = New System.Windows.Forms.RadioButton()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtCamasSolteiro = New System.Windows.Forms.TextBox()
+        Me.txtCamasCasal = New System.Windows.Forms.TextBox()
         Me.txtAndar = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtNumero = New System.Windows.Forms.TextBox()
@@ -96,8 +96,8 @@ Partial Class Checkout
         Me.pnlCheckout.Controls.Add(Me.gbFrigobar)
         Me.pnlCheckout.Controls.Add(Me.Label10)
         Me.pnlCheckout.Controls.Add(Me.Label9)
-        Me.pnlCheckout.Controls.Add(Me.TextBox2)
-        Me.pnlCheckout.Controls.Add(Me.TextBox1)
+        Me.pnlCheckout.Controls.Add(Me.txtCamasSolteiro)
+        Me.pnlCheckout.Controls.Add(Me.txtCamasCasal)
         Me.pnlCheckout.Controls.Add(Me.txtAndar)
         Me.pnlCheckout.Controls.Add(Me.Label8)
         Me.pnlCheckout.Controls.Add(Me.txtNumero)
@@ -119,8 +119,8 @@ Partial Class Checkout
         'gbQuarto
         '
         Me.gbQuarto.Controls.Add(Me.Label15)
-        Me.gbQuarto.Controls.Add(Me.TextBox4)
-        Me.gbQuarto.Controls.Add(Me.TextBox3)
+        Me.gbQuarto.Controls.Add(Me.txtDescricaoQuarto)
+        Me.gbQuarto.Controls.Add(Me.txtDiaria)
         Me.gbQuarto.Controls.Add(Me.Label14)
         Me.gbQuarto.Controls.Add(Me.Label6)
         Me.gbQuarto.Controls.Add(Me.txtTipoQuarto)
@@ -141,19 +141,19 @@ Partial Class Checkout
         Me.Label15.TabIndex = 13
         Me.Label15.Text = "Descrição: "
         '
-        'TextBox4
+        'txtDescricaoQuarto
         '
-        Me.TextBox4.Location = New System.Drawing.Point(137, 88)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(100, 26)
-        Me.TextBox4.TabIndex = 12
+        Me.txtDescricaoQuarto.Location = New System.Drawing.Point(137, 88)
+        Me.txtDescricaoQuarto.Name = "txtDescricaoQuarto"
+        Me.txtDescricaoQuarto.Size = New System.Drawing.Size(100, 26)
+        Me.txtDescricaoQuarto.TabIndex = 12
         '
-        'TextBox3
+        'txtDiaria
         '
-        Me.TextBox3.Location = New System.Drawing.Point(137, 56)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(100, 26)
-        Me.TextBox3.TabIndex = 11
+        Me.txtDiaria.Location = New System.Drawing.Point(137, 56)
+        Me.txtDiaria.Name = "txtDiaria"
+        Me.txtDiaria.Size = New System.Drawing.Size(100, 26)
+        Me.txtDiaria.TabIndex = 11
         '
         'Label14
         '
@@ -316,19 +316,19 @@ Partial Class Checkout
         Me.Label9.TabIndex = 17
         Me.Label9.Text = "Camas de Casal: "
         '
-        'TextBox2
+        'txtCamasSolteiro
         '
-        Me.TextBox2.Location = New System.Drawing.Point(171, 278)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox2.TabIndex = 15
+        Me.txtCamasSolteiro.Location = New System.Drawing.Point(171, 278)
+        Me.txtCamasSolteiro.Name = "txtCamasSolteiro"
+        Me.txtCamasSolteiro.Size = New System.Drawing.Size(100, 20)
+        Me.txtCamasSolteiro.TabIndex = 15
         '
-        'TextBox1
+        'txtCamasCasal
         '
-        Me.TextBox1.Location = New System.Drawing.Point(171, 252)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox1.TabIndex = 14
+        Me.txtCamasCasal.Location = New System.Drawing.Point(171, 252)
+        Me.txtCamasCasal.Name = "txtCamasCasal"
+        Me.txtCamasCasal.Size = New System.Drawing.Size(100, 20)
+        Me.txtCamasCasal.TabIndex = 14
         '
         'txtAndar
         '
@@ -478,8 +478,8 @@ Partial Class Checkout
     Friend WithEvents pnlCheckout As System.Windows.Forms.Panel
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents txtCamasSolteiro As System.Windows.Forms.TextBox
+    Friend WithEvents txtCamasCasal As System.Windows.Forms.TextBox
     Friend WithEvents txtAndar As System.Windows.Forms.TextBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents txtNumero As System.Windows.Forms.TextBox
@@ -508,7 +508,7 @@ Partial Class Checkout
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents gbQuarto As System.Windows.Forms.GroupBox
     Friend WithEvents Label15 As System.Windows.Forms.Label
-    Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
+    Friend WithEvents txtDescricaoQuarto As System.Windows.Forms.TextBox
+    Friend WithEvents txtDiaria As System.Windows.Forms.TextBox
     Friend WithEvents Label14 As System.Windows.Forms.Label
 End Class
