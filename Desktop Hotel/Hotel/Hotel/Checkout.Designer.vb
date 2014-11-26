@@ -27,6 +27,12 @@ Partial Class Checkout
         Me.txtCPF = New System.Windows.Forms.TextBox()
         Me.pnlCheckout = New System.Windows.Forms.Panel()
         Me.gbQuarto = New System.Windows.Forms.GroupBox()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.txtTipoQuarto = New System.Windows.Forms.TextBox()
         Me.gbItensConsumidos = New System.Windows.Forms.GroupBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
@@ -46,8 +52,6 @@ Partial Class Checkout
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtNumero = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.txtTipoQuarto = New System.Windows.Forms.TextBox()
         Me.txtValorDiaria = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -57,10 +61,6 @@ Partial Class Checkout
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnBuscar = New System.Windows.Forms.Button()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.Label15 = New System.Windows.Forms.Label()
         Me.pnlCheckout.SuspendLayout()
         Me.gbQuarto.SuspendLayout()
         Me.gbItensConsumidos.SuspendLayout()
@@ -90,6 +90,7 @@ Partial Class Checkout
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlCheckout.BackColor = System.Drawing.Color.Transparent
+        Me.pnlCheckout.BackgroundImage = CType(resources.GetObject("pnlCheckout.BackgroundImage"), System.Drawing.Image)
         Me.pnlCheckout.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.pnlCheckout.Controls.Add(Me.gbQuarto)
         Me.pnlCheckout.Controls.Add(Me.gbItensConsumidos)
@@ -131,6 +132,56 @@ Partial Class Checkout
         Me.gbQuarto.TabIndex = 25
         Me.gbQuarto.TabStop = False
         Me.gbQuarto.Text = "Quarto"
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(12, 91)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(88, 20)
+        Me.Label15.TabIndex = 13
+        Me.Label15.Text = "Descrição: "
+        '
+        'TextBox4
+        '
+        Me.TextBox4.Location = New System.Drawing.Point(137, 88)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.Size = New System.Drawing.Size(100, 26)
+        Me.TextBox4.TabIndex = 12
+        '
+        'TextBox3
+        '
+        Me.TextBox3.Location = New System.Drawing.Point(137, 56)
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(100, 26)
+        Me.TextBox3.TabIndex = 11
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(12, 59)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(58, 20)
+        Me.Label14.TabIndex = 10
+        Me.Label14.Text = "Diária: "
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(12, 27)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(119, 20)
+        Me.Label6.TabIndex = 9
+        Me.Label6.Text = "Tipo do quarto: "
+        '
+        'txtTipoQuarto
+        '
+        Me.txtTipoQuarto.Enabled = False
+        Me.txtTipoQuarto.Location = New System.Drawing.Point(137, 24)
+        Me.txtTipoQuarto.Name = "txtTipoQuarto"
+        Me.txtTipoQuarto.Size = New System.Drawing.Size(100, 26)
+        Me.txtTipoQuarto.TabIndex = 8
         '
         'gbItensConsumidos
         '
@@ -316,24 +367,6 @@ Partial Class Checkout
         Me.Label7.TabIndex = 10
         Me.Label7.Text = "Número:"
         '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(12, 27)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(119, 20)
-        Me.Label6.TabIndex = 9
-        Me.Label6.Text = "Tipo do quarto: "
-        '
-        'txtTipoQuarto
-        '
-        Me.txtTipoQuarto.Enabled = False
-        Me.txtTipoQuarto.Location = New System.Drawing.Point(137, 24)
-        Me.txtTipoQuarto.Name = "txtTipoQuarto"
-        Me.txtTipoQuarto.Size = New System.Drawing.Size(100, 26)
-        Me.txtTipoQuarto.TabIndex = 8
-        '
         'txtValorDiaria
         '
         Me.txtValorDiaria.Enabled = False
@@ -416,43 +449,10 @@ Partial Class Checkout
         Me.btnBuscar.Text = "Carregar Hospedagem"
         Me.btnBuscar.UseVisualStyleBackColor = True
         '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(12, 59)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(58, 20)
-        Me.Label14.TabIndex = 10
-        Me.Label14.Text = "Diária: "
-        '
-        'TextBox3
-        '
-        Me.TextBox3.Location = New System.Drawing.Point(137, 56)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(100, 26)
-        Me.TextBox3.TabIndex = 11
-        '
-        'TextBox4
-        '
-        Me.TextBox4.Location = New System.Drawing.Point(137, 88)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(100, 26)
-        Me.TextBox4.TabIndex = 12
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(12, 91)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(88, 20)
-        Me.Label15.TabIndex = 13
-        Me.Label15.Text = "Descrição: "
-        '
         'Checkout
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.ClientSize = New System.Drawing.Size(710, 448)
         Me.Controls.Add(Me.btnBuscar)
         Me.Controls.Add(Me.pnlCheckout)

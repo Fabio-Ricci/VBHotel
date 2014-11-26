@@ -19,7 +19,6 @@ Public Class Checkout
 
     'Apartamento
     Dim idApartamento As Integer
-    Dim tipoQuarto As String
     Dim numero As Integer
     Dim andar As Integer
     Dim camasCasal As Integer
@@ -28,8 +27,9 @@ Public Class Checkout
 
     'Item
     Dim qtdItens As Integer
-    Dim custoUnitarioItem As Double
-    Dim descricaoItem As String
+    Dim itens As Item()
+    'Dim custoUnitarioItem As Double
+    'Dim descricaoItem As String
 
     Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
         cpf = txtCPF.Text
@@ -53,11 +53,9 @@ Public Class Checkout
             camasSolteiro = dr.item(8)
             frigobar = dr.item(9)
 
-            qtdItens =
-            custoUnitarioItem = dr.item(10)
-            descricaoItem = dr.item(11)
-
-
+            qtdItens = dr.Item(10)
+            'custoUnitarioItem = dr.item(11)
+            'descricaoItem = dr.item(12)
         Else
             MsgBox("Digite o CPF.")
         End If
