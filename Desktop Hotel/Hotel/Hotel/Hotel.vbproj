@@ -124,6 +124,12 @@
     <Compile Include="Checkout.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ConsumoDeItem.Designer.vb">
+      <DependentUpon>ConsumoDeItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ConsumoDeItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="HosPDeirosDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -208,6 +214,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Checkout.resx">
       <DependentUpon>Checkout.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsumoDeItem.resx">
+      <DependentUpon>ConsumoDeItem.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListagemCliente.resx">
       <DependentUpon>ListagemCliente.vb</DependentUpon>
