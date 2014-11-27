@@ -138,10 +138,10 @@
       <DependentUpon>HosPDeirosDataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="Item.vb" />
-    <Compile Include="Listagem.designer.vb">
-      <DependentUpon>Listagem.vb</DependentUpon>
+    <Compile Include="ListagemCliente.designer.vb">
+      <DependentUpon>ListagemCliente.vb</DependentUpon>
     </Compile>
-    <Compile Include="Listagem.vb">
+    <Compile Include="ListagemCliente.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="login.Designer.vb">
@@ -169,6 +169,12 @@
       <DependentUpon>Pergunta.vb</DependentUpon>
     </Compile>
     <Compile Include="Pergunta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal.Designer.vb">
+      <DependentUpon>Principal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Principal.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Splash.Designer.vb">
@@ -203,8 +209,8 @@
     <EmbeddedResource Include="Checkout.resx">
       <DependentUpon>Checkout.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Listagem.resx">
-      <DependentUpon>Listagem.vb</DependentUpon>
+    <EmbeddedResource Include="ListagemCliente.resx">
+      <DependentUpon>ListagemCliente.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.vb</DependentUpon>
@@ -217,6 +223,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pergunta.resx">
       <DependentUpon>Pergunta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal.resx">
+      <DependentUpon>Principal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Splash.resx">
       <DependentUpon>Splash.vb</DependentUpon>

@@ -21,11 +21,16 @@
                 Try
 
                     If (banco.logar(EDusuario.Text, EDsenha.Text)) Then
-                        Dim checkout As New Checkout()
-                        checkout.Show()
 
-                        Dim Pergunta As New Pergunta
-                        Pergunta.Show()
+                        If banco.nivelPrivilegio(EDusuario.Text) = 1 Then
+                            Dim Principal As New Principal
+                            Principal.menuFuncionarios.Visible = False
+                            Principal.Show()
+                        Else
+                            Dim Principal As New Principal
+                            Principal.Show()
+                        End If
+
                     Else
                         MessageBox.Show("Usuário inexistente, confira seu username e senha", "Atenção",
                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation)

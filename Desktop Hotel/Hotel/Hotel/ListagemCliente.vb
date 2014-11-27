@@ -1,6 +1,6 @@
 ﻿Imports System.Data.SqlClient
 
-Public Class Listagem
+Public Class ListagemCliente
 
     Dim dr As SqlDataReader
     Dim bd As BD
