@@ -105,7 +105,27 @@ Public Class BD
         Me.conexao.Close()
     End Sub
 
-    '------Tipo Apartamento -------
+    Public Sub updateCliente(nome As String, dataNascimento As String, sexo As Char, email As String, telefone As String, celular As String, endereco As String,
+     bairro As String, cidade As String, pais As String, siglaUF As String, cpf As String)
+        Try
+            Me.conexao.Open()
+        Catch ex As Exception
+            Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
+        End Try
+        Me.comando = New SqlCommand("exec dbo.update_hCliente '" + nome + "'," + "'" + dataNascimento + "'," + "'" + CStr(sexo) + "','" + email + "','" +
+        telefone + "','" + celular + "','" + endereco + "','" + bairro + "','" + cidade + "','" + pais + "','" + siglaUF + "','" + cpf + "'", Me.conexao)
+        Try
+            Me.comando.ExecuteNonQuery()
+        Catch ex As Exception
+            Me.conexao.Close()
+            Throw New System.Exception("Erro ao efetuar a alteracao do Cliente->Erro: " + ex.ToString)
+        End Try
+        Me.conexao.Close()
+
+
+    End Sub
+
+    '------Tipo Apartamento ------
 
     Public Function infoApartamento(numeroApartamento As Integer) As SqlDataReader
         Try
@@ -832,7 +852,7 @@ Public Class BD
         Return gasto
     End Function
 
-    
+
 
     Public Function gastoDoCliente(idCliente As Integer) As Double
         Dim gasto As Double
