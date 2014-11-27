@@ -39,7 +39,7 @@ Public Class Principal
     End Sub
 
     Private Sub menuFuncionariosListagem_Click(sender As Object, e As EventArgs) Handles menuFuncionariosListagem.Click
-
+        ListagemFuncionario.Show()
     End Sub
 
     Private Sub menuItensConsumoItens_Click(sender As Object, e As EventArgs) Handles menuItensConsumoItens.Click

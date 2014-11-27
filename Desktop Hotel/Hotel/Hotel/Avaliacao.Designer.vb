@@ -32,18 +32,18 @@ Partial Class Avaliacao
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.lblQtdeRespostas = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnLoad
         '
-        Me.btnLoad.Location = New System.Drawing.Point(12, 12)
+        Me.btnLoad.Location = New System.Drawing.Point(334, 16)
         Me.btnLoad.Name = "btnLoad"
-        Me.btnLoad.Size = New System.Drawing.Size(431, 25)
+        Me.btnLoad.Size = New System.Drawing.Size(91, 23)
         Me.btnLoad.TabIndex = 0
-        Me.btnLoad.Text = "LOAD"
+        Me.btnLoad.Text = "Recarregar"
         Me.btnLoad.UseVisualStyleBackColor = True
         '
         'txtAtendimento
@@ -113,6 +113,7 @@ Partial Class Avaliacao
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.lblQtdeRespostas)
+        Me.GroupBox1.Controls.Add(Me.btnLoad)
         Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.txtAtendimento)
         Me.GroupBox1.Controls.Add(Me.Label4)
@@ -122,21 +123,12 @@ Partial Class Avaliacao
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.txtRestaurantes)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 52)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(431, 168)
         Me.GroupBox1.TabIndex = 9
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Média das avaliações"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(16, 136)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(102, 13)
-        Me.Label5.TabIndex = 9
-        Me.Label5.Text = "Total de Respostas:"
         '
         'lblQtdeRespostas
         '
@@ -147,13 +139,21 @@ Partial Class Avaliacao
         Me.lblQtdeRespostas.TabIndex = 10
         Me.lblQtdeRespostas.Text = "0"
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(16, 136)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(102, 13)
+        Me.Label5.TabIndex = 9
+        Me.Label5.Text = "Total de Respostas:"
+        '
         'Avaliacao
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(455, 372)
+        Me.ClientSize = New System.Drawing.Size(448, 188)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.btnLoad)
         Me.Name = "Avaliacao"
         Me.Text = "Avaliação"
         Me.GroupBox1.ResumeLayout(False)

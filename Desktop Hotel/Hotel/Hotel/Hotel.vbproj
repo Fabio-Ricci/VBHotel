@@ -137,6 +137,12 @@
     <Compile Include="ConsumoDeItem.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ListagemFuncionario.designer.vb">
+      <DependentUpon>ListagemFuncionario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ListagemFuncionario.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="HosPDeirosDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -237,6 +243,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ConsumoDeItem.resx">
       <DependentUpon>ConsumoDeItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListagemFuncionario.resx">
+      <DependentUpon>ListagemFuncionario.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListagemCliente.resx">
       <DependentUpon>ListagemCliente.vb</DependentUpon>

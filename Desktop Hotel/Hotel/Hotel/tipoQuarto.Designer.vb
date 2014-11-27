@@ -52,11 +52,11 @@ Partial Class tipoQuarto
         Me.Label5 = New System.Windows.Forms.Label()
         Me.cbTipo = New System.Windows.Forms.ComboBox()
         Me.tpExibicao = New System.Windows.Forms.TabPage()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.lblDescricao = New System.Windows.Forms.Label()
-        Me.cbTipoExibicao = New System.Windows.Forms.ComboBox()
-        Me.pbFoto = New System.Windows.Forms.PictureBox()
         Me.ofdFoto = New System.Windows.Forms.OpenFileDialog()
+        Me.lblDescricao = New System.Windows.Forms.Label()
+        Me.pbFoto = New System.Windows.Forms.PictureBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.cbTipoExibicao = New System.Windows.Forms.ComboBox()
         Me.tcTipoApto.SuspendLayout()
         Me.tpCadastro.SuspendLayout()
         Me.tpEdicao.SuspendLayout()
@@ -363,15 +363,11 @@ Partial Class tipoQuarto
         Me.tpExibicao.Text = "Exibição"
         Me.tpExibicao.UseVisualStyleBackColor = True
         '
-        'Label1
+        'ofdFoto
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(23, 29)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(162, 20)
-        Me.Label1.TabIndex = 6
-        Me.Label1.Text = "Tipo de Apartamento:"
+        Me.ofdFoto.FileName = "OpenFileDialog1"
+        Me.ofdFoto.Filter = " JPG | *.jpg"
+        Me.ofdFoto.Title = "Selecionar foto"
         '
         'lblDescricao
         '
@@ -384,16 +380,6 @@ Partial Class tipoQuarto
         Me.lblDescricao.TabIndex = 7
         Me.lblDescricao.Text = "Descrição"
         '
-        'cbTipoExibicao
-        '
-        Me.cbTipoExibicao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbTipoExibicao.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbTipoExibicao.FormattingEnabled = True
-        Me.cbTipoExibicao.Location = New System.Drawing.Point(191, 26)
-        Me.cbTipoExibicao.Name = "cbTipoExibicao"
-        Me.cbTipoExibicao.Size = New System.Drawing.Size(159, 28)
-        Me.cbTipoExibicao.TabIndex = 4
-        '
         'pbFoto
         '
         Me.pbFoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
@@ -405,11 +391,25 @@ Partial Class tipoQuarto
         Me.pbFoto.TabIndex = 5
         Me.pbFoto.TabStop = False
         '
-        'ofdFoto
+        'Label1
         '
-        Me.ofdFoto.FileName = "OpenFileDialog1"
-        Me.ofdFoto.Filter = " JPG | *.jpg"
-        Me.ofdFoto.Title = "Selecionar foto"
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(23, 29)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(162, 20)
+        Me.Label1.TabIndex = 6
+        Me.Label1.Text = "Tipo de Apartamento:"
+        '
+        'cbTipoExibicao
+        '
+        Me.cbTipoExibicao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbTipoExibicao.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbTipoExibicao.FormattingEnabled = True
+        Me.cbTipoExibicao.Location = New System.Drawing.Point(191, 26)
+        Me.cbTipoExibicao.Name = "cbTipoExibicao"
+        Me.cbTipoExibicao.Size = New System.Drawing.Size(159, 28)
+        Me.cbTipoExibicao.TabIndex = 4
         '
         'tipoQuarto
         '
@@ -444,10 +444,6 @@ Partial Class tipoQuarto
     Friend WithEvents txtTipo As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents tpExibicao As System.Windows.Forms.TabPage
-    Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents lblDescricao As System.Windows.Forms.Label
-    Friend WithEvents cbTipoExibicao As System.Windows.Forms.ComboBox
-    Friend WithEvents pbFoto As System.Windows.Forms.PictureBox
     Friend WithEvents btnCadastrar As System.Windows.Forms.Button
     Friend WithEvents tpFotos As System.Windows.Forms.TabPage
     Friend WithEvents txtDiaria As System.Windows.Forms.TextBox
@@ -468,4 +464,8 @@ Partial Class tipoQuarto
     Friend WithEvents txtTipoEdicao As System.Windows.Forms.TextBox
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents cbTipoEdicao As System.Windows.Forms.ComboBox
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents lblDescricao As System.Windows.Forms.Label
+    Friend WithEvents cbTipoExibicao As System.Windows.Forms.ComboBox
+    Friend WithEvents pbFoto As System.Windows.Forms.PictureBox
 End Class

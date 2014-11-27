@@ -23,17 +23,6 @@ Public Class CadastroApartamentos
     Dim remocaoAndar As Integer
 
     'tab 1 cadastramento
-    Private Sub CadastroApartamentos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'HosPDeirosDataSet2.hApartamento' table. You can move, or remove it, as needed.
-        Me.HApartamentoTableAdapter1.Fill(Me.HosPDeirosDataSet2.hApartamento)
-        'TODO: This line of code loads data into the 'HosPDeirosDataSet1.hApartamento' table. You can move, or remove it, as needed.
-        Me.HApartamentoTableAdapter.Fill(Me.HosPDeirosDataSet1.hApartamento)
-        'TODO: This line of code loads data into the 'HosPDeirosDataSet.hTipoApartamento' table. You can move, or remove it, as needed.
-        Me.HTipoApartamentoTableAdapter.Fill(Me.HosPDeirosDataSet.hTipoApartamento)
-        camaSolteiro = 0
-        camaCasal = 0
-        frigobar = ""
-    End Sub
 
     Private Sub btnIncluir_Click(sender As Object, e As EventArgs) Handles btnIncluir.Click
         numero = Convert.ToInt32(txtNumero.Text)
@@ -360,5 +349,29 @@ Public Class CadastroApartamentos
             txtremocaoCamaSolteiro.Text = remocaoCamaSolteiro
             txtRemocaoTipoApartamento.Text = remocaoTipoApartamento
         End If
+    End Sub
+
+    Private Sub GetSetData(selectCommand As String)
+        Try
+            Dim con As New SqlConnection
+            ' configura a conexao
+            con.ConnectionString = "" & _
+        "Data Source=regulus;Initial Catalog=hospdeiros;" & _
+        "Persist Security Info=True;User ID=hospdeiros;Password=amostra"
+            Dim dataAdapter = New SqlDataAdapter(selectCommand, con)
+
+            Dim commandBuilder As New SqlCommandBuilder(dataAdapter)
+
+            Dim table As New DataTable()
+
+            dataAdapter.Fill(table)
+            Me.BindingSource1.DataSource = table
+
+            Me.DataGridView1.AutoResizeColumns( _
+                DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader)
+        Catch ex As SqlException
+            MessageBox.Show("errrrrrrrou")
+        End Try
+
     End Sub
 End Class

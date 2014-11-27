@@ -266,6 +266,9 @@ Public Class CadastroItem
     End Sub
 
     Private Sub CadastroItem_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.DataGridView1.DataSource = Me.BindingSource1
+        GetSetData("SELECT * from hItem")
+        '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
         Dim dr As SqlDataReader
         dr = bd.getTiposItens()
         If dr.HasRows Then
@@ -280,6 +283,29 @@ Public Class CadastroItem
         dr = Nothing
     End Sub
 
+    Private Sub GetSetData(selectCommand As String)
+        Try
+            Dim con As New SqlConnection
+            ' configura a conexao
+            con.ConnectionString = "" & _
+        "Data Source=regulus;Initial Catalog=hospdeiros;" & _
+        "Persist Security Info=True;User ID=hospdeiros;Password=amostra"
+            Dim dataAdapter = New SqlDataAdapter(selectCommand, con)
+
+            Dim commandBuilder As New SqlCommandBuilder(dataAdapter)
+
+            Dim table As New DataTable()
+
+            dataAdapter.Fill(table)
+            Me.BindingSource1.DataSource = table
+
+            Me.DataGridView1.AutoResizeColumns( _
+                DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader)
+        Catch ex As SqlException
+            MessageBox.Show("errrrrrrrou")
+        End Try
+
+    End Sub
     Private Sub txtRemocaoCustoUnitario_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtRemocaoCustoUnitario.KeyPress
         If Asc(e.KeyChar) <> 8 Then
             If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
@@ -295,4 +321,5 @@ Public Class CadastroItem
             End If
         End If
     End Sub
+
 End Class

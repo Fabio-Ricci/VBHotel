@@ -22,6 +22,7 @@ Partial Class CadastroTipoItem
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CadastroTipoItem))
         Me.tcTipoItem = New System.Windows.Forms.TabControl()
         Me.tbCadastroTipoItem = New System.Windows.Forms.TabPage()
@@ -43,12 +44,17 @@ Partial Class CadastroTipoItem
         Me.cbxRemocaoIdTipoItem = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.tbListagemTipoItem = New System.Windows.Forms.TabPage()
+        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.tcTipoItem.SuspendLayout()
         Me.tbCadastroTipoItem.SuspendLayout()
         Me.tbEdicaoTipoItem.SuspendLayout()
         Me.pnlEdicaoTipoItem.SuspendLayout()
         Me.tbRemocaoTipoItem.SuspendLayout()
         Me.pnlRemocaoTipoItem.SuspendLayout()
+        Me.tbListagemTipoItem.SuspendLayout()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'tcTipoItem
@@ -63,7 +69,7 @@ Partial Class CadastroTipoItem
         Me.tcTipoItem.Location = New System.Drawing.Point(13, 13)
         Me.tcTipoItem.Name = "tcTipoItem"
         Me.tcTipoItem.SelectedIndex = 0
-        Me.tcTipoItem.Size = New System.Drawing.Size(329, 156)
+        Me.tcTipoItem.Size = New System.Drawing.Size(349, 285)
         Me.tcTipoItem.TabIndex = 0
         '
         'tbCadastroTipoItem
@@ -115,7 +121,7 @@ Partial Class CadastroTipoItem
         Me.tbEdicaoTipoItem.Location = New System.Drawing.Point(4, 22)
         Me.tbEdicaoTipoItem.Name = "tbEdicaoTipoItem"
         Me.tbEdicaoTipoItem.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbEdicaoTipoItem.Size = New System.Drawing.Size(312, 119)
+        Me.tbEdicaoTipoItem.Size = New System.Drawing.Size(321, 130)
         Me.tbEdicaoTipoItem.TabIndex = 1
         Me.tbEdicaoTipoItem.Text = "Edição de Tipo de Item"
         Me.tbEdicaoTipoItem.UseVisualStyleBackColor = True
@@ -186,7 +192,7 @@ Partial Class CadastroTipoItem
         Me.tbRemocaoTipoItem.Location = New System.Drawing.Point(4, 22)
         Me.tbRemocaoTipoItem.Name = "tbRemocaoTipoItem"
         Me.tbRemocaoTipoItem.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbRemocaoTipoItem.Size = New System.Drawing.Size(312, 119)
+        Me.tbRemocaoTipoItem.Size = New System.Drawing.Size(321, 130)
         Me.tbRemocaoTipoItem.TabIndex = 2
         Me.tbRemocaoTipoItem.Text = "Remoção de Tipo de Item"
         Me.tbRemocaoTipoItem.UseVisualStyleBackColor = True
@@ -252,20 +258,29 @@ Partial Class CadastroTipoItem
         '
         'tbListagemTipoItem
         '
+        Me.tbListagemTipoItem.Controls.Add(Me.DataGridView1)
         Me.tbListagemTipoItem.Location = New System.Drawing.Point(4, 22)
         Me.tbListagemTipoItem.Name = "tbListagemTipoItem"
         Me.tbListagemTipoItem.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbListagemTipoItem.Size = New System.Drawing.Size(312, 119)
+        Me.tbListagemTipoItem.Size = New System.Drawing.Size(341, 259)
         Me.tbListagemTipoItem.TabIndex = 3
         Me.tbListagemTipoItem.Text = "Listagem de Tipo de Item"
         Me.tbListagemTipoItem.UseVisualStyleBackColor = True
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(6, 6)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(329, 206)
+        Me.DataGridView1.TabIndex = 0
         '
         'CadastroTipoItem
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
-        Me.ClientSize = New System.Drawing.Size(354, 181)
+        Me.ClientSize = New System.Drawing.Size(374, 310)
         Me.Controls.Add(Me.tcTipoItem)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "CadastroTipoItem"
@@ -281,6 +296,9 @@ Partial Class CadastroTipoItem
         Me.tbRemocaoTipoItem.PerformLayout()
         Me.pnlRemocaoTipoItem.ResumeLayout(False)
         Me.pnlRemocaoTipoItem.PerformLayout()
+        Me.tbListagemTipoItem.ResumeLayout(False)
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -304,4 +322,6 @@ Partial Class CadastroTipoItem
     Friend WithEvents btnSalvarEdicao As System.Windows.Forms.Button
     Friend WithEvents btnRemovarTipoItem As System.Windows.Forms.Button
     Friend WithEvents btnCadastarTipoItem As System.Windows.Forms.Button
+    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents BindingSource1 As System.Windows.Forms.BindingSource
 End Class

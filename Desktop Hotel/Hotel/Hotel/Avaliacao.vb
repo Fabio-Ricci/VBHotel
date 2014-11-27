@@ -29,6 +29,7 @@
 
     Private Sub Avaliacao_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         bd = New BD
+        btnLoad_Click(sender, e)
     End Sub
 
     Private Sub txtAtendimento_TextChanged(sender As Object, e As EventArgs) Handles txtRestaurantes.TextChanged, txtRegiao.TextChanged, txtQuarto.TextChanged, txtAtendimento.TextChanged
