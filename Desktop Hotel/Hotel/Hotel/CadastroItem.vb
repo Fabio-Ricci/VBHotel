@@ -140,6 +140,7 @@ Public Class CadastroItem
                 If (descricao <> "") Then
                     bd.cadastrarItem(tipoItem, custoUnitario, descricao)
                     cbxTipoItem.Text = ""
+                    cbxTipoItem.SelectedIndex = -1
                     txtCustoUnitario.Text = ""
                     txtDescricao.Text = ""
 

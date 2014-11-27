@@ -703,7 +703,7 @@ Public Class BD
             Me.comando.ExecuteNonQuery()
         Catch ex As Exception
             Me.conexao.Close()
-            Throw New System.Exception("Erro ao efetuar o update da resposta->Erro: " + ex.ToString)
+            Throw New System.Exception("Erro ao efetuar a inserção do consumo->Erro: " + ex.ToString)
         End Try
         Me.conexao.Close()
     End Sub
@@ -726,6 +726,7 @@ Public Class BD
         End Try
         dataReader.Read()
         id = dataReader.Item(0)
+        Me.conexao.Close()
         Return id
     End Function
 

@@ -13,8 +13,7 @@ Public Class ConsumoDeItem
         Dim dr As SqlDataReader
         dr = bd.getDescricaoItens()
 
-        While dr.HasRows
-            dr.Read()
+        While dr.Read()
             If (dr(0) <= 9) Then
                 item = "00" + Convert.ToString(dr(0))
             End If
@@ -28,6 +27,7 @@ Public Class ConsumoDeItem
 
             item = ""
         End While
+        bd.fecharConexao()
 
         data = DateTime.Now.Date
 
@@ -46,17 +46,17 @@ Public Class ConsumoDeItem
 
     Private Sub btnSalvar_Click(sender As Object, e As EventArgs) Handles btnSalvar.Click
         cpf = txtCpf.Text
-        cpf.Replace(",", ".")
+        cpf = cpf.Replace(",", ".")
 
         idHospedagem = bd.getIdHospedagem(cpf)
 
-        item = cbxItem.Text.Substring(0, 2)
+        item = cbxItem.Text.Substring(0, 3)
         qtd = Convert.ToInt32(txtQtd.Text)
 
-        If (idHospedagem = 0) Then
+        If (idHospedagem <> 0) Then
             If (item <> "") Then
                 If (qtd <> 0) Then
-                    bd.inserirConsumo(idHospedagem, Convert.ToInt32(item), qtd, data)
+                    bd.inserirConsumo(Convert.ToInt32(item), idHospedagem, qtd, data)
                     MsgBox("Consumo cadastrado com sucesso.")
                 End If
             Else
