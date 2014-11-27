@@ -559,9 +559,46 @@ Public Class BD
         End Try
         Me.conexao.Close()
     End Sub
+    '
+    'Checkout
+    '
+    Public Function getDadosCheckout(cpf As String)
+        Try
+            Me.conexao.Open()
+        Catch ex As Exception
+            Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
+        End Try
+        Me.comando = New SqlCommand("Select * from dbo.infoCheckout(@cpf)", Me.conexao)
+        Me.comando.Parameters.Add(New SqlParameter("@cpf", cpf))
+        Try
+            Me.dataReader = comando.ExecuteReader()
+        Catch ex As Exception
+            Me.conexao.Close()
+            Throw New System.Exception("Erro na pesquisa das informações do Checkout->Erro: " + ex.ToString)
+        End Try
+        Return Me.dataReader
+    End Function
 
+    Public Function qtdItensConsumidos(idHospedagem As Integer)
+        Dim qtd As Integer
 
-
+        Try
+            Me.conexao.Open()
+        Catch ex As Exception
+            Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
+        End Try
+        Me.comando = New SqlCommand("Select * from dbo.qtdItensConsumidos(@idHospedagem)", Me.conexao)
+        Me.comando.Parameters.Add(New SqlParameter("@idHospedagem", idHospedagem))
+        Try
+            Me.dataReader = comando.ExecuteReader()
+        Catch ex As Exception
+            Me.conexao.Close()
+            Throw New System.Exception("Erro na pesquisa das informações do Checkout->Erro: " + ex.ToString)
+        End Try
+        dataReader.Read()
+        qtd = dataReader.Item(0)
+        Return qtd
+    End Function
     
 
     Public Sub fecharConexao()

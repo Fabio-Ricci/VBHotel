@@ -21,23 +21,8 @@
                 Try
 
                     If (banco.logar(EDusuario.Text, EDsenha.Text)) Then
-                        Dim ca As New CadastroApartamentos()
-                        ca.Show()
-
                         Dim checkout As New Checkout()
-                        checkout.show()
-
-                        Dim tipoItem As New CadastroTipoItem()
-                        tipoItem.Show()
-
-                        Dim item As New CadastroItem()
-                        item.Show()
-
-                        Dim listagem As New Listagem()
-                        listagem.Show()
-
-                        Dim cadastroCliente As New CadastroCliente()
-                        cadastroCliente.Show()
+                        checkout.Show()
                     Else
                         MessageBox.Show("Usuário inexistente, confira seu username e senha", "Atenção",
                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation)

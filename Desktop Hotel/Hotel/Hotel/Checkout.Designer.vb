@@ -26,16 +26,15 @@ Partial Class Checkout
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtCPF = New System.Windows.Forms.TextBox()
         Me.pnlCheckout = New System.Windows.Forms.Panel()
+        Me.btnCheckout = New System.Windows.Forms.Button()
         Me.gbQuarto = New System.Windows.Forms.GroupBox()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.txtDescricaoQuarto = New System.Windows.Forms.TextBox()
         Me.txtDiaria = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txtTipoQuarto = New System.Windows.Forms.TextBox()
         Me.gbItensConsumidos = New System.Windows.Forms.GroupBox()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnAnt = New System.Windows.Forms.Button()
+        Me.btnProx = New System.Windows.Forms.Button()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.txtCustoUnitario = New System.Windows.Forms.TextBox()
@@ -80,6 +79,7 @@ Partial Class Checkout
         'txtCPF
         '
         Me.txtCPF.Location = New System.Drawing.Point(88, 15)
+        Me.txtCPF.MaxLength = 15
         Me.txtCPF.Name = "txtCPF"
         Me.txtCPF.Size = New System.Drawing.Size(140, 20)
         Me.txtCPF.TabIndex = 1
@@ -91,6 +91,7 @@ Partial Class Checkout
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlCheckout.BackColor = System.Drawing.Color.Transparent
         Me.pnlCheckout.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pnlCheckout.Controls.Add(Me.btnCheckout)
         Me.pnlCheckout.Controls.Add(Me.gbQuarto)
         Me.pnlCheckout.Controls.Add(Me.gbItensConsumidos)
         Me.pnlCheckout.Controls.Add(Me.gbFrigobar)
@@ -112,41 +113,33 @@ Partial Class Checkout
         Me.pnlCheckout.Controls.Add(Me.Label2)
         Me.pnlCheckout.Location = New System.Drawing.Point(12, 41)
         Me.pnlCheckout.Name = "pnlCheckout"
-        Me.pnlCheckout.Size = New System.Drawing.Size(686, 395)
+        Me.pnlCheckout.Size = New System.Drawing.Size(686, 349)
         Me.pnlCheckout.TabIndex = 2
         Me.pnlCheckout.Visible = False
         '
+        'btnCheckout
+        '
+        Me.btnCheckout.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCheckout.Location = New System.Drawing.Point(442, 291)
+        Me.btnCheckout.Name = "btnCheckout"
+        Me.btnCheckout.Size = New System.Drawing.Size(93, 28)
+        Me.btnCheckout.TabIndex = 26
+        Me.btnCheckout.Text = "Checkout"
+        Me.btnCheckout.UseVisualStyleBackColor = True
+        '
         'gbQuarto
         '
-        Me.gbQuarto.Controls.Add(Me.Label15)
-        Me.gbQuarto.Controls.Add(Me.txtDescricaoQuarto)
         Me.gbQuarto.Controls.Add(Me.txtDiaria)
         Me.gbQuarto.Controls.Add(Me.Label14)
         Me.gbQuarto.Controls.Add(Me.Label6)
         Me.gbQuarto.Controls.Add(Me.txtTipoQuarto)
         Me.gbQuarto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbQuarto.Location = New System.Drawing.Point(16, 66)
+        Me.gbQuarto.Location = New System.Drawing.Point(20, 66)
         Me.gbQuarto.Name = "gbQuarto"
-        Me.gbQuarto.Size = New System.Drawing.Size(249, 129)
+        Me.gbQuarto.Size = New System.Drawing.Size(249, 92)
         Me.gbQuarto.TabIndex = 25
         Me.gbQuarto.TabStop = False
         Me.gbQuarto.Text = "Quarto"
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(12, 91)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(88, 20)
-        Me.Label15.TabIndex = 13
-        Me.Label15.Text = "Descrição: "
-        '
-        'txtDescricaoQuarto
-        '
-        Me.txtDescricaoQuarto.Location = New System.Drawing.Point(137, 88)
-        Me.txtDescricaoQuarto.Name = "txtDescricaoQuarto"
-        Me.txtDescricaoQuarto.Size = New System.Drawing.Size(100, 26)
-        Me.txtDescricaoQuarto.TabIndex = 12
         '
         'txtDiaria
         '
@@ -184,15 +177,15 @@ Partial Class Checkout
         '
         'gbItensConsumidos
         '
-        Me.gbItensConsumidos.Controls.Add(Me.Button2)
-        Me.gbItensConsumidos.Controls.Add(Me.Button1)
+        Me.gbItensConsumidos.Controls.Add(Me.btnAnt)
+        Me.gbItensConsumidos.Controls.Add(Me.btnProx)
         Me.gbItensConsumidos.Controls.Add(Me.Label13)
         Me.gbItensConsumidos.Controls.Add(Me.Label11)
         Me.gbItensConsumidos.Controls.Add(Me.txtCustoUnitario)
         Me.gbItensConsumidos.Controls.Add(Me.txtDescricaoItem)
         Me.gbItensConsumidos.Controls.Add(Me.Label12)
         Me.gbItensConsumidos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbItensConsumidos.Location = New System.Drawing.Point(299, 171)
+        Me.gbItensConsumidos.Location = New System.Drawing.Point(301, 66)
         Me.gbItensConsumidos.Name = "gbItensConsumidos"
         Me.gbItensConsumidos.Size = New System.Drawing.Size(369, 199)
         Me.gbItensConsumidos.TabIndex = 24
@@ -200,23 +193,23 @@ Partial Class Checkout
         Me.gbItensConsumidos.Text = "Itens Consumidos"
         Me.gbItensConsumidos.Visible = False
         '
-        'Button2
+        'btnAnt
         '
-        Me.Button2.Location = New System.Drawing.Point(17, 61)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(32, 28)
-        Me.Button2.TabIndex = 26
-        Me.Button2.Text = "<"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnAnt.Location = New System.Drawing.Point(17, 61)
+        Me.btnAnt.Name = "btnAnt"
+        Me.btnAnt.Size = New System.Drawing.Size(32, 28)
+        Me.btnAnt.TabIndex = 26
+        Me.btnAnt.Text = "<"
+        Me.btnAnt.UseVisualStyleBackColor = True
         '
-        'Button1
+        'btnProx
         '
-        Me.Button1.Location = New System.Drawing.Point(322, 61)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(32, 28)
-        Me.Button1.TabIndex = 25
-        Me.Button1.Text = ">"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnProx.Location = New System.Drawing.Point(322, 61)
+        Me.btnProx.Name = "btnProx"
+        Me.btnProx.Size = New System.Drawing.Size(32, 28)
+        Me.btnProx.TabIndex = 25
+        Me.btnProx.Text = ">"
+        Me.btnProx.UseVisualStyleBackColor = True
         '
         'Label13
         '
@@ -239,6 +232,7 @@ Partial Class Checkout
         '
         'txtCustoUnitario
         '
+        Me.txtCustoUnitario.Enabled = False
         Me.txtCustoUnitario.Location = New System.Drawing.Point(179, 47)
         Me.txtCustoUnitario.Name = "txtCustoUnitario"
         Me.txtCustoUnitario.Size = New System.Drawing.Size(100, 26)
@@ -267,7 +261,7 @@ Partial Class Checkout
         Me.gbFrigobar.Controls.Add(Me.RbNao)
         Me.gbFrigobar.Controls.Add(Me.rbSim)
         Me.gbFrigobar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbFrigobar.Location = New System.Drawing.Point(18, 299)
+        Me.gbFrigobar.Location = New System.Drawing.Point(20, 262)
         Me.gbFrigobar.Name = "gbFrigobar"
         Me.gbFrigobar.Size = New System.Drawing.Size(250, 71)
         Me.gbFrigobar.TabIndex = 19
@@ -300,7 +294,7 @@ Partial Class Checkout
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(12, 276)
+        Me.Label10.Location = New System.Drawing.Point(14, 239)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(147, 20)
         Me.Label10.TabIndex = 18
@@ -310,7 +304,7 @@ Partial Class Checkout
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(14, 250)
+        Me.Label9.Location = New System.Drawing.Point(16, 213)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(133, 20)
         Me.Label9.TabIndex = 17
@@ -318,14 +312,16 @@ Partial Class Checkout
         '
         'txtCamasSolteiro
         '
-        Me.txtCamasSolteiro.Location = New System.Drawing.Point(171, 278)
+        Me.txtCamasSolteiro.Enabled = False
+        Me.txtCamasSolteiro.Location = New System.Drawing.Point(173, 241)
         Me.txtCamasSolteiro.Name = "txtCamasSolteiro"
         Me.txtCamasSolteiro.Size = New System.Drawing.Size(100, 20)
         Me.txtCamasSolteiro.TabIndex = 15
         '
         'txtCamasCasal
         '
-        Me.txtCamasCasal.Location = New System.Drawing.Point(171, 252)
+        Me.txtCamasCasal.Enabled = False
+        Me.txtCamasCasal.Location = New System.Drawing.Point(173, 215)
         Me.txtCamasCasal.Name = "txtCamasCasal"
         Me.txtCamasCasal.Size = New System.Drawing.Size(100, 20)
         Me.txtCamasCasal.TabIndex = 14
@@ -333,7 +329,7 @@ Partial Class Checkout
         'txtAndar
         '
         Me.txtAndar.Enabled = False
-        Me.txtAndar.Location = New System.Drawing.Point(171, 226)
+        Me.txtAndar.Location = New System.Drawing.Point(173, 189)
         Me.txtAndar.Name = "txtAndar"
         Me.txtAndar.Size = New System.Drawing.Size(100, 20)
         Me.txtAndar.TabIndex = 13
@@ -342,7 +338,7 @@ Partial Class Checkout
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(14, 224)
+        Me.Label8.Location = New System.Drawing.Point(16, 187)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(60, 20)
         Me.Label8.TabIndex = 12
@@ -351,7 +347,7 @@ Partial Class Checkout
         'txtNumero
         '
         Me.txtNumero.Enabled = False
-        Me.txtNumero.Location = New System.Drawing.Point(170, 200)
+        Me.txtNumero.Location = New System.Drawing.Point(172, 163)
         Me.txtNumero.Name = "txtNumero"
         Me.txtNumero.Size = New System.Drawing.Size(100, 20)
         Me.txtNumero.TabIndex = 11
@@ -360,7 +356,7 @@ Partial Class Checkout
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(14, 198)
+        Me.Label7.Location = New System.Drawing.Point(16, 161)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(69, 20)
         Me.Label7.TabIndex = 10
@@ -422,7 +418,7 @@ Partial Class Checkout
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(14, 43)
+        Me.Label3.Location = New System.Drawing.Point(16, 43)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(61, 20)
         Me.Label3.TabIndex = 1
@@ -453,7 +449,7 @@ Partial Class Checkout
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
-        Me.ClientSize = New System.Drawing.Size(710, 448)
+        Me.ClientSize = New System.Drawing.Size(710, 402)
         Me.Controls.Add(Me.btnBuscar)
         Me.Controls.Add(Me.pnlCheckout)
         Me.Controls.Add(Me.txtCPF)
@@ -504,11 +500,10 @@ Partial Class Checkout
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents gbItensConsumidos As System.Windows.Forms.GroupBox
     Friend WithEvents Label13 As System.Windows.Forms.Label
-    Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents btnAnt As System.Windows.Forms.Button
+    Friend WithEvents btnProx As System.Windows.Forms.Button
     Friend WithEvents gbQuarto As System.Windows.Forms.GroupBox
-    Friend WithEvents Label15 As System.Windows.Forms.Label
-    Friend WithEvents txtDescricaoQuarto As System.Windows.Forms.TextBox
     Friend WithEvents txtDiaria As System.Windows.Forms.TextBox
     Friend WithEvents Label14 As System.Windows.Forms.Label
+    Friend WithEvents btnCheckout As System.Windows.Forms.Button
 End Class

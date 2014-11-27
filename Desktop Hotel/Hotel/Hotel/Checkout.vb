@@ -2,6 +2,7 @@
 
 Public Class Checkout
     Dim bd As New BD
+    Dim indice As Integer = 1
 
     'Cliente
     Dim cpf As String
@@ -17,7 +18,6 @@ Public Class Checkout
     Dim idTipoApartamento As Integer
     Dim tipoQuarto As String
     Dim diariaTipoQuarto As Double
-    Dim descricaoTipoQuarto As String
 
     'Apartamento
     Dim idApartamento As Integer
@@ -29,7 +29,7 @@ Public Class Checkout
 
     'Item
     Dim qtdItens As Integer
-    Dim itens() As Item
+    Dim itens As List(Of Item)
     Dim qtdItensConsumidos As Integer
     'Dim custoUnitarioItem As Double
     'Dim descricaoItem As String
@@ -40,59 +40,80 @@ Public Class Checkout
         If (cpf <> "") Then
             Dim dr As SqlDataReader
 
-            'dr = bd.getDadosCheckout(cpf)
-            dr.read()
+            dr = bd.getDadosCheckout(cpf)
+            If (dr.HasRows) Then
+                dr.Read()
 
-            nome = dr.Item(0)
-            email = dr.Item(1)
+                nome = dr.Item(0)
+                email = dr.Item(1)
 
-            diariaTipoQuarto = dr.item(2)
-            descricaoTipoQuarto = dr.item(3)
+                idTipoApartamento = dr.Item(2)
+                diariaTipoQuarto = dr.Item(3)
+                tipoQuarto = dr.Item(4)
 
-            tipoQuarto = dr.item(4)
-            numero = dr.item(5)
-            andar = dr.item(6)
-            camasCasal = dr.item(7)
-            camasSolteiro = dr.item(8)
-            frigobar = dr.item(9)
+                andar = dr.Item(5)
+                numero = dr.Item(6)
+                camasCasal = dr.Item(7)
+                camasSolteiro = dr.Item(8)
+                frigobar = dr.Item(9)
 
-            qtdItens = dr.Item(10)
-            dr = Nothing
-            ''''''''''''''''''''''''''''''''''''''''
-            qtdItensConsumidos = bd.qtdItensConsumidos(idHospedagem) 'conta quantos itens diferentes aquele cliente consumidos
-            '''''''''''''''''''''''''''''''''''''''
-            Dim i As Integer = 0
+                idHospedagem = dr.Item(10)
 
-            dr = bd.getItens(idHospedagem) 'retorna um data reader com todos os itens que tem esse idHospedagem
-            While dr.hasRows
-                dr.read()
-                itens(i) = dr.item(0)
-                i = i + 1
-            End While
 
-            txtNome.Text = nome
-            txtEmail.Text = email
+                dr = Nothing
+                ''''''''''''''''''''''''''''''''''''''''
+                qtdItensConsumidos = bd.qtdItensConsumidos(idHospedagem) 'conta quantos itens diferentes aquele cliente consumidos
+                '''''''''''''''''''''''''''''''''''''''
+                Dim i As Integer = 0
 
-            txtConsumoTotal.Text = consumoTotal
-            txtValorDiaria.Text = valorDiaria
+                'dr = bd.getItens(idHospedagem) 'retorna um data reader com todos os itens que tem essa idHospedagem (fazer)
+                If dr.HasRows Then
+                    While dr.HasRows
+                        dr.Read()
+                        itens.Add(New Item(dr.Item(0), dr.Item(1)))
+                        i = i + 1
+                    End While
 
-            txtTipoQuarto.Text = tipoQuarto
-            txtCustoUnitario.Text = diariaTipoQuarto
-            txtDescricaoQuarto.Text = descricaoTipoQuarto
+                    txtCustoUnitario.Text = itens(0).getPrecoUnitario()
+                    txtDescricaoItem.Text = itens(0).getDescricao()
+                End If
 
-            txtNumero.Text = numero
-            txtAndar.Text = andar
-            txtCamasCasal.Text = camasCasal
-            txtCamasSolteiro.Text = camasSolteiro
-            If frigobar = "S" Then
-                rbSim.Checked = True
+                txtNome.Text = nome
+                txtEmail.Text = email
+
+                txtTipoQuarto.Text = tipoQuarto
+                txtCustoUnitario.Text = diariaTipoQuarto
+
+                txtNumero.Text = numero
+                txtAndar.Text = andar
+                txtCamasCasal.Text = camasCasal
+                txtCamasSolteiro.Text = camasSolteiro
+                If frigobar = "S" Then
+                    rbSim.Checked = True
+                Else
+                    RbNao.Checked = True
+                End If
             Else
-                RbNao.Checked = True
+                MsgBox("Esse cliente não está hospedado.")
             End If
-
-
         Else
             MsgBox("Digite o CPF.")
+        End If
+    End Sub
+
+    Private Sub btnAnt_Click(sender As Object, e As EventArgs) Handles btnAnt.Click
+        If (itens.Count > indice) Then
+            indice += 1
+            txtCustoUnitario.Text = itens(indice).getPrecoUnitario()
+            txtDescricaoItem.Text = itens(indice).getDescricao()
+        End If
+    End Sub
+
+    Private Sub btnProx_Click(sender As Object, e As EventArgs) Handles btnProx.Click
+        If (indice > 0) Then
+            indice += 1
+            txtCustoUnitario.Text = itens(indice).getPrecoUnitario()
+            txtDescricaoItem.Text = itens(indice).getDescricao()
         End If
     End Sub
 End Class

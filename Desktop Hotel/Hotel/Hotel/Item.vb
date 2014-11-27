@@ -14,4 +14,12 @@
     Public Function getDescricao()
         Return Me.descricao
     End Function
+
+    Public Function setPrecoUnitario(preco As Double)
+        Return Me.precoUnitario = preco
+    End Function
+
+    Public Function setDescricao(desc As String)
+        Return Me.descricao = desc
+    End Function
 End Class
