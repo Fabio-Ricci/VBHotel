@@ -32,44 +32,51 @@ Partial Class login
         '
         'EDusuario
         '
-        Me.EDusuario.Location = New System.Drawing.Point(177, 169)
+        Me.EDusuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EDusuario.Location = New System.Drawing.Point(111, 52)
         Me.EDusuario.MaxLength = 20
         Me.EDusuario.Name = "EDusuario"
-        Me.EDusuario.Size = New System.Drawing.Size(230, 20)
+        Me.EDusuario.Size = New System.Drawing.Size(230, 26)
         Me.EDusuario.TabIndex = 0
         '
         'EDsenha
         '
-        Me.EDsenha.Location = New System.Drawing.Point(177, 231)
+        Me.EDsenha.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EDsenha.Location = New System.Drawing.Point(111, 114)
         Me.EDsenha.MaxLength = 20
         Me.EDsenha.Name = "EDsenha"
         Me.EDsenha.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.EDsenha.Size = New System.Drawing.Size(230, 20)
+        Me.EDsenha.Size = New System.Drawing.Size(230, 26)
         Me.EDsenha.TabIndex = 1
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(125, 169)
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(37, 55)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(46, 13)
+        Me.Label1.Size = New System.Drawing.Size(68, 20)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Usuário:"
         '
         'senha
         '
         Me.senha.AutoSize = True
-        Me.senha.Location = New System.Drawing.Point(125, 238)
+        Me.senha.BackColor = System.Drawing.Color.Transparent
+        Me.senha.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.senha.Location = New System.Drawing.Point(37, 117)
         Me.senha.Name = "senha"
-        Me.senha.Size = New System.Drawing.Size(38, 13)
+        Me.senha.Size = New System.Drawing.Size(60, 20)
         Me.senha.TabIndex = 3
-        Me.senha.Text = "Senha"
+        Me.senha.Text = "Senha:"
         '
         'BTNlogar
         '
-        Me.BTNlogar.Location = New System.Drawing.Point(223, 318)
+        Me.BTNlogar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BTNlogar.Location = New System.Drawing.Point(111, 180)
         Me.BTNlogar.Name = "BTNlogar"
-        Me.BTNlogar.Size = New System.Drawing.Size(120, 25)
+        Me.BTNlogar.Size = New System.Drawing.Size(120, 30)
         Me.BTNlogar.TabIndex = 4
         Me.BTNlogar.Text = "Logar"
         Me.BTNlogar.UseVisualStyleBackColor = True
@@ -79,7 +86,8 @@ Partial Class login
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(602, 509)
+        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
+        Me.ClientSize = New System.Drawing.Size(407, 259)
         Me.Controls.Add(Me.BTNlogar)
         Me.Controls.Add(Me.senha)
         Me.Controls.Add(Me.Label1)

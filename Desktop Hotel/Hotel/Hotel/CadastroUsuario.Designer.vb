@@ -45,9 +45,10 @@ Partial Class CadastroUsuario
         'RBfuncionario
         '
         Me.RBfuncionario.AutoSize = True
-        Me.RBfuncionario.Location = New System.Drawing.Point(320, 204)
+        Me.RBfuncionario.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RBfuncionario.Location = New System.Drawing.Point(320, 215)
         Me.RBfuncionario.Name = "RBfuncionario"
-        Me.RBfuncionario.Size = New System.Drawing.Size(80, 17)
+        Me.RBfuncionario.Size = New System.Drawing.Size(110, 24)
         Me.RBfuncionario.TabIndex = 1
         Me.RBfuncionario.TabStop = True
         Me.RBfuncionario.Text = "Funcionário"
@@ -56,9 +57,10 @@ Partial Class CadastroUsuario
         'RBgerente
         '
         Me.RBgerente.AutoSize = True
-        Me.RBgerente.Location = New System.Drawing.Point(453, 204)
+        Me.RBgerente.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RBgerente.Location = New System.Drawing.Point(453, 215)
         Me.RBgerente.Name = "RBgerente"
-        Me.RBgerente.Size = New System.Drawing.Size(63, 17)
+        Me.RBgerente.Size = New System.Drawing.Size(86, 24)
         Me.RBgerente.TabIndex = 2
         Me.RBgerente.TabStop = True
         Me.RBgerente.Text = "Gerente"
@@ -66,66 +68,70 @@ Partial Class CadastroUsuario
         '
         'EDsenha
         '
-        Me.EDsenha.Location = New System.Drawing.Point(399, 106)
+        Me.EDsenha.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EDsenha.Location = New System.Drawing.Point(399, 117)
         Me.EDsenha.MaxLength = 20
         Me.EDsenha.Name = "EDsenha"
         Me.EDsenha.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.EDsenha.Size = New System.Drawing.Size(162, 20)
+        Me.EDsenha.Size = New System.Drawing.Size(168, 26)
         Me.EDsenha.TabIndex = 3
         '
         'EDusuario
         '
-        Me.EDusuario.Location = New System.Drawing.Point(399, 58)
+        Me.EDusuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EDusuario.Location = New System.Drawing.Point(399, 69)
         Me.EDusuario.MaxLength = 20
         Me.EDusuario.Name = "EDusuario"
-        Me.EDusuario.Size = New System.Drawing.Size(168, 20)
+        Me.EDusuario.Size = New System.Drawing.Size(168, 26)
         Me.EDusuario.TabIndex = 4
         '
         'EDconfirmarsenha
         '
-        Me.EDconfirmarsenha.Location = New System.Drawing.Point(399, 153)
+        Me.EDconfirmarsenha.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EDconfirmarsenha.Location = New System.Drawing.Point(399, 164)
         Me.EDconfirmarsenha.MaxLength = 20
         Me.EDconfirmarsenha.Name = "EDconfirmarsenha"
         Me.EDconfirmarsenha.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.EDconfirmarsenha.Size = New System.Drawing.Size(168, 20)
+        Me.EDconfirmarsenha.Size = New System.Drawing.Size(168, 26)
         Me.EDconfirmarsenha.TabIndex = 5
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(317, 58)
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(329, 69)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(60, 18)
+        Me.Label1.Size = New System.Drawing.Size(64, 20)
         Me.Label1.TabIndex = 6
         Me.Label1.Text = "Usuário"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(317, 105)
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(337, 117)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(50, 18)
+        Me.Label2.Size = New System.Drawing.Size(56, 20)
         Me.Label2.TabIndex = 7
         Me.Label2.Text = "Senha"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(273, 153)
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(264, 164)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(120, 18)
+        Me.Label3.Size = New System.Drawing.Size(129, 20)
         Me.Label3.TabIndex = 8
         Me.Label3.Text = "Confirmar Senha"
         '
         'btnTirarFoto
         '
         Me.btnTirarFoto.Enabled = False
-        Me.btnTirarFoto.Location = New System.Drawing.Point(320, 264)
+        Me.btnTirarFoto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnTirarFoto.Location = New System.Drawing.Point(320, 270)
         Me.btnTirarFoto.Name = "btnTirarFoto"
-        Me.btnTirarFoto.Size = New System.Drawing.Size(177, 23)
+        Me.btnTirarFoto.Size = New System.Drawing.Size(168, 30)
         Me.btnTirarFoto.TabIndex = 9
         Me.btnTirarFoto.Text = "Tirar Foto"
         Me.btnTirarFoto.UseVisualStyleBackColor = True
@@ -133,18 +139,20 @@ Partial Class CadastroUsuario
         '
         'Button3
         '
+        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.Location = New System.Drawing.Point(320, 317)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(168, 23)
+        Me.Button3.Size = New System.Drawing.Size(168, 30)
         Me.Button3.TabIndex = 11
         Me.Button3.Text = "Inserir"
         Me.Button3.UseVisualStyleBackColor = True
         '
         'Button2
         '
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.Location = New System.Drawing.Point(54, 317)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(162, 23)
+        Me.Button2.Size = New System.Drawing.Size(162, 30)
         Me.Button2.TabIndex = 12
         Me.Button2.Text = "Adicionar foto existente"
         Me.Button2.UseVisualStyleBackColor = True
@@ -155,9 +163,10 @@ Partial Class CadastroUsuario
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(30, 41)
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(30, 33)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(220, 23)
+        Me.Button1.Size = New System.Drawing.Size(220, 30)
         Me.Button1.TabIndex = 13
         Me.Button1.Text = "Ativar câmera"
         Me.Button1.UseVisualStyleBackColor = True
@@ -165,17 +174,19 @@ Partial Class CadastroUsuario
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(100, 80)
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(84, 82)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(71, 13)
+        Me.Label4.Size = New System.Drawing.Size(106, 20)
         Me.Label4.TabIndex = 14
         Me.Label4.Text = "Sua foto Aqui"
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(401, 12)
+        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.Location = New System.Drawing.Point(401, 23)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(166, 23)
+        Me.Button4.Size = New System.Drawing.Size(166, 30)
         Me.Button4.TabIndex = 16
         Me.Button4.Text = "Voltar ao Menu"
         Me.Button4.UseVisualStyleBackColor = True
@@ -196,7 +207,7 @@ Partial Class CadastroUsuario
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
-        Me.ClientSize = New System.Drawing.Size(597, 375)
+        Me.ClientSize = New System.Drawing.Size(624, 380)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.PBfoto)
         Me.Controls.Add(Me.Label4)
@@ -214,7 +225,7 @@ Partial Class CadastroUsuario
         Me.Controls.Add(Me.RBfuncionario)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "CadastroUsuario"
-        Me.Text = "Mountain Ville-Cadastro Usuario"
+        Me.Text = "Mountain Ville - Cadastro Usuário"
         CType(Me.PBfoto, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

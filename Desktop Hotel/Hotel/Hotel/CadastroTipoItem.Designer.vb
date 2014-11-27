@@ -63,7 +63,7 @@ Partial Class CadastroTipoItem
         Me.tcTipoItem.Location = New System.Drawing.Point(13, 13)
         Me.tcTipoItem.Name = "tcTipoItem"
         Me.tcTipoItem.SelectedIndex = 0
-        Me.tcTipoItem.Size = New System.Drawing.Size(320, 145)
+        Me.tcTipoItem.Size = New System.Drawing.Size(329, 156)
         Me.tcTipoItem.TabIndex = 0
         '
         'tbCadastroTipoItem
@@ -74,7 +74,7 @@ Partial Class CadastroTipoItem
         Me.tbCadastroTipoItem.Location = New System.Drawing.Point(4, 22)
         Me.tbCadastroTipoItem.Name = "tbCadastroTipoItem"
         Me.tbCadastroTipoItem.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbCadastroTipoItem.Size = New System.Drawing.Size(312, 119)
+        Me.tbCadastroTipoItem.Size = New System.Drawing.Size(321, 130)
         Me.tbCadastroTipoItem.TabIndex = 0
         Me.tbCadastroTipoItem.Text = "Cadastro de Tipo de Item"
         Me.tbCadastroTipoItem.UseVisualStyleBackColor = True
@@ -264,11 +264,12 @@ Partial Class CadastroTipoItem
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(345, 170)
+        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
+        Me.ClientSize = New System.Drawing.Size(354, 181)
         Me.Controls.Add(Me.tcTipoItem)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "CadastroTipoItem"
-        Me.Text = "CadastroTipoItem"
+        Me.Text = "Mountain Ville - Cadastro Tipo Item"
         Me.tcTipoItem.ResumeLayout(False)
         Me.tbCadastroTipoItem.ResumeLayout(False)
         Me.tbCadastroTipoItem.PerformLayout()

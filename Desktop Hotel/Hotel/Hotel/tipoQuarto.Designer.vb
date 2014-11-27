@@ -88,6 +88,7 @@ Partial Class tipoQuarto
         '
         'tpCadastro
         '
+        Me.tpCadastro.BackColor = System.Drawing.Color.White
         Me.tpCadastro.Controls.Add(Me.txtDiaria)
         Me.tpCadastro.Controls.Add(Me.btnCadastrar)
         Me.tpCadastro.Controls.Add(Me.txtDescricao)
@@ -98,10 +99,9 @@ Partial Class tipoQuarto
         Me.tpCadastro.Location = New System.Drawing.Point(4, 29)
         Me.tpCadastro.Name = "tpCadastro"
         Me.tpCadastro.Padding = New System.Windows.Forms.Padding(3)
-        Me.tpCadastro.Size = New System.Drawing.Size(447, 456)
+        Me.tpCadastro.Size = New System.Drawing.Size(429, 456)
         Me.tpCadastro.TabIndex = 0
         Me.tpCadastro.Text = "Cadastro"
-        Me.tpCadastro.UseVisualStyleBackColor = True
         '
         'txtDiaria
         '
@@ -184,7 +184,7 @@ Partial Class tipoQuarto
         Me.tpEdicao.Controls.Add(Me.Label7)
         Me.tpEdicao.Location = New System.Drawing.Point(4, 29)
         Me.tpEdicao.Name = "tpEdicao"
-        Me.tpEdicao.Size = New System.Drawing.Size(447, 456)
+        Me.tpEdicao.Size = New System.Drawing.Size(429, 456)
         Me.tpEdicao.TabIndex = 3
         Me.tpEdicao.Text = "Edição"
         Me.tpEdicao.UseVisualStyleBackColor = True
@@ -358,7 +358,7 @@ Partial Class tipoQuarto
         Me.tpExibicao.Location = New System.Drawing.Point(4, 29)
         Me.tpExibicao.Name = "tpExibicao"
         Me.tpExibicao.Padding = New System.Windows.Forms.Padding(3)
-        Me.tpExibicao.Size = New System.Drawing.Size(447, 456)
+        Me.tpExibicao.Size = New System.Drawing.Size(429, 456)
         Me.tpExibicao.TabIndex = 1
         Me.tpExibicao.Text = "Exibição"
         Me.tpExibicao.UseVisualStyleBackColor = True
@@ -420,7 +420,7 @@ Partial Class tipoQuarto
         Me.Controls.Add(Me.tcTipoApto)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "tipoQuarto"
-        Me.Text = "Tipos de Quarto"
+        Me.Text = "Mountain Ville - Tipos de Apartamento"
         Me.tcTipoApto.ResumeLayout(False)
         Me.tpCadastro.ResumeLayout(False)
         Me.tpCadastro.PerformLayout()

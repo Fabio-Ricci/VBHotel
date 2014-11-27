@@ -22,6 +22,7 @@ Partial Class CadastroCliente
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CadastroCliente))
         Me.txtNome = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -173,6 +174,7 @@ Partial Class CadastroCliente
         '
         'gbLocalizacao
         '
+        Me.gbLocalizacao.BackColor = System.Drawing.Color.Transparent
         Me.gbLocalizacao.Controls.Add(Me.cbPaises)
         Me.gbLocalizacao.Controls.Add(Me.cbUF)
         Me.gbLocalizacao.Controls.Add(Me.Label11)
@@ -283,6 +285,7 @@ Partial Class CadastroCliente
         '
         'gbPagamento
         '
+        Me.gbPagamento.BackColor = System.Drawing.Color.Transparent
         Me.gbPagamento.Controls.Add(Me.mtxtCodigoCartao)
         Me.gbPagamento.Controls.Add(Me.mtxtDataCartao)
         Me.gbPagamento.Controls.Add(Me.mtxtNumeroCartao)
@@ -430,6 +433,7 @@ Partial Class CadastroCliente
         '
         'GroupBox1
         '
+        Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox1.Controls.Add(Me.Label20)
         Me.GroupBox1.Controls.Add(Me.Label19)
         Me.GroupBox1.Controls.Add(Me.Label18)
@@ -491,14 +495,15 @@ Partial Class CadastroCliente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(716, 361)
+        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
+        Me.ClientSize = New System.Drawing.Size(716, 370)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.btnCadastro)
         Me.Controls.Add(Me.gbPagamento)
         Me.Controls.Add(Me.gbLocalizacao)
         Me.Name = "CadastroCliente"
-        Me.Text = "CadastroCliente"
+        Me.Text = "Mountain Ville - Cadastro Cliente"
         Me.gbLocalizacao.ResumeLayout(False)
         Me.gbLocalizacao.PerformLayout()
         Me.gbPagamento.ResumeLayout(False)

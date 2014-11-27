@@ -45,6 +45,7 @@ Partial Class Principal
         '
         'menu
         '
+        Me.menu.BackColor = System.Drawing.Color.Gainsboro
         Me.menu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menuApartamentos, Me.menuClientes, Me.menuItens, Me.menuPergunta, Me.menuCheckout, Me.menuFuncionarios})
         Me.menu.Location = New System.Drawing.Point(0, 0)
         Me.menu.Name = "menu"
@@ -163,7 +164,7 @@ Partial Class Principal
         Me.MainMenuStrip = Me.menu
         Me.Name = "Principal"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Principal"
+        Me.Text = "Mountain Ville"
         Me.menu.ResumeLayout(False)
         Me.menu.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()

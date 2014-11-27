@@ -409,7 +409,7 @@ Partial Class CadastroItem
         Me.Controls.Add(Me.tcItem)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "CadastroItem"
-        Me.Text = "CadastroItem"
+        Me.Text = "Mountain Ville - Cadastro Item"
         Me.tcItem.ResumeLayout(False)
         Me.tbCadastroItem.ResumeLayout(False)
         Me.tbCadastroItem.PerformLayout()
