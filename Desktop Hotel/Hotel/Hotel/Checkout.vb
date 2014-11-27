@@ -76,6 +76,7 @@ Public Class Checkout
 
                     txtCustoUnitario.Text = itens(0).getPrecoUnitario()
                     txtDescricaoItem.Text = itens(0).getDescricao()
+                    qtdItens = itens.Count
                 End If
 
                 txtNome.Text = nome
@@ -102,18 +103,20 @@ Public Class Checkout
     End Sub
 
     Private Sub btnAnt_Click(sender As Object, e As EventArgs) Handles btnAnt.Click
-        If (itens.Count > indice) Then
+        If (qtdItens > indice) Then
             indice += 1
             txtCustoUnitario.Text = itens(indice).getPrecoUnitario()
             txtDescricaoItem.Text = itens(indice).getDescricao()
+            lblItens.Text = Convert.ToString(indice) + "/" + Convert.ToString(qtdItens)
         End If
     End Sub
 
     Private Sub btnProx_Click(sender As Object, e As EventArgs) Handles btnProx.Click
         If (indice > 0) Then
-            indice += 1
+            indice -= 1
             txtCustoUnitario.Text = itens(indice).getPrecoUnitario()
             txtDescricaoItem.Text = itens(indice).getDescricao()
+            lblItens.Text = Convert.ToString(indice) + "/" + Convert.ToString(qtdItens)
         End If
     End Sub
 End Class

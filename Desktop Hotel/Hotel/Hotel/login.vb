@@ -23,6 +23,9 @@
                     If (banco.logar(EDusuario.Text, EDsenha.Text)) Then
                         Dim checkout As New Checkout()
                         checkout.Show()
+
+                        Dim Pergunta As New Pergunta
+                        Pergunta.Show()
                     Else
                         MessageBox.Show("Usuário inexistente, confira seu username e senha", "Atenção",
                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation)

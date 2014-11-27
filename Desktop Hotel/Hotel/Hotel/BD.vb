@@ -599,7 +599,42 @@ Public Class BD
         qtd = dataReader.Item(0)
         Return qtd
     End Function
-    
+    '
+    'Pergunta
+    '
+    Public Function getPerguntas()
+        Try
+            Me.conexao.Open()
+        Catch ex As Exception
+            Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
+        End Try
+        Me.comando = New SqlCommand("Select * from dbo.getPerguntas()", Me.conexao)
+        Try
+            Me.dataReader = comando.ExecuteReader()
+        Catch ex As Exception
+            Me.conexao.Close()
+            Throw New System.Exception("Erro na pesquisa das informações do Checkout->Erro: " + ex.ToString)
+        End Try
+        Return Me.dataReader
+    End Function
+
+    Public Sub salvarResposta(cpf As String, resposta As String)
+        Try
+            Me.conexao.Open()
+        Catch ex As Exception
+            Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
+        End Try
+        Me.comando = New SqlCommand("exec dbo.salvarResposta @cpf, @resposta", Me.conexao)
+        Me.comando.Parameters.AddWithValue("@idItem", CStr(cpf))
+        Me.comando.Parameters.AddWithValue("@resposta", CStr(resposta))
+        Try
+            Me.comando.ExecuteNonQuery()
+        Catch ex As Exception
+            Me.conexao.Close()
+            Throw New System.Exception("Erro ao efetuar o update da resposta->Erro: " + ex.ToString)
+        End Try
+        Me.conexao.Close()
+    End Sub
 
     Public Sub fecharConexao()
         Me.conexao.Close()

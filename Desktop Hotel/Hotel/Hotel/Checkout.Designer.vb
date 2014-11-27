@@ -35,7 +35,7 @@ Partial Class Checkout
         Me.gbItensConsumidos = New System.Windows.Forms.GroupBox()
         Me.btnAnt = New System.Windows.Forms.Button()
         Me.btnProx = New System.Windows.Forms.Button()
-        Me.Label13 = New System.Windows.Forms.Label()
+        Me.lblItens = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.txtCustoUnitario = New System.Windows.Forms.TextBox()
         Me.txtDescricaoItem = New System.Windows.Forms.TextBox()
@@ -179,7 +179,7 @@ Partial Class Checkout
         '
         Me.gbItensConsumidos.Controls.Add(Me.btnAnt)
         Me.gbItensConsumidos.Controls.Add(Me.btnProx)
-        Me.gbItensConsumidos.Controls.Add(Me.Label13)
+        Me.gbItensConsumidos.Controls.Add(Me.lblItens)
         Me.gbItensConsumidos.Controls.Add(Me.Label11)
         Me.gbItensConsumidos.Controls.Add(Me.txtCustoUnitario)
         Me.gbItensConsumidos.Controls.Add(Me.txtDescricaoItem)
@@ -211,14 +211,14 @@ Partial Class Checkout
         Me.btnProx.Text = ">"
         Me.btnProx.UseVisualStyleBackColor = True
         '
-        'Label13
+        'lblItens
         '
-        Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(143, 22)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(66, 20)
-        Me.Label13.TabIndex = 24
-        Me.Label13.Text = "Label13"
+        Me.lblItens.AutoSize = True
+        Me.lblItens.Location = New System.Drawing.Point(143, 22)
+        Me.lblItens.Name = "lblItens"
+        Me.lblItens.Size = New System.Drawing.Size(66, 20)
+        Me.lblItens.TabIndex = 24
+        Me.lblItens.Text = "Label13"
         '
         'Label11
         '
@@ -499,7 +499,7 @@ Partial Class Checkout
     Friend WithEvents txtDescricaoItem As System.Windows.Forms.TextBox
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents gbItensConsumidos As System.Windows.Forms.GroupBox
-    Friend WithEvents Label13 As System.Windows.Forms.Label
+    Friend WithEvents lblItens As System.Windows.Forms.Label
     Friend WithEvents btnAnt As System.Windows.Forms.Button
     Friend WithEvents btnProx As System.Windows.Forms.Button
     Friend WithEvents gbQuarto As System.Windows.Forms.GroupBox
