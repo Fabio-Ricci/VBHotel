@@ -161,6 +161,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HosPDeirosDataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="HosPDeirosDataSet3.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HosPDeirosDataSet3.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Item.vb" />
     <Compile Include="Listagem.Designer.vb" />
     <Compile Include="Listagem.vb">
@@ -305,6 +310,17 @@
     </None>
     <None Include="HosPDeirosDataSet2.xss">
       <DependentUpon>HosPDeirosDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="HosPDeirosDataSet3.xsc">
+      <DependentUpon>HosPDeirosDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="HosPDeirosDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HosPDeirosDataSet3.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HosPDeirosDataSet3.xss">
+      <DependentUpon>HosPDeirosDataSet3.xsd</DependentUpon>
     </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>

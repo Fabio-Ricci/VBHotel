@@ -23,18 +23,6 @@ Public Class CadastroApartamentos
     Dim remocaoAndar As Integer
 
     'tab 1 cadastramento
-    Private Sub CadastroApartamentos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.DataGridView1.DataSource = Me.BindingSource1
-        GetSetData("select * from hApartamento")
-
-        'TODO: This line of code loads data into the 'HosPDeirosDataSet1.hApartamento' table. You can move, or remove it, as needed.
-        Me.HApartamentoTableAdapter.Fill(Me.HosPDeirosDataSet1.hApartamento)
-        'TODO: This line of code loads data into the 'HosPDeirosDataSet.hTipoApartamento' table. You can move, or remove it, as needed.
-        Me.HTipoApartamentoTableAdapter.Fill(Me.HosPDeirosDataSet.hTipoApartamento)
-        camaSolteiro = 0
-        camaCasal = 0
-        frigobar = ""
-    End Sub
 
     Private Sub btnIncluir_Click(sender As Object, e As EventArgs) Handles btnIncluir.Click
         numero = Convert.ToInt32(txtNumero.Text)
@@ -322,7 +310,16 @@ Public Class CadastroApartamentos
     End Sub
 
     Private Sub btnRemoverApartamento_Click(sender As Object, e As EventArgs) Handles btnRemoverApartamento.Click
-        'bd.removerApartamento(remocaoNumeroSelecionado)
+        bd.removerApartamento(remocaoNumeroSelecionado)
+        MsgBox("Apartamento excluído com sucesso")
+        txtRemocaoAndar.Text = ""
+        txtRemocaoCamaCasal.Text = ""
+        txtremocaoCamaSolteiro.Text = ""
+        txtRemocaoTipoApartamento.Text = ""
+        cbxRemocaoApartamento.SelectedIndex = -1
+        rbRemocaoNao.Checked = False
+        rbRemocaoSim.Checked = False
+        pnlRemocao.Visible = False
     End Sub
 
     Private Sub cbxRemocaoApartamento_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxRemocaoApartamento.SelectedIndexChanged

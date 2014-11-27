@@ -23,6 +23,7 @@ Partial Class ListagemCliente
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ListagemCliente))
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.tpListagem = New System.Windows.Forms.TabPage()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
@@ -396,8 +397,19 @@ Partial Class ListagemCliente
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1360, 504)
         Me.Controls.Add(Me.TabControl1)
+<<<<<<< HEAD
         Me.Name = "Listagem"
         Me.Text = "Listagem"
+=======
+<<<<<<< HEAD
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Name = "ListagemCliente"
+        Me.Text = "Listagem"
+=======
+        Me.Name = "ListagemCliente"
+        Me.Text = "Listagem de Cliente"
+>>>>>>> origin/master
+>>>>>>> origin/master
         Me.TabControl1.ResumeLayout(False)
         Me.tpListagem.ResumeLayout(False)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()

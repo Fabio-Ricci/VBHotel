@@ -77,10 +77,15 @@ Partial Class CadastroApartamentos
         Me.rbRemocaoNao = New System.Windows.Forms.RadioButton()
         Me.rbRemocaoSim = New System.Windows.Forms.RadioButton()
         Me.Label16 = New System.Windows.Forms.Label()
-        Me.tbListagem = New System.Windows.Forms.TabPage()
         Me.HApartamentoTableAdapter = New Hotel.HosPDeirosDataSet1TableAdapters.hApartamentoTableAdapter()
+<<<<<<< HEAD
+        Me.HosPDeirosDataSet2 = New Hotel.HosPDeirosDataSet2()
+        Me.HApartamentoBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.HApartamentoTableAdapter1 = New Hotel.HosPDeirosDataSet2TableAdapters.hApartamentoTableAdapter()
+=======
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+>>>>>>> origin/master
         CType(Me.HTipoApartamentoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.HosPDeirosDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbFrigobar.SuspendLayout()
@@ -94,9 +99,14 @@ Partial Class CadastroApartamentos
         Me.tbRemoçãoApartamento.SuspendLayout()
         Me.pnlRemocao.SuspendLayout()
         Me.gbRemocaoFrigobar.SuspendLayout()
+<<<<<<< HEAD
+        CType(Me.HosPDeirosDataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.HApartamentoBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+=======
         Me.tbListagem.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+>>>>>>> origin/master
         Me.SuspendLayout()
         '
         'Label1
@@ -205,7 +215,6 @@ Partial Class CadastroApartamentos
         Me.tcApartamento.Controls.Add(Me.tbCadastro)
         Me.tcApartamento.Controls.Add(Me.tbEdicao)
         Me.tcApartamento.Controls.Add(Me.tbRemoçãoApartamento)
-        Me.tcApartamento.Controls.Add(Me.tbListagem)
         Me.tcApartamento.Location = New System.Drawing.Point(12, 12)
         Me.tcApartamento.Name = "tcApartamento"
         Me.tcApartamento.SelectedIndex = 0
@@ -649,6 +658,8 @@ Partial Class CadastroApartamentos
         Me.Label16.TabIndex = 0
         Me.Label16.Text = "Tipo do Apartamento:"
         '
+<<<<<<< HEAD
+=======
         'tbListagem
         '
         Me.tbListagem.Controls.Add(Me.DataGridView1)
@@ -660,10 +671,26 @@ Partial Class CadastroApartamentos
         Me.tbListagem.Text = "Listagem de Apartamentos"
         Me.tbListagem.UseVisualStyleBackColor = True
         '
+>>>>>>> origin/master
         'HApartamentoTableAdapter
         '
         Me.HApartamentoTableAdapter.ClearBeforeFill = True
         '
+<<<<<<< HEAD
+        'HosPDeirosDataSet2
+        '
+        Me.HosPDeirosDataSet2.DataSetName = "HosPDeirosDataSet2"
+        Me.HosPDeirosDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'HApartamentoBindingSource1
+        '
+        Me.HApartamentoBindingSource1.DataMember = "hApartamento"
+        Me.HApartamentoBindingSource1.DataSource = Me.HosPDeirosDataSet2
+        '
+        'HApartamentoTableAdapter1
+        '
+        Me.HApartamentoTableAdapter1.ClearBeforeFill = True
+=======
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -671,6 +698,7 @@ Partial Class CadastroApartamentos
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(334, 269)
         Me.DataGridView1.TabIndex = 0
+>>>>>>> origin/master
         '
         'CadastroApartamentos
         '
@@ -703,9 +731,14 @@ Partial Class CadastroApartamentos
         Me.pnlRemocao.PerformLayout()
         Me.gbRemocaoFrigobar.ResumeLayout(False)
         Me.gbRemocaoFrigobar.PerformLayout()
+<<<<<<< HEAD
+        CType(Me.HosPDeirosDataSet2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.HApartamentoBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+=======
         Me.tbListagem.ResumeLayout(False)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+>>>>>>> origin/master
         Me.ResumeLayout(False)
 
     End Sub
@@ -763,7 +796,13 @@ Partial Class CadastroApartamentos
     Friend WithEvents txtEdicaoAndar As System.Windows.Forms.TextBox
     Friend WithEvents txtRemocaoAndar As System.Windows.Forms.TextBox
     Friend WithEvents Label18 As System.Windows.Forms.Label
+<<<<<<< HEAD
+    Friend WithEvents HosPDeirosDataSet2 As Hotel.HosPDeirosDataSet2
+    Friend WithEvents HApartamentoBindingSource1 As System.Windows.Forms.BindingSource
+    Friend WithEvents HApartamentoTableAdapter1 As Hotel.HosPDeirosDataSet2TableAdapters.hApartamentoTableAdapter
+=======
     Friend WithEvents tbListagem As System.Windows.Forms.TabPage
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
     Friend WithEvents BindingSource1 As System.Windows.Forms.BindingSource
+>>>>>>> origin/master
 End Class
