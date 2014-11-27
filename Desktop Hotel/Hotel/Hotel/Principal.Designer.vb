@@ -39,6 +39,7 @@ Partial Class Principal
         Me.menuFuncionariosCadastro = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuFuncionariosListagem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.menuItensConsumoItens = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -93,7 +94,7 @@ Partial Class Principal
         '
         'menuItens
         '
-        Me.menuItens.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menuItensCadastro, Me.menuItensCadastroTipo})
+        Me.menuItens.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menuItensCadastro, Me.menuItensCadastroTipo, Me.menuItensConsumoItens})
         Me.menuItens.Name = "menuItens"
         Me.menuItens.Size = New System.Drawing.Size(44, 20)
         Me.menuItens.Text = "Itens"
@@ -152,6 +153,12 @@ Partial Class Principal
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
         '
+        'menuItensConsumoItens
+        '
+        Me.menuItensConsumoItens.Name = "menuItensConsumoItens"
+        Me.menuItensConsumoItens.Size = New System.Drawing.Size(212, 22)
+        Me.menuItensConsumoItens.Text = "Consumo"
+        '
         'Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -188,4 +195,5 @@ Partial Class Principal
     Friend WithEvents menuFuncionarios As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents menuFuncionariosCadastro As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents menuFuncionariosListagem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents menuItensConsumoItens As System.Windows.Forms.ToolStripMenuItem
 End Class

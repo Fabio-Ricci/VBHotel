@@ -667,7 +667,7 @@ Partial Class CadastroApartamentos
         Me.Controls.Add(Me.tcApartamento)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "CadastroApartamentos"
-        Me.Text = "Cadastro de Apartamentos"
+        Me.Text = "Mountain Ville - Cadastro de Apartamentos"
         CType(Me.HTipoApartamentoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.HosPDeirosDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbFrigobar.ResumeLayout(False)

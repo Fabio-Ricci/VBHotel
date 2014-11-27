@@ -48,4 +48,9 @@
     Private Sub menuFuncionariosListagem_Click(sender As Object, e As EventArgs) Handles menuFuncionariosListagem.Click
 
     End Sub
+
+    Private Sub menuItensConsumoItens_Click(sender As Object, e As EventArgs) Handles menuItensConsumoItens.Click
+        Dim ConsumoDeItem As New ConsumoDeItem
+        ConsumoDeItem.Show()
+    End Sub
 End Class
