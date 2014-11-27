@@ -27,8 +27,6 @@ Partial Class ListagemCliente
         Me.tpListagem = New System.Windows.Forms.TabPage()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.tpEdicao = New System.Windows.Forms.TabPage()
-        Me.btnSave = New System.Windows.Forms.Button()
-        Me.btnBack = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.txtNome = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -56,6 +54,7 @@ Partial Class ListagemCliente
         Me.txtBairro = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtEndereco = New System.Windows.Forms.TextBox()
+        Me.btnStart = New System.Windows.Forms.Button()
         Me.btnNext = New System.Windows.Forms.Button()
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.TabControl1.SuspendLayout()
@@ -102,10 +101,9 @@ Partial Class ListagemCliente
         '
         'tpEdicao
         '
-        Me.tpEdicao.Controls.Add(Me.btnSave)
-        Me.tpEdicao.Controls.Add(Me.btnBack)
         Me.tpEdicao.Controls.Add(Me.GroupBox1)
         Me.tpEdicao.Controls.Add(Me.gbLocalizacao)
+        Me.tpEdicao.Controls.Add(Me.btnStart)
         Me.tpEdicao.Controls.Add(Me.btnNext)
         Me.tpEdicao.Location = New System.Drawing.Point(4, 22)
         Me.tpEdicao.Name = "tpEdicao"
@@ -114,24 +112,6 @@ Partial Class ListagemCliente
         Me.tpEdicao.TabIndex = 1
         Me.tpEdicao.Text = "Edição"
         Me.tpEdicao.UseVisualStyleBackColor = True
-        '
-        'btnSave
-        '
-        Me.btnSave.Location = New System.Drawing.Point(358, 227)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(69, 21)
-        Me.btnSave.TabIndex = 41
-        Me.btnSave.Text = "Salvar"
-        Me.btnSave.UseVisualStyleBackColor = True
-        '
-        'btnBack
-        '
-        Me.btnBack.Location = New System.Drawing.Point(272, 227)
-        Me.btnBack.Name = "btnBack"
-        Me.btnBack.Size = New System.Drawing.Size(37, 21)
-        Me.btnBack.TabIndex = 40
-        Me.btnBack.Text = "<"
-        Me.btnBack.UseVisualStyleBackColor = True
         '
         'GroupBox1
         '
@@ -197,7 +177,6 @@ Partial Class ListagemCliente
         Me.mtxtCPF.Location = New System.Drawing.Point(117, 179)
         Me.mtxtCPF.Mask = "000,000,000-00"
         Me.mtxtCPF.Name = "mtxtCPF"
-        Me.mtxtCPF.ReadOnly = True
         Me.mtxtCPF.Size = New System.Drawing.Size(84, 20)
         Me.mtxtCPF.TabIndex = 33
         '
@@ -393,23 +372,32 @@ Partial Class ListagemCliente
         Me.txtEndereco.Size = New System.Drawing.Size(262, 20)
         Me.txtEndereco.TabIndex = 24
         '
+        'btnStart
+        '
+        Me.btnStart.Location = New System.Drawing.Point(716, 29)
+        Me.btnStart.Name = "btnStart"
+        Me.btnStart.Size = New System.Drawing.Size(18, 257)
+        Me.btnStart.TabIndex = 5
+        Me.btnStart.Text = "START"
+        Me.btnStart.UseVisualStyleBackColor = True
+        '
         'btnNext
         '
-        Me.btnNext.Location = New System.Drawing.Point(315, 227)
+        Me.btnNext.Location = New System.Drawing.Point(740, 29)
         Me.btnNext.Name = "btnNext"
-        Me.btnNext.Size = New System.Drawing.Size(37, 21)
+        Me.btnNext.Size = New System.Drawing.Size(18, 257)
         Me.btnNext.TabIndex = 4
-        Me.btnNext.Text = ">"
+        Me.btnNext.Text = "NEXT"
         Me.btnNext.UseVisualStyleBackColor = True
         '
-        'ListagemCliente
+        'Listagem
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1360, 504)
         Me.Controls.Add(Me.TabControl1)
-        Me.Name = "ListagemCliente"
-        Me.Text = "Listagem de Cliente"
+        Me.Name = "Listagem"
+        Me.Text = "Listagem"
         Me.TabControl1.ResumeLayout(False)
         Me.tpListagem.ResumeLayout(False)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -425,6 +413,7 @@ Partial Class ListagemCliente
     Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
     Friend WithEvents tpListagem As System.Windows.Forms.TabPage
     Friend WithEvents tpEdicao As System.Windows.Forms.TabPage
+    Friend WithEvents btnStart As System.Windows.Forms.Button
     Friend WithEvents btnNext As System.Windows.Forms.Button
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
     Friend WithEvents BindingSource1 As System.Windows.Forms.BindingSource
@@ -455,6 +444,4 @@ Partial Class ListagemCliente
     Friend WithEvents txtBairro As System.Windows.Forms.TextBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents txtEndereco As System.Windows.Forms.TextBox
-    Friend WithEvents btnBack As System.Windows.Forms.Button
-    Friend WithEvents btnSave As System.Windows.Forms.Button
 End Class

@@ -156,7 +156,16 @@
     <Compile Include="HosPDeirosDataSet1.vb">
       <DependentUpon>HosPDeirosDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="HosPDeirosDataSet2.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HosPDeirosDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Item.vb" />
+    <Compile Include="Listagem.Designer.vb" />
+    <Compile Include="Listagem.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ListagemCliente.designer.vb">
       <DependentUpon>ListagemCliente.vb</DependentUpon>
     </Compile>
@@ -237,6 +246,7 @@
     <EmbeddedResource Include="ListagemFuncionario.resx">
       <DependentUpon>ListagemFuncionario.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Listagem.resx" />
     <EmbeddedResource Include="ListagemCliente.resx">
       <DependentUpon>ListagemCliente.vb</DependentUpon>
     </EmbeddedResource>
@@ -284,6 +294,17 @@
     </None>
     <None Include="HosPDeirosDataSet1.xss">
       <DependentUpon>HosPDeirosDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="HosPDeirosDataSet2.xsc">
+      <DependentUpon>HosPDeirosDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="HosPDeirosDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HosPDeirosDataSet2.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HosPDeirosDataSet2.xss">
+      <DependentUpon>HosPDeirosDataSet2.xsd</DependentUpon>
     </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
