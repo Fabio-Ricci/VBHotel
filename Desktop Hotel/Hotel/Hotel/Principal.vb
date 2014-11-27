@@ -46,7 +46,7 @@ Public Class Principal
         ConsumoDeItem.Show()
     End Sub
 
-    Private Sub Principal_Leave(sender As Object, e As EventArgs) Handles MyBase.Leave
+    Private Sub Principal_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         CadastroApartamentos.Close()
         tipoQuarto.Close()
         CadastroCliente.Close()
@@ -57,22 +57,6 @@ Public Class Principal
         Checkout.Close()
         CadastroUsuario.Close()
         ConsumoDeItem.Close()
-        Me.Close()
-    End Sub
-
-
-    Private Sub Principal_FormClosing(sender As Object, e As FormClosingEventArgs) 'Handles Principal.FormClosing
-        CadastroApartamentos.Close()
-        tipoQuarto.Close()
-        CadastroCliente.Close()
-        ListagemCliente.Close()
-        CadastroItem.Close()
-        CadastroTipoItem.Close()
-        Pergunta.Close()
-        Checkout.Close()
-        CadastroUsuario.Close()
-        ConsumoDeItem.Close()
-        Me.Close()
     End Sub
 
 End Class
