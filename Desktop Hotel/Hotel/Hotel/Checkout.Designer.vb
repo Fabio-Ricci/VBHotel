@@ -212,9 +212,8 @@ Partial Class Checkout
         Me.lblItens.AutoSize = True
         Me.lblItens.Location = New System.Drawing.Point(143, 22)
         Me.lblItens.Name = "lblItens"
-        Me.lblItens.Size = New System.Drawing.Size(66, 20)
+        Me.lblItens.Size = New System.Drawing.Size(0, 20)
         Me.lblItens.TabIndex = 24
-        Me.lblItens.Text = "Label13"
         '
         'Label11
         '

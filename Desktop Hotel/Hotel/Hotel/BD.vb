@@ -659,7 +659,7 @@ Public Class BD
             Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
         End Try
         Me.comando = New SqlCommand("exec dbo.salvarResposta @cpf, @resposta", Me.conexao)
-        Me.comando.Parameters.AddWithValue("@idItem", CStr(cpf))
+        Me.comando.Parameters.AddWithValue("@cpf", CStr(cpf))
         Me.comando.Parameters.AddWithValue("@resposta", CStr(resposta))
         Try
             Me.comando.ExecuteNonQuery()
