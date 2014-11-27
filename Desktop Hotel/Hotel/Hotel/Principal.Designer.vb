@@ -48,7 +48,7 @@ Partial Class Principal
         Me.menu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menuApartamentos, Me.menuClientes, Me.menuItens, Me.menuPergunta, Me.menuCheckout, Me.menuFuncionarios})
         Me.menu.Location = New System.Drawing.Point(0, 0)
         Me.menu.Name = "menu"
-        Me.menu.Size = New System.Drawing.Size(449, 24)
+        Me.menu.Size = New System.Drawing.Size(438, 24)
         Me.menu.TabIndex = 0
         Me.menu.Text = "MenuStrip1"
         '
@@ -144,9 +144,9 @@ Partial Class Principal
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(50, 39)
+        Me.PictureBox1.Location = New System.Drawing.Point(42, 48)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(345, 255)
+        Me.PictureBox1.Size = New System.Drawing.Size(336, 239)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
@@ -156,7 +156,7 @@ Partial Class Principal
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
-        Me.ClientSize = New System.Drawing.Size(449, 320)
+        Me.ClientSize = New System.Drawing.Size(438, 320)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.menu)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
