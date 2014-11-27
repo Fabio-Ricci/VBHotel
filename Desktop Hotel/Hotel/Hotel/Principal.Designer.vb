@@ -33,13 +33,13 @@ Partial Class Principal
         Me.menuItens = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuItensCadastro = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuItensCadastroTipo = New System.Windows.Forms.ToolStripMenuItem()
+        Me.menuItensConsumoItens = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuPergunta = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuCheckout = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuFuncionarios = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuFuncionariosCadastro = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuFuncionariosListagem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.menuItensConsumoItens = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -111,6 +111,12 @@ Partial Class Principal
         Me.menuItensCadastroTipo.Size = New System.Drawing.Size(212, 22)
         Me.menuItensCadastroTipo.Text = "Cadastro de Tipos de Item"
         '
+        'menuItensConsumoItens
+        '
+        Me.menuItensConsumoItens.Name = "menuItensConsumoItens"
+        Me.menuItensConsumoItens.Size = New System.Drawing.Size(212, 22)
+        Me.menuItensConsumoItens.Text = "Consumo"
+        '
         'menuPergunta
         '
         Me.menuPergunta.Name = "menuPergunta"
@@ -152,12 +158,6 @@ Partial Class Principal
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
-        '
-        'menuItensConsumoItens
-        '
-        Me.menuItensConsumoItens.Name = "menuItensConsumoItens"
-        Me.menuItensConsumoItens.Size = New System.Drawing.Size(212, 22)
-        Me.menuItensConsumoItens.Text = "Consumo"
         '
         'Principal
         '

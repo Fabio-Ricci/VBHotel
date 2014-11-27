@@ -31,6 +31,8 @@
                             Principal.Show()
                         End If
 
+                        Me.Hide()
+
                     Else
                         MessageBox.Show("Usuário inexistente, confira seu username e senha", "Atenção",
                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
