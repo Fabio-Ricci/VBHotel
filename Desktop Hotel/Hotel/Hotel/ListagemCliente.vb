@@ -16,7 +16,7 @@ Public Class ListagemCliente
         btnStart_Click(sender, e)
     End Sub
 
-    Private Sub GetSetData(ByVal selectCommand As String)
+    Private Sub GetSetData(selectCommand As String)
         Try
             Dim con As New SqlConnection
             ' configura a conexao

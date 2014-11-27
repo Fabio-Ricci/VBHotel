@@ -22,6 +22,7 @@ Partial Class CadastroItem
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CadastroItem))
         Me.tcItem = New System.Windows.Forms.TabControl()
         Me.tbCadastroItem = New System.Windows.Forms.TabPage()
@@ -55,12 +56,17 @@ Partial Class CadastroItem
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.tbListagemItem = New System.Windows.Forms.TabPage()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.tcItem.SuspendLayout()
         Me.tbCadastroItem.SuspendLayout()
         Me.tbEdicaoItem.SuspendLayout()
         Me.pnlEdicaoItem.SuspendLayout()
         Me.tbRemocaoItem.SuspendLayout()
         Me.pnlRemocaoItem.SuspendLayout()
+        Me.tbListagemItem.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'tcItem
@@ -75,7 +81,7 @@ Partial Class CadastroItem
         Me.tcItem.Location = New System.Drawing.Point(12, 12)
         Me.tcItem.Name = "tcItem"
         Me.tcItem.SelectedIndex = 0
-        Me.tcItem.Size = New System.Drawing.Size(347, 305)
+        Me.tcItem.Size = New System.Drawing.Size(452, 387)
         Me.tcItem.TabIndex = 0
         '
         'tbCadastroItem
@@ -392,20 +398,32 @@ Partial Class CadastroItem
         '
         'tbListagemItem
         '
+        Me.tbListagemItem.Controls.Add(Me.DataGridView1)
         Me.tbListagemItem.Location = New System.Drawing.Point(4, 22)
         Me.tbListagemItem.Name = "tbListagemItem"
         Me.tbListagemItem.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbListagemItem.Size = New System.Drawing.Size(339, 279)
+        Me.tbListagemItem.Size = New System.Drawing.Size(444, 361)
         Me.tbListagemItem.TabIndex = 3
         Me.tbListagemItem.Text = "Listagem de Itens"
         Me.tbListagemItem.UseVisualStyleBackColor = True
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(6, 6)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(432, 273)
+        Me.DataGridView1.TabIndex = 0
+        '
+        'BindingSource1
+        '
         '
         'CadastroItem
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
-        Me.ClientSize = New System.Drawing.Size(371, 329)
+        Me.ClientSize = New System.Drawing.Size(476, 411)
         Me.Controls.Add(Me.tcItem)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "CadastroItem"
@@ -421,6 +439,9 @@ Partial Class CadastroItem
         Me.tbRemocaoItem.PerformLayout()
         Me.pnlRemocaoItem.ResumeLayout(False)
         Me.pnlRemocaoItem.PerformLayout()
+        Me.tbListagemItem.ResumeLayout(False)
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -456,4 +477,6 @@ Partial Class CadastroItem
     Friend WithEvents cbxTipoItem As System.Windows.Forms.ComboBox
     Friend WithEvents cbxEdicaoTipoItem As System.Windows.Forms.ComboBox
     Friend WithEvents cbxRemocaoTipoItem As System.Windows.Forms.ComboBox
+    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents BindingSource1 As System.Windows.Forms.BindingSource
 End Class
