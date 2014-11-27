@@ -669,7 +669,65 @@ Public Class BD
         End Try
         Me.conexao.Close()
     End Sub
+    '
+    'Consumo
+    '
+    Public Function getDescricaoItens()
+        Try
+            Me.conexao.Open()
+        Catch ex As Exception
+            Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
+        End Try
+        Me.comando = New SqlCommand("Select * from dbo.getDescricaoItens()", Me.conexao)
+        Try
+            Me.dataReader = comando.ExecuteReader()
+        Catch ex As Exception
+            Me.conexao.Close()
+            Throw New System.Exception("Erro na pesquisa das descrições dos itens->Erro: " + ex.ToString)
+        End Try
+        Return Me.dataReader
+    End Function
 
+    Public Sub inserirConsumo(item As Integer, idHospedagem As Integer, qtd As Integer, data As Date)
+        Try
+            Me.conexao.Open()
+        Catch ex As Exception
+            Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
+        End Try
+        Me.comando = New SqlCommand("exec dbo.incluirItemConsumo @item, @idHospedagem, @qtd, @data", Me.conexao)
+        Me.comando.Parameters.AddWithValue("@idHospedagem", CStr(idHospedagem))
+        Me.comando.Parameters.AddWithValue("@item", CStr(item))
+        Me.comando.Parameters.AddWithValue("@qtd", CStr(qtd))
+        Me.comando.Parameters.AddWithValue("@data", CStr(data))
+        Try
+            Me.comando.ExecuteNonQuery()
+        Catch ex As Exception
+            Me.conexao.Close()
+            Throw New System.Exception("Erro ao efetuar o update da resposta->Erro: " + ex.ToString)
+        End Try
+        Me.conexao.Close()
+    End Sub
+
+    Public Function getIdHospedagem(cpf As String)
+        Dim id As Integer
+
+        Try
+            Me.conexao.Open()
+        Catch ex As Exception
+            Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
+        End Try
+        Me.comando = New SqlCommand("Select * from dbo.getIdHospedagem(@cpf)", Me.conexao)
+        Me.comando.Parameters.Add(New SqlParameter("@cpf", cpf))
+        Try
+            Me.dataReader = comando.ExecuteReader()
+        Catch ex As Exception
+            Me.conexao.Close()
+            Return 0
+        End Try
+        dataReader.Read()
+        id = dataReader.Item(0)
+        Return id
+    End Function
 
 
 
