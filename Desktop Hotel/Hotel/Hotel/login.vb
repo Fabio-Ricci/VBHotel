@@ -29,6 +29,9 @@
                         Else
                             Dim Principal As New Principal
                             Principal.Show()
+
+                            Dim ava As New Avaliacao
+                            ava.Show()
                         End If
 
                         Me.Hide()

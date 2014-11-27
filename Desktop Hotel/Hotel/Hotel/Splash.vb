@@ -15,21 +15,21 @@ Public Class Splash
         lblMensagem.Text = "Carregando dados do sistema..."
         For i As Integer = 0 To pbProgresso.Maximum / 3
             pbProgresso.Value = i
-            Thread.Sleep(100)
+            Thread.Sleep(1) '100
             Me.Refresh()
         Next
 
         lblMensagem.Text = "Carregando formulários..."
         For i = pbProgresso.Maximum / 3 To 2 * (pbProgresso.Maximum / 3)
             pbProgresso.Value = i
-            Thread.Sleep(100)
+            Thread.Sleep(1) '100
             Me.Refresh()
         Next
 
         lblMensagem.Text = "Carregando banco de dados..."
         For i = 2 * (pbProgresso.Maximum / 3) To pbProgresso.Maximum
             pbProgresso.Value = i
-            Thread.Sleep(100)
+            Thread.Sleep(1) '100
             Me.Refresh()
         Next
 

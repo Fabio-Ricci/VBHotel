@@ -61,6 +61,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -86,6 +87,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Avaliacao.Designer.vb">
+      <DependentUpon>Avaliacao.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Avaliacao.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="BD.vb" />
     <Compile Include="CadastroApartamentos.Designer.vb">
       <DependentUpon>CadastroApartamentos.vb</DependentUpon>
@@ -149,6 +156,10 @@
       <DependentUpon>HosPDeirosDataSet2.xsd</DependentUpon>
     </Compile>
     <Compile Include="Item.vb" />
+    <Compile Include="Listagem.Designer.vb" />
+    <Compile Include="Listagem.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ListagemCliente.designer.vb">
       <DependentUpon>ListagemCliente.vb</DependentUpon>
     </Compile>
@@ -202,6 +213,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Avaliacao.resx">
+      <DependentUpon>Avaliacao.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CadastroApartamentos.resx">
       <DependentUpon>CadastroApartamentos.vb</DependentUpon>
     </EmbeddedResource>
@@ -223,6 +237,7 @@
     <EmbeddedResource Include="ConsumoDeItem.resx">
       <DependentUpon>ConsumoDeItem.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Listagem.resx" />
     <EmbeddedResource Include="ListagemCliente.resx">
       <DependentUpon>ListagemCliente.vb</DependentUpon>
     </EmbeddedResource>

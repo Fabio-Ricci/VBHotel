@@ -1013,6 +1013,111 @@ Public Class BD
         Return privilegio
     End Function
 
+    Public Function getQtasRespostas() As Integer
+        Dim qtd As Integer
+
+        Try
+            Me.conexao.Open()
+        Catch ex As Exception
+            Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
+        End Try
+        Me.comando = New SqlCommand("dbo.qtasRespostas", Me.conexao)
+        Try
+            Me.dataReader = comando.ExecuteReader()
+        Catch ex As Exception
+            Me.conexao.Close()
+            Throw New System.Exception("Erro na pesquisa das informações do Checkout->Erro: " + ex.ToString)
+        End Try
+        dataReader.Read()
+        qtd = dataReader.Item(0)
+        Me.conexao.Close()
+        Return qtd
+    End Function
+
+    Public Function getSomaNotaQuarto() As Integer
+        Dim qtd As Integer
+
+        Try
+            Me.conexao.Open()
+        Catch ex As Exception
+            Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
+        End Try
+        Me.comando = New SqlCommand("dbo.somaRespostaQuarto", Me.conexao)
+        Try
+            Me.dataReader = comando.ExecuteReader()
+        Catch ex As Exception
+            Me.conexao.Close()
+            Throw New System.Exception("Erro na pesquisa das informações do Checkout->Erro: " + ex.ToString)
+        End Try
+        dataReader.Read()
+        qtd = dataReader.Item(0)
+        Me.conexao.Close()
+        Return qtd
+    End Function
+
+    Public Function getSomaNotaAtendimento() As Integer
+        Dim qtd As Integer
+
+        Try
+            Me.conexao.Open()
+        Catch ex As Exception
+            Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
+        End Try
+        Me.comando = New SqlCommand("dbo.somaRespostaAtendimento", Me.conexao)
+        Try
+            Me.dataReader = comando.ExecuteReader()
+        Catch ex As Exception
+            Me.conexao.Close()
+            Throw New System.Exception("Erro na pesquisa das informações do Checkout->Erro: " + ex.ToString)
+        End Try
+        dataReader.Read()
+        qtd = dataReader.Item(0)
+        Me.conexao.Close()
+        Return qtd
+    End Function
+
+    Public Function getSomaNotaRegiao() As Integer
+        Dim qtd As Integer
+
+        Try
+            Me.conexao.Open()
+        Catch ex As Exception
+            Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
+        End Try
+        Me.comando = New SqlCommand("dbo.somaRespostaRegiao", Me.conexao)
+        Try
+            Me.dataReader = comando.ExecuteReader()
+        Catch ex As Exception
+            Me.conexao.Close()
+            Throw New System.Exception("Erro na pesquisa das informações do Checkout->Erro: " + ex.ToString)
+        End Try
+        dataReader.Read()
+        qtd = dataReader.Item(0)
+        Me.conexao.Close()
+        Return qtd
+    End Function
+
+    Public Function getSomaNotaRestaurantes() As Integer
+        Dim qtd As Integer
+
+        Try
+            Me.conexao.Open()
+        Catch ex As Exception
+            Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
+        End Try
+        Me.comando = New SqlCommand("dbo.somaRespostaRestaurantes", Me.conexao)
+        Try
+            Me.dataReader = comando.ExecuteReader()
+        Catch ex As Exception
+            Me.conexao.Close()
+            Throw New System.Exception("Erro na pesquisa das informações do Checkout->Erro: " + ex.ToString)
+        End Try
+        dataReader.Read()
+        qtd = dataReader.Item(0)
+        Me.conexao.Close()
+        Return qtd
+    End Function
+
 End Class
 
 
