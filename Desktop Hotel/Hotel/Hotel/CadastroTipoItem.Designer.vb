@@ -42,7 +42,6 @@ Partial Class CadastroTipoItem
         Me.Label5 = New System.Windows.Forms.Label()
         Me.cbxRemocaoIdTipoItem = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.tbListagemTipoItem = New System.Windows.Forms.TabPage()
         Me.tcTipoItem.SuspendLayout()
         Me.tbCadastroTipoItem.SuspendLayout()
         Me.tbEdicaoTipoItem.SuspendLayout()
@@ -59,7 +58,6 @@ Partial Class CadastroTipoItem
         Me.tcTipoItem.Controls.Add(Me.tbCadastroTipoItem)
         Me.tcTipoItem.Controls.Add(Me.tbEdicaoTipoItem)
         Me.tcTipoItem.Controls.Add(Me.tbRemocaoTipoItem)
-        Me.tcTipoItem.Controls.Add(Me.tbListagemTipoItem)
         Me.tcTipoItem.Location = New System.Drawing.Point(13, 13)
         Me.tcTipoItem.Name = "tcTipoItem"
         Me.tcTipoItem.SelectedIndex = 0
@@ -115,7 +113,7 @@ Partial Class CadastroTipoItem
         Me.tbEdicaoTipoItem.Location = New System.Drawing.Point(4, 22)
         Me.tbEdicaoTipoItem.Name = "tbEdicaoTipoItem"
         Me.tbEdicaoTipoItem.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbEdicaoTipoItem.Size = New System.Drawing.Size(312, 119)
+        Me.tbEdicaoTipoItem.Size = New System.Drawing.Size(321, 130)
         Me.tbEdicaoTipoItem.TabIndex = 1
         Me.tbEdicaoTipoItem.Text = "Edição de Tipo de Item"
         Me.tbEdicaoTipoItem.UseVisualStyleBackColor = True
@@ -186,7 +184,7 @@ Partial Class CadastroTipoItem
         Me.tbRemocaoTipoItem.Location = New System.Drawing.Point(4, 22)
         Me.tbRemocaoTipoItem.Name = "tbRemocaoTipoItem"
         Me.tbRemocaoTipoItem.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbRemocaoTipoItem.Size = New System.Drawing.Size(312, 119)
+        Me.tbRemocaoTipoItem.Size = New System.Drawing.Size(321, 130)
         Me.tbRemocaoTipoItem.TabIndex = 2
         Me.tbRemocaoTipoItem.Text = "Remoção de Tipo de Item"
         Me.tbRemocaoTipoItem.UseVisualStyleBackColor = True
@@ -250,16 +248,6 @@ Partial Class CadastroTipoItem
         Me.Label4.TabIndex = 0
         Me.Label4.Text = "ID do Tipo do Item: "
         '
-        'tbListagemTipoItem
-        '
-        Me.tbListagemTipoItem.Location = New System.Drawing.Point(4, 22)
-        Me.tbListagemTipoItem.Name = "tbListagemTipoItem"
-        Me.tbListagemTipoItem.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbListagemTipoItem.Size = New System.Drawing.Size(312, 119)
-        Me.tbListagemTipoItem.TabIndex = 3
-        Me.tbListagemTipoItem.Text = "Listagem de Tipo de Item"
-        Me.tbListagemTipoItem.UseVisualStyleBackColor = True
-        '
         'CadastroTipoItem
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -300,7 +288,6 @@ Partial Class CadastroTipoItem
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents cbxRemocaoIdTipoItem As System.Windows.Forms.ComboBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents tbListagemTipoItem As System.Windows.Forms.TabPage
     Friend WithEvents btnSalvarEdicao As System.Windows.Forms.Button
     Friend WithEvents btnRemovarTipoItem As System.Windows.Forms.Button
     Friend WithEvents btnCadastarTipoItem As System.Windows.Forms.Button

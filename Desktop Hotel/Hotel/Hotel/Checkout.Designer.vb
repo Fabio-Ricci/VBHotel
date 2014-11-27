@@ -42,6 +42,8 @@ Partial Class Checkout
         Me.gbFrigobar = New System.Windows.Forms.GroupBox()
         Me.RbNao = New System.Windows.Forms.RadioButton()
         Me.rbSim = New System.Windows.Forms.RadioButton()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.txtCamasSolteiro = New System.Windows.Forms.TextBox()
@@ -59,8 +61,6 @@ Partial Class Checkout
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnBuscar = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.txtCpf = New System.Windows.Forms.MaskedTextBox()
         Me.pnlCheckout.SuspendLayout()
         Me.gbQuarto.SuspendLayout()
@@ -290,6 +290,22 @@ Partial Class Checkout
         Me.rbSim.Text = "Sim"
         Me.rbSim.UseVisualStyleBackColor = True
         '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(449, -118)
+        Me.TextBox1.Multiline = True
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(137, 107)
+        Me.TextBox1.TabIndex = 21
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Enabled = False
+        Me.TextBox2.Location = New System.Drawing.Point(449, -150)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(100, 26)
+        Me.TextBox2.TabIndex = 23
+        '
         'Label10
         '
         Me.Label10.AutoSize = True
@@ -437,28 +453,12 @@ Partial Class Checkout
         'btnBuscar
         '
         Me.btnBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnBuscar.Location = New System.Drawing.Point(323, 9)
+        Me.btnBuscar.Location = New System.Drawing.Point(315, 9)
         Me.btnBuscar.Name = "btnBuscar"
         Me.btnBuscar.Size = New System.Drawing.Size(180, 28)
         Me.btnBuscar.TabIndex = 3
         Me.btnBuscar.Text = "Carregar Hospedagem"
         Me.btnBuscar.UseVisualStyleBackColor = True
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(449, -118)
-        Me.TextBox1.Multiline = True
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(137, 107)
-        Me.TextBox1.TabIndex = 21
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Enabled = False
-        Me.TextBox2.Location = New System.Drawing.Point(449, -150)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(100, 26)
-        Me.TextBox2.TabIndex = 23
         '
         'txtCpf
         '

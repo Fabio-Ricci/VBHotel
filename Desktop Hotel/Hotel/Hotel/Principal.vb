@@ -26,10 +26,6 @@ Public Class Principal
         CadastroTipoItem.Show()
     End Sub
 
-    Private Sub menuPergunta_Click(sender As Object, e As EventArgs) Handles menuPergunta.Click
-        Pergunta.Show()
-    End Sub
-
     Private Sub menuCheckout_Click(sender As Object, e As EventArgs) Handles menuCheckout.Click
         Checkout.Show()
     End Sub
@@ -39,7 +35,7 @@ Public Class Principal
     End Sub
 
     Private Sub menuFuncionariosListagem_Click(sender As Object, e As EventArgs) Handles menuFuncionariosListagem.Click
-
+        ListagemFuncionario.Show()
     End Sub
 
     Private Sub menuItensConsumoItens_Click(sender As Object, e As EventArgs) Handles menuItensConsumoItens.Click
@@ -57,6 +53,7 @@ Public Class Principal
         Checkout.Close()
         CadastroUsuario.Close()
         ConsumoDeItem.Close()
+        ListagemFuncionario.Close()
         Me.Close()
     End Sub
 
@@ -72,7 +69,40 @@ Public Class Principal
         Checkout.Close()
         CadastroUsuario.Close()
         ConsumoDeItem.Close()
+        ListagemApartamento.Close()
+        ListagemItem.Close()
+        ListagemTipoItem.Close()
+        ListagemConsumo.Close()
+        ListagemTipoApartamento.Close()
+        ListagemPergunta.Close()
         Me.Close()
     End Sub
 
+    Private Sub ListagemDeApartamentosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ListagemDeApartamentosToolStripMenuItem.Click
+        ListagemApartamento.Show()
+    End Sub
+
+    Private Sub ListagemDeItensToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ListagemDeItensToolStripMenuItem.Click
+        ListagemItem.Show()
+    End Sub
+
+    Private Sub ListagemDeTipoDeItensToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ListagemDeTipoDeItensToolStripMenuItem.Click
+        ListagemTipoItem.Show()
+    End Sub
+
+    Private Sub ListagemDeConsumoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ListagemDeConsumoToolStripMenuItem.Click
+        ListagemConsumo.Show()
+    End Sub
+
+    Private Sub ListagemDeTiposDeApartamentosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ListagemDeTiposDeApartamentosToolStripMenuItem.Click
+        ListagemTipoApartamento.Show()
+    End Sub
+
+    Private Sub ListagemPerguntasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ListagemPerguntasToolStripMenuItem.Click
+        Pergunta.Show()
+    End Sub
+
+    Private Sub ListegamDePerguntasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ListegamDePerguntasToolStripMenuItem.Click
+        ListagemPergunta.Show()
+    End Sub
 End Class

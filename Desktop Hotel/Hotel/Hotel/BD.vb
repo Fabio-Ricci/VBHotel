@@ -251,6 +251,23 @@ Public Class BD
     '
     'Apartamento
     '
+    Public Sub removerApartamento(numero As Integer)
+        Try
+            Me.conexao.Open()
+        Catch ex As Exception
+            Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
+        End Try
+        Me.comando = New SqlCommand("exec dbo.removerApartamento @numero", Me.conexao)
+        Me.comando.Parameters.AddWithValue("@numero", CStr(numero))
+        Try
+            Me.comando.ExecuteNonQuery()
+        Catch ex As Exception
+            Me.conexao.Close()
+            Throw New System.Exception("Erro ao efetuar a remoção do apartamento->Erro: " + ex.ToString)
+        End Try
+        Me.conexao.Close()
+    End Sub
+
     Public Sub adicionaApartamento(idTipoApartamento As Integer, numero As String, andar As Integer, camaCasal As Integer, camaSolteiro As Integer, frigobar As Char)
         Try
             Me.conexao.Open()

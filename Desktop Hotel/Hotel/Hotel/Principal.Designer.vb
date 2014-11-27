@@ -27,6 +27,8 @@ Partial Class Principal
         Me.menuApartamentos = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuApartamentosCadastro = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuApartamentosTipo = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ListagemDeApartamentosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ListagemDeTiposDeApartamentosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuClientes = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuClientesCadastro = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuClientesListagem = New System.Windows.Forms.ToolStripMenuItem()
@@ -34,12 +36,17 @@ Partial Class Principal
         Me.menuItensCadastro = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuItensCadastroTipo = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuItensConsumoItens = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ListagemDeItensToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ListagemDeTipoDeItensToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ListagemDeConsumoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuPergunta = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuCheckout = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuFuncionarios = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuFuncionariosCadastro = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuFuncionariosListagem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.ListagemPerguntasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ListegamDePerguntasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -56,7 +63,7 @@ Partial Class Principal
         '
         'menuApartamentos
         '
-        Me.menuApartamentos.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menuApartamentosCadastro, Me.menuApartamentosTipo})
+        Me.menuApartamentos.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menuApartamentosCadastro, Me.menuApartamentosTipo, Me.ListagemDeApartamentosToolStripMenuItem, Me.ListagemDeTiposDeApartamentosToolStripMenuItem})
         Me.menuApartamentos.Name = "menuApartamentos"
         Me.menuApartamentos.Size = New System.Drawing.Size(94, 20)
         Me.menuApartamentos.Text = "Apartamentos"
@@ -64,14 +71,26 @@ Partial Class Principal
         'menuApartamentosCadastro
         '
         Me.menuApartamentosCadastro.Name = "menuApartamentosCadastro"
-        Me.menuApartamentosCadastro.Size = New System.Drawing.Size(215, 22)
-        Me.menuApartamentosCadastro.Text = "Cadastro de Apartamentos"
+        Me.menuApartamentosCadastro.Size = New System.Drawing.Size(264, 22)
+        Me.menuApartamentosCadastro.Text = "Apartamentos"
         '
         'menuApartamentosTipo
         '
         Me.menuApartamentosTipo.Name = "menuApartamentosTipo"
-        Me.menuApartamentosTipo.Size = New System.Drawing.Size(215, 22)
+        Me.menuApartamentosTipo.Size = New System.Drawing.Size(264, 22)
         Me.menuApartamentosTipo.Text = "Tipos de Apartamento"
+        '
+        'ListagemDeApartamentosToolStripMenuItem
+        '
+        Me.ListagemDeApartamentosToolStripMenuItem.Name = "ListagemDeApartamentosToolStripMenuItem"
+        Me.ListagemDeApartamentosToolStripMenuItem.Size = New System.Drawing.Size(264, 22)
+        Me.ListagemDeApartamentosToolStripMenuItem.Text = "Listagem de Apartamentos"
+        '
+        'ListagemDeTiposDeApartamentosToolStripMenuItem
+        '
+        Me.ListagemDeTiposDeApartamentosToolStripMenuItem.Name = "ListagemDeTiposDeApartamentosToolStripMenuItem"
+        Me.ListagemDeTiposDeApartamentosToolStripMenuItem.Size = New System.Drawing.Size(264, 22)
+        Me.ListagemDeTiposDeApartamentosToolStripMenuItem.Text = "Listagem de Tipos de Apartamentos"
         '
         'menuClientes
         '
@@ -84,7 +103,7 @@ Partial Class Principal
         '
         Me.menuClientesCadastro.Name = "menuClientesCadastro"
         Me.menuClientesCadastro.Size = New System.Drawing.Size(183, 22)
-        Me.menuClientesCadastro.Text = "Cadastro de Clientes"
+        Me.menuClientesCadastro.Text = "Clientes"
         '
         'menuClientesListagem
         '
@@ -94,7 +113,7 @@ Partial Class Principal
         '
         'menuItens
         '
-        Me.menuItens.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menuItensCadastro, Me.menuItensCadastroTipo, Me.menuItensConsumoItens})
+        Me.menuItens.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menuItensCadastro, Me.menuItensCadastroTipo, Me.menuItensConsumoItens, Me.ListagemDeItensToolStripMenuItem, Me.ListagemDeTipoDeItensToolStripMenuItem, Me.ListagemDeConsumoToolStripMenuItem})
         Me.menuItens.Name = "menuItens"
         Me.menuItens.Size = New System.Drawing.Size(44, 20)
         Me.menuItens.Text = "Itens"
@@ -102,23 +121,42 @@ Partial Class Principal
         'menuItensCadastro
         '
         Me.menuItensCadastro.Name = "menuItensCadastro"
-        Me.menuItensCadastro.Size = New System.Drawing.Size(212, 22)
-        Me.menuItensCadastro.Text = "Cadastro de Itens"
+        Me.menuItensCadastro.Size = New System.Drawing.Size(209, 22)
+        Me.menuItensCadastro.Text = "Itens"
         '
         'menuItensCadastroTipo
         '
         Me.menuItensCadastroTipo.Name = "menuItensCadastroTipo"
-        Me.menuItensCadastroTipo.Size = New System.Drawing.Size(212, 22)
-        Me.menuItensCadastroTipo.Text = "Cadastro de Tipos de Item"
+        Me.menuItensCadastroTipo.Size = New System.Drawing.Size(209, 22)
+        Me.menuItensCadastroTipo.Text = "Tipos de Item"
         '
         'menuItensConsumoItens
         '
         Me.menuItensConsumoItens.Name = "menuItensConsumoItens"
-        Me.menuItensConsumoItens.Size = New System.Drawing.Size(212, 22)
+        Me.menuItensConsumoItens.Size = New System.Drawing.Size(209, 22)
         Me.menuItensConsumoItens.Text = "Consumo"
+        '
+        'ListagemDeItensToolStripMenuItem
+        '
+        Me.ListagemDeItensToolStripMenuItem.Name = "ListagemDeItensToolStripMenuItem"
+        Me.ListagemDeItensToolStripMenuItem.Size = New System.Drawing.Size(209, 22)
+        Me.ListagemDeItensToolStripMenuItem.Text = "Listagem de Itens"
+        '
+        'ListagemDeTipoDeItensToolStripMenuItem
+        '
+        Me.ListagemDeTipoDeItensToolStripMenuItem.Name = "ListagemDeTipoDeItensToolStripMenuItem"
+        Me.ListagemDeTipoDeItensToolStripMenuItem.Size = New System.Drawing.Size(209, 22)
+        Me.ListagemDeTipoDeItensToolStripMenuItem.Text = "Listagem de Tipo de Itens"
+        '
+        'ListagemDeConsumoToolStripMenuItem
+        '
+        Me.ListagemDeConsumoToolStripMenuItem.Name = "ListagemDeConsumoToolStripMenuItem"
+        Me.ListagemDeConsumoToolStripMenuItem.Size = New System.Drawing.Size(209, 22)
+        Me.ListagemDeConsumoToolStripMenuItem.Text = "Listagem de Consumo"
         '
         'menuPergunta
         '
+        Me.menuPergunta.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ListagemPerguntasToolStripMenuItem, Me.ListegamDePerguntasToolStripMenuItem})
         Me.menuPergunta.Name = "menuPergunta"
         Me.menuPergunta.Size = New System.Drawing.Size(67, 20)
         Me.menuPergunta.Text = "Pergunta"
@@ -140,7 +178,7 @@ Partial Class Principal
         '
         Me.menuFuncionariosCadastro.Name = "menuFuncionariosCadastro"
         Me.menuFuncionariosCadastro.Size = New System.Drawing.Size(209, 22)
-        Me.menuFuncionariosCadastro.Text = "Cadastro de Funcionários"
+        Me.menuFuncionariosCadastro.Text = "Funcionários"
         '
         'menuFuncionariosListagem
         '
@@ -158,6 +196,18 @@ Partial Class Principal
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
+        '
+        'ListagemPerguntasToolStripMenuItem
+        '
+        Me.ListagemPerguntasToolStripMenuItem.Name = "ListagemPerguntasToolStripMenuItem"
+        Me.ListagemPerguntasToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
+        Me.ListagemPerguntasToolStripMenuItem.Text = "Perguntas"
+        '
+        'ListegamDePerguntasToolStripMenuItem
+        '
+        Me.ListegamDePerguntasToolStripMenuItem.Name = "ListegamDePerguntasToolStripMenuItem"
+        Me.ListegamDePerguntasToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
+        Me.ListegamDePerguntasToolStripMenuItem.Text = "Listegam de Perguntas"
         '
         'Principal
         '
@@ -196,4 +246,11 @@ Partial Class Principal
     Friend WithEvents menuFuncionariosCadastro As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents menuFuncionariosListagem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents menuItensConsumoItens As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ListagemDeApartamentosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ListagemDeItensToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ListagemDeTipoDeItensToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ListagemDeConsumoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ListagemDeTiposDeApartamentosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ListagemPerguntasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ListegamDePerguntasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

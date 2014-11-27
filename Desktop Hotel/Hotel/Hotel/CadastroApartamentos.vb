@@ -319,7 +319,24 @@ Public Class CadastroApartamentos
     End Sub
 
     Private Sub btnRemoverApartamento_Click(sender As Object, e As EventArgs) Handles btnRemoverApartamento.Click
-        'bd.removerApartamento(remocaoNumeroSelecionado)
+        bd.removerApartamento(remocaoNumeroSelecionado)
+        MsgBox("Apartamento removido com sucesso.")
+        cbxRemocaoApartamento.SelectedIndex = -1
+        txtRemocaoAndar.Text = ""
+        txtRemocaoCamaCasal.Text = ""
+        txtremocaoCamaSolteiro.Text = ""
+        txtRemocaoTipoApartamento.Text = ""
+        rbRemocaoNao.Checked = False
+        rbRemocaoSim.Checked = False
+
+        pnlRemocao.Visible = False
+
+        remocaoAndar = 0
+        remocaoCamaCasal = 0
+        remocaoCamaSolteiro = 0
+        remocaoTipoApartamento = 0
+        frigobar = ""
+        remocaoNumeroSelecionado = 0
     End Sub
 
     Private Sub cbxRemocaoApartamento_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxRemocaoApartamento.SelectedIndexChanged

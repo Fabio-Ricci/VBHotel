@@ -77,7 +77,6 @@ Partial Class CadastroApartamentos
         Me.rbRemocaoNao = New System.Windows.Forms.RadioButton()
         Me.rbRemocaoSim = New System.Windows.Forms.RadioButton()
         Me.Label16 = New System.Windows.Forms.Label()
-        Me.tbListagem = New System.Windows.Forms.TabPage()
         Me.HApartamentoTableAdapter = New Hotel.HosPDeirosDataSet1TableAdapters.hApartamentoTableAdapter()
         CType(Me.HTipoApartamentoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.HosPDeirosDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -200,7 +199,6 @@ Partial Class CadastroApartamentos
         Me.tcApartamento.Controls.Add(Me.tbCadastro)
         Me.tcApartamento.Controls.Add(Me.tbEdicao)
         Me.tcApartamento.Controls.Add(Me.tbRemoçãoApartamento)
-        Me.tcApartamento.Controls.Add(Me.tbListagem)
         Me.tcApartamento.Location = New System.Drawing.Point(12, 12)
         Me.tcApartamento.Name = "tcApartamento"
         Me.tcApartamento.SelectedIndex = 0
@@ -221,10 +219,10 @@ Partial Class CadastroApartamentos
         Me.tbCadastro.Controls.Add(Me.txtAndar)
         Me.tbCadastro.Controls.Add(Me.txtNumero)
         Me.tbCadastro.Controls.Add(Me.gbFrigobar)
-        Me.tbCadastro.Location = New System.Drawing.Point(4, 22)
+        Me.tbCadastro.Location = New System.Drawing.Point(4, 29)
         Me.tbCadastro.Name = "tbCadastro"
         Me.tbCadastro.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbCadastro.Size = New System.Drawing.Size(346, 292)
+        Me.tbCadastro.Size = New System.Drawing.Size(346, 285)
         Me.tbCadastro.TabIndex = 0
         Me.tbCadastro.Text = "Cadastro de Apartamento"
         Me.tbCadastro.UseVisualStyleBackColor = True
@@ -522,7 +520,7 @@ Partial Class CadastroApartamentos
         Me.pnlRemocao.Controls.Add(Me.Label16)
         Me.pnlRemocao.Location = New System.Drawing.Point(20, 41)
         Me.pnlRemocao.Name = "pnlRemocao"
-        Me.pnlRemocao.Size = New System.Drawing.Size(311, 234)
+        Me.pnlRemocao.Size = New System.Drawing.Size(304, 241)
         Me.pnlRemocao.TabIndex = 5
         Me.pnlRemocao.Visible = False
         '
@@ -644,16 +642,6 @@ Partial Class CadastroApartamentos
         Me.Label16.TabIndex = 0
         Me.Label16.Text = "Tipo do Apartamento:"
         '
-        'tbListagem
-        '
-        Me.tbListagem.Location = New System.Drawing.Point(4, 22)
-        Me.tbListagem.Name = "tbListagem"
-        Me.tbListagem.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbListagem.Size = New System.Drawing.Size(346, 292)
-        Me.tbListagem.TabIndex = 3
-        Me.tbListagem.Text = "Listagem de Apartamentos"
-        Me.tbListagem.UseVisualStyleBackColor = True
-        '
         'HApartamentoTableAdapter
         '
         Me.HApartamentoTableAdapter.ClearBeforeFill = True
@@ -746,5 +734,4 @@ Partial Class CadastroApartamentos
     Friend WithEvents txtEdicaoAndar As System.Windows.Forms.TextBox
     Friend WithEvents txtRemocaoAndar As System.Windows.Forms.TextBox
     Friend WithEvents Label18 As System.Windows.Forms.Label
-    Friend WithEvents tbListagem As System.Windows.Forms.TabPage
 End Class

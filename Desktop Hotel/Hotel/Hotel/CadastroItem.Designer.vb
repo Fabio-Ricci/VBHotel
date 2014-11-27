@@ -54,7 +54,6 @@ Partial Class CadastroItem
         Me.txtRemocaoCustoUnitario = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.tbListagemItem = New System.Windows.Forms.TabPage()
         Me.tcItem.SuspendLayout()
         Me.tbCadastroItem.SuspendLayout()
         Me.tbEdicaoItem.SuspendLayout()
@@ -71,7 +70,6 @@ Partial Class CadastroItem
         Me.tcItem.Controls.Add(Me.tbCadastroItem)
         Me.tcItem.Controls.Add(Me.tbEdicaoItem)
         Me.tcItem.Controls.Add(Me.tbRemocaoItem)
-        Me.tcItem.Controls.Add(Me.tbListagemItem)
         Me.tcItem.Location = New System.Drawing.Point(12, 12)
         Me.tcItem.Name = "tcItem"
         Me.tcItem.SelectedIndex = 0
@@ -390,16 +388,6 @@ Partial Class CadastroItem
         Me.Label8.TabIndex = 0
         Me.Label8.Text = "Custo Unitário:"
         '
-        'tbListagemItem
-        '
-        Me.tbListagemItem.Location = New System.Drawing.Point(4, 22)
-        Me.tbListagemItem.Name = "tbListagemItem"
-        Me.tbListagemItem.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbListagemItem.Size = New System.Drawing.Size(339, 279)
-        Me.tbListagemItem.TabIndex = 3
-        Me.tbListagemItem.Text = "Listagem de Itens"
-        Me.tbListagemItem.UseVisualStyleBackColor = True
-        '
         'CadastroItem
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -434,7 +422,6 @@ Partial Class CadastroItem
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents tbRemocaoItem As System.Windows.Forms.TabPage
-    Friend WithEvents tbListagemItem As System.Windows.Forms.TabPage
     Friend WithEvents pnlEdicaoItem As System.Windows.Forms.Panel
     Friend WithEvents btnSalvarEdicao As System.Windows.Forms.Button
     Friend WithEvents txtEdicaoDescricao As System.Windows.Forms.TextBox

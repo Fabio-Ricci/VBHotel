@@ -143,11 +143,98 @@
     <Compile Include="HosPDeirosDataSet1.vb">
       <DependentUpon>HosPDeirosDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="HosPDeirosDataSet10.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HosPDeirosDataSet10.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HosPDeirosDataSet2.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HosPDeirosDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HosPDeirosDataSet3.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HosPDeirosDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HosPDeirosDataSet4.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HosPDeirosDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HosPDeirosDataSet5.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HosPDeirosDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HosPDeirosDataSet6.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HosPDeirosDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HosPDeirosDataSet7.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HosPDeirosDataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HosPDeirosDataSet8.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HosPDeirosDataSet8.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HosPDeirosDataSet9.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HosPDeirosDataSet9.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Item.vb" />
+    <Compile Include="ListagemApartamento.Designer.vb">
+      <DependentUpon>ListagemApartamento.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ListagemApartamento.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ListagemCliente.designer.vb">
       <DependentUpon>ListagemCliente.vb</DependentUpon>
     </Compile>
     <Compile Include="ListagemCliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListagemConsumo.Designer.vb">
+      <DependentUpon>ListagemConsumo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ListagemConsumo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListagemFuncionario.Designer.vb">
+      <DependentUpon>ListagemFuncionario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ListagemFuncionario.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListagemItem.Designer.vb">
+      <DependentUpon>ListagemItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ListagemItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListagemPergunta.Designer.vb">
+      <DependentUpon>ListagemPergunta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ListagemPergunta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListagemTipoApartamento.Designer.vb">
+      <DependentUpon>ListagemTipoApartamento.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ListagemTipoApartamento.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListagemTipoItem.Designer.vb">
+      <DependentUpon>ListagemTipoItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ListagemTipoItem.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="login.Designer.vb">
@@ -218,8 +305,29 @@
     <EmbeddedResource Include="ConsumoDeItem.resx">
       <DependentUpon>ConsumoDeItem.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ListagemApartamento.resx">
+      <DependentUpon>ListagemApartamento.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ListagemCliente.resx">
       <DependentUpon>ListagemCliente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListagemConsumo.resx">
+      <DependentUpon>ListagemConsumo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListagemFuncionario.resx">
+      <DependentUpon>ListagemFuncionario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListagemItem.resx">
+      <DependentUpon>ListagemItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListagemPergunta.resx">
+      <DependentUpon>ListagemPergunta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListagemTipoApartamento.resx">
+      <DependentUpon>ListagemTipoApartamento.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListagemTipoItem.resx">
+      <DependentUpon>ListagemTipoItem.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.vb</DependentUpon>
@@ -265,6 +373,105 @@
     </None>
     <None Include="HosPDeirosDataSet1.xss">
       <DependentUpon>HosPDeirosDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="HosPDeirosDataSet10.xsc">
+      <DependentUpon>HosPDeirosDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="HosPDeirosDataSet10.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HosPDeirosDataSet10.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HosPDeirosDataSet10.xss">
+      <DependentUpon>HosPDeirosDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="HosPDeirosDataSet2.xsc">
+      <DependentUpon>HosPDeirosDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="HosPDeirosDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HosPDeirosDataSet2.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HosPDeirosDataSet2.xss">
+      <DependentUpon>HosPDeirosDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="HosPDeirosDataSet3.xsc">
+      <DependentUpon>HosPDeirosDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="HosPDeirosDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HosPDeirosDataSet3.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HosPDeirosDataSet3.xss">
+      <DependentUpon>HosPDeirosDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="HosPDeirosDataSet4.xsc">
+      <DependentUpon>HosPDeirosDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="HosPDeirosDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HosPDeirosDataSet4.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HosPDeirosDataSet4.xss">
+      <DependentUpon>HosPDeirosDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="HosPDeirosDataSet5.xsc">
+      <DependentUpon>HosPDeirosDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="HosPDeirosDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HosPDeirosDataSet5.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HosPDeirosDataSet5.xss">
+      <DependentUpon>HosPDeirosDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="HosPDeirosDataSet6.xsc">
+      <DependentUpon>HosPDeirosDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="HosPDeirosDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HosPDeirosDataSet6.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HosPDeirosDataSet6.xss">
+      <DependentUpon>HosPDeirosDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="HosPDeirosDataSet7.xsc">
+      <DependentUpon>HosPDeirosDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="HosPDeirosDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HosPDeirosDataSet7.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HosPDeirosDataSet7.xss">
+      <DependentUpon>HosPDeirosDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="HosPDeirosDataSet8.xsc">
+      <DependentUpon>HosPDeirosDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="HosPDeirosDataSet8.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HosPDeirosDataSet8.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HosPDeirosDataSet8.xss">
+      <DependentUpon>HosPDeirosDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="HosPDeirosDataSet9.xsc">
+      <DependentUpon>HosPDeirosDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="HosPDeirosDataSet9.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HosPDeirosDataSet9.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HosPDeirosDataSet9.xss">
+      <DependentUpon>HosPDeirosDataSet9.xsd</DependentUpon>
     </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
