@@ -59,7 +59,7 @@ Public Class Checkout
                 frigobar = dr.Item(9)
 
                 idHospedagem = dr.Item(10)
-
+                bd.fecharConexao()
 
                 dr = Nothing
                 ''''''''''''''''''''''''''''''''''''''''
@@ -69,8 +69,7 @@ Public Class Checkout
 
                 dr = bd.getItens(idHospedagem) 'retorna um data reader com todos os itens que tem essa idHospedagem (fazer)
                 If dr.HasRows Then
-                    While dr.HasRows
-                        dr.Read()
+                    While dr.Read()
                         itens.Add(New Item(dr.Item(0), dr.Item(1)))
                         i = i + 1
                     End While

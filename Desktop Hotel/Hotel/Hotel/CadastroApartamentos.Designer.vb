@@ -77,8 +77,10 @@ Partial Class CadastroApartamentos
         Me.rbRemocaoNao = New System.Windows.Forms.RadioButton()
         Me.rbRemocaoSim = New System.Windows.Forms.RadioButton()
         Me.Label16 = New System.Windows.Forms.Label()
-        Me.tbListagem = New System.Windows.Forms.TabPage()
         Me.HApartamentoTableAdapter = New Hotel.HosPDeirosDataSet1TableAdapters.hApartamentoTableAdapter()
+        Me.HosPDeirosDataSet2 = New Hotel.HosPDeirosDataSet2()
+        Me.HApartamentoBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.HApartamentoTableAdapter1 = New Hotel.HosPDeirosDataSet2TableAdapters.hApartamentoTableAdapter()
         CType(Me.HTipoApartamentoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.HosPDeirosDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbFrigobar.SuspendLayout()
@@ -92,6 +94,8 @@ Partial Class CadastroApartamentos
         Me.tbRemoçãoApartamento.SuspendLayout()
         Me.pnlRemocao.SuspendLayout()
         Me.gbRemocaoFrigobar.SuspendLayout()
+        CType(Me.HosPDeirosDataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.HApartamentoBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -200,7 +204,6 @@ Partial Class CadastroApartamentos
         Me.tcApartamento.Controls.Add(Me.tbCadastro)
         Me.tcApartamento.Controls.Add(Me.tbEdicao)
         Me.tcApartamento.Controls.Add(Me.tbRemoçãoApartamento)
-        Me.tcApartamento.Controls.Add(Me.tbListagem)
         Me.tcApartamento.Location = New System.Drawing.Point(12, 12)
         Me.tcApartamento.Name = "tcApartamento"
         Me.tcApartamento.SelectedIndex = 0
@@ -644,19 +647,23 @@ Partial Class CadastroApartamentos
         Me.Label16.TabIndex = 0
         Me.Label16.Text = "Tipo do Apartamento:"
         '
-        'tbListagem
-        '
-        Me.tbListagem.Location = New System.Drawing.Point(4, 22)
-        Me.tbListagem.Name = "tbListagem"
-        Me.tbListagem.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbListagem.Size = New System.Drawing.Size(346, 292)
-        Me.tbListagem.TabIndex = 3
-        Me.tbListagem.Text = "Listagem de Apartamentos"
-        Me.tbListagem.UseVisualStyleBackColor = True
-        '
         'HApartamentoTableAdapter
         '
         Me.HApartamentoTableAdapter.ClearBeforeFill = True
+        '
+        'HosPDeirosDataSet2
+        '
+        Me.HosPDeirosDataSet2.DataSetName = "HosPDeirosDataSet2"
+        Me.HosPDeirosDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'HApartamentoBindingSource1
+        '
+        Me.HApartamentoBindingSource1.DataMember = "hApartamento"
+        Me.HApartamentoBindingSource1.DataSource = Me.HosPDeirosDataSet2
+        '
+        'HApartamentoTableAdapter1
+        '
+        Me.HApartamentoTableAdapter1.ClearBeforeFill = True
         '
         'CadastroApartamentos
         '
@@ -689,6 +696,8 @@ Partial Class CadastroApartamentos
         Me.pnlRemocao.PerformLayout()
         Me.gbRemocaoFrigobar.ResumeLayout(False)
         Me.gbRemocaoFrigobar.PerformLayout()
+        CType(Me.HosPDeirosDataSet2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.HApartamentoBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -746,5 +755,7 @@ Partial Class CadastroApartamentos
     Friend WithEvents txtEdicaoAndar As System.Windows.Forms.TextBox
     Friend WithEvents txtRemocaoAndar As System.Windows.Forms.TextBox
     Friend WithEvents Label18 As System.Windows.Forms.Label
-    Friend WithEvents tbListagem As System.Windows.Forms.TabPage
+    Friend WithEvents HosPDeirosDataSet2 As Hotel.HosPDeirosDataSet2
+    Friend WithEvents HApartamentoBindingSource1 As System.Windows.Forms.BindingSource
+    Friend WithEvents HApartamentoTableAdapter1 As Hotel.HosPDeirosDataSet2TableAdapters.hApartamentoTableAdapter
 End Class

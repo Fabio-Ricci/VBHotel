@@ -24,6 +24,8 @@ Public Class CadastroApartamentos
 
     'tab 1 cadastramento
     Private Sub CadastroApartamentos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'HosPDeirosDataSet2.hApartamento' table. You can move, or remove it, as needed.
+        Me.HApartamentoTableAdapter1.Fill(Me.HosPDeirosDataSet2.hApartamento)
         'TODO: This line of code loads data into the 'HosPDeirosDataSet1.hApartamento' table. You can move, or remove it, as needed.
         Me.HApartamentoTableAdapter.Fill(Me.HosPDeirosDataSet1.hApartamento)
         'TODO: This line of code loads data into the 'HosPDeirosDataSet.hTipoApartamento' table. You can move, or remove it, as needed.
@@ -319,7 +321,16 @@ Public Class CadastroApartamentos
     End Sub
 
     Private Sub btnRemoverApartamento_Click(sender As Object, e As EventArgs) Handles btnRemoverApartamento.Click
-        'bd.removerApartamento(remocaoNumeroSelecionado)
+        bd.removerApartamento(remocaoNumeroSelecionado)
+        MsgBox("Apartamento excluído com sucesso")
+        txtRemocaoAndar.Text = ""
+        txtRemocaoCamaCasal.Text = ""
+        txtremocaoCamaSolteiro.Text = ""
+        txtRemocaoTipoApartamento.Text = ""
+        cbxRemocaoApartamento.SelectedIndex = -1
+        rbRemocaoNao.Checked = False
+        rbRemocaoSim.Checked = False
+        pnlRemocao.Visible = False
     End Sub
 
     Private Sub cbxRemocaoApartamento_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxRemocaoApartamento.SelectedIndexChanged

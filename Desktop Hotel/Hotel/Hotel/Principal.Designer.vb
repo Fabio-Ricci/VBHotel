@@ -64,13 +64,13 @@ Partial Class Principal
         'menuApartamentosCadastro
         '
         Me.menuApartamentosCadastro.Name = "menuApartamentosCadastro"
-        Me.menuApartamentosCadastro.Size = New System.Drawing.Size(215, 22)
-        Me.menuApartamentosCadastro.Text = "Cadastro de Apartamentos"
+        Me.menuApartamentosCadastro.Size = New System.Drawing.Size(192, 22)
+        Me.menuApartamentosCadastro.Text = "Apartamentos"
         '
         'menuApartamentosTipo
         '
         Me.menuApartamentosTipo.Name = "menuApartamentosTipo"
-        Me.menuApartamentosTipo.Size = New System.Drawing.Size(215, 22)
+        Me.menuApartamentosTipo.Size = New System.Drawing.Size(192, 22)
         Me.menuApartamentosTipo.Text = "Tipos de Apartamento"
         '
         'menuClientes
@@ -102,19 +102,19 @@ Partial Class Principal
         'menuItensCadastro
         '
         Me.menuItensCadastro.Name = "menuItensCadastro"
-        Me.menuItensCadastro.Size = New System.Drawing.Size(212, 22)
-        Me.menuItensCadastro.Text = "Cadastro de Itens"
+        Me.menuItensCadastro.Size = New System.Drawing.Size(152, 22)
+        Me.menuItensCadastro.Text = "Itens"
         '
         'menuItensCadastroTipo
         '
         Me.menuItensCadastroTipo.Name = "menuItensCadastroTipo"
-        Me.menuItensCadastroTipo.Size = New System.Drawing.Size(212, 22)
-        Me.menuItensCadastroTipo.Text = "Cadastro de Tipos de Item"
+        Me.menuItensCadastroTipo.Size = New System.Drawing.Size(152, 22)
+        Me.menuItensCadastroTipo.Text = "Tipos de Item"
         '
         'menuItensConsumoItens
         '
         Me.menuItensConsumoItens.Name = "menuItensConsumoItens"
-        Me.menuItensConsumoItens.Size = New System.Drawing.Size(212, 22)
+        Me.menuItensConsumoItens.Size = New System.Drawing.Size(152, 22)
         Me.menuItensConsumoItens.Text = "Consumo"
         '
         'menuPergunta
@@ -140,7 +140,7 @@ Partial Class Principal
         '
         Me.menuFuncionariosCadastro.Name = "menuFuncionariosCadastro"
         Me.menuFuncionariosCadastro.Size = New System.Drawing.Size(209, 22)
-        Me.menuFuncionariosCadastro.Text = "Cadastro de Funcionários"
+        Me.menuFuncionariosCadastro.Text = "Funcionários"
         '
         'menuFuncionariosListagem
         '

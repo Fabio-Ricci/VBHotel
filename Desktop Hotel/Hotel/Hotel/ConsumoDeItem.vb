@@ -57,6 +57,14 @@ Public Class ConsumoDeItem
             If (item <> "") Then
                 If (qtd <> 0) Then
                     bd.inserirConsumo(Convert.ToInt32(item), idHospedagem, qtd, data)
+                    txtCpf.Text = ""
+                    txtQtd.Text = ""
+                    cbxItem.Text = ""
+                    cbxItem.SelectedIndex = -1
+
+                    item = ""
+                    idHospedagem = 0
+                    qtd = 0
                     MsgBox("Consumo cadastrado com sucesso.")
                 End If
             Else
