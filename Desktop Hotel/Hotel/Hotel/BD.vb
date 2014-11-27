@@ -652,14 +652,14 @@ Public Class BD
         Return Me.dataReader
     End Function
 
-    Public Sub salvarResposta(cpf As String, resposta As String)
+    Public Sub salvarResposta(idPergunta As String, resposta As String)
         Try
             Me.conexao.Open()
         Catch ex As Exception
             Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
         End Try
-        Me.comando = New SqlCommand("exec dbo.salvarResposta @cpf, @resposta", Me.conexao)
-        Me.comando.Parameters.AddWithValue("@cpf", CStr(cpf))
+        Me.comando = New SqlCommand("exec dbo.salvarResposta @idPergunta, @resposta", Me.conexao)
+        Me.comando.Parameters.AddWithValue("@idPergunta", CStr(idPergunta))
         Me.comando.Parameters.AddWithValue("@resposta", CStr(resposta))
         Try
             Me.comando.ExecuteNonQuery()

@@ -3,20 +3,21 @@
 Public Class Pergunta
     Dim bd As New BD
 
-    Dim cpf As String
+    Dim idPergunta As Integer
     Dim pergunta As String
     Dim resposta As String
+    Dim nome As String
 
     Private Sub btnSalvarResposta_Click(sender As Object, e As EventArgs) Handles btnSalvarResposta.Click
         resposta = txtResposta.Text
         If (resposta <> "") Then
-            bd.salvarResposta(cpf, resposta)
-            cbxPergunta.Items.Remove(cpf + " - " + pergunta)
+            bd.salvarResposta(idPergunta, resposta)
+            cbxPergunta.Items.Remove(Convert.ToString(idPergunta) + ") " + nome + " - " + pergunta)
             txtPergunta.Text = ""
             txtResposta.Text = ""
             pnlPergunta.Visible = False
 
-            cpf = ""
+            nome = ""
             pergunta = ""
             resposta = ""
             MsgBox("Resposta registrada com sucesso.")
@@ -24,9 +25,9 @@ Public Class Pergunta
     End Sub
 
     Private Sub cbxPergunta_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxPergunta.SelectedIndexChanged
-        cpf = cbxPergunta.Text.Substring(0, 14)
-        cpf.Replace(",", ".")
-        pergunta = cbxPergunta.Text.Substring(17)
+        idPergunta = Convert.ToInt32(cbxPergunta.Text.Substring(0, cbxPergunta.Text.IndexOf(")")))
+        pergunta = cbxPergunta.Text.Substring(cbxPergunta.Text.IndexOf("-") + 2)
+        nome = cbxPergunta.Text.Substring(cbxPergunta.Text.IndexOf(")") + 2, (cbxPergunta.Text.IndexOf("-") - 4))
         txtPergunta.Text = pergunta
         pnlPergunta.Visible = True
     End Sub
@@ -37,7 +38,7 @@ Public Class Pergunta
 
         cbxPergunta.Items.Clear()
         While dr.Read
-            cbxPergunta.Items.Add(dr(0) + " - " + dr(1))
+            cbxPergunta.Items.Add(Convert.ToString(dr(0)) + ") " + Convert.ToString(dr(2)) + " - " + Convert.ToString(dr(1)))
         End While
         bd.fecharConexao()
     End Sub
