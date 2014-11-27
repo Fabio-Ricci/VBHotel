@@ -167,10 +167,6 @@
       <DependentUpon>HosPDeirosDataSet3.xsd</DependentUpon>
     </Compile>
     <Compile Include="Item.vb" />
-    <Compile Include="Listagem.Designer.vb" />
-    <Compile Include="Listagem.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="ListagemCliente.designer.vb">
       <DependentUpon>ListagemCliente.vb</DependentUpon>
     </Compile>
@@ -251,7 +247,6 @@
     <EmbeddedResource Include="ListagemFuncionario.resx">
       <DependentUpon>ListagemFuncionario.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Listagem.resx" />
     <EmbeddedResource Include="ListagemCliente.resx">
       <DependentUpon>ListagemCliente.vb</DependentUpon>
     </EmbeddedResource>
