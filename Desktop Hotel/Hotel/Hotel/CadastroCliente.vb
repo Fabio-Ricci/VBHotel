@@ -161,10 +161,16 @@ Public Class CadastroCliente
                 If (isEmpty) Then
                     MsgBox("Preencha todos os campos")
                 Else
-                    'MsgBox(nome + ", " + cpf + ", " + dataNascimento + ", " + sexo + ", " + eMail + ", " + telefone + ", " + celular + ", " + endereco + ", " + bairro + ", " + cidade + ", " + pais + ", " + uf + ", " + senha + ", " + cartaoNumero + ", " + cartaoCodigo + ", " + cartaoNome + ", " + cartaoDataValidade)
-
-                    bd.adicionaCliente(nome, dataNascimento, sexo, eMail, telefone, celular, endereco, bairro, cidade, pais, uf, senha, cartaoNumero, cartaoCodigo, cartaoNome, cartaoDataValidade, cpf)
-                    MsgBox("O cliente foi cadastrado com sucesso")
+                    Dim data As DateTime
+                    data = CDate(mtxtData.Text)
+                    If DateDiff(DateInterval.Year, data, Date.Now) < 18 Then
+                        MsgBox("O cliente precisa ter mais de 18 anos para se cadastrar.")
+                    ElseIf DateDiff(DateInterval.Year, data, Date.Now) < 0 Then
+                        MsgBox("Data inválida")
+                    Else
+                        bd.adicionaCliente(nome, dataNascimento, sexo, eMail, telefone, celular, endereco, bairro, cidade, pais, uf, senha, cartaoNumero, cartaoCodigo, cartaoNome, cartaoDataValidade, cpf)
+                        MsgBox("O cliente foi cadastrado com sucesso")
+                    End If
                 End If
 
             Catch Exc As System.Exception
@@ -184,8 +190,8 @@ Public Class CadastroCliente
         For Each culture As CultureInfo In cultures
             Try
                 Dim region As RegionInfo = New RegionInfo(culture.LCID)
-                If Not cultureList.Contains(region.DisplayName) Then
-                    cultureList.Add(region.DisplayName)
+                If Not cultureList.Contains(region.ThreeLetterWindowsRegionName) Then
+                    cultureList.Add(region.ThreeLetterWindowsRegionName)
                 End If
             Catch ex As Exception
 
@@ -206,7 +212,7 @@ Public Class CadastroCliente
     End Sub
 
     Private Sub cbUF_DropDown(sender As Object, e As EventArgs) Handles cbUF.DropDown
-        If cbPaises.SelectedItem = "Brasil" Then
+        If cbPaises.SelectedItem = "BRA" Then
             cbUF.Items.Add("AC")
             cbUF.Items.Add("AL")
             cbUF.Items.Add("AP")
@@ -241,7 +247,4 @@ Public Class CadastroCliente
         End If
     End Sub
 
-    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
-        gbPagamento.Visible = CheckBox1.Checked
-    End Sub
 End Class
