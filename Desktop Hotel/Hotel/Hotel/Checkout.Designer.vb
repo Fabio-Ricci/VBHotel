@@ -24,7 +24,6 @@ Partial Class Checkout
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Checkout))
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtCPF = New System.Windows.Forms.TextBox()
         Me.pnlCheckout = New System.Windows.Forms.Panel()
         Me.btnCheckout = New System.Windows.Forms.Button()
         Me.gbQuarto = New System.Windows.Forms.GroupBox()
@@ -60,6 +59,9 @@ Partial Class Checkout
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnBuscar = New System.Windows.Forms.Button()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.txtCpf = New System.Windows.Forms.MaskedTextBox()
         Me.pnlCheckout.SuspendLayout()
         Me.gbQuarto.SuspendLayout()
         Me.gbItensConsumidos.SuspendLayout()
@@ -69,20 +71,13 @@ Partial Class Checkout
         'Label1
         '
         Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(38, 13)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(44, 20)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "CPF:"
-        '
-        'txtCPF
-        '
-        Me.txtCPF.Location = New System.Drawing.Point(88, 15)
-        Me.txtCPF.MaxLength = 15
-        Me.txtCPF.Name = "txtCPF"
-        Me.txtCPF.Size = New System.Drawing.Size(140, 20)
-        Me.txtCPF.TabIndex = 1
         '
         'pnlCheckout
         '
@@ -143,6 +138,7 @@ Partial Class Checkout
         '
         'txtDiaria
         '
+        Me.txtDiaria.Enabled = False
         Me.txtDiaria.Location = New System.Drawing.Point(137, 56)
         Me.txtDiaria.Name = "txtDiaria"
         Me.txtDiaria.Size = New System.Drawing.Size(100, 26)
@@ -240,6 +236,7 @@ Partial Class Checkout
         '
         'txtDescricaoItem
         '
+        Me.txtDescricaoItem.Enabled = False
         Me.txtDescricaoItem.Location = New System.Drawing.Point(179, 79)
         Me.txtDescricaoItem.Multiline = True
         Me.txtDescricaoItem.Name = "txtDescricaoItem"
@@ -260,6 +257,8 @@ Partial Class Checkout
         '
         Me.gbFrigobar.Controls.Add(Me.RbNao)
         Me.gbFrigobar.Controls.Add(Me.rbSim)
+        Me.gbFrigobar.Controls.Add(Me.TextBox1)
+        Me.gbFrigobar.Controls.Add(Me.TextBox2)
         Me.gbFrigobar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbFrigobar.Location = New System.Drawing.Point(20, 262)
         Me.gbFrigobar.Name = "gbFrigobar"
@@ -271,6 +270,7 @@ Partial Class Checkout
         'RbNao
         '
         Me.RbNao.AutoSize = True
+        Me.RbNao.Enabled = False
         Me.RbNao.Location = New System.Drawing.Point(145, 29)
         Me.RbNao.Name = "RbNao"
         Me.RbNao.Size = New System.Drawing.Size(56, 24)
@@ -282,6 +282,7 @@ Partial Class Checkout
         'rbSim
         '
         Me.rbSim.AutoSize = True
+        Me.rbSim.Enabled = False
         Me.rbSim.Location = New System.Drawing.Point(50, 29)
         Me.rbSim.Name = "rbSim"
         Me.rbSim.Size = New System.Drawing.Size(54, 24)
@@ -444,15 +445,39 @@ Partial Class Checkout
         Me.btnBuscar.Text = "Carregar Hospedagem"
         Me.btnBuscar.UseVisualStyleBackColor = True
         '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(449, -118)
+        Me.TextBox1.Multiline = True
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(137, 107)
+        Me.TextBox1.TabIndex = 21
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Enabled = False
+        Me.TextBox2.Location = New System.Drawing.Point(449, -150)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(100, 26)
+        Me.TextBox2.TabIndex = 23
+        '
+        'txtCpf
+        '
+        Me.txtCpf.Location = New System.Drawing.Point(88, 15)
+        Me.txtCpf.Mask = "000.000.000-00"
+        Me.txtCpf.Name = "txtCpf"
+        Me.txtCpf.Size = New System.Drawing.Size(155, 20)
+        Me.txtCpf.TabIndex = 4
+        '
         'Checkout
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.ClientSize = New System.Drawing.Size(710, 402)
+        Me.Controls.Add(Me.txtCpf)
         Me.Controls.Add(Me.btnBuscar)
         Me.Controls.Add(Me.pnlCheckout)
-        Me.Controls.Add(Me.txtCPF)
         Me.Controls.Add(Me.Label1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Checkout"
@@ -470,7 +495,6 @@ Partial Class Checkout
 
     End Sub
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents txtCPF As System.Windows.Forms.TextBox
     Friend WithEvents pnlCheckout As System.Windows.Forms.Panel
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label
@@ -506,4 +530,7 @@ Partial Class Checkout
     Friend WithEvents txtDiaria As System.Windows.Forms.TextBox
     Friend WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents btnCheckout As System.Windows.Forms.Button
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
+    Friend WithEvents txtCpf As System.Windows.Forms.MaskedTextBox
 End Class

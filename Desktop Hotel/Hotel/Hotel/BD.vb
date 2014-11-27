@@ -562,6 +562,23 @@ Public Class BD
     '
     'Checkout
     '
+    Public Sub checkout(cpf As String)
+        Try
+            Me.conexao.Open()
+        Catch ex As Exception
+            Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
+        End Try
+        Me.comando = New SqlCommand("exec dbo.checkout @cpf", Me.conexao)
+        Me.comando.Parameters.AddWithValue("@cpf", CStr(cpf))
+        Try
+            Me.comando.ExecuteNonQuery()
+        Catch ex As Exception
+            Me.conexao.Close()
+            Throw New System.Exception("Erro ao efetuar o checkout->Erro: " + ex.ToString)
+        End Try
+        Me.conexao.Close()
+    End Sub
+
     Public Function getDadosCheckout(cpf As String)
         Try
             Me.conexao.Open()
@@ -570,6 +587,23 @@ Public Class BD
         End Try
         Me.comando = New SqlCommand("Select * from dbo.infoCheckout(@cpf)", Me.conexao)
         Me.comando.Parameters.Add(New SqlParameter("@cpf", cpf))
+        Try
+            Me.dataReader = comando.ExecuteReader()
+        Catch ex As Exception
+            Me.conexao.Close()
+            Throw New System.Exception("Erro na pesquisa das informações do Checkout->Erro: " + ex.ToString)
+        End Try
+        Return Me.dataReader
+    End Function
+
+    Public Function getItens(idHospedagem)
+        Try
+            Me.conexao.Open()
+        Catch ex As Exception
+            Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
+        End Try
+        Me.comando = New SqlCommand("Select * from dbo.getItens(@idHospedagem)", Me.conexao)
+        Me.comando.Parameters.Add(New SqlParameter("@idHospedagem", idHospedagem))
         Try
             Me.dataReader = comando.ExecuteReader()
         Catch ex As Exception
@@ -635,6 +669,14 @@ Public Class BD
         End Try
         Me.conexao.Close()
     End Sub
+
+
+
+
+
+
+
+
 
     Public Sub fecharConexao()
         Me.conexao.Close()

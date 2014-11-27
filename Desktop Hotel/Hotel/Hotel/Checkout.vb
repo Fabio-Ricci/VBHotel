@@ -2,7 +2,7 @@
 
 Public Class Checkout
     Dim bd As New BD
-    Dim indice As Integer = 1
+    Dim indice As Integer = 0
 
     'Cliente
     Dim cpf As String
@@ -35,7 +35,8 @@ Public Class Checkout
     'Dim descricaoItem As String
 
     Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
-        cpf = txtCPF.Text
+        cpf = txtCpf.Text
+        cpf.Replace(",", ".")
 
         If (cpf <> "") Then
             Dim dr As SqlDataReader
@@ -66,7 +67,7 @@ Public Class Checkout
                 '''''''''''''''''''''''''''''''''''''''
                 Dim i As Integer = 0
 
-                'dr = bd.getItens(idHospedagem) 'retorna um data reader com todos os itens que tem essa idHospedagem (fazer)
+                dr = bd.getItens(idHospedagem) 'retorna um data reader com todos os itens que tem essa idHospedagem (fazer)
                 If dr.HasRows Then
                     While dr.HasRows
                         dr.Read()
@@ -74,10 +75,17 @@ Public Class Checkout
                         i = i + 1
                     End While
 
+                    btnAnt.Enabled = True
+                    btnProx.Enabled = True
                     txtCustoUnitario.Text = itens(0).getPrecoUnitario()
                     txtDescricaoItem.Text = itens(0).getDescricao()
                     qtdItens = itens.Count
+                Else
+                    btnAnt.Enabled = False
+                    btnProx.Enabled = False
+                    lblItens.Text = "0/0"
                 End If
+                bd.fecharConexao()
 
                 txtNome.Text = nome
                 txtEmail.Text = email
@@ -108,6 +116,11 @@ Public Class Checkout
             txtCustoUnitario.Text = itens(indice).getPrecoUnitario()
             txtDescricaoItem.Text = itens(indice).getDescricao()
             lblItens.Text = Convert.ToString(indice) + "/" + Convert.ToString(qtdItens)
+            btnAnt.Enabled = True
+
+            If (indice + 1 = qtdItens) Then
+                btnProx.Enabled = False
+            End If
         End If
     End Sub
 
@@ -117,6 +130,19 @@ Public Class Checkout
             txtCustoUnitario.Text = itens(indice).getPrecoUnitario()
             txtDescricaoItem.Text = itens(indice).getDescricao()
             lblItens.Text = Convert.ToString(indice) + "/" + Convert.ToString(qtdItens)
+            btnProx.Enabled = True
+
+            If (indice = 0) Then
+                btnAnt.Enabled = False
+            End If
+        End If
+    End Sub
+
+    Private Sub btnCheckout_Click(sender As Object, e As EventArgs) Handles btnCheckout.Click
+        Dim escolha As MsgBoxResult = MsgBox("Deseja realmente realizar o checkout desse cliente?", "Checkout", MsgBoxStyle.YesNoCancel)
+
+        If (escolha = MsgBoxResult.Yes) Then
+            bd.checkout(cpf)
         End If
     End Sub
 End Class
