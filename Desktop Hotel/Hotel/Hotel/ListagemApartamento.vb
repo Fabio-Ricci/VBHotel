@@ -11,6 +11,5 @@
         CadastroApartamentos.tcApartamento.SelectedIndex = 1
         CadastroApartamentos.Show()
         CadastroApartamentos.setSelectedTextCBEdicao(idApartamento)
-
     End Sub
 End Class

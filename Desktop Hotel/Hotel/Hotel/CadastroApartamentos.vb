@@ -329,6 +329,7 @@ Public Class CadastroApartamentos
         bd.removerApartamento(remocaoNumeroSelecionado)
         MsgBox("Apartamento removido com sucesso.")
         cbxRemocaoApartamento.SelectedIndex = -1
+        cbxRemocaoApartamento.Items.Remove(remocaoNumeroSelecionado)
         txtRemocaoAndar.Text = ""
         txtRemocaoCamaCasal.Text = ""
         txtremocaoCamaSolteiro.Text = ""

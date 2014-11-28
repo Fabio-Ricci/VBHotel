@@ -70,6 +70,26 @@ Public Class Principal
         ListagemPergunta.Show()
     End Sub
 
+    Private Sub menuAvaliacao_Click(sender As Object, e As EventArgs) Handles menuAvaliacao.Click
+        Avaliacao.Show()
+    End Sub
+
+    Private Sub menuHospedagemEditar_Click(sender As Object, e As EventArgs) Handles menuHospedagemEditar.Click
+        EditarHospedagem.Show()
+    End Sub
+
+    Private Sub menuHospedagemCheckIn_Click(sender As Object, e As EventArgs) Handles menuHospedagemCheckIn.Click
+        hospedagemCheckIn.Show()
+    End Sub
+
+    Private Sub menuHospedagemCheckOut_Click(sender As Object, e As EventArgs) Handles menuHospedagemCheckOut.Click
+        Checkout.Show()
+    End Sub
+
+    Private Sub menuHospedagemEditarReserva_Click(sender As Object, e As EventArgs) Handles menuHospedagemEditarReserva.Click
+        EditarReserva.Show()
+    End Sub
+
     Private Sub Principal_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         'fecha todos os demais formulários quando fecha o principal
         CadastroApartamentos.Close()
@@ -93,10 +113,5 @@ Public Class Principal
         login.Close()
         Avaliacao.Close()
     End Sub
-
-    Private Sub menuAvaliacao_Click(sender As Object, e As EventArgs) Handles menuAvaliacao.Click
-        Avaliacao.Show()
-    End Sub
-
 
 End Class

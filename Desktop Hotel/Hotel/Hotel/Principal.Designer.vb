@@ -46,8 +46,13 @@ Partial Class Principal
         Me.menuFuncionarios = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuFuncionariosCadastro = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuFuncionariosListagem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.menuAvaliacao = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.menuHospedagem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.menuHospedagemEditar = New System.Windows.Forms.ToolStripMenuItem()
+        Me.menuHospedagemCheckIn = New System.Windows.Forms.ToolStripMenuItem()
+        Me.menuHospedagemCheckOut = New System.Windows.Forms.ToolStripMenuItem()
+        Me.menuHospedagemEditarReserva = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -55,10 +60,10 @@ Partial Class Principal
         'menu
         '
         Me.menu.BackColor = System.Drawing.Color.Gainsboro
-        Me.menu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menuApartamentos, Me.menuClientes, Me.menuItens, Me.menuPergunta, Me.menuCheckout, Me.menuFuncionarios, Me.menuAvaliacao})
+        Me.menu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menuApartamentos, Me.menuClientes, Me.menuItens, Me.menuPergunta, Me.menuCheckout, Me.menuFuncionarios, Me.menuAvaliacao, Me.menuHospedagem})
         Me.menu.Location = New System.Drawing.Point(0, 0)
         Me.menu.Name = "menu"
-        Me.menu.Size = New System.Drawing.Size(517, 24)
+        Me.menu.Size = New System.Drawing.Size(604, 24)
         Me.menu.TabIndex = 0
         Me.menu.Text = "MenuStrip1"
         '
@@ -199,29 +204,60 @@ Partial Class Principal
         Me.menuFuncionariosListagem.Size = New System.Drawing.Size(209, 22)
         Me.menuFuncionariosListagem.Text = "Listagem de Funcionários"
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(98, 49)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(336, 239)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 1
-        Me.PictureBox1.TabStop = False
-        '
         'menuAvaliacao
         '
         Me.menuAvaliacao.Name = "menuAvaliacao"
         Me.menuAvaliacao.Size = New System.Drawing.Size(76, 20)
         Me.menuAvaliacao.Text = "Estatísticas"
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(133, 53)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(336, 239)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 1
+        Me.PictureBox1.TabStop = False
+        '
+        'menuHospedagem
+        '
+        Me.menuHospedagem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menuHospedagemEditar, Me.menuHospedagemCheckIn, Me.menuHospedagemCheckOut, Me.menuHospedagemEditarReserva})
+        Me.menuHospedagem.Name = "menuHospedagem"
+        Me.menuHospedagem.Size = New System.Drawing.Size(90, 20)
+        Me.menuHospedagem.Text = "Hospedagem"
+        '
+        'menuHospedagemEditar
+        '
+        Me.menuHospedagemEditar.Name = "menuHospedagemEditar"
+        Me.menuHospedagemEditar.Size = New System.Drawing.Size(178, 22)
+        Me.menuHospedagemEditar.Text = "Editar Hospedagem"
+        '
+        'menuHospedagemCheckIn
+        '
+        Me.menuHospedagemCheckIn.Name = "menuHospedagemCheckIn"
+        Me.menuHospedagemCheckIn.Size = New System.Drawing.Size(178, 22)
+        Me.menuHospedagemCheckIn.Text = "Check-In"
+        '
+        'menuHospedagemCheckOut
+        '
+        Me.menuHospedagemCheckOut.Name = "menuHospedagemCheckOut"
+        Me.menuHospedagemCheckOut.Size = New System.Drawing.Size(178, 22)
+        Me.menuHospedagemCheckOut.Text = "Check-Out"
+        '
+        'menuHospedagemEditarReserva
+        '
+        Me.menuHospedagemEditarReserva.Name = "menuHospedagemEditarReserva"
+        Me.menuHospedagemEditarReserva.Size = New System.Drawing.Size(178, 22)
+        Me.menuHospedagemEditarReserva.Text = "Editar Reserva"
+        '
         'Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
-        Me.ClientSize = New System.Drawing.Size(517, 320)
+        Me.ClientSize = New System.Drawing.Size(604, 320)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.menu)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -262,4 +298,9 @@ Partial Class Principal
     Friend WithEvents ListagemDePerguntasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ListegamDePerguntasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents menuAvaliacao As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents menuHospedagem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents menuHospedagemEditar As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents menuHospedagemCheckIn As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents menuHospedagemCheckOut As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents menuHospedagemEditarReserva As System.Windows.Forms.ToolStripMenuItem
 End Class
