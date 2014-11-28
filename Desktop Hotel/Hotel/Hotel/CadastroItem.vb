@@ -135,7 +135,7 @@ Public Class CadastroItem
 
         descricao = txtDescricao.Text
 
-        If (tipoItem <> "") Then
+        If (tipoItem <> "") Then ' faz todas a verificações e insere um item novo
             If (custoUnitario <> 0) Then
                 If (descricao <> "") Then
                     bd.cadastrarItem(tipoItem, custoUnitario, descricao)
@@ -168,7 +168,7 @@ Public Class CadastroItem
 
         edicaoDescricao = txtEdicaoDescricao.Text
 
-        If (edicaoIdItem <> 0) Then
+        If (edicaoIdItem <> 0) Then 'salva as alterações feitas em determinado item selecionado
             If (edicaoTipoItem <> "") Then
                 If (edicaoCustoUnitario <> 0) Then
                     If (edicaoDescricao <> "") Then
@@ -188,7 +188,7 @@ Public Class CadastroItem
         End If
     End Sub
 
-    Private Sub btnRemocaoItem_Click(sender As Object, e As EventArgs) Handles btnRemocaoItem.Click
+    Private Sub btnRemocaoItem_Click(sender As Object, e As EventArgs) Handles btnRemocaoItem.Click 'remove o item selecionado do combo boxs
         If (remocaoIdItem <> 0) Then
             bd.removerItem(remocaoIdItem) 'Mudar no BD
         Else
@@ -223,12 +223,12 @@ Public Class CadastroItem
         tipoItem = cbxTipoItem.Text
     End Sub
 
-    Private Sub cbxEdicaoIdItem_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxEdicaoIdItem.SelectedIndexChanged
+    Private Sub cbxEdicaoIdItem_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxEdicaoIdItem.SelectedIndexChanged ' preenche os dados referentes ao id selecionado
         edicaoIdItem = cbxEdicaoIdItem.Text
 
         Dim dr As SqlDataReader
 
-        dr = bd.selecionaDadosEdicaoItem(edicaoIdItem) 'Mudar
+        dr = bd.selecionaDadosEdicaoItem(edicaoIdItem)
 
         dr.Read()
         edicaoTipoItem = Convert.ToString(dr.Item(0))
@@ -244,7 +244,7 @@ Public Class CadastroItem
         pnlEdicaoItem.Visible = True
     End Sub
 
-    Private Sub cbxRemocaoIdItem_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxRemocaoIdItem.SelectedIndexChanged
+    Private Sub cbxRemocaoIdItem_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxRemocaoIdItem.SelectedIndexChanged ' preenche os dados referentes ao id selecionado
         remocaoIdItem = cbxRemocaoIdItem.Text
 
         Dim dr As SqlDataReader
@@ -265,7 +265,7 @@ Public Class CadastroItem
         pnlRemocaoItem.Visible = True
     End Sub
 
-    Private Sub CadastroItem_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub CadastroItem_Load(sender As Object, e As EventArgs) Handles MyBase.Load 'preenche o combo box de cadastro
         Dim dr As SqlDataReader
         dr = bd.getTiposItens()
         If dr.HasRows Then

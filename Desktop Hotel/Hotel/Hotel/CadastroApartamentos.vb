@@ -59,7 +59,7 @@ Public Class CadastroApartamentos
                                 cbxEdicaoTipoApartamento.DataSource = Nothing
 
                                 Dim dr As SqlDataReader
-                                dr = bd.getNumerosApartamentos() 'fazer funcao na classe BD
+                                dr = bd.getNumerosApartamentos()
                                 While dr.Read
                                     cbxEdicaoTipoApartamento.Refresh()
                                     cbxEdicaoTipoApartamento.Items.Add(dr("numero"))
@@ -83,10 +83,9 @@ Public Class CadastroApartamentos
         End Try
 
         cbxTipoApartamento.Text = ""
-        'fazer uma lista com os dados existentes, incluir um numero e incluir tudo denovo
     End Sub
 
-    Private Sub txtNumero_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtNumero.KeyPress
+    Private Sub txtNumero_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtNumero.KeyPress 'não permite letras
         If Asc(e.KeyChar) <> 8 Then
             If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
                 e.Handled = True
@@ -119,7 +118,7 @@ Public Class CadastroApartamentos
     End Sub
 
     'tab 2 edição
-    Private Sub cbTipoApartamento_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxEdicaoTipoApartamento.SelectedIndexChanged
+    Private Sub cbTipoApartamento_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxEdicaoTipoApartamento.SelectedIndexChanged 'pega os dados do apartamento selecionado no combo box de edicao
         If (cbxEdicaoTipoApartamento.Text <> "") Then
             pnlEdicao.Visible = True
             txtEdicaoCamaSolteiro.Text = ""
@@ -192,7 +191,7 @@ Public Class CadastroApartamentos
                         MsgBox("Apartamento atualizado com sucesso.")
 
                         Dim dr As SqlDataReader
-                        dr = bd.selecionaDadosEdicaoApartamento(numeroSelecionado)
+                        dr = bd.selecionaDadosEdicaoApartamento(numeroSelecionado) 'preenche os dados do apartamento editado
 
                         dr.Read()
                         edicaoCamaCasal = Convert.ToInt32(dr.Item(0))
@@ -228,7 +227,7 @@ Public Class CadastroApartamentos
         cbxEdicaoTipoApartamento.Text = ""
     End Sub
 
-    Private Sub tcApartamento_SelectedIndexChanged(sender As Object, e As EventArgs) Handles tcApartamento.SelectedIndexChanged
+    Private Sub tcApartamento_SelectedIndexChanged(sender As Object, e As EventArgs) Handles tcApartamento.SelectedIndexChanged 'verifica em qual tab está e preenche os combo box ta tab
         If (tcApartamento.SelectedIndex = 2) Then
             txtRemocaoTipoApartamento.Text = ""
             txtRemocaoAndar.Text = ""
@@ -318,7 +317,7 @@ Public Class CadastroApartamentos
         cbxTipoApartamento.Text = ""
     End Sub
 
-    Private Sub btnRemoverApartamento_Click(sender As Object, e As EventArgs) Handles btnRemoverApartamento.Click
+    Private Sub btnRemoverApartamento_Click(sender As Object, e As EventArgs) Handles btnRemoverApartamento.Click 'remove o apartamento e limpa os campos
         bd.removerApartamento(remocaoNumeroSelecionado)
         MsgBox("Apartamento removido com sucesso.")
         cbxRemocaoApartamento.SelectedIndex = -1
@@ -339,7 +338,7 @@ Public Class CadastroApartamentos
         remocaoNumeroSelecionado = 0
     End Sub
 
-    Private Sub cbxRemocaoApartamento_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxRemocaoApartamento.SelectedIndexChanged
+    Private Sub cbxRemocaoApartamento_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxRemocaoApartamento.SelectedIndexChanged 'preenche os dados do item selecionado do combo box, mostrando o item a ser deletedo
         If (cbxRemocaoApartamento.Text <> "") Then
             pnlRemocao.Visible = True
             remocaoNumeroSelecionado = Convert.ToInt32(cbxRemocaoApartamento.Text)

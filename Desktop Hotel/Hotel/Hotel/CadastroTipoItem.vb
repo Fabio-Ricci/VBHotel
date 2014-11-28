@@ -14,7 +14,7 @@ Public Class CadastroTipoItem
     Dim remocaoIdTipoItem As Integer
     Dim remocaoDescricaoTipoItem As String
 
-    Private Sub btnCadastarTipoItem_Click(sender As Object, e As EventArgs) Handles btnCadastarTipoItem.Click
+    Private Sub btnCadastarTipoItem_Click(sender As Object, e As EventArgs) Handles btnCadastarTipoItem.Click 'cadastra um novo tipo de item
         descricaoTipoItem = txtCadastroTipoItem.Text
         txtCadastroTipoItem.Text = ""
 
@@ -26,7 +26,7 @@ Public Class CadastroTipoItem
         End If
     End Sub
 
-    Private Sub btnSalvarEdicao_Click(sender As Object, e As EventArgs) Handles btnSalvarEdicao.Click
+    Private Sub btnSalvarEdicao_Click(sender As Object, e As EventArgs) Handles btnSalvarEdicao.Click 'salva os dados editados
         edicaoDescricaoTipoItem = txtEdicaoDescricaoTipoItem.Text
 
         If (edicaoDescricaoTipoItem <> "") Then
@@ -37,12 +37,12 @@ Public Class CadastroTipoItem
         End If
     End Sub
 
-    Private Sub cbxEdicaoIdTipoItem_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxEdicaoIdTipoItem.SelectedIndexChanged
+    Private Sub cbxEdicaoIdTipoItem_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxEdicaoIdTipoItem.SelectedIndexChanged 'preenche o combo box de edicao
         edicaoIdTipoItem = cbxEdicaoIdTipoItem.Text
 
         Dim dr As SqlDataReader
 
-        dr = bd.selecionaDadosTipoItem(edicaoIdTipoItem) 'Mudar
+        dr = bd.selecionaDadosTipoItem(edicaoIdTipoItem)
 
         dr.Read()
         edicaoDescricaoTipoItem = Convert.ToString(dr.Item(0))
@@ -54,7 +54,7 @@ Public Class CadastroTipoItem
         pnlEdicaoTipoItem.Visible = True
     End Sub
 
-    Private Sub btnRemovarTipoItem_Click(sender As Object, e As EventArgs) Handles btnRemovarTipoItem.Click
+    Private Sub btnRemovarTipoItem_Click(sender As Object, e As EventArgs) Handles btnRemovarTipoItem.Click 'remove o tipo de item selecionado
         bd.removerTipoItem(remocaoIdTipoItem)
         MsgBox("Tipo de item removido com sucesso.")
 
@@ -63,12 +63,12 @@ Public Class CadastroTipoItem
         pnlRemocaoTipoItem.Visible = False
     End Sub
 
-    Private Sub cbxRemocaoIdTipoItem_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxRemocaoIdTipoItem.SelectedIndexChanged
+    Private Sub cbxRemocaoIdTipoItem_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxRemocaoIdTipoItem.SelectedIndexChanged 'pega o dado referente ao id selecionado
         remocaoIdTipoItem = cbxRemocaoIdTipoItem.Text
 
         Dim dr As SqlDataReader
 
-        dr = bd.selecionaDadosTipoItem(remocaoIdTipoItem) 'Mudar
+        dr = bd.selecionaDadosTipoItem(remocaoIdTipoItem)
 
         dr.Read()
         remocaoDescricaoTipoItem = Convert.ToString(dr.Item(0))
@@ -80,7 +80,7 @@ Public Class CadastroTipoItem
         pnlRemocaoTipoItem.Visible = True
     End Sub
 
-    Private Sub tcTipoItem_SelectedIndexChanged(sender As Object, e As EventArgs) Handles tcTipoItem.SelectedIndexChanged
+    Private Sub tcTipoItem_SelectedIndexChanged(sender As Object, e As EventArgs) Handles tcTipoItem.SelectedIndexChanged 'verifica em qual tab está e preencho um determinado combobox
         If tcTipoItem.SelectedIndex = 0 Then
             txtCadastroTipoItem.Text = ""
 
