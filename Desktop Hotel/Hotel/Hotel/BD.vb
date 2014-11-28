@@ -14,7 +14,7 @@ Public Class BD
     End Sub
 
 
-    Public Function logar(username As String, senha As String) As Boolean
+    Public Function logar(username As String, senha As String) As Boolean  ' faz o login do usuário
         Dim existe As Boolean
         Try
             Me.conexao.Open()
@@ -35,7 +35,7 @@ Public Class BD
         Return existe
     End Function
 
-    Private Function hashOfString(ByVal stringToHash As String) As String
+    Private Function hashOfString(ByVal stringToHash As String) As String ' faz a criptografia de uma string
         Dim uEncode As New UnicodeEncoding()
         Dim bytClearString() As Byte = uEncode.GetBytes(stringToHash)
         Dim sha As New  _
@@ -44,7 +44,7 @@ Public Class BD
         Return Convert.ToBase64String(hash)
     End Function
 
-    Private Function usuarioExistente(username As String) As Boolean
+    Private Function usuarioExistente(username As String) As Boolean ' checa se um usuário é existente
         Dim existe As Boolean
         Try
             Me.conexao.Open()
@@ -66,7 +66,7 @@ Public Class BD
         Return existe
     End Function
 
-    Public Sub adicionaUsuario(username As String, senha As String, privilegio As Integer, foto As Byte())
+    Public Sub adicionaUsuario(username As String, senha As String, privilegio As Integer, foto As Byte()) ' adiciona um novo usuario
         If (Not Me.usuarioExistente(username)) Then
             Try
                 Me.conexao.Open()
@@ -89,7 +89,7 @@ Public Class BD
     End Sub
 
     Public Sub adicionaCliente(nome As String, dataNascimento As String, sexo As Char, email As String, telefone As String, celular As String, endereco As String,
-     bairro As String, cidade As String, pais As String, siglaUF As String, senha As String, numeroCartao As String, codigoSeguranca As String, nomeTitular As String, dataValidade As String, cpf As String)
+     bairro As String, cidade As String, pais As String, siglaUF As String, senha As String, numeroCartao As String, codigoSeguranca As String, nomeTitular As String, dataValidade As String, cpf As String) ' adiciona um cliente novo
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -109,7 +109,7 @@ Public Class BD
 
     '------Tipo Apartamento -------
 
-    Public Function infoApartamento(numeroApartamento As Integer) As SqlDataReader
+    Public Function infoApartamento(numeroApartamento As Integer) As SqlDataReader  ' recupera as informacoes do apartamento
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -126,7 +126,7 @@ Public Class BD
         Return Me.dataReader
     End Function
 
-    Public Function tiposApartamento() As SqlDataReader
+    Public Function tiposApartamento() As SqlDataReader  ' pega todos os tipos de apartamento
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -142,7 +142,7 @@ Public Class BD
         Return Me.dataReader
     End Function
 
-    Public Function infoTipoApartamento(tipoApartamento As String) As SqlDataReader
+    Public Function infoTipoApartamento(tipoApartamento As String) As SqlDataReader  ' seleciona um tipo de apartamento determinado
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -158,7 +158,7 @@ Public Class BD
         Return Me.dataReader
     End Function
 
-    Public Sub adicionaTipoApartamento(descricao As String, diaria As Double, tipo As String)
+    Public Sub adicionaTipoApartamento(descricao As String, diaria As Double, tipo As String) ' adiciona um novo tipo de apartamento
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -177,7 +177,7 @@ Public Class BD
         Me.conexao.Close()
     End Sub
 
-    Public Function infoCliente() As SqlDataReader 'MUDADO'
+    Public Function infoCliente() As SqlDataReader 'MUDADO'   'recupera as informações do cliente
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -195,7 +195,7 @@ Public Class BD
         Return Me.dataReader
     End Function
 
-    Public Sub editaTipoApartamento(descricao As String, diaria As Double, tipo As String, idTipo As Integer)
+    Public Sub editaTipoApartamento(descricao As String, diaria As Double, tipo As String, idTipo As Integer)  ' edita um tipo de apartamento
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -215,7 +215,7 @@ Public Class BD
         Me.conexao.Close()
     End Sub
 
-    Public Sub adicionaFotoApartamento(idTipoApartamento As Integer, foto As Byte())
+    Public Sub adicionaFotoApartamento(idTipoApartamento As Integer, foto As Byte())  ' adiciona uma foto em um tipo de apartamento
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -233,7 +233,7 @@ Public Class BD
         Me.conexao.Close()
     End Sub
 
-    Public Function fotosApartamento(idTipoApartamento As Integer) As SqlDataReader
+    Public Function fotosApartamento(idTipoApartamento As Integer) As SqlDataReader  ' seleciona as fotos de um apartamento
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -253,7 +253,7 @@ Public Class BD
     '
     'Apartamento
     '
-    Public Sub removerApartamento(numero As Integer)
+    Public Sub removerApartamento(numero As Integer)  ' remove um apartamento
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -270,7 +270,7 @@ Public Class BD
         Me.conexao.Close()
     End Sub
 
-    Public Sub adicionaApartamento(idTipoApartamento As Integer, numero As String, andar As Integer, camaCasal As Integer, camaSolteiro As Integer, frigobar As Char)
+    Public Sub adicionaApartamento(idTipoApartamento As Integer, numero As String, andar As Integer, camaCasal As Integer, camaSolteiro As Integer, frigobar As Char) ' adiciona um novo apartamento
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -286,7 +286,7 @@ Public Class BD
         Me.conexao.Close()
     End Sub
 
-    Public Sub updateApartamento(numero As Integer, idTipoApartamento As Integer, andar As Integer, camaCasal As Integer, camaSolteiro As Integer, frigobar As Char)
+    Public Sub updateApartamento(numero As Integer, idTipoApartamento As Integer, andar As Integer, camaCasal As Integer, camaSolteiro As Integer, frigobar As Char) 'edita um apartamento
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -302,7 +302,7 @@ Public Class BD
         Me.conexao.Close()
     End Sub
 
-    Public Function getIdTipoApartamento(tipo As String)
+    Public Function getIdTipoApartamento(tipo As String) ' pega os ids dos tipos de apartamentos
         Dim id As Integer
         Try
             Me.conexao.Open()
@@ -325,7 +325,7 @@ Public Class BD
         Return id
     End Function
 
-    Public Function selecionaDadosEdicaoApartamento(numero As Integer)
+    Public Function selecionaDadosEdicaoApartamento(numero As Integer)  ' seleciona os dados de um apartamento para realizar a edição
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -342,7 +342,7 @@ Public Class BD
         Return Me.dataReader
     End Function
 
-    Public Function numeroApartamentoExiste(numero As Integer) As Boolean
+    Public Function numeroApartamentoExiste(numero As Integer) As Boolean  ' checa se um número de apartamento existe
         Dim existe As Boolean
         Try
             Me.conexao.Open()
@@ -365,7 +365,7 @@ Public Class BD
         Return existe
     End Function
 
-    Public Function getNumerosApartamentos()
+    Public Function getNumerosApartamentos() ' pega os números de apartamentos
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -384,7 +384,7 @@ Public Class BD
     '
     'Item
     '
-    Public Function selecionaDadosEdicaoItem(id As Integer)
+    Public Function selecionaDadosEdicaoItem(id As Integer) ' seleciona dados de item para edição
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -401,7 +401,7 @@ Public Class BD
         Return Me.dataReader
     End Function
 
-    Public Sub cadastrarItem(tipoItem As String, custoUnitario As Double, descricao As String)
+    Public Sub cadastrarItem(tipoItem As String, custoUnitario As Double, descricao As String) ' cadastra um item
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -420,7 +420,7 @@ Public Class BD
         Me.conexao.Close()
     End Sub
 
-    Public Sub removerItem(idItem As Integer)
+    Public Sub removerItem(idItem As Integer) ' remove um item
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -437,7 +437,7 @@ Public Class BD
         Me.conexao.Close()
     End Sub
 
-    Public Sub editarItem(idItem As Integer, tipoItem As String, custoUnitario As Double, descricao As String)
+    Public Sub editarItem(idItem As Integer, tipoItem As String, custoUnitario As Double, descricao As String)  ' edita um item existente
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -457,7 +457,7 @@ Public Class BD
         Me.conexao.Close()
     End Sub
 
-    Public Function getTiposItens()
+    Public Function getTiposItens() ' pega os tipos de item
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -474,7 +474,7 @@ Public Class BD
         Return dataReader
     End Function
 
-    Public Function getIdItens()
+    Public Function getIdItens() ' pega os ids dos items
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -493,7 +493,7 @@ Public Class BD
     '
     'TipoItem
     '
-    Public Sub incluirTipoItem(descricao As String)
+    Public Sub incluirTipoItem(descricao As String) ' inclui um novo tipo de item
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -510,7 +510,7 @@ Public Class BD
         Me.conexao.Close()
     End Sub
 
-    Public Sub editarTipoItem(idItem As Integer, descricao As String)
+    Public Sub editarTipoItem(idItem As Integer, descricao As String) ' edita um tipo de item existente
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -528,7 +528,7 @@ Public Class BD
         Me.conexao.Close()
     End Sub
 
-    Public Function getIdTipoItens()
+    Public Function getIdTipoItens() ' pega os ids dos tipos de itens
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -545,7 +545,7 @@ Public Class BD
         Return dataReader
     End Function
 
-    Public Function selecionaDadosTipoItem(id As Integer)
+    Public Function selecionaDadosTipoItem(id As Integer) ' seleciona os dados de um tipo de item
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -562,7 +562,7 @@ Public Class BD
         Return Me.dataReader
     End Function
 
-    Public Sub removerTipoItem(idItem As Integer)
+    Public Sub removerTipoItem(idItem As Integer) ' remove um tipo de item
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -586,7 +586,7 @@ Public Class BD
 
 
 
-    Public Sub checkout(cpf As String)
+    Public Sub checkout(cpf As String) ' realiza o checkout do cliente
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -603,7 +603,7 @@ Public Class BD
         Me.conexao.Close()
     End Sub
 
-    Public Function getDadosCheckout(cpf As String)
+    Public Function getDadosCheckout(cpf As String) ' pega os dados para o checkout
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -620,7 +620,7 @@ Public Class BD
         Return Me.dataReader
     End Function
 
-    Public Function getItens(idHospedagem)
+    Public Function getItens(idHospedagem) ' pega os itens consumidos de uma hospedagem
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -637,7 +637,7 @@ Public Class BD
         Return Me.dataReader
     End Function
 
-    Public Function qtdItensConsumidos(idHospedagem As Integer)
+    Public Function qtdItensConsumidos(idHospedagem As Integer) ' pega a quantidade de itens consumidos em uma hospedagem
         Dim qtd As Integer
 
         Try
@@ -660,7 +660,7 @@ Public Class BD
     '
     'Pergunta
     '
-    Public Function getPerguntas()
+    Public Function getPerguntas() ' pega as perguntas não respondidas dos clientes
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -676,7 +676,7 @@ Public Class BD
         Return Me.dataReader
     End Function
 
-    Public Sub salvarResposta(idPergunta As String, resposta As String)
+    Public Sub salvarResposta(idPergunta As String, resposta As String) ' salva a resposta do cliente
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -696,7 +696,7 @@ Public Class BD
     '
     'Consumo
     '
-    Public Function getDescricaoItens()
+    Public Function getDescricaoItens() ' pega a descricao dos items
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -712,7 +712,7 @@ Public Class BD
         Return Me.dataReader
     End Function
 
-    Public Sub inserirConsumo(item As Integer, idHospedagem As Integer, qtd As Integer, data As Date)
+    Public Sub inserirConsumo(item As Integer, idHospedagem As Integer, qtd As Integer, data As Date) ' insere um item de consumo
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -732,7 +732,7 @@ Public Class BD
         Me.conexao.Close()
     End Sub
 
-    Public Function getIdHospedagem(cpf As String)
+    Public Function getIdHospedagem(cpf As String) ' pega o id da hospedagem de um cliente passando o cpf
         Dim id As Integer
 
         Try
@@ -754,11 +754,11 @@ Public Class BD
         Return id
     End Function
 
-    Public Sub fecharConexao()
+    Public Sub fecharConexao() ' fecha a conexao com o banco
         Me.conexao.Close()
     End Sub
 
-    Public Function disponibilidadeApartamento(idTipoApartamento As Integer, dataInicio As String, dataFim As String) As Boolean
+    Public Function disponibilidadeApartamento(idTipoApartamento As Integer, dataInicio As String, dataFim As String) As Boolean ' checa disponibilidade de um quarto para a reserva
         Dim disponivel As Boolean
         Try
             Me.conexao.Open()
@@ -779,7 +779,7 @@ Public Class BD
         Return disponivel
     End Function
 
-    Public Sub atualizaReserva()
+    Public Sub atualizaReserva() ' atualiza as reservas de acordo com a data
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -795,7 +795,7 @@ Public Class BD
         Me.conexao.Close()
     End Sub
 
-    Public Sub adicionaReserva(idTipoApartamento As Integer, idCliente As Integer, dataInicio As String, dataFim As String, numeroBoleto As Integer, dataPagamento As String, situacao As Integer)
+    Public Sub adicionaReserva(idTipoApartamento As Integer, idCliente As Integer, dataInicio As String, dataFim As String, numeroBoleto As Integer, dataPagamento As String, situacao As Integer) 'adiciona uma nova reserva
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -811,7 +811,7 @@ Public Class BD
         Me.conexao.Close()
 
     End Sub
-    Public Sub adicionaHospedagem(idApartamento As Integer, idReserva As Integer, origem As String, destino As String, tipoDoGrupo As Integer, motivoViagem As Integer, formaPagamento As Integer)
+    Public Sub adicionaHospedagem(idApartamento As Integer, idReserva As Integer, origem As String, destino As String, tipoDoGrupo As Integer, motivoViagem As Integer, formaPagamento As Integer) 'adiona uma nova hospedagem
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -828,7 +828,7 @@ Public Class BD
         Me.conexao.Close()
     End Sub
 
-    Public Function gastoAtualHospedagem(idHospedagem As Integer) As Double
+    Public Function gastoAtualHospedagem(idHospedagem As Integer) As Double ' pega o gasto atual de uma hospedagem
 
         Dim gasto As Double
         Try
@@ -851,7 +851,7 @@ Public Class BD
 
 
 
-    Public Function gastoDoCliente(idCliente As Integer) As Double
+    Public Function gastoDoCliente(idCliente As Integer) As Double ' pega o gasto de um cliente
         Dim gasto As Double
         Try
             Me.conexao.Open()
@@ -871,7 +871,7 @@ Public Class BD
         Return gasto
     End Function
 
-    Public Sub adicionaConsumo(idItem As Integer, idHospedagem As Integer, quantidade As Integer)
+    Public Sub adicionaConsumo(idItem As Integer, idHospedagem As Integer, quantidade As Integer) ' adiciona um item de consumo em uma hospedagem
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -888,7 +888,7 @@ Public Class BD
     End Sub
 
 
-    Public Sub adicionaPergunta(pergunta As String, temAvaliacao As Boolean)
+    Public Sub adicionaPergunta(pergunta As String, temAvaliacao As Boolean) ' adiciona uma nova pergunta
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -905,7 +905,7 @@ Public Class BD
     End Sub
 
 
-    Public Sub adicionaResposta(idpergunta As Integer, idHospedagem As Integer, nota As Integer, comentario As String)
+    Public Sub adicionaResposta(idpergunta As Integer, idHospedagem As Integer, nota As Integer, comentario As String) ' adiciona uma resposta
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -920,7 +920,7 @@ Public Class BD
         End Try
         Me.conexao.Close()
     End Sub
-    Public Function mediaAvaliacoes() As Double
+    Public Function mediaAvaliacoes() As Double ' faz a media das avaliações do cliente
         Dim media As Double
         Try
             Me.conexao.Open()
@@ -940,7 +940,7 @@ Public Class BD
         Return media
     End Function
 
-    Public Function arrecadacaoEntre(dataInicio As String, DataFim As String) As Double
+    Public Function arrecadacaoEntre(dataInicio As String, DataFim As String) As Double ' pega a arrecadação do hotel entre duas datas
         Dim arrecadacao As Double
         Try
             Me.conexao.Open()
@@ -960,7 +960,7 @@ Public Class BD
         Return arrecadacao
     End Function
 
-    Public Function notaFiscal(idHospedagem As Integer) As String
+    Public Function notaFiscal(idHospedagem As Integer) As String ' gera a nota fiscal de uma hospedagem
         Dim nota As String
         Try
             Me.conexao.Open()
@@ -979,7 +979,7 @@ Public Class BD
         Me.conexao.Close()
         Return nota
     End Function
-    Public Sub fechaConta(idHospedagem As Integer)
+    Public Sub fechaConta(idHospedagem As Integer) ' fecha a conta de uma hospedagem
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -995,7 +995,7 @@ Public Class BD
         Me.conexao.Close()
     End Sub
 
-    Public Sub adicionaTempoHospedagem(idHospedagem As Integer, novaDataFim As String)
+    Public Sub adicionaTempoHospedagem(idHospedagem As Integer, novaDataFim As String) ' adiciona tempo na hospedagem
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -1011,7 +1011,7 @@ Public Class BD
         Me.conexao.Close()
     End Sub
 
-    Public Function nivelPrivilegio(username As String) As Integer
+    Public Function nivelPrivilegio(username As String) As Integer ' pega o nível de privilégio de um funcionario
         Dim privilegio As Integer
         Try
             Me.conexao.Open()
@@ -1032,7 +1032,7 @@ Public Class BD
     End Function
 
 
-    Public Function reservaClienteChekinDados(idCliente As Integer) As SqlDataReader
+    Public Function reservaClienteChekinDados(idCliente As Integer) As SqlDataReader ' faz o checkin dos dados
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -1050,7 +1050,7 @@ Public Class BD
     End Function
 
 
-    Private Function Encrypt(clearText As String) As String
+    Private Function Encrypt(clearText As String) As String ' faz a criptografia reversível por meio de uma chave
         Dim EncryptionKey As String = "MAKV2SPBNI99212"
         Dim clearBytes As Byte() = Encoding.Unicode.GetBytes(clearText)
         Using encryptor As Aes = Aes.Create()
@@ -1070,7 +1070,7 @@ Public Class BD
         Return clearText
     End Function
 
-    Public Function reservaAtual(idCliente As Integer) As Boolean
+    Public Function reservaAtual(idCliente As Integer) As Boolean ' pega a reserva atual de um cliente
         Dim atual As Boolean
         Try
             Me.conexao.Open()
@@ -1095,7 +1095,7 @@ Public Class BD
 
 
 
-    Public Function tipoApartamentoExiste(tipo As String) As Boolean
+    Public Function tipoApartamentoExiste(tipo As String) As Boolean ' checa se um tipo de apartamento já existe
         Dim existe As Boolean
         Try
             Me.conexao.Open()
@@ -1118,7 +1118,7 @@ Public Class BD
         Return existe
     End Function
 
-    Private Function Decrypt(cipherText As String) As String
+    Private Function Decrypt(cipherText As String) As String ' faz a descriptografia
         Dim EncryptionKey As String = "MAKV2SPBNI99212"
         Dim cipherBytes As Byte() = Convert.FromBase64String(cipherText)
         Using encryptor As Aes = Aes.Create()
@@ -1139,7 +1139,7 @@ Public Class BD
     End Function
 
 
-    Public Sub carregaFotoUsuario(ByRef pb As PictureBox, username As String)
+    Public Sub carregaFotoUsuario(ByRef pb As PictureBox, username As String) ' carrega a foto de um usuário
         Try
             Me.conexao.Open()
         Catch ex As Exception
@@ -1160,7 +1160,7 @@ Public Class BD
         pb.Image = Image.FromStream(pictureBytes)
     End Sub
 
-    Public Function emailExiste(email As String) As Boolean
+    Public Function emailExiste(email As String) As Boolean ' checa se um email existe
         Dim existe As Boolean
         Try
             Me.conexao.Open()
@@ -1183,7 +1183,7 @@ Public Class BD
         Return existe
     End Function
 
-    Public Function consultaGenerica(consulta As String) As SqlDataReader
+    Public Function consultaGenerica(consulta As String) As SqlDataReader ' faz uma consulta no banco retornando o resultado do select
         Try
             Me.conexao.Open()
         Catch ex As Exception
