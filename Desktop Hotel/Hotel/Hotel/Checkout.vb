@@ -31,8 +31,8 @@ Public Class Checkout
     Dim qtdItens As Integer
     Dim itens As List(Of Item)
     Dim qtdItensConsumidos As Integer
-    'Dim custoUnitarioItem As Double
-    'Dim descricaoItem As String
+
+    Dim notaFiscal As String
 
     Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click 'carrega todos os dados do cpf selecionado
         cpf = txtCpf.Text
@@ -64,25 +64,6 @@ Public Class Checkout
                 ''''''''''''''''''''''''''''''''''''''''
                 qtdItensConsumidos = bd.qtdItensConsumidos(idHospedagem) 'conta quantos itens diferentes aquele cliente consumidos
                 '''''''''''''''''''''''''''''''''''''''
-                Dim i As Integer = 0
-
-                dr = bd.getItens(idHospedagem) 'retorna um data reader com todos os itens que tem essa idHospedagem (fazer)
-                If dr.HasRows Then
-                    While dr.Read()
-                        itens.Add(New Item(dr.Item(0), dr.Item(1)))
-                        i = i + 1
-                    End While
-
-                    btnAnt.Enabled = True
-                    btnProx.Enabled = True
-                    txtCustoUnitario.Text = itens(0).getPrecoUnitario()
-                    txtDescricaoItem.Text = itens(0).getDescricao()
-                    qtdItens = itens.Count
-                Else
-                    btnAnt.Enabled = False
-                    btnProx.Enabled = False
-                    lblItens.Text = "0/0"
-                End If
                 bd.fecharConexao()
 
                 txtNome.Text = nome
@@ -103,6 +84,10 @@ Public Class Checkout
                 pnlCheckout.Visible = True
 
                 txtConsumoTotal.Text = Convert.ToString(bd.gastoAtualHospedagem(idHospedagem))
+
+                notaFiscal = bd.notaFiscal(idHospedagem)
+
+                txtNotaFiscal.Text = notaFiscal
             Else
                 MsgBox("Esse cliente não está hospedado.")
             End If
@@ -111,35 +96,6 @@ Public Class Checkout
         End If
         bd.fecharConexao()
     End Sub
-
-    Private Sub btnAnt_Click(sender As Object, e As EventArgs) Handles btnAnt.Click
-        If (qtdItens > indice) Then
-            indice += 1
-            txtCustoUnitario.Text = itens(indice).getPrecoUnitario()
-            txtDescricaoItem.Text = itens(indice).getDescricao()
-            lblItens.Text = Convert.ToString(indice) + "/" + Convert.ToString(qtdItens)
-            btnAnt.Enabled = True
-
-            If (indice + 1 = qtdItens) Then
-                btnProx.Enabled = False
-            End If
-        End If
-    End Sub
-
-    Private Sub btnProx_Click(sender As Object, e As EventArgs) Handles btnProx.Click
-        If (indice > 0) Then
-            indice -= 1
-            txtCustoUnitario.Text = itens(indice).getPrecoUnitario()
-            txtDescricaoItem.Text = itens(indice).getDescricao()
-            lblItens.Text = Convert.ToString(indice) + "/" + Convert.ToString(qtdItens)
-            btnProx.Enabled = True
-
-            If (indice = 0) Then
-                btnAnt.Enabled = False
-            End If
-        End If
-    End Sub
-
     Private Sub btnCheckout_Click(sender As Object, e As EventArgs) Handles btnCheckout.Click 'realiza o checkout do cpf selecionado
         Dim escolha As MsgBoxResult = MsgBox("Deseja realmente realizar o checkout desse cliente?", MsgBoxStyle.YesNoCancel)
 
@@ -160,10 +116,6 @@ Public Class Checkout
             RbNao.Checked = False
             txtConsumoTotal.Text = ""
             txtCpf.Text = ""
-            txtCustoUnitario.Text = ""
-            txtDescricaoItem.Text = ""
-            lblItens.Text = ""
-            gbItensConsumidos.Visible = False
             pnlCheckout.Visible = False
         End If
     End Sub

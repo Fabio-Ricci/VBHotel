@@ -34,7 +34,7 @@ Public Class CadastroApartamentos
     End Sub
 
     Private Sub btnIncluir_Click(sender As Object, e As EventArgs) Handles btnIncluir.Click
-        If (txtNumero.Text <> "" Or txtAndar.Text <> "" Or txtCamaCasal.Text <> "" Or txtCamaSolteiro.Text <> "" Or cbxTipoApartamento.Text <> "") Then
+        If (txtNumero.Text <> "" And txtAndar.Text <> "" And txtCamaCasal.Text <> "" And txtCamaSolteiro.Text <> "" And cbxTipoApartamento.Text <> "") Then
             numero = Convert.ToInt32(txtNumero.Text)
             andar = Convert.ToInt32(txtAndar.Text)
             camaCasal = Convert.ToInt32(txtCamaCasal.Text)
@@ -48,7 +48,7 @@ Public Class CadastroApartamentos
                                 If (bd.numeroApartamentoExiste(numero)) Then
                                     MsgBox("Número de apartamento já existente.")
                                 Else
-                                    bd.adicionaApartamento(cbxTipoApartamento.Text, numero, andar, camaCasal, camaSolteiro, frigobar)
+                                    bd.adicionaApartamento(cbxTipoApartamento.SelectedValue, numero, andar, camaCasal, camaSolteiro, frigobar)
                                     MsgBox("Apartamento incluído com sucesso.")
                                     txtNumero.Text = ""
                                     txtAndar.Text = ""
@@ -173,7 +173,7 @@ Public Class CadastroApartamentos
     End Sub
 
     Private Sub btnEdicaoSalvar_Click(sender As Object, e As EventArgs) Handles btnEdicaoSalvar.Click
-        If (cbEdicaoTipoApartamento.Text <> "" Or txtEdicaoAndar.Text <> "" Or txtEdicaoCamaCasal.Text <> "" Or txtEdicaoCamaSolteiro.Text <> "" Or cbxEdicaoTipoApartamento.Text <> "") Then
+        If (txtEdicaoAndar.Text <> "" And cbEdicaoTipoApartamento.Text <> "" And txtEdicaoAndar.Text <> "" And txtEdicaoCamaCasal.Text <> "" And txtEdicaoCamaSolteiro.Text <> "" And cbxEdicaoTipoApartamento.Text <> "") Then
             edicaoCamaCasal = Convert.ToInt32(txtEdicaoCamaCasal.Text)
             edicaoCamaSolteiro = Convert.ToInt32(txtEdicaoCamaSolteiro.Text)
             edicaoTipoApartamento = Convert.ToString(cbEdicaoTipoApartamento.Text)
@@ -228,8 +228,6 @@ Public Class CadastroApartamentos
             Else
                 MsgBox("Slecione um número de apartamento.")
             End If
-
-            cbxEdicaoTipoApartamento.SelectedIndex = -1
         Else
             MsgBox("Digite todos os campos.")
         End If

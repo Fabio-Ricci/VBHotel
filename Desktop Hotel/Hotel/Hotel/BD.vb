@@ -675,10 +675,27 @@ Public Class BD
     '
     'Checkout
     '
+    Public Function notaFiscal(idHospedagem As Integer) ' gera a nota fiscal de uma hospedagem
+        Dim nota As String
 
-
-
-
+        Try
+            Me.conexao.Open()
+        Catch ex As Exception
+            Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
+        End Try
+        Me.comando = New SqlCommand("Select dbo.ListaConsumo(@idHospedagem)", Me.conexao)
+        Me.comando.Parameters.Add(New SqlParameter("@idHospedagem", idHospedagem))
+        Try
+            Me.dataReader = comando.ExecuteReader()
+        Catch ex As Exception
+            Me.conexao.Close()
+            Throw New System.Exception("Erro na pesquisa das informações da nota Fiscal->Erro: " + ex.ToString)
+        End Try
+        dataReader.Read()
+        nota = dataReader.Item(0)
+        Me.conexao.Close()
+        Return nota
+    End Function
 
     Public Sub checkout(cpf As String) ' realiza o checkout do cliente
         Try
@@ -1067,25 +1084,6 @@ Public Class BD
         Return arrecadacao
     End Function
 
-    Public Function notaFiscal(idHospedagem As Integer) As String ' gera a nota fiscal de uma hospedagem
-        Dim nota As String
-        Try
-            Me.conexao.Open()
-        Catch ex As Exception
-            Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
-        End Try
-        Me.comando = New SqlCommand("select dbo.ListaConsumo(" + CStr(idHospedagem) + ")", Me.conexao)
-        Try
-            Me.dataReader = comando.ExecuteReader()
-        Catch ex As Exception
-            Me.conexao.Close()
-            Throw New System.Exception("Erro ao gerar nota fiscal pelo  banco de dados->Erro: " + ex.ToString)
-        End Try
-        Me.dataReader.Read()
-        nota = Me.dataReader.Item(0)
-        Me.conexao.Close()
-        Return nota
-    End Function
     Public Sub fechaConta(idHospedagem As Integer) ' fecha a conta de uma hospedagem
         Try
             Me.conexao.Open()
