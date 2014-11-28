@@ -13,7 +13,7 @@ Public Class ConsumoDeItem
         Dim dr As SqlDataReader
         dr = bd.getDescricaoItens()
 
-        While dr.Read()
+        While dr.Read() ' monta o combo box com os items
             If (dr(0) <= 9) Then
                 item = "00" + Convert.ToString(dr(0))
             End If
@@ -36,7 +36,7 @@ Public Class ConsumoDeItem
         txtAno.Text = Convert.ToString(data.Year)
     End Sub
 
-    Private Sub txtQtd_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtQtd.KeyPress
+    Private Sub txtQtd_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtQtd.KeyPress 've se não é uma letra(só deixa número)
         If Asc(e.KeyChar) <> 8 Then
             If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
                 e.Handled = True
@@ -44,7 +44,7 @@ Public Class ConsumoDeItem
         End If
     End Sub
 
-    Private Sub btnSalvar_Click(sender As Object, e As EventArgs) Handles btnSalvar.Click
+    Private Sub btnSalvar_Click(sender As Object, e As EventArgs) Handles btnSalvar.Click ' salva o item de consumo e limpa os campos
         cpf = txtCpf.Text
         cpf = cpf.Replace(",", ".")
 
@@ -56,7 +56,7 @@ Public Class ConsumoDeItem
         If (idHospedagem <> 0) Then
             If (item <> "") Then
                 If (qtd <> 0) Then
-                    bd.inserirConsumo(Convert.ToInt32(item), idHospedagem, qtd, data) 
+                    bd.inserirConsumo(Convert.ToInt32(item), idHospedagem, qtd, data)
                     cbxItem.SelectedIndex = -1
                     txtCpf.Text = ""
                     txtQtd.Text = ""
