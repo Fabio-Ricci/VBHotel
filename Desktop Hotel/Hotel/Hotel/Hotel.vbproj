@@ -136,6 +136,18 @@
     <Compile Include="ConsumoDeItem.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="EditarHospedagem.Designer.vb">
+      <DependentUpon>EditarHospedagem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EditarHospedagem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditarReserva.Designer.vb">
+      <DependentUpon>EditarReserva.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EditarReserva.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="HosPDeirosDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -193,6 +205,18 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>HosPDeirosDataSet9.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="hospedagemCheckIn.Designer.vb">
+      <DependentUpon>hospedagemCheckIn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="hospedagemCheckIn.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hospedagem_Reserva.Designer.vb">
+      <DependentUpon>Hospedagem_Reserva.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Hospedagem_Reserva.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Item.vb" />
     <Compile Include="ListagemApartamento.Designer.vb">
@@ -313,6 +337,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ConsumoDeItem.resx">
       <DependentUpon>ConsumoDeItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditarHospedagem.resx">
+      <DependentUpon>EditarHospedagem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditarReserva.resx">
+      <DependentUpon>EditarReserva.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="hospedagemCheckIn.resx">
+      <DependentUpon>hospedagemCheckIn.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hospedagem_Reserva.resx">
+      <DependentUpon>Hospedagem_Reserva.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListagemApartamento.resx">
       <DependentUpon>ListagemApartamento.vb</DependentUpon>

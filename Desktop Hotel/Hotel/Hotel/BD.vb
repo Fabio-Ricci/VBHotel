@@ -811,13 +811,20 @@ Public Class BD
         Me.conexao.Close()
 
     End Sub
-    Public Sub adicionaHospedagem(idApartamento As Integer, idReserva As Integer, origem As String, destino As String, tipoDoGrupo As Integer, motivoViagem As Integer, formaPagamento As Integer) 'adiona uma nova hospedagem
+    Public Sub adicionaHospedagem(idApartamento As Integer, idReserva As Integer, origem As String, destino As String, tipoDoGrupo As Integer, motivoViagem As Integer) 'adiona uma nova hospedagem
+        '>>>>>>> origin/master
         Try
             Me.conexao.Open()
         Catch ex As Exception
             Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
         End Try
-        Me.comando = New SqlCommand("exec dbo.adiciona_hHospedagem " + CStr(idApartamento) + "," + CStr(idReserva) + ",'" + origem + "','" + destino + "'," + CStr(tipoDoGrupo) + "," + CStr(motivoViagem) + "," + CStr(formaPagamento), Me.conexao)
+        Me.comando = New SqlCommand("exec dbo.adiciona_hHospedagem @idApartamento,@idReserva,@origem,@destino,@tipoDoGrupo,@motivoViagem", Me.conexao)
+        Me.comando.Parameters.Add(New SqlParameter("@idApartamento", idApartamento))
+        Me.comando.Parameters.Add(New SqlParameter("@origem", origem))
+        Me.comando.Parameters.Add(New SqlParameter("@destino", destino))
+        Me.comando.Parameters.Add(New SqlParameter("@tipoDoGrupo", tipoDoGrupo))
+        Me.comando.Parameters.Add(New SqlParameter("@motivoViagem", motivoViagem))
+        Me.comando.Parameters.Add(New SqlParameter("@idReserva", idReserva))
 
         Try
             Me.comando.ExecuteNonQuery()

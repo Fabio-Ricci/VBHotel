@@ -475,7 +475,7 @@ Public Class Hospedagem_Reserva
 
     Private Function disponibilidaDinamica() As Boolean
 
-       
+
         'If (Status = "CHPR") Then
         'consulta = banco.reservaClienteChekinDados(Me.IdCliente)
         'consulta.Read()
@@ -635,14 +635,14 @@ Public Class Hospedagem_Reserva
         End If
 
 
-        
+
         Dim inicial As Date
         Dim final As Date
         Dim numeroBoleto As Integer
         Dim pagamento As Date
         Dim situacao As Integer
         Dim idApartamento As Integer
-        
+
 
         'If (Status = "CHPR") Then
         '        consulta = banco.reservaClienteChekinDados(Me.IdCliente)
@@ -910,7 +910,7 @@ Public Class Hospedagem_Reserva
                 MessageBox.Show("opção inválida")
             End If
         End If
-        
+
         mudancaTipo()
     End Sub
 
@@ -983,7 +983,7 @@ Public Class Hospedagem_Reserva
         If (CBXAno.Text <> "" And CBXdia.Text <> "" And CBXmes.Text <> "" And CbxAnoInicio.Text <> "" And CbxDiaInicio.Text <> "" And CbxMesInicio.Text <> "" And CBXtipoApartamento.Text <> "" And CBXfrigobar.Text <> "" And
             CBXcamaCasal.Text <> "" And CBXcamaSolteiro.Text <> "" And TXTorigem.Text <> "" And TXTdestino.Text <> "" And CBXTipoGrupo.Text <> "" And CBXmotivoViagem.Text <> "") Then
             Dim da As Date = New Date(Convert.ToInt32(CbxAnoInicio.Text), Convert.ToInt32(CbxMesInicio.Text), Convert.ToInt32(CbxDiaInicio.Text))
-            Dim dp As Date = New Date(Convert.ToInt32(CBXdia.Text), Convert.ToInt32(CBXmes.Text), Convert.ToInt32(CBXAno.Text))
+            Dim dp As Date = New Date(Convert.ToInt32(CBXAno.Text), Convert.ToInt32(CBXmes.Text), Convert.ToInt32(CBXdia.Text))
             If da.CompareTo(dp) = 1 Then
                 MessageBox.Show("a data Início nao pode ser maior que a data fim ")
             Else
@@ -1120,8 +1120,8 @@ Public Class Hospedagem_Reserva
     Private Sub BTNincluir_Click(sender As Object, e As EventArgs) Handles BTNincluir.Click
         If (CBXAno.Text <> "" And CBXdia.Text <> "" And CBXmes.Text <> "" And CbxAnoInicio.Text <> "" And CbxDiaInicio.Text <> "" And CbxMesInicio.Text <> "" And CBXtipoApartamento.Text <> "" And CBXfrigobar.Text <> "" And
             CBXcamaCasal.Text <> "" And CBXcamaSolteiro.Text <> "" And TXTorigem.Text <> "" And TXTdestino.Text <> "" And CBXTipoGrupo.Text <> "" And CBXmotivoViagem.Text <> "") Then
-            Dim da As Date = New Date(Convert.ToInt32(CbxDiaInicio.Text), Convert.ToInt32(CbxMesInicio.Text), Convert.ToInt32(CbxAnoInicio.Text))
-            Dim dp As Date = New Date(Convert.ToInt32(CBXdia.Text), Convert.ToInt32(CBXmes.Text), Convert.ToInt32(CBXAno.Text))
+            Dim da As Date = New Date(Convert.ToInt32(CbxAnoInicio.Text), Convert.ToInt32(CbxMesInicio.Text), Convert.ToInt32(CbxDiaInicio.Text))
+            Dim dp As Date = New Date(Convert.ToInt32(CBXAno.Text), Convert.ToInt32(CBXmes.Text), Convert.ToInt32(CBXdia.Text))
             If da.CompareTo(dp) = 1 Then
                 MessageBox.Show("a data Início nao pode ser maior que a data fim ")
             Else
@@ -1191,8 +1191,8 @@ Public Class Hospedagem_Reserva
             Return
         End If
 
-        Dim da As Date = New Date(Convert.ToInt32(CbxDiaInicio.Text), Convert.ToInt32(CbxMesInicio.Text), Convert.ToInt32(CbxAnoInicio.Text))
-        Dim dp As Date = New Date(Convert.ToInt32(CBXdia.Text), Convert.ToInt32(CBXmes.Text), Convert.ToInt32(CBXAno.Text))
+        Dim da As Date = New Date(Convert.ToInt32(CbxAnoInicio.Text), Convert.ToInt32(CbxMesInicio.Text), Convert.ToInt32(CbxDiaInicio.Text))
+        Dim dp As Date = New Date(Convert.ToInt32(CBXAno.Text), Convert.ToInt32(CBXmes.Text), Convert.ToInt32(CBXdia.Text))
 
         If (dp.CompareTo(da) < 0) Then
             MessageBox.Show("A data final deve ser maior que a inicial")
