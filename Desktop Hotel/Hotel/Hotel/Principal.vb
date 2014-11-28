@@ -66,7 +66,7 @@ Public Class Principal
         Pergunta.Show()
     End Sub
 
-    Private Sub ListegamDePerguntasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ListegamDePerguntasToolStripMenuItem.Click
+    Private Sub ListagemDePerguntasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ListagemDePerguntasToolStripMenuItem.Click
         ListagemPergunta.Show()
     End Sub
 
@@ -92,4 +92,6 @@ Public Class Principal
         ListagemPergunta.Close()
         login.Close()
     End Sub
+
+
 End Class

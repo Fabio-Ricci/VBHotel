@@ -41,7 +41,7 @@ Partial Class Principal
         Me.ListagemDeConsumoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuPergunta = New System.Windows.Forms.ToolStripMenuItem()
         Me.ListagemPerguntasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ListegamDePerguntasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ListagemDePerguntasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuCheckout = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuFuncionarios = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuFuncionariosCadastro = New System.Windows.Forms.ToolStripMenuItem()
@@ -156,7 +156,7 @@ Partial Class Principal
         '
         'menuPergunta
         '
-        Me.menuPergunta.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ListagemPerguntasToolStripMenuItem, Me.ListegamDePerguntasToolStripMenuItem})
+        Me.menuPergunta.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ListagemPerguntasToolStripMenuItem, Me.ListagemDePerguntasToolStripMenuItem})
         Me.menuPergunta.Name = "menuPergunta"
         Me.menuPergunta.Size = New System.Drawing.Size(67, 20)
         Me.menuPergunta.Text = "Pergunta"
@@ -167,11 +167,11 @@ Partial Class Principal
         Me.ListagemPerguntasToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
         Me.ListagemPerguntasToolStripMenuItem.Text = "Perguntas"
         '
-        'ListegamDePerguntasToolStripMenuItem
+        'ListagemDePerguntasToolStripMenuItem
         '
-        Me.ListegamDePerguntasToolStripMenuItem.Name = "ListegamDePerguntasToolStripMenuItem"
-        Me.ListegamDePerguntasToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
-        Me.ListegamDePerguntasToolStripMenuItem.Text = "Listegam de Perguntas"
+        Me.ListagemDePerguntasToolStripMenuItem.Name = "ListagemDePerguntasToolStripMenuItem"
+        Me.ListagemDePerguntasToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
+        Me.ListagemDePerguntasToolStripMenuItem.Text = "Listagem de Perguntas"
         '
         'menuCheckout
         '
@@ -252,5 +252,5 @@ Partial Class Principal
     Friend WithEvents ListagemDeConsumoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ListagemDeTiposDeApartamentosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ListagemPerguntasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ListegamDePerguntasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ListagemDePerguntasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class
