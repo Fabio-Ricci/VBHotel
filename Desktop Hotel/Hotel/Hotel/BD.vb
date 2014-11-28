@@ -1,6 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Security.Cryptography
 Imports System.Text
+Imports System.IO
 
 Public Class BD
     Private conexao As SqlConnection
@@ -11,6 +12,7 @@ Public Class BD
         Me.conexao = New SqlConnection("Data Source=REGULUS;Initial Catalog=hospdeiros;Persist Security Info=True;User ID=hospdeiros;Password=amostra")
         comando = New SqlCommand
     End Sub
+
 
     Public Function logar(username As String, senha As String) As Boolean
         Dim existe As Boolean
@@ -579,6 +581,11 @@ Public Class BD
     '
     'Checkout
     '
+
+
+
+
+
     Public Sub checkout(cpf As String)
         Try
             Me.conexao.Open()
@@ -747,13 +754,6 @@ Public Class BD
         Return id
     End Function
 
-
-
-
-
-
-
-
     Public Sub fecharConexao()
         Me.conexao.Close()
     End Sub
@@ -849,7 +849,7 @@ Public Class BD
         Return gasto
     End Function
 
-    
+
 
     Public Function gastoDoCliente(idCliente As Integer) As Double
         Dim gasto As Double
@@ -1031,6 +1031,174 @@ Public Class BD
         Return privilegio
     End Function
 
+
+    Public Function reservaClienteChekinDados(idCliente As Integer) As SqlDataReader
+        Try
+            Me.conexao.Open()
+        Catch ex As Exception
+            Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
+        End Try
+        Me.comando = New SqlCommand("Select * from dbo.reservaClienteChekin(@idCliente)", Me.conexao)
+        Me.comando.Parameters.Add(New SqlParameter("@idCliente", idCliente))
+        Try
+            Me.dataReader = comando.ExecuteReader()
+        Catch ex As Exception
+            Me.conexao.Close()
+            Throw New System.Exception("Erro na pesquisa das informações da reserva atual do cliente->Erro: " + ex.ToString)
+        End Try
+        Return Me.dataReader
+    End Function
+
+
+    Private Function Encrypt(clearText As String) As String
+        Dim EncryptionKey As String = "MAKV2SPBNI99212"
+        Dim clearBytes As Byte() = Encoding.Unicode.GetBytes(clearText)
+        Using encryptor As Aes = Aes.Create()
+            Dim pdb As New Rfc2898DeriveBytes(EncryptionKey, New Byte() {&H49, &H76, &H61, &H6E, &H20, &H4D, _
+            &H65, &H64, &H76, &H65, &H64, &H65, _
+            &H76})
+            encryptor.Key = pdb.GetBytes(32)
+            encryptor.IV = pdb.GetBytes(16)
+            Using ms As New MemoryStream()
+                Using cs As New CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write)
+                    cs.Write(clearBytes, 0, clearBytes.Length)
+                    cs.Close()
+                End Using
+                clearText = Convert.ToBase64String(ms.ToArray())
+            End Using
+        End Using
+        Return clearText
+    End Function
+
+    Public Function reservaAtual(idCliente As Integer) As Boolean
+        Dim atual As Boolean
+        Try
+            Me.conexao.Open()
+        Catch ex As Exception
+            Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
+        End Try
+
+        Me.comando = New SqlCommand("select dbo.reservaAtualPraHospedagem(@idCliente)", Me.conexao)
+        Me.comando.Parameters.Add(New SqlParameter("@idCliente", idCliente))
+
+        Try
+            Me.dataReader = comando.ExecuteReader()
+        Catch ex As Exception
+            Me.conexao.Close()
+            Throw New System.Exception("Erro na consulta da atualidade da reserva:Erro-> " + ex.ToString)
+        End Try
+        Me.dataReader.Read()
+        atual = dataReader.Item(0)
+        Me.conexao.Close()
+        Return atual
+    End Function
+
+
+
+    Public Function tipoApartamentoExiste(tipo As String) As Boolean
+        Dim existe As Boolean
+        Try
+            Me.conexao.Open()
+        Catch ex As Exception
+            Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
+        End Try
+
+        Me.comando = New SqlCommand("select dbo.tipoApartamentoExiste(@tipo)", Me.conexao)
+        Me.comando.Parameters.Add(New SqlParameter("@tipo", tipo))
+
+        Try
+            Me.dataReader = comando.ExecuteReader()
+        Catch ex As Exception
+            Me.conexao.Close()
+            Throw New System.Exception("Erro na consulta de existencia do tipo do apartamento->Erro: " + ex.ToString)
+        End Try
+        Me.dataReader.Read()
+        existe = dataReader.Item(0)
+        Me.conexao.Close()
+        Return existe
+    End Function
+
+    Private Function Decrypt(cipherText As String) As String
+        Dim EncryptionKey As String = "MAKV2SPBNI99212"
+        Dim cipherBytes As Byte() = Convert.FromBase64String(cipherText)
+        Using encryptor As Aes = Aes.Create()
+            Dim pdb As New Rfc2898DeriveBytes(EncryptionKey, New Byte() {&H49, &H76, &H61, &H6E, &H20, &H4D, _
+            &H65, &H64, &H76, &H65, &H64, &H65, _
+            &H76})
+            encryptor.Key = pdb.GetBytes(32)
+            encryptor.IV = pdb.GetBytes(16)
+            Using ms As New MemoryStream()
+                Using cs As New CryptoStream(ms, encryptor.CreateDecryptor(), CryptoStreamMode.Write)
+                    cs.Write(cipherBytes, 0, cipherBytes.Length)
+                    cs.Close()
+                End Using
+                cipherText = Encoding.Unicode.GetString(ms.ToArray())
+            End Using
+        End Using
+        Return cipherText
+    End Function
+
+
+    Public Sub carregaFotoUsuario(ByRef pb As PictureBox, username As String)
+        Try
+            Me.conexao.Open()
+        Catch ex As Exception
+            Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
+        End Try
+        Me.comando = New SqlCommand("select foto from hUsuario where username=@username", Me.conexao)
+        Me.comando.Parameters.Add(New SqlParameter("@username", username))
+        Try
+            Me.dataReader = comando.ExecuteReader()
+        Catch ex As Exception
+            Me.conexao.Close()
+            Throw New System.Exception("Erro na consultar a foto do usuario->Erro: " + ex.ToString)
+        End Try
+        Me.dataReader.Read()
+        Dim foto As Byte()
+        foto = Me.dataReader.Item(0)
+        Dim pictureBytes As New MemoryStream(foto)
+        pb.Image = Image.FromStream(pictureBytes)
+    End Sub
+
+    Public Function emailExiste(email As String) As Boolean
+        Dim existe As Boolean
+        Try
+            Me.conexao.Open()
+        Catch ex As Exception
+            Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
+        End Try
+
+        Me.comando = New SqlCommand("Select dbo.emailExistente(@email)", Me.conexao)
+        Me.comando.Parameters.Add(New SqlParameter("@email", email))
+
+        Try
+            Me.dataReader = comando.ExecuteReader()
+        Catch ex As Exception
+            Me.conexao.Close()
+            Throw New System.Exception("Erro na consulta do e-mail->Erro: " + ex.ToString)
+        End Try
+        Me.dataReader.Read()
+        existe = dataReader.Item(0)
+        Me.conexao.Close()
+        Return existe
+    End Function
+
+    Public Function consultaGenerica(consulta As String) As SqlDataReader
+        Try
+            Me.conexao.Open()
+        Catch ex As Exception
+            Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
+        End Try
+        Me.comando = New SqlCommand(consulta, Me.conexao)
+        Try
+            Me.dataReader = comando.ExecuteReader()
+        Catch ex As Exception
+            Me.conexao.Close()
+            Throw New System.Exception("Erro na pesquisa genérica ->Erro: " + ex.ToString)
+        End Try
+        ''Me.conexao.Close() // FECHAR DEPOIS DE USAR COM O MÉTODO FECHAR CONEXAO DA CLASSE BD
+        Return Me.dataReader
+    End Function
 End Class
 
 

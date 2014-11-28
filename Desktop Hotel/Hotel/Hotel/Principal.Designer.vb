@@ -40,13 +40,13 @@ Partial Class Principal
         Me.ListagemDeTipoDeItensToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ListagemDeConsumoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuPergunta = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ListagemPerguntasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ListegamDePerguntasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuCheckout = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuFuncionarios = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuFuncionariosCadastro = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuFuncionariosListagem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.ListagemPerguntasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ListegamDePerguntasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -161,6 +161,18 @@ Partial Class Principal
         Me.menuPergunta.Size = New System.Drawing.Size(67, 20)
         Me.menuPergunta.Text = "Pergunta"
         '
+        'ListagemPerguntasToolStripMenuItem
+        '
+        Me.ListagemPerguntasToolStripMenuItem.Name = "ListagemPerguntasToolStripMenuItem"
+        Me.ListagemPerguntasToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
+        Me.ListagemPerguntasToolStripMenuItem.Text = "Perguntas"
+        '
+        'ListegamDePerguntasToolStripMenuItem
+        '
+        Me.ListegamDePerguntasToolStripMenuItem.Name = "ListegamDePerguntasToolStripMenuItem"
+        Me.ListegamDePerguntasToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
+        Me.ListegamDePerguntasToolStripMenuItem.Text = "Listegam de Perguntas"
+        '
         'menuCheckout
         '
         Me.menuCheckout.Name = "menuCheckout"
@@ -196,18 +208,6 @@ Partial Class Principal
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
-        '
-        'ListagemPerguntasToolStripMenuItem
-        '
-        Me.ListagemPerguntasToolStripMenuItem.Name = "ListagemPerguntasToolStripMenuItem"
-        Me.ListagemPerguntasToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
-        Me.ListagemPerguntasToolStripMenuItem.Text = "Perguntas"
-        '
-        'ListegamDePerguntasToolStripMenuItem
-        '
-        Me.ListegamDePerguntasToolStripMenuItem.Name = "ListegamDePerguntasToolStripMenuItem"
-        Me.ListegamDePerguntasToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
-        Me.ListegamDePerguntasToolStripMenuItem.Text = "Listegam de Perguntas"
         '
         'Principal
         '
