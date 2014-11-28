@@ -8,7 +8,7 @@ Public Class Pergunta
     Dim resposta As String
     Dim nome As String
 
-    Private Sub btnSalvarResposta_Click(sender As Object, e As EventArgs) Handles btnSalvarResposta.Click
+    Private Sub btnSalvarResposta_Click(sender As Object, e As EventArgs) Handles btnSalvarResposta.Click ' salva a resposta para uma pergunta de um cliente
         resposta = txtResposta.Text
         If (resposta <> "") Then
             bd.salvarResposta(idPergunta, resposta)
@@ -24,7 +24,7 @@ Public Class Pergunta
         End If
     End Sub
 
-    Private Sub cbxPergunta_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxPergunta.SelectedIndexChanged
+    Private Sub cbxPergunta_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxPergunta.SelectedIndexChanged ' atualiza as variáveis na mudança do combo box
         idPergunta = Convert.ToInt32(cbxPergunta.Text.Substring(0, cbxPergunta.Text.IndexOf(")")))
         pergunta = cbxPergunta.Text.Substring(cbxPergunta.Text.IndexOf("-") + 2)
         nome = cbxPergunta.Text.Substring(cbxPergunta.Text.IndexOf(")") + 2, (cbxPergunta.Text.IndexOf("-") - 4))
@@ -32,7 +32,7 @@ Public Class Pergunta
         pnlPergunta.Visible = True
     End Sub
 
-    Private Sub Pergunta_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
+    Private Sub Pergunta_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown ' mostra a pergunta de um cliente
         Dim dr As SqlDataReader
         dr = bd.getPerguntas()
 
