@@ -25,16 +25,16 @@ Partial Class ListagemItem
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ListagemItem))
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.HosPDeirosDataSet3 = New Hotel.HosPDeirosDataSet3()
-        Me.HItemBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.HItemTableAdapter = New Hotel.HosPDeirosDataSet3TableAdapters.hItemTableAdapter()
         Me.IdItemDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TipoItemDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DescricaoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CustoUnitarioDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.HItemBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.HosPDeirosDataSet3 = New Hotel.HosPDeirosDataSet3()
+        Me.HItemTableAdapter = New Hotel.HosPDeirosDataSet3TableAdapters.hItemTableAdapter()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.HosPDeirosDataSet3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.HItemBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.HosPDeirosDataSet3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DataGridView1
@@ -53,20 +53,6 @@ Partial Class ListagemItem
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.Size = New System.Drawing.Size(443, 178)
         Me.DataGridView1.TabIndex = 0
-        '
-        'HosPDeirosDataSet3
-        '
-        Me.HosPDeirosDataSet3.DataSetName = "HosPDeirosDataSet3"
-        Me.HosPDeirosDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'HItemBindingSource
-        '
-        Me.HItemBindingSource.DataMember = "hItem"
-        Me.HItemBindingSource.DataSource = Me.HosPDeirosDataSet3
-        '
-        'HItemTableAdapter
-        '
-        Me.HItemTableAdapter.ClearBeforeFill = True
         '
         'IdItemDataGridViewTextBoxColumn
         '
@@ -96,6 +82,20 @@ Partial Class ListagemItem
         Me.CustoUnitarioDataGridViewTextBoxColumn.Name = "CustoUnitarioDataGridViewTextBoxColumn"
         Me.CustoUnitarioDataGridViewTextBoxColumn.ReadOnly = True
         '
+        'HItemBindingSource
+        '
+        Me.HItemBindingSource.DataMember = "hItem"
+        Me.HItemBindingSource.DataSource = Me.HosPDeirosDataSet3
+        '
+        'HosPDeirosDataSet3
+        '
+        Me.HosPDeirosDataSet3.DataSetName = "HosPDeirosDataSet3"
+        Me.HosPDeirosDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'HItemTableAdapter
+        '
+        Me.HItemTableAdapter.ClearBeforeFill = True
+        '
         'ListagemItem
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -107,8 +107,8 @@ Partial Class ListagemItem
         Me.Name = "ListagemItem"
         Me.Text = "ListagemItem"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.HosPDeirosDataSet3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.HItemBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.HosPDeirosDataSet3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

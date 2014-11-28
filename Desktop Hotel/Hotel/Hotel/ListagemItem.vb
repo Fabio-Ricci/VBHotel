@@ -4,4 +4,11 @@
         Me.HItemTableAdapter.Fill(Me.HosPDeirosDataSet3.hItem)
 
     End Sub
+
+    Private Sub DataGridView1_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellDoubleClick
+        Dim idApartamento As Integer = DataGridView1.Item(0, Me.DataGridView1.CurrentRow.Index).Value
+        CadastroItem.tcItem.SelectedIndex = 1
+        CadastroItem.Show()
+        CadastroItem.cbxEdicaoIdItem.Text = CStr(idApartamento)
+    End Sub
 End Class
