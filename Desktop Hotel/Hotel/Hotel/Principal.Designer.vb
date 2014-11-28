@@ -259,10 +259,7 @@ Partial Class Principal
     Friend WithEvents ListagemDeConsumoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ListagemDeTiposDeApartamentosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ListagemPerguntasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-<<<<<<< HEAD
     Friend WithEvents ListagemDePerguntasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-=======
     Friend WithEvents ListegamDePerguntasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents menuAvaliacao As System.Windows.Forms.ToolStripMenuItem
->>>>>>> origin/master
 End Class
