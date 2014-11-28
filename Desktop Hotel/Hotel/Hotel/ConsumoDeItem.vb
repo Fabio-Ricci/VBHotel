@@ -46,31 +46,35 @@ Public Class ConsumoDeItem
 
     Private Sub btnSalvar_Click(sender As Object, e As EventArgs) Handles btnSalvar.Click ' salva o item de consumo e limpa os campos
         cpf = txtCpf.Text
-        cpf = cpf.Replace(",", ".")
+        If (cpf <> "") Then
+            cpf = cpf.Replace(",", ".")
 
-        idHospedagem = bd.getIdHospedagem(cpf)
+            idHospedagem = bd.getIdHospedagem(cpf)
 
-        item = cbxItem.Text.Substring(0, 3)
-        qtd = Convert.ToInt32(txtQtd.Text)
+            item = cbxItem.Text.Substring(0, 3)
+            qtd = Convert.ToInt32(txtQtd.Text)
 
-        If (idHospedagem <> 0) Then
-            If (item <> "") Then
-                If (qtd <> 0) Then
-                    bd.inserirConsumo(Convert.ToInt32(item), idHospedagem, qtd, data)
-                    cbxItem.SelectedIndex = -1
-                    txtCpf.Text = ""
-                    txtQtd.Text = ""
+            If (idHospedagem <> 0) Then
+                If (item <> "") Then
+                    If (qtd <> 0) Then
+                        bd.inserirConsumo(Convert.ToInt32(item), idHospedagem, qtd, data)
+                        cbxItem.SelectedIndex = -1
+                        txtCpf.Text = ""
+                        txtQtd.Text = ""
 
-                    cpf = ""
-                    qtd = 0
-                    idHospedagem = 0
-                    MsgBox("Consumo cadastrado com sucesso.")
+                        cpf = ""
+                        qtd = 0
+                        idHospedagem = 0
+                        MsgBox("Consumo cadastrado com sucesso.")
+                    End If
+                Else
+                    MsgBox("Escolha o item consumido.")
                 End If
             Else
-                MsgBox("Escolha o item consumido.")
+                MsgBox("Digite o CPF de um cliente já hospedado.")
             End If
         Else
-            MsgBox("Digite o CPF de um cliente já hospedado.")
+            MsgBox("Digite um CPF.")
         End If
     End Sub
 End Class

@@ -34,7 +34,7 @@ Public Class Checkout
     'Dim custoUnitarioItem As Double
     'Dim descricaoItem As String
 
-    Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
+    Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click 'carrega todos os dados do cpf selecionado
         cpf = txtCpf.Text
         cpf.Replace(",", ".")
 
@@ -42,8 +42,8 @@ Public Class Checkout
             Dim dr As SqlDataReader
 
             dr = bd.getDadosCheckout(cpf)
+            dr.Read()
             If (dr.HasRows) Then
-                dr.Read()
 
                 nome = dr.Item(0)
                 email = dr.Item(1)
@@ -137,7 +137,7 @@ Public Class Checkout
         End If
     End Sub
 
-    Private Sub btnCheckout_Click(sender As Object, e As EventArgs) Handles btnCheckout.Click
+    Private Sub btnCheckout_Click(sender As Object, e As EventArgs) Handles btnCheckout.Click 'realiza o checkout do cpf selecionado
         Dim escolha As MsgBoxResult = MsgBox("Deseja realmente realizar o checkout desse cliente?", "Checkout", MsgBoxStyle.YesNoCancel)
 
         If (escolha = MsgBoxResult.Yes) Then
