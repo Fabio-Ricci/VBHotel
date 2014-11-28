@@ -173,7 +173,7 @@ Public Class CadastroApartamentos
     End Sub
 
     Private Sub btnEdicaoSalvar_Click(sender As Object, e As EventArgs) Handles btnEdicaoSalvar.Click
-        If (txtEdicaoNumero.Text <> "" Or txtEdicaoAndar.Text <> "" Or txtEdicaoCamaCasal.Text <> "" Or txtEdicaoCamaSolteiro.Text <> "" Or cbxEdicaoTipoApartamento.Text <> "") Then
+        If (cbEdicaoTipoApartamento.Text <> "" Or txtEdicaoAndar.Text <> "" Or txtEdicaoCamaCasal.Text <> "" Or txtEdicaoCamaSolteiro.Text <> "" Or cbxEdicaoTipoApartamento.Text <> "") Then
             edicaoCamaCasal = Convert.ToInt32(txtEdicaoCamaCasal.Text)
             edicaoCamaSolteiro = Convert.ToInt32(txtEdicaoCamaSolteiro.Text)
             edicaoTipoApartamento = Convert.ToString(cbEdicaoTipoApartamento.Text)
