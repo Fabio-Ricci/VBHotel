@@ -42,42 +42,6 @@ Public Class Principal
         ConsumoDeItem.Show()
     End Sub
 
-    Private Sub Principal_Leave(sender As Object, e As EventArgs) Handles MyBase.Leave
-        CadastroApartamentos.Close()
-        tipoQuarto.Close()
-        CadastroCliente.Close()
-        ListagemCliente.Close()
-        CadastroItem.Close()
-        CadastroTipoItem.Close()
-        Pergunta.Close()
-        Checkout.Close()
-        CadastroUsuario.Close()
-        ConsumoDeItem.Close()
-        ListagemFuncionario.Close()
-        Me.Close()
-    End Sub
-
-
-    Private Sub Principal_FormClosing(sender As Object, e As FormClosingEventArgs) 'Handles Principal.FormClosing
-        CadastroApartamentos.Close()
-        tipoQuarto.Close()
-        CadastroCliente.Close()
-        ListagemCliente.Close()
-        CadastroItem.Close()
-        CadastroTipoItem.Close()
-        Pergunta.Close()
-        Checkout.Close()
-        CadastroUsuario.Close()
-        ConsumoDeItem.Close()
-        ListagemApartamento.Close()
-        ListagemItem.Close()
-        ListagemTipoItem.Close()
-        ListagemConsumo.Close()
-        ListagemTipoApartamento.Close()
-        ListagemPergunta.Close()
-        Me.Close()
-    End Sub
-
     Private Sub ListagemDeApartamentosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ListagemDeApartamentosToolStripMenuItem.Click
         ListagemApartamento.Show()
     End Sub
@@ -106,7 +70,27 @@ Public Class Principal
         ListagemPergunta.Show()
     End Sub
 
-    Private Sub Principal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+    Private Sub Principal_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        'fecha todos os demais formulários quando fecha o principal
+        CadastroApartamentos.Close()
+        tipoQuarto.Close()
+        CadastroCliente.Close()
+        ListagemCliente.Close()
+        CadastroItem.Close()
+        CadastroTipoItem.Close()
+        Pergunta.Close()
+        Checkout.Close()
+        CadastroUsuario.Close()
+        ConsumoDeItem.Close()
+        ListagemApartamento.Close()
+        ListagemCliente.Close()
+        ListagemFuncionario.Close()
+        ListagemItem.Close()
+        ListagemTipoItem.Close()
+        ListagemConsumo.Close()
+        ListagemTipoApartamento.Close()
+        ListagemPergunta.Close()
+        login.Close()
     End Sub
+
 End Class
