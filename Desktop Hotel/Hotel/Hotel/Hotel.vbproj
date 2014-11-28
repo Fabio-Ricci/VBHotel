@@ -86,6 +86,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Avaliacao.Designer.vb">
+      <DependentUpon>Avaliacao.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Avaliacao.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="BD.vb" />
     <Compile Include="CadastroApartamentos.Designer.vb">
       <DependentUpon>CadastroApartamentos.vb</DependentUpon>
@@ -284,6 +290,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Avaliacao.resx">
+      <DependentUpon>Avaliacao.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CadastroApartamentos.resx">
       <DependentUpon>CadastroApartamentos.vb</DependentUpon>
     </EmbeddedResource>

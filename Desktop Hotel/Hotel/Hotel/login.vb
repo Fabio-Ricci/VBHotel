@@ -26,6 +26,7 @@
                             'nivel de privilégio 2 - gerente: abre o Principal com o item Funcionários do menu 
                             Dim Principal As New Principal
                             Principal.Show()
+
                         End If
 
                         Me.Hide()

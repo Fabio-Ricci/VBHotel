@@ -1199,6 +1199,115 @@ Public Class BD
         ''Me.conexao.Close() // FECHAR DEPOIS DE USAR COM O MÉTODO FECHAR CONEXAO DA CLASSE BD
         Return Me.dataReader
     End Function
+
+    Public Function somaRespostaAtendimento() As Integer 'devolve a soma de todas as respostas de avaliação em relação a atendimento
+        Dim qtd As Integer
+
+        Try
+            Me.conexao.Open()
+        Catch ex As Exception
+            Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
+        End Try
+        Me.comando = New SqlCommand("dbo.somaRespostaAtendimento", Me.conexao)
+        Try
+            Me.dataReader = comando.ExecuteReader()
+        Catch ex As Exception
+            Me.conexao.Close()
+            Throw New System.Exception("Erro na pesquisa das informações do Checkout->Erro: " + ex.ToString)
+        End Try
+        dataReader.Read()
+        qtd = dataReader.Item(0)
+        Me.conexao.Close()
+        Return qtd
+    End Function
+
+
+    Public Function somaRespostaQuarto() As Integer 'devolve a soma de todas as respostas de avaliação em relação a quartos 
+        Dim qtd As Integer
+
+        Try
+            Me.conexao.Open()
+        Catch ex As Exception
+            Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
+        End Try
+        Me.comando = New SqlCommand("dbo.somaRespostaQuarto", Me.conexao)
+        Try
+            Me.dataReader = comando.ExecuteReader()
+        Catch ex As Exception
+            Me.conexao.Close()
+            Throw New System.Exception("Erro na pesquisa das informações do Checkout->Erro: " + ex.ToString)
+        End Try
+        dataReader.Read()
+        qtd = dataReader.Item(0)
+        Me.conexao.Close()
+        Return qtd
+    End Function
+
+
+    Public Function somaRespostaRegiao() As Integer 'devolve a soma de todas as respostas de avaliação em relação a região do hotel
+        Dim qtd As Integer
+
+        Try
+            Me.conexao.Open()
+        Catch ex As Exception
+            Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
+        End Try
+        Me.comando = New SqlCommand("dbo.somaRespostaRegiao", Me.conexao)
+        Try
+            Me.dataReader = comando.ExecuteReader()
+        Catch ex As Exception
+            Me.conexao.Close()
+            Throw New System.Exception("Erro na pesquisa das informações do Checkout->Erro: " + ex.ToString)
+        End Try
+        dataReader.Read()
+        qtd = dataReader.Item(0)
+        Me.conexao.Close()
+        Return qtd
+    End Function
+
+
+    Public Function somaRespostaRestaurantes() As Integer 'devolve a soma de todas as respostas de avaliação em relação a restaurantes
+        Dim qtd As Integer
+
+        Try
+            Me.conexao.Open()
+        Catch ex As Exception
+            Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
+        End Try
+        Me.comando = New SqlCommand("dbo.somaRespostaRestaurantes", Me.conexao)
+        Try
+            Me.dataReader = comando.ExecuteReader()
+        Catch ex As Exception
+            Me.conexao.Close()
+            Throw New System.Exception("Erro na pesquisa das informações do Checkout->Erro: " + ex.ToString)
+        End Try
+        dataReader.Read()
+        qtd = dataReader.Item(0)
+        Me.conexao.Close()
+        Return qtd
+    End Function
+
+    Public Function qtasRespostas() As Integer 'devolve quantas respostas de avaliação do hotel tem
+        Dim qtd As Integer
+
+        Try
+            Me.conexao.Open()
+        Catch ex As Exception
+            Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
+        End Try
+        Me.comando = New SqlCommand("dbo.qtasRespostas", Me.conexao)
+        Try
+            Me.dataReader = comando.ExecuteReader()
+        Catch ex As Exception
+            Me.conexao.Close()
+            Throw New System.Exception("Erro na pesquisa das informações do Checkout->Erro: " + ex.ToString)
+        End Try
+        dataReader.Read()
+        qtd = dataReader.Item(0)
+        Me.conexao.Close()
+        Return qtd
+    End Function
+
 End Class
 
 
