@@ -1,11 +1,6 @@
 ﻿Public Class login
 
     Public banco As New BD()
-    Private Sub login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim retan As Rectangle = Screen.PrimaryScreen.WorkingArea
-        Me.Top = (retan.Height / 2) - (Me.Height / 2)
-        Me.Left = (retan.Width / 2) - (Me.Width / 2)
-    End Sub
 
     Private Sub BTNlogar_Click(sender As Object, e As EventArgs) Handles BTNlogar.Click
         If (EDusuario.Text.Trim() = "") Then
@@ -20,13 +15,15 @@
             Else
                 Try
 
-                    If (banco.logar(EDusuario.Text, EDsenha.Text)) Then
+                    If (banco.logar(EDusuario.Text, EDsenha.Text)) Then 'se há o login no banco de dados
 
+                        'nivel de privilégio 1 - funcionários no geral: abre o Principal sem o item Funcionários do menu 
                         If banco.nivelPrivilegio(EDusuario.Text) = 1 Then
                             Dim Principal As New Principal
                             Principal.menuFuncionarios.Visible = False
                             Principal.Show()
                         Else
+                            'nivel de privilégio 2 - gerente: abre o Principal com o item Funcionários do menu 
                             Dim Principal As New Principal
                             Principal.Show()
                         End If
@@ -47,6 +44,7 @@
     End Sub
 
     Private Sub login_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
+        'limpa os campos
         EDusuario.Text = ""
         EDsenha.Text = ""
     End Sub
