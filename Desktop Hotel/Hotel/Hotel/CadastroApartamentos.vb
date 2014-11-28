@@ -34,55 +34,59 @@ Public Class CadastroApartamentos
     End Sub
 
     Private Sub btnIncluir_Click(sender As Object, e As EventArgs) Handles btnIncluir.Click
-        numero = Convert.ToInt32(txtNumero.Text)
-        andar = Convert.ToInt32(txtAndar.Text)
-        camaCasal = Convert.ToInt32(txtCamaCasal.Text)
-        camaSolteiro = Convert.ToInt32(txtCamaSolteiro.Text)
+        If (txtNumero.Text <> "" Or txtAndar.Text <> "" Or txtCamaCasal.Text <> "" Or txtCamaSolteiro.Text <> "" Or cbxTipoApartamento.Text <> "") Then
+            numero = Convert.ToInt32(txtNumero.Text)
+            andar = Convert.ToInt32(txtAndar.Text)
+            camaCasal = Convert.ToInt32(txtCamaCasal.Text)
+            camaSolteiro = Convert.ToInt32(txtCamaSolteiro.Text)
 
-        Try
-            If (IsNumeric(numero)) Then
-                If (IsNumeric(andar)) Then
-                    If (camaSolteiro <> 0 Or camaCasal <> 0) Then
-                        If (frigobar <> "") Then
-                            If (bd.numeroApartamentoExiste(numero)) Then
-                                MsgBox("Número de apartamento já existente.")
+            Try
+                If (IsNumeric(numero)) Then
+                    If (IsNumeric(andar)) Then
+                        If (camaSolteiro <> 0 Or camaCasal <> 0) Then
+                            If (frigobar <> "") Then
+                                If (bd.numeroApartamentoExiste(numero)) Then
+                                    MsgBox("Número de apartamento já existente.")
+                                Else
+                                    bd.adicionaApartamento(cbxTipoApartamento.Text, numero, andar, camaCasal, camaSolteiro, frigobar)
+                                    MsgBox("Apartamento incluído com sucesso.")
+                                    txtNumero.Text = ""
+                                    txtAndar.Text = ""
+                                    txtCamaCasal.Text = ""
+                                    txtCamaSolteiro.Text = ""
+                                    rbSim.Checked = False
+                                    rbNao.Checked = False
+
+                                    cbxEdicaoTipoApartamento.DataSource = Nothing
+
+                                    Dim dr As SqlDataReader
+                                    dr = bd.getNumerosApartamentos()
+                                    While dr.Read
+                                        cbxEdicaoTipoApartamento.Refresh()
+                                        cbxEdicaoTipoApartamento.Items.Add(dr("numero"))
+                                    End While
+                                    bd.fecharConexao()
+                                End If
                             Else
-                                bd.adicionaApartamento(cbxTipoApartamento.SelectedValue, numero, andar, camaCasal, camaSolteiro, frigobar)
-                                MsgBox("Apartamento incluído com sucesso.")
-                                txtNumero.Text = ""
-                                txtAndar.Text = ""
-                                txtCamaCasal.Text = ""
-                                txtCamaSolteiro.Text = ""
-                                rbSim.Checked = False
-                                rbNao.Checked = False
-
-                                cbxEdicaoTipoApartamento.DataSource = Nothing
-
-                                Dim dr As SqlDataReader
-                                dr = bd.getNumerosApartamentos()
-                                While dr.Read
-                                    cbxEdicaoTipoApartamento.Refresh()
-                                    cbxEdicaoTipoApartamento.Items.Add(dr("numero"))
-                                End While
-                                bd.fecharConexao()
+                                MsgBox("Selecione uma opção para o frigobar.")
                             End If
                         Else
-                            MsgBox("Selecione uma opção para o frigobar.")
+                            MsgBox("Escolha pelo menos um tipo de cama.")
                         End If
                     Else
-                        MsgBox("Escolha pelo menos um tipo de cama.")
+                        MsgBox("Informe o andar do apartamento.")
                     End If
                 Else
-                    MsgBox("Informe o andar do apartamento.")
+                    MsgBox("Informe o número do apartamento.")
                 End If
-            Else
-                MsgBox("Informe o número do apartamento.")
-            End If
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
 
-        cbxTipoApartamento.Text = ""
+            cbxTipoApartamento.SelectedIndex = -1
+        Else
+            MsgBox("Preencha todos os campos.")
+        End If
     End Sub
 
     Private Sub txtNumero_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtNumero.KeyPress 'não permite letras
@@ -169,62 +173,66 @@ Public Class CadastroApartamentos
     End Sub
 
     Private Sub btnEdicaoSalvar_Click(sender As Object, e As EventArgs) Handles btnEdicaoSalvar.Click
-        edicaoCamaCasal = Convert.ToInt32(txtEdicaoCamaCasal.Text)
-        edicaoCamaSolteiro = Convert.ToInt32(txtEdicaoCamaSolteiro.Text)
-        edicaoTipoApartamento = Convert.ToString(cbEdicaoTipoApartamento.Text)
-        edicaoAndar = Convert.ToInt32(txtEdicaoAndar.Text)
+        If (txtEdicaoNumero.Text <> "" Or txtEdicaoAndar.Text <> "" Or txtEdicaoCamaCasal.Text <> "" Or txtEdicaoCamaSolteiro.Text <> "" Or cbxEdicaoTipoApartamento.Text <> "") Then
+            edicaoCamaCasal = Convert.ToInt32(txtEdicaoCamaCasal.Text)
+            edicaoCamaSolteiro = Convert.ToInt32(txtEdicaoCamaSolteiro.Text)
+            edicaoTipoApartamento = Convert.ToString(cbEdicaoTipoApartamento.Text)
+            edicaoAndar = Convert.ToInt32(txtEdicaoAndar.Text)
 
-        If (rbEdicaoSim.Checked) Then
-            edicaoFrigobar = "S"
-        Else
-            edicaoFrigobar = "N"
-        End If
+            If (rbEdicaoSim.Checked) Then
+                edicaoFrigobar = "S"
+            Else
+                edicaoFrigobar = "N"
+            End If
 
-        If (numeroSelecionado <> 0) Then
-            If (edicaoCamaSolteiro <> 0 Or edicaoCamaCasal <> 0) Then
-                If (edicaoFrigobar <> "") Then
-                    If (edicaoTipoApartamento <> "") Then
-                        edicaoIdTipoApartamento = bd.getIdTipoApartamento(edicaoTipoApartamento)
+            If (numeroSelecionado <> 0) Then
+                If (edicaoCamaSolteiro <> 0 Or edicaoCamaCasal <> 0) Then
+                    If (edicaoFrigobar <> "") Then
+                        If (edicaoTipoApartamento <> "") Then
+                            edicaoIdTipoApartamento = bd.getIdTipoApartamento(edicaoTipoApartamento)
 
-                        bd.updateApartamento(numeroSelecionado, edicaoIdTipoApartamento, edicaoAndar, edicaoCamaCasal, edicaoCamaSolteiro, edicaoFrigobar)
+                            bd.updateApartamento(numeroSelecionado, edicaoIdTipoApartamento, edicaoAndar, edicaoCamaCasal, edicaoCamaSolteiro, edicaoFrigobar)
 
-                        MsgBox("Apartamento atualizado com sucesso.")
+                            MsgBox("Apartamento atualizado com sucesso.")
 
-                        Dim dr As SqlDataReader
-                        dr = bd.selecionaDadosEdicaoApartamento(numeroSelecionado) 'preenche os dados do apartamento editado
+                            Dim dr As SqlDataReader
+                            dr = bd.selecionaDadosEdicaoApartamento(numeroSelecionado) 'preenche os dados do apartamento editado
 
-                        dr.Read()
-                        edicaoCamaCasal = Convert.ToInt32(dr.Item(0))
-                        edicaoCamaSolteiro = Convert.ToInt32(dr.Item(1))
-                        edicaoFrigobar = Convert.ToChar(dr.Item(2))
-                        edicaoTipoApartamento = Convert.ToString(dr.Item(3))
-                        edicaoAndar = Convert.ToInt32(dr.Item(4))
-                        bd.fecharConexao()
+                            dr.Read()
+                            edicaoCamaCasal = Convert.ToInt32(dr.Item(0))
+                            edicaoCamaSolteiro = Convert.ToInt32(dr.Item(1))
+                            edicaoFrigobar = Convert.ToChar(dr.Item(2))
+                            edicaoTipoApartamento = Convert.ToString(dr.Item(3))
+                            edicaoAndar = Convert.ToInt32(dr.Item(4))
+                            bd.fecharConexao()
 
-                        If (edicaoFrigobar = "S") Then
-                            rbEdicaoSim.Checked = True
+                            If (edicaoFrigobar = "S") Then
+                                rbEdicaoSim.Checked = True
+                            Else
+                                rbEdicaoNao.Checked = True
+                            End If
+
+                            txtEdicaoAndar.Text = Convert.ToString(edicaoAndar)
+                            txtEdicaoCamaCasal.Text = edicaoCamaCasal
+                            txtEdicaoCamaSolteiro.Text = edicaoCamaSolteiro
+                            cbEdicaoTipoApartamento.SelectedIndex = cbEdicaoTipoApartamento.FindStringExact(edicaoTipoApartamento)
                         Else
-                            rbEdicaoNao.Checked = True
+                            MsgBox("Selecione um tipo de apartamento.")
                         End If
-
-                        txtEdicaoAndar.Text = Convert.ToString(edicaoAndar)
-                        txtEdicaoCamaCasal.Text = edicaoCamaCasal
-                        txtEdicaoCamaSolteiro.Text = edicaoCamaSolteiro
-                        cbEdicaoTipoApartamento.SelectedIndex = cbEdicaoTipoApartamento.FindStringExact(edicaoTipoApartamento)
                     Else
-                        MsgBox("Selecione um tipo de apartamento.")
+                        MsgBox("Selecione uma opção para o frigobar.")
                     End If
                 Else
-                    MsgBox("Selecione uma opção para o frigobar.")
+                    MsgBox("Escolha pelo menos um tipo de cama.")
                 End If
             Else
-                MsgBox("Escolha pelo menos um tipo de cama.")
+                MsgBox("Slecione um número de apartamento.")
             End If
-        Else
-            MsgBox("Slecione um número de apartamento.")
-        End If
 
-        cbxEdicaoTipoApartamento.Text = ""
+            cbxEdicaoTipoApartamento.SelectedIndex = -1
+        Else
+            MsgBox("Digite todos os campos.")
+        End If
     End Sub
 
     Private Sub tcApartamento_SelectedIndexChanged(sender As Object, e As EventArgs) Handles tcApartamento.SelectedIndexChanged 'verifica em qual tab está e preenche os combo box ta tab
