@@ -91,6 +91,11 @@ Public Class Principal
         ListagemTipoApartamento.Close()
         ListagemPergunta.Close()
         login.Close()
+        Avaliacao.Close()
+    End Sub
+
+    Private Sub menuAvaliacao_Click(sender As Object, e As EventArgs) Handles menuAvaliacao.Click
+        Avaliacao.Show()
     End Sub
 
 
