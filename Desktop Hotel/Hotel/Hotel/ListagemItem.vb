@@ -9,6 +9,6 @@
         Dim idApartamento As Integer = DataGridView1.Item(0, Me.DataGridView1.CurrentRow.Index).Value
         CadastroItem.tcItem.SelectedIndex = 1
         CadastroItem.Show()
-        CadastroItem.cbxEdicaoIdItem.Text = CStr(idApartamento)
+        CadastroItem.setTextCbEdicao(idApartamento.ToString)
     End Sub
 End Class

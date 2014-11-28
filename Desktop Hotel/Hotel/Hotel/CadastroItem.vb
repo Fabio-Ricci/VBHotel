@@ -295,4 +295,41 @@ Public Class CadastroItem
             End If
         End If
     End Sub
+
+    Public Sub setTextCbEdicao(txt As String)
+        cbxEdicaoIdItem.Text = txt
+    End Sub
+
+    Private Sub tbEdicaoItem_Enter(sender As Object, e As EventArgs) Handles tbEdicaoItem.Enter
+        cbxEdicaoIdItem.Text = ""
+        cbxEdicaoTipoItem.Text = ""
+        txtEdicaoCustoUnitario.Text = ""
+        txtEdicaoDescricao.Text = ""
+
+        pnlRemocaoItem.Visible = False
+
+        Dim dr As SqlDataReader
+        dr = bd.getIdItens()
+        If dr.HasRows Then
+            cbxEdicaoIdItem.Items.Clear()
+            cbxEdicaoIdItem.Items.Add(dr(0))
+
+            While dr.Read
+                cbxEdicaoIdItem.Items.Add(dr(0))
+            End While
+        End If
+        bd.fecharConexao()
+        dr = Nothing
+
+        dr = bd.getTiposItens()
+        If dr.HasRows Then
+            cbxEdicaoTipoItem.Items.Clear()
+            cbxEdicaoTipoItem.Items.Add(dr(0))
+
+            While dr.Read
+                cbxEdicaoTipoItem.Items.Add(dr(0))
+            End While
+            bd.fecharConexao()
+        End If
+    End Sub
 End Class
