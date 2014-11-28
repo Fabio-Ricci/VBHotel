@@ -23,17 +23,21 @@ Partial Class Avaliacao
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.lblTotal = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.btnLoad = New System.Windows.Forms.Button()
+        Me.lblRestaurantes = New System.Windows.Forms.Label()
+        Me.lblRegiao = New System.Windows.Forms.Label()
+        Me.lblQuarto = New System.Windows.Forms.Label()
+        Me.lblAtendimento = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.lblAtendimento = New System.Windows.Forms.Label()
-        Me.lblQuarto = New System.Windows.Forms.Label()
-        Me.lblRegiao = New System.Windows.Forms.Label()
-        Me.lblRestaurantes = New System.Windows.Forms.Label()
-        Me.btnLoad = New System.Windows.Forms.Button()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.lblTotal = New System.Windows.Forms.Label()
+        Me.pnAtendimento = New System.Windows.Forms.Panel()
+        Me.pnQuarto = New System.Windows.Forms.Panel()
+        Me.pnRegiao = New System.Windows.Forms.Panel()
+        Me.pnRestaurantes = New System.Windows.Forms.Panel()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -50,12 +54,81 @@ Partial Class Avaliacao
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
+        Me.GroupBox1.Controls.Add(Me.pnAtendimento)
+        Me.GroupBox1.Controls.Add(Me.pnRestaurantes)
+        Me.GroupBox1.Controls.Add(Me.pnRegiao)
+        Me.GroupBox1.Controls.Add(Me.pnQuarto)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(300, 175)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Média das avaliações"
+        '
+        'lblTotal
+        '
+        Me.lblTotal.AutoSize = True
+        Me.lblTotal.Location = New System.Drawing.Point(136, 140)
+        Me.lblTotal.Name = "lblTotal"
+        Me.lblTotal.Size = New System.Drawing.Size(13, 13)
+        Me.lblTotal.TabIndex = 10
+        Me.lblTotal.Text = "0"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(27, 140)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(103, 13)
+        Me.Label9.TabIndex = 9
+        Me.Label9.Text = "Total de avaliações:"
+        '
+        'btnLoad
+        '
+        Me.btnLoad.Location = New System.Drawing.Point(219, 19)
+        Me.btnLoad.Name = "btnLoad"
+        Me.btnLoad.Size = New System.Drawing.Size(75, 23)
+        Me.btnLoad.TabIndex = 8
+        Me.btnLoad.Text = "Recarregar"
+        Me.btnLoad.UseVisualStyleBackColor = True
+        '
+        'lblRestaurantes
+        '
+        Me.lblRestaurantes.AutoSize = True
+        Me.lblRestaurantes.Location = New System.Drawing.Point(136, 98)
+        Me.lblRestaurantes.Name = "lblRestaurantes"
+        Me.lblRestaurantes.Size = New System.Drawing.Size(13, 13)
+        Me.lblRestaurantes.TabIndex = 7
+        Me.lblRestaurantes.Text = "0"
+        '
+        'lblRegiao
+        '
+        Me.lblRegiao.AutoSize = True
+        Me.lblRegiao.Location = New System.Drawing.Point(136, 75)
+        Me.lblRegiao.Name = "lblRegiao"
+        Me.lblRegiao.Size = New System.Drawing.Size(13, 13)
+        Me.lblRegiao.TabIndex = 6
+        Me.lblRegiao.Text = "0"
+        '
+        'lblQuarto
+        '
+        Me.lblQuarto.AutoSize = True
+        Me.lblQuarto.Location = New System.Drawing.Point(136, 53)
+        Me.lblQuarto.Name = "lblQuarto"
+        Me.lblQuarto.Size = New System.Drawing.Size(13, 13)
+        Me.lblQuarto.TabIndex = 5
+        Me.lblQuarto.Text = "0"
+        '
+        'lblAtendimento
+        '
+        Me.lblAtendimento.AutoSize = True
+        Me.lblAtendimento.BackColor = System.Drawing.SystemColors.Control
+        Me.lblAtendimento.ForeColor = System.Drawing.Color.Black
+        Me.lblAtendimento.Location = New System.Drawing.Point(136, 29)
+        Me.lblAtendimento.Name = "lblAtendimento"
+        Me.lblAtendimento.Size = New System.Drawing.Size(13, 13)
+        Me.lblAtendimento.TabIndex = 4
+        Me.lblAtendimento.Text = "0"
         '
         'Label4
         '
@@ -93,68 +166,33 @@ Partial Class Avaliacao
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Atendimento:"
         '
-        'lblAtendimento
+        'pnAtendimento
         '
-        Me.lblAtendimento.AutoSize = True
-        Me.lblAtendimento.Location = New System.Drawing.Point(136, 29)
-        Me.lblAtendimento.Name = "lblAtendimento"
-        Me.lblAtendimento.Size = New System.Drawing.Size(13, 13)
-        Me.lblAtendimento.TabIndex = 4
-        Me.lblAtendimento.Text = "0"
+        Me.pnAtendimento.Location = New System.Drawing.Point(25, 25)
+        Me.pnAtendimento.Name = "pnAtendimento"
+        Me.pnAtendimento.Size = New System.Drawing.Size(174, 19)
+        Me.pnAtendimento.TabIndex = 11
         '
-        'lblQuarto
+        'pnQuarto
         '
-        Me.lblQuarto.AutoSize = True
-        Me.lblQuarto.Location = New System.Drawing.Point(136, 53)
-        Me.lblQuarto.Name = "lblQuarto"
-        Me.lblQuarto.Size = New System.Drawing.Size(13, 13)
-        Me.lblQuarto.TabIndex = 5
-        Me.lblQuarto.Text = "0"
+        Me.pnQuarto.Location = New System.Drawing.Point(25, 48)
+        Me.pnQuarto.Name = "pnQuarto"
+        Me.pnQuarto.Size = New System.Drawing.Size(174, 19)
+        Me.pnQuarto.TabIndex = 12
         '
-        'lblRegiao
+        'pnRegiao
         '
-        Me.lblRegiao.AutoSize = True
-        Me.lblRegiao.Location = New System.Drawing.Point(136, 75)
-        Me.lblRegiao.Name = "lblRegiao"
-        Me.lblRegiao.Size = New System.Drawing.Size(13, 13)
-        Me.lblRegiao.TabIndex = 6
-        Me.lblRegiao.Text = "0"
+        Me.pnRegiao.Location = New System.Drawing.Point(25, 71)
+        Me.pnRegiao.Name = "pnRegiao"
+        Me.pnRegiao.Size = New System.Drawing.Size(174, 19)
+        Me.pnRegiao.TabIndex = 13
         '
-        'lblRestaurantes
+        'pnRestaurantes
         '
-        Me.lblRestaurantes.AutoSize = True
-        Me.lblRestaurantes.Location = New System.Drawing.Point(136, 98)
-        Me.lblRestaurantes.Name = "lblRestaurantes"
-        Me.lblRestaurantes.Size = New System.Drawing.Size(13, 13)
-        Me.lblRestaurantes.TabIndex = 7
-        Me.lblRestaurantes.Text = "0"
-        '
-        'btnLoad
-        '
-        Me.btnLoad.Location = New System.Drawing.Point(219, 19)
-        Me.btnLoad.Name = "btnLoad"
-        Me.btnLoad.Size = New System.Drawing.Size(75, 23)
-        Me.btnLoad.TabIndex = 8
-        Me.btnLoad.Text = "Recarregar"
-        Me.btnLoad.UseVisualStyleBackColor = True
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(27, 140)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(103, 13)
-        Me.Label9.TabIndex = 9
-        Me.Label9.Text = "Total de avaliações:"
-        '
-        'lblTotal
-        '
-        Me.lblTotal.AutoSize = True
-        Me.lblTotal.Location = New System.Drawing.Point(136, 140)
-        Me.lblTotal.Name = "lblTotal"
-        Me.lblTotal.Size = New System.Drawing.Size(13, 13)
-        Me.lblTotal.TabIndex = 10
-        Me.lblTotal.Text = "0"
+        Me.pnRestaurantes.Location = New System.Drawing.Point(25, 94)
+        Me.pnRestaurantes.Name = "pnRestaurantes"
+        Me.pnRestaurantes.Size = New System.Drawing.Size(174, 19)
+        Me.pnRestaurantes.TabIndex = 12
         '
         'Avaliacao
         '
@@ -181,4 +219,8 @@ Partial Class Avaliacao
     Friend WithEvents lblRegiao As System.Windows.Forms.Label
     Friend WithEvents lblQuarto As System.Windows.Forms.Label
     Friend WithEvents lblAtendimento As System.Windows.Forms.Label
+    Friend WithEvents pnAtendimento As System.Windows.Forms.Panel
+    Friend WithEvents pnRestaurantes As System.Windows.Forms.Panel
+    Friend WithEvents pnRegiao As System.Windows.Forms.Panel
+    Friend WithEvents pnQuarto As System.Windows.Forms.Panel
 End Class
