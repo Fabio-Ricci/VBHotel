@@ -1,8 +1,11 @@
 ﻿Imports Microsoft.Win32
 Imports System.Globalization
+Imports System.Data.SqlClient
 
 Public Class CadastroCliente
     Dim bd As BD
+    Dim edicaoIdCliente As Integer
+    Dim remocaoIdCliente As Integer
 
     Private Function validarEmail(ByVal email As String) As Boolean
         Dim emailRegex As New System.Text.RegularExpressions.Regex("^(?<user>[^@]+)@(?<host>.+)$")
@@ -10,34 +13,7 @@ Public Class CadastroCliente
         Return emailMatch.Success
     End Function
 
-    Private Function validarCampos() As Boolean
-        Dim bool As Boolean
-        bool = True
-        If (txtNome.Text.Equals("")) Then
-            txtNome.BackColor = Color.FromArgb(255, 200, 200)
-            bool = False
-        Else
-            txtNome.BackColor = Color.FromArgb(255, 255, 255)
-        End If
-
-        If mtxtData.Text = "  /  /" Then
-            mtxtData.BackColor = Color.FromArgb(255, 200, 200)
-            bool = False
-        Else
-            mtxtData.BackColor = Color.FromArgb(255, 255, 255)
-        End If
-
-        If mtxtCPF.Text = "   .   .   -" Then
-            mtxtCPF.BackColor = Color.FromArgb(255, 200, 200)
-            bool = False
-        Else
-            mtxtCPF.BackColor = Color.FromArgb(255, 255, 255)
-        End If
-        Return bool
-    End Function
-
     Private Sub btnCadastro_Click(sender As Object, e As EventArgs) Handles btnCadastro.Click
-        If validarCampos() Then
             Dim sexo As Char
             If radFeminino.Checked Then
                 sexo = "F"
@@ -156,10 +132,12 @@ Public Class CadastroCliente
             Else
                 cartaoDataValidade = mtxtDataCartao.Text
             End If
-
-            Try
-                If (isEmpty) Then
-                    MsgBox("Preencha todos os campos")
+        Try
+            If (isEmpty) Then
+                MsgBox("Preencha todos os campos")
+            Else
+                If Not bd.ehUF(cbUF.Text) Then
+                    MsgBox("Apenas UF brasileiros. Use dois hífens (--) para pessoas não brasileiras")
                 Else
                     Dim data As DateTime
                     data = CDate(mtxtData.Text)
@@ -170,15 +148,15 @@ Public Class CadastroCliente
                     Else
                         bd.adicionaCliente(nome, dataNascimento, sexo, eMail, telefone, celular, endereco, bairro, cidade, pais, uf, senha, cartaoNumero, cartaoCodigo, cartaoNome, cartaoDataValidade, cpf)
                         MsgBox("O cliente foi cadastrado com sucesso")
+                        btnLoad_Click(sender, e)
+
                     End If
                 End If
+            End If
+        Catch Exc As System.Exception
+            MsgBox(Exc.Message)
+        End Try
 
-            Catch Exc As System.Exception
-                MsgBox(Exc.Message)
-            End Try
-        Else
-            MsgBox("dados incorretos")
-        End If
         'nome As String, cpf As String, dataNascimento As Date, sexo As Char, email As String, telefone As String, celular As String, endereco As String,
         'bairro As String, cidade As String, pais As String, siglaUF As String, senha As String, numeroCartaoCredito As String, codigoSeguranca As String, nomeTitular As String, dataValidade As Date)
     End Sub
@@ -209,42 +187,235 @@ Public Class CadastroCliente
     Private Sub CadastroCliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         bd = New BD()
         carregarPaises(cbPaises)
+
+        btnLoad_Click(sender, e)
     End Sub
 
     Private Sub cbUF_DropDown(sender As Object, e As EventArgs) Handles cbUF.DropDown
         If cbPaises.SelectedItem = "BRA" Then
-            cbUF.Items.Add("AC")
-            cbUF.Items.Add("AL")
-            cbUF.Items.Add("AP")
-            cbUF.Items.Add("AM")
-            cbUF.Items.Add("BA")
-            cbUF.Items.Add("CE")
-            cbUF.Items.Add("DF")
-            cbUF.Items.Add("ES")
-            cbUF.Items.Add("GO")
-            cbUF.Items.Add("MA")
-            cbUF.Items.Add("MT")
-            cbUF.Items.Add("MS")
-            cbUF.Items.Add("MG")
-            cbUF.Items.Add("PA")
-            cbUF.Items.Add("PB")
-            cbUF.Items.Add("PR")
-            cbUF.Items.Add("PE")
-            cbUF.Items.Add("PI")
-            cbUF.Items.Add("RJ")
-            cbUF.Items.Add("RN")
-            cbUF.Items.Add("RS")
-            cbUF.Items.Add("RO")
-            cbUF.Items.Add("RR")
-            cbUF.Items.Add("SC")
-            cbUF.Items.Add("SP")
-            cbUF.Items.Add("SE")
-            cbUF.Items.Add("TO")
+            Dim dr As SqlDataReader
+            dr = bd.getUFs()
+            If dr.Read Then
+                cbUF.Items.Clear()
+                'cbUF.Items.Add(dr.Item(0))
+
+                While dr.Read
+                    cbUF.Items.Add(dr.Item(0))
+                End While
+            End If
+            bd.fecharConexao()
         Else
             cbUF.DropDownHeight = 106
             cbUF.DropDownWidth = 51
             cbUF.Items.Clear()
+            cbUF.Items.Add("--")
         End If
     End Sub
 
+    Private Sub cbxEdicaoIdCliente_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxEdicaoIdCliente.SelectedIndexChanged
+        edicaoIdCliente = cbxEdicaoIdCliente.Text
+
+        Dim dr As SqlDataReader
+
+        dr = bd.infoCliente(edicaoIdCliente)
+
+        dr.Read()
+        txtEdicaoNome.Text = Convert.ToString(dr.Item(1))
+        txtEdicaoCPF.Text = Convert.ToString(dr.Item(2))
+        txtEdicaoData.Text = Convert.ToString(dr.Item(3))
+        If Convert.ToString(dr.Item(4)) = "F" Then
+            rbFeminino.Checked = True
+            rbMasculino.Checked = False
+        Else
+            rbMasculino.Checked = True
+            rbFeminino.Checked = False
+        End If
+        txtEdicaoEmail.Text = Convert.ToString(dr.Item(5))
+        txtEdicaoTelefone.Text = Convert.ToString(dr.Item(6))
+        txtEdicaoCelular.Text = Convert.ToString(dr.Item(7))
+        txtEdicaoEndereco.Text = Convert.ToString(dr.Item(8))
+        txtEdicaoBairro.Text = Convert.ToString(dr.Item(9))
+        txtEdicaoCidade.Text = Convert.ToString(dr.Item(10))
+        txtEdicaoPais.Text = Convert.ToString(dr.Item(11))
+        cbEdicaoUF.Text = Convert.ToString(dr.Item(12))
+
+        bd.fecharConexao()
+
+    End Sub
+
+    Private Sub btnLoad_Click(sender As Object, e As EventArgs)
+        Dim dr As SqlDataReader
+        dr = bd.idsCliente()
+        If dr.Read Then
+            cbxEdicaoIdCliente.Items.Clear()
+            cbxEdicaoIdCliente.Items.Add(dr.Item(0))
+
+            While dr.Read
+                cbxEdicaoIdCliente.Items.Add(dr.Item(0))
+            End While
+        End If
+        bd.fecharConexao()
+        Dim dr2 As SqlDataReader
+        dr2 = bd.idsCliente()
+        If dr2.Read Then
+            cbxRemocaoIdCliente.Items.Clear()
+            cbxRemocaoIdCliente.Items.Add(dr2.Item(0))
+
+            While dr2.Read
+                cbxRemocaoIdCliente.Items.Add(dr2.Item(0))
+            End While
+        End If
+        bd.fecharConexao()
+    End Sub
+
+    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+
+        Dim sexo As Char
+        If radFeminino.Checked Then
+            sexo = "F"
+        Else
+            sexo = "M"
+        End If
+        Dim nome As String
+        Dim dataNascimento As String
+        Dim eMail As String
+        Dim telefone As String
+        Dim celular As String
+        Dim cpf As String
+        Dim endereco As String
+        Dim bairro As String
+        Dim cidade As String
+        Dim pais As String
+        Dim uf As String
+
+        Dim isEmpty As Boolean = False
+        If txtEdicaoNome.Text = "" Then
+            isEmpty = True
+        Else
+            nome = txtEdicaoNome.Text
+        End If
+
+        If txtEdicaoData.Text = "  /  /" Then
+            isEmpty = True
+        Else
+            dataNascimento = txtEdicaoData.Text
+        End If
+
+        If txtEdicaoEmail.Text = "" Then
+            isEmpty = True
+        Else
+            eMail = txtEdicaoEmail.Text
+        End If
+
+        If txtEdicaoTelefone.Text = "(  )     -" Then
+            isEmpty = True
+        Else
+            telefone = txtEdicaoTelefone.Text
+        End If
+
+        If txtEdicaoCelular.Text = "(  )      -" Then
+            isEmpty = True
+        Else
+            celular = txtEdicaoCelular.Text
+        End If
+
+        If txtEdicaoCPF.Text = "   .   .   -" Then
+            isEmpty = True
+        Else
+            cpf = txtEdicaoCPF.Text
+        End If
+
+        If txtEdicaoEndereco.Text = "" Then
+            isEmpty = True
+        Else
+            endereco = txtEdicaoEndereco.Text
+        End If
+
+        If txtEdicaoBairro.Text = "" Then
+            isEmpty = True
+        Else
+            bairro = txtEdicaoBairro.Text
+        End If
+
+        If txtEdicaoCidade.Text = "" Then
+            isEmpty = True
+        Else
+            cidade = txtEdicaoCidade.Text
+        End If
+
+        If txtEdicaoPais.Text = "" Then
+            isEmpty = True
+        Else
+            pais = txtEdicaoPais.Text
+        End If
+
+        If cbEdicaoUF.Text = "" Then
+            isEmpty = True
+        Else
+            uf = cbEdicaoUF.Text
+        End If
+        Try
+            If (isEmpty) Then
+                MsgBox("Preencha todos os campos")
+            Else
+                If Not bd.ehUF(cbUF.Text) Then
+                    MsgBox("Apenas UF brasileiros. Use dois hífens (--) para pessoas não brasileiras")
+                Else
+                    Dim data As DateTime
+                    data = CDate(txtEdicaoData.Text)
+                    If DateDiff(DateInterval.Year, data, Date.Now) < 18 Then
+                        MsgBox("O cliente precisa ter mais de 18 anos para se cadastrar.")
+                    ElseIf DateDiff(DateInterval.Year, data, Date.Now) < 0 Then
+                        MsgBox("Data inválida")
+                    Else
+                        bd.updateCliente(cbxEdicaoIdCliente.Text, nome, dataNascimento, sexo, eMail, telefone, celular, endereco, bairro, cidade, pais, uf, cpf)
+                        MsgBox("O cliente foi alterado com sucesso")
+                    End If
+                End If
+            End If
+        Catch Exc As System.Exception
+            MsgBox(Exc.Message)
+        End Try
+    End Sub
+
+    Private Sub cbxRemocaoIdCliente_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxRemocaoIdCliente.SelectedIndexChanged
+        remocaoIdCliente = cbxRemocaoIdCliente.Text
+
+        Dim dr As SqlDataReader
+
+        dr = bd.infoCliente(remocaoIdCliente)
+
+        dr.Read()
+        txtRemocaoNome.Text = Convert.ToString(dr.Item(1))
+        txtRemocaoCPF.Text = Convert.ToString(dr.Item(2))
+        txtRemocaoData.Text = Convert.ToString(dr.Item(3))
+        If Convert.ToString(dr.Item(4)) = "F" Then
+            rbFeminino.Checked = True
+            rbMasculino.Checked = False
+        Else
+            rbMasculino.Checked = True
+            rbFeminino.Checked = False
+        End If
+        txtRemocaoEmail.Text = Convert.ToString(dr.Item(5))
+        txtRemocaoTelefone.Text = Convert.ToString(dr.Item(6))
+        txtRemocaoCelular.Text = Convert.ToString(dr.Item(7))
+        txtRemocaoEndereco.Text = Convert.ToString(dr.Item(8))
+        txtRemocaoBairro.Text = Convert.ToString(dr.Item(9))
+        txtRemocaoCidade.Text = Convert.ToString(dr.Item(10))
+        txtRemocaoPais.Text = Convert.ToString(dr.Item(11))
+        txtRemocaoUF.Text = Convert.ToString(dr.Item(12))
+
+        bd.fecharConexao()
+
+    End Sub
+
+    Private Sub btnRemover_Click(sender As Object, e As EventArgs) Handles btnRemover.Click
+        Try
+            bd.deleteCliente(cbxEdicaoIdCliente.Text)
+            MsgBox("O cliente foi removido com sucesso")
+            btnLoad_Click(sender, e)
+        Catch Exc As System.Exception
+            MsgBox(Exc.Message)
+        End Try
+    End Sub
 End Class

@@ -107,6 +107,81 @@ Public Class BD
         Me.conexao.Close()
     End Sub
 
+    Public Sub updateCliente(id As Integer, nome As String, dataNascimento As String, sexo As Char, email As String, telefone As String, celular As String, endereco As String,
+ bairro As String, cidade As String, pais As String, siglaUF As String, cpf As String) ' adiciona um cliente novo
+        Try
+            Me.conexao.Open()
+        Catch ex As Exception
+            Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
+        End Try
+        Me.comando = New SqlCommand("exec dbo.update_hCliente '" + Convert.ToString(id) + "','" + nome + "'," + "'" + dataNascimento + "'," + "'" + CStr(sexo) + "','" + email + "','" +
+        telefone + "','" + celular + "','" + endereco + "','" + bairro + "','" + cidade + "','" + pais + "','" + siglaUF + "','" + cpf + "'", Me.conexao)
+        Try
+            Me.comando.ExecuteNonQuery()
+        Catch ex As Exception
+            Me.conexao.Close()
+            Throw New System.Exception("Erro ao efetuar a alteracao do Cliente->Erro: " + ex.ToString)
+        End Try
+        Me.conexao.Close()
+    End Sub
+
+    Public Function getUFs() As SqlDataReader
+        Try
+            Me.conexao.Open()
+        Catch ex As Exception
+            Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
+        End Try
+        Me.comando = New SqlCommand("select * from dbo.getUFs ()", Me.conexao)
+        Try
+            Me.dataReader = comando.ExecuteReader()
+        Catch ex As Exception
+            Me.conexao.Close()
+            Throw New System.Exception("Erro na pesquisa das informações do apartamento->Erro: " + ex.ToString)
+        End Try
+        Return Me.dataReader
+    End Function
+
+    Public Function ehUF(uf As String) As Boolean 'verifica se é UF
+        Try
+            Me.conexao.Open()
+        Catch ex As Exception
+            Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
+        End Try
+        Me.comando = New SqlCommand("select dbo.ehUF (@uf)", Me.conexao)
+        Me.comando.Parameters.Add(New SqlParameter("@uf", uf))
+        Try
+            Me.dataReader = comando.ExecuteReader()
+        Catch ex As Exception
+            Me.conexao.Close()
+            Throw New System.Exception("Erro na pesquisa das informações do Checkout->Erro: " + ex.ToString)
+        End Try
+        dataReader.Read()
+
+        If dataReader.Item(0) = "1" Then
+            Return True
+        Else
+            Return False
+        End If
+        Me.conexao.Close()
+
+    End Function
+
+    Public Sub deleteCliente(id As Integer) ' deleta um cliente
+        Try
+            Me.conexao.Open()
+        Catch ex As Exception
+            Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
+        End Try
+        Me.comando = New SqlCommand("exec dbo.removerCliente " + Convert.ToString(id), Me.conexao)
+        Try
+            Me.comando.ExecuteNonQuery()
+        Catch ex As Exception
+            Me.conexao.Close()
+            Throw New System.Exception("Erro ao efetuar a remocao do Cliente->Erro: " + ex.ToString)
+        End Try
+        Me.conexao.Close()
+    End Sub
+
     '------Tipo Apartamento -------
 
     Public Function infoApartamento(numeroApartamento As Integer) As SqlDataReader  ' recupera as informacoes do apartamento
@@ -177,13 +252,14 @@ Public Class BD
         Me.conexao.Close()
     End Sub
 
-    Public Function infoCliente() As SqlDataReader 'MUDADO'   'recupera as informações do cliente
+    Public Function infoCliente(id As Integer) As SqlDataReader 'MUDADO'   'recupera as informações do cliente
         Try
             Me.conexao.Open()
         Catch ex As Exception
             Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
         End Try
-        Me.comando = New SqlCommand("select * from hCliente", Me.conexao)
+        Me.comando = New SqlCommand("select * from dbo.infoCliente(@id)", Me.conexao)
+        Me.comando.Parameters.Add(New SqlParameter("@id", id))
         Try
             Me.dataReader = comando.ExecuteReader()
         Catch ex As Exception
@@ -191,7 +267,25 @@ Public Class BD
             Throw New System.Exception("Erro na pesquisa das informações do Cliente->Erro: " + ex.ToString)
         End Try
 
-        ''Me.conexao.Close() // FECHAR DEPOIS DE USAR COM O MÉTODO FECHAR CONEXAO DA CLASSE BD  ".fecharConexao()"
+        'Me.conexao.Close() ' FECHAR DEPOIS DE USAR COM O MÉTODO FECHAR CONEXAO DA CLASSE BD  ".fecharConexao()"
+        Return Me.dataReader
+    End Function
+
+    Public Function idsCliente() As SqlDataReader   'recupera os ids dos clientes
+        Try
+            Me.conexao.Open()
+        Catch ex As Exception
+            Throw New System.Exception("Erro ao estabelecer conexao com o banco de dados->Erro: " + ex.ToString)
+        End Try
+        Me.comando = New SqlCommand("select * from dbo.infoIdClientes() order by idCliente", Me.conexao)
+        Try
+            Me.dataReader = comando.ExecuteReader()
+        Catch ex As Exception
+            Me.conexao.Close()
+            Throw New System.Exception("Erro na pesquisa das informações do Cliente->Erro: " + ex.ToString)
+        End Try
+
+        'Me.conexao.Close() ' FECHAR DEPOIS DE USAR COM O MÉTODO FECHAR CONEXAO DA CLASSE BD  ".fecharConexao()"
         Return Me.dataReader
     End Function
 
