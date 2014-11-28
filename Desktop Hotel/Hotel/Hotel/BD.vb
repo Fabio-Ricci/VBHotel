@@ -653,9 +653,15 @@ Public Class BD
             Me.conexao.Close()
             Throw New System.Exception("Erro na pesquisa das informações do Checkout->Erro: " + ex.ToString)
         End Try
-        dataReader.Read()
-        qtd = dataReader.Item(0)
-        Return qtd
+        If (dataReader.HasRows) Then
+            dataReader.Read()
+            qtd = dataReader.Item(0)
+            Me.conexao.Close()
+            Return qtd
+        Else
+            Me.conexao.Close()
+            Return 0
+        End If
     End Function
     '
     'Pergunta

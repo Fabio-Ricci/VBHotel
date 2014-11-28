@@ -36,15 +36,14 @@ Public Class Checkout
 
     Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click 'carrega todos os dados do cpf selecionado
         cpf = txtCpf.Text
-        cpf.Replace(",", ".")
+        cpf = cpf.Replace(",", ".")
 
         If (cpf <> "") Then
             Dim dr As SqlDataReader
 
             dr = bd.getDadosCheckout(cpf)
-            dr.Read()
             If (dr.HasRows) Then
-
+                dr.Read()
                 nome = dr.Item(0)
                 email = dr.Item(1)
 
@@ -90,7 +89,7 @@ Public Class Checkout
                 txtEmail.Text = email
 
                 txtTipoQuarto.Text = tipoQuarto
-                txtCustoUnitario.Text = diariaTipoQuarto
+                txtDiaria.Text = diariaTipoQuarto
 
                 txtNumero.Text = numero
                 txtAndar.Text = andar
@@ -101,12 +100,16 @@ Public Class Checkout
                 Else
                     RbNao.Checked = True
                 End If
+                pnlCheckout.Visible = True
+
+                txtConsumoTotal.Text = Convert.ToString(bd.gastoAtualHospedagem(idHospedagem))
             Else
                 MsgBox("Esse cliente não está hospedado.")
             End If
         Else
             MsgBox("Digite o CPF.")
         End If
+        bd.fecharConexao()
     End Sub
 
     Private Sub btnAnt_Click(sender As Object, e As EventArgs) Handles btnAnt.Click
@@ -138,10 +141,30 @@ Public Class Checkout
     End Sub
 
     Private Sub btnCheckout_Click(sender As Object, e As EventArgs) Handles btnCheckout.Click 'realiza o checkout do cpf selecionado
-        Dim escolha As MsgBoxResult = MsgBox("Deseja realmente realizar o checkout desse cliente?", "Checkout", MsgBoxStyle.YesNoCancel)
+        Dim escolha As MsgBoxResult = MsgBox("Deseja realmente realizar o checkout desse cliente?", MsgBoxStyle.YesNoCancel)
 
         If (escolha = MsgBoxResult.Yes) Then
             bd.checkout(cpf)
+            MsgBox("Checkout realizado com sucesso.")
+            txtNome.Text = ""
+            txtEmail.Text = ""
+
+            txtTipoQuarto.Text = ""
+            txtDiaria.Text = ""
+
+            txtNumero.Text = ""
+            txtAndar.Text = ""
+            txtCamasCasal.Text = ""
+            txtCamasSolteiro.Text = ""
+            rbSim.Checked = False
+            RbNao.Checked = False
+            txtConsumoTotal.Text = ""
+            txtCpf.Text = ""
+            txtCustoUnitario.Text = ""
+            txtDescricaoItem.Text = ""
+            lblItens.Text = ""
+            gbItensConsumidos.Visible = False
+            pnlCheckout.Visible = False
         End If
     End Sub
 End Class

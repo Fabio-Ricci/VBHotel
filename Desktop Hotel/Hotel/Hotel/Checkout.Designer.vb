@@ -52,8 +52,6 @@ Partial Class Checkout
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtNumero = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.txtValorDiaria = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtConsumoTotal = New System.Windows.Forms.TextBox()
         Me.txtEmail = New System.Windows.Forms.TextBox()
@@ -98,8 +96,6 @@ Partial Class Checkout
         Me.pnlCheckout.Controls.Add(Me.Label8)
         Me.pnlCheckout.Controls.Add(Me.txtNumero)
         Me.pnlCheckout.Controls.Add(Me.Label7)
-        Me.pnlCheckout.Controls.Add(Me.txtValorDiaria)
-        Me.pnlCheckout.Controls.Add(Me.Label5)
         Me.pnlCheckout.Controls.Add(Me.Label4)
         Me.pnlCheckout.Controls.Add(Me.txtConsumoTotal)
         Me.pnlCheckout.Controls.Add(Me.txtEmail)
@@ -378,24 +374,6 @@ Partial Class Checkout
         Me.Label7.TabIndex = 10
         Me.Label7.Text = "Número:"
         '
-        'txtValorDiaria
-        '
-        Me.txtValorDiaria.Enabled = False
-        Me.txtValorDiaria.Location = New System.Drawing.Point(423, 45)
-        Me.txtValorDiaria.Name = "txtValorDiaria"
-        Me.txtValorDiaria.Size = New System.Drawing.Size(100, 20)
-        Me.txtValorDiaria.TabIndex = 7
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(297, 43)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(118, 20)
-        Me.Label5.TabIndex = 6
-        Me.Label5.Text = "Valor da diária: "
-        '
         'Label4
         '
         Me.Label4.AutoSize = True
@@ -505,8 +483,6 @@ Partial Class Checkout
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents txtTipoQuarto As System.Windows.Forms.TextBox
-    Friend WithEvents txtValorDiaria As System.Windows.Forms.TextBox
-    Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents txtConsumoTotal As System.Windows.Forms.TextBox
     Friend WithEvents txtEmail As System.Windows.Forms.TextBox
