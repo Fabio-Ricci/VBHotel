@@ -25,9 +25,6 @@ Partial Class ListagemApartamento
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ListagemApartamento))
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.HosPDeirosDataSet2 = New Hotel.HosPDeirosDataSet2()
-        Me.HApartamentoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.HApartamentoTableAdapter = New Hotel.HosPDeirosDataSet2TableAdapters.hApartamentoTableAdapter()
         Me.IdApartamentoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.IdTipoApartamentoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NumeroDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -35,9 +32,12 @@ Partial Class ListagemApartamento
         Me.CamaCasalDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CamaSolteiroDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FrigobarDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.HApartamentoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.HosPDeirosDataSet2 = New Hotel.HosPDeirosDataSet2()
+        Me.HApartamentoTableAdapter = New Hotel.HosPDeirosDataSet2TableAdapters.hApartamentoTableAdapter()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.HosPDeirosDataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.HApartamentoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.HosPDeirosDataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DataGridView1
@@ -54,22 +54,8 @@ Partial Class ListagemApartamento
         Me.DataGridView1.Location = New System.Drawing.Point(13, 13)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.Size = New System.Drawing.Size(743, 243)
+        Me.DataGridView1.Size = New System.Drawing.Size(744, 243)
         Me.DataGridView1.TabIndex = 0
-        '
-        'HosPDeirosDataSet2
-        '
-        Me.HosPDeirosDataSet2.DataSetName = "HosPDeirosDataSet2"
-        Me.HosPDeirosDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'HApartamentoBindingSource
-        '
-        Me.HApartamentoBindingSource.DataMember = "hApartamento"
-        Me.HApartamentoBindingSource.DataSource = Me.HosPDeirosDataSet2
-        '
-        'HApartamentoTableAdapter
-        '
-        Me.HApartamentoTableAdapter.ClearBeforeFill = True
         '
         'IdApartamentoDataGridViewTextBoxColumn
         '
@@ -120,19 +106,33 @@ Partial Class ListagemApartamento
         Me.FrigobarDataGridViewTextBoxColumn.Name = "FrigobarDataGridViewTextBoxColumn"
         Me.FrigobarDataGridViewTextBoxColumn.ReadOnly = True
         '
+        'HApartamentoBindingSource
+        '
+        Me.HApartamentoBindingSource.DataMember = "hApartamento"
+        Me.HApartamentoBindingSource.DataSource = Me.HosPDeirosDataSet2
+        '
+        'HosPDeirosDataSet2
+        '
+        Me.HosPDeirosDataSet2.DataSetName = "HosPDeirosDataSet2"
+        Me.HosPDeirosDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'HApartamentoTableAdapter
+        '
+        Me.HApartamentoTableAdapter.ClearBeforeFill = True
+        '
         'ListagemApartamento
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
-        Me.ClientSize = New System.Drawing.Size(768, 268)
+        Me.ClientSize = New System.Drawing.Size(769, 268)
         Me.Controls.Add(Me.DataGridView1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "ListagemApartamento"
         Me.Text = "ListagemApartamento"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.HosPDeirosDataSet2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.HApartamentoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.HosPDeirosDataSet2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

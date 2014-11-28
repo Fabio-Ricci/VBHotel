@@ -374,4 +374,9 @@ Public Class CadastroApartamentos
             txtRemocaoTipoApartamento.Text = remocaoTipoApartamento
         End If
     End Sub
+
+    Public Sub setSelectedTextCBEdicao(text As String)
+        cbxEdicaoTipoApartamento.Text = text
+
+    End Sub
 End Class
