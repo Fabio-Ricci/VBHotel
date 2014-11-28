@@ -87,7 +87,7 @@ Public Class Checkout
 
                 notaFiscal = bd.notaFiscal(idHospedagem)
 
-                txtNotaFiscal.Text = notaFiscal
+                txtNotaFiscal.Text = notaFiscal.Replace(",", vbNewLine)
             Else
                 MsgBox("Esse cliente não está hospedado.")
             End If
