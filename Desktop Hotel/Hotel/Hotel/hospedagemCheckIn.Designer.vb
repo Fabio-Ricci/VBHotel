@@ -57,7 +57,7 @@ Partial Class hospedagemCheckIn
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(607, 20)
+        Me.Button2.Location = New System.Drawing.Point(580, 10)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
         Me.Button2.TabIndex = 44
@@ -69,7 +69,7 @@ Partial Class hospedagemCheckIn
         Me.Label11.AutoSize = True
         Me.Label11.BackColor = System.Drawing.Color.Green
         Me.Label11.ForeColor = System.Drawing.Color.Green
-        Me.Label11.Location = New System.Drawing.Point(717, 559)
+        Me.Label11.Location = New System.Drawing.Point(690, 549)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(45, 13)
         Me.Label11.TabIndex = 42
@@ -79,7 +79,7 @@ Partial Class hospedagemCheckIn
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(537, 559)
+        Me.Label10.Location = New System.Drawing.Point(510, 549)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(137, 17)
         Me.Label10.TabIndex = 41
@@ -90,7 +90,7 @@ Partial Class hospedagemCheckIn
         Me.Label9.AutoSize = True
         Me.Label9.BackColor = System.Drawing.Color.Red
         Me.Label9.ForeColor = System.Drawing.Color.Red
-        Me.Label9.Location = New System.Drawing.Point(483, 561)
+        Me.Label9.Location = New System.Drawing.Point(456, 551)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(39, 13)
         Me.Label9.TabIndex = 40
@@ -100,7 +100,7 @@ Partial Class hospedagemCheckIn
         '
         Me.CBXsexo.FormattingEnabled = True
         Me.CBXsexo.Items.AddRange(New Object() {"", "F", "M"})
-        Me.CBXsexo.Location = New System.Drawing.Point(168, 220)
+        Me.CBXsexo.Location = New System.Drawing.Point(141, 210)
         Me.CBXsexo.Name = "CBXsexo"
         Me.CBXsexo.Size = New System.Drawing.Size(158, 21)
         Me.CBXsexo.TabIndex = 39
@@ -108,7 +108,7 @@ Partial Class hospedagemCheckIn
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(54, 402)
+        Me.Label8.Location = New System.Drawing.Point(27, 392)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(105, 13)
         Me.Label8.TabIndex = 38
@@ -116,7 +116,7 @@ Partial Class hospedagemCheckIn
         '
         'TXTdatanasc
         '
-        Me.TXTdatanasc.Location = New System.Drawing.Point(168, 399)
+        Me.TXTdatanasc.Location = New System.Drawing.Point(141, 389)
         Me.TXTdatanasc.Name = "TXTdatanasc"
         Me.TXTdatanasc.Size = New System.Drawing.Size(158, 20)
         Me.TXTdatanasc.TabIndex = 37
@@ -173,7 +173,7 @@ Partial Class hospedagemCheckIn
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(777, 557)
+        Me.Label12.Location = New System.Drawing.Point(750, 547)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(107, 17)
         Me.Label12.TabIndex = 43
@@ -185,7 +185,7 @@ Partial Class hospedagemCheckIn
         Me.DGcliente.AllowUserToDeleteRows = False
         Me.DGcliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGcliente.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.Nome, Me.CPF, Me.DataNasc, Me.SEXO, Me.Email, Me.Telefone, Me.Celular})
-        Me.DGcliente.Location = New System.Drawing.Point(412, 57)
+        Me.DGcliente.Location = New System.Drawing.Point(385, 47)
         Me.DGcliente.Name = "DGcliente"
         Me.DGcliente.ReadOnly = True
         Me.DGcliente.Size = New System.Drawing.Size(843, 481)
@@ -193,7 +193,7 @@ Partial Class hospedagemCheckIn
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(132, 475)
+        Me.Button1.Location = New System.Drawing.Point(105, 465)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(106, 23)
         Me.Button1.TabIndex = 35
@@ -204,7 +204,7 @@ Partial Class hospedagemCheckIn
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(105, 66)
+        Me.Label7.Location = New System.Drawing.Point(78, 56)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(169, 19)
         Me.Label7.TabIndex = 34
@@ -213,7 +213,7 @@ Partial Class hospedagemCheckIn
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(54, 361)
+        Me.Label6.Location = New System.Drawing.Point(27, 351)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(86, 13)
         Me.Label6.TabIndex = 33
@@ -221,7 +221,7 @@ Partial Class hospedagemCheckIn
         '
         'TXTCelular
         '
-        Me.TXTCelular.Location = New System.Drawing.Point(168, 358)
+        Me.TXTCelular.Location = New System.Drawing.Point(141, 348)
         Me.TXTCelular.Name = "TXTCelular"
         Me.TXTCelular.Size = New System.Drawing.Size(158, 20)
         Me.TXTCelular.TabIndex = 32
@@ -229,7 +229,7 @@ Partial Class hospedagemCheckIn
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(54, 124)
+        Me.Label5.Location = New System.Drawing.Point(27, 114)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(38, 13)
         Me.Label5.TabIndex = 31
@@ -238,7 +238,7 @@ Partial Class hospedagemCheckIn
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(54, 268)
+        Me.Label4.Location = New System.Drawing.Point(27, 258)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(38, 13)
         Me.Label4.TabIndex = 30
@@ -247,7 +247,7 @@ Partial Class hospedagemCheckIn
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(54, 310)
+        Me.Label3.Location = New System.Drawing.Point(27, 300)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(71, 13)
         Me.Label3.TabIndex = 29
@@ -256,7 +256,7 @@ Partial Class hospedagemCheckIn
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(54, 228)
+        Me.Label2.Location = New System.Drawing.Point(27, 218)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(34, 13)
         Me.Label2.TabIndex = 28
@@ -265,7 +265,7 @@ Partial Class hospedagemCheckIn
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(54, 177)
+        Me.Label1.Location = New System.Drawing.Point(27, 167)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(30, 13)
         Me.Label1.TabIndex = 27
@@ -273,28 +273,28 @@ Partial Class hospedagemCheckIn
         '
         'TXTcpf
         '
-        Me.TXTcpf.Location = New System.Drawing.Point(168, 174)
+        Me.TXTcpf.Location = New System.Drawing.Point(141, 164)
         Me.TXTcpf.Name = "TXTcpf"
         Me.TXTcpf.Size = New System.Drawing.Size(158, 20)
         Me.TXTcpf.TabIndex = 26
         '
         'TXTtelefoneFixo
         '
-        Me.TXTtelefoneFixo.Location = New System.Drawing.Point(168, 310)
+        Me.TXTtelefoneFixo.Location = New System.Drawing.Point(141, 300)
         Me.TXTtelefoneFixo.Name = "TXTtelefoneFixo"
         Me.TXTtelefoneFixo.Size = New System.Drawing.Size(158, 20)
         Me.TXTtelefoneFixo.TabIndex = 25
         '
         'TXTemail
         '
-        Me.TXTemail.Location = New System.Drawing.Point(168, 265)
+        Me.TXTemail.Location = New System.Drawing.Point(141, 255)
         Me.TXTemail.Name = "TXTemail"
         Me.TXTemail.Size = New System.Drawing.Size(158, 20)
         Me.TXTemail.TabIndex = 24
         '
         'TXTnome
         '
-        Me.TXTnome.Location = New System.Drawing.Point(168, 124)
+        Me.TXTnome.Location = New System.Drawing.Point(141, 114)
         Me.TXTnome.Name = "TXTnome"
         Me.TXTnome.Size = New System.Drawing.Size(158, 20)
         Me.TXTnome.TabIndex = 23
@@ -303,7 +303,7 @@ Partial Class hospedagemCheckIn
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1351, 643)
+        Me.ClientSize = New System.Drawing.Size(1244, 598)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.Label10)

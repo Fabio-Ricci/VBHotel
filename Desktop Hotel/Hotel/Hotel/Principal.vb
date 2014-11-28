@@ -79,7 +79,7 @@ Public Class Principal
     End Sub
 
     Private Sub menuHospedagemCheckIn_Click(sender As Object, e As EventArgs) Handles menuHospedagemCheckIn.Click
-        'hospedagemCheckIn.Show()
+        hospedagemCheckIn.Show()
     End Sub
 
     Private Sub menuHospedagemCheckOut_Click(sender As Object, e As EventArgs) Handles menuHospedagemCheckOut.Click

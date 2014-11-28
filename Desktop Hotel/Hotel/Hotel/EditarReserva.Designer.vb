@@ -55,7 +55,7 @@ Partial Class EditarReserva
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(580, 65)
+        Me.Button2.Location = New System.Drawing.Point(606, 25)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
         Me.Button2.TabIndex = 39
@@ -64,7 +64,7 @@ Partial Class EditarReserva
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(147, 503)
+        Me.Button1.Location = New System.Drawing.Point(173, 463)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 37
@@ -123,7 +123,7 @@ Partial Class EditarReserva
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(51, 78)
+        Me.Label9.Location = New System.Drawing.Point(77, 38)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(166, 26)
         Me.Label9.TabIndex = 38
@@ -135,7 +135,7 @@ Partial Class EditarReserva
         Me.DGreserva.AllowUserToDeleteRows = False
         Me.DGreserva.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGreserva.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idReserva, Me.idCliente, Me.NomeCliente, Me.DataInicio, Me.DataFim, Me.NumeroBoleto, Me.Situacao, Me.tipoApartamento})
-        Me.DGreserva.Location = New System.Drawing.Point(309, 125)
+        Me.DGreserva.Location = New System.Drawing.Point(335, 85)
         Me.DGreserva.Name = "DGreserva"
         Me.DGreserva.ReadOnly = True
         Me.DGreserva.Size = New System.Drawing.Size(848, 477)
@@ -145,7 +145,7 @@ Partial Class EditarReserva
         '
         Me.CBXsituacao.FormattingEnabled = True
         Me.CBXsituacao.Items.AddRange(New Object() {"Pendente", "confirmada", "finalizada", "cancelada"})
-        Me.CBXsituacao.Location = New System.Drawing.Point(147, 404)
+        Me.CBXsituacao.Location = New System.Drawing.Point(173, 364)
         Me.CBXsituacao.Name = "CBXsituacao"
         Me.CBXsituacao.Size = New System.Drawing.Size(121, 21)
         Me.CBXsituacao.TabIndex = 35
@@ -153,49 +153,49 @@ Partial Class EditarReserva
         'CBXtipoApartamento
         '
         Me.CBXtipoApartamento.FormattingEnabled = True
-        Me.CBXtipoApartamento.Location = New System.Drawing.Point(147, 439)
+        Me.CBXtipoApartamento.Location = New System.Drawing.Point(173, 399)
         Me.CBXtipoApartamento.Name = "CBXtipoApartamento"
         Me.CBXtipoApartamento.Size = New System.Drawing.Size(121, 21)
         Me.CBXtipoApartamento.TabIndex = 34
         '
         'TXTnumeroBoleto
         '
-        Me.TXTnumeroBoleto.Location = New System.Drawing.Point(147, 364)
+        Me.TXTnumeroBoleto.Location = New System.Drawing.Point(173, 324)
         Me.TXTnumeroBoleto.Name = "TXTnumeroBoleto"
         Me.TXTnumeroBoleto.Size = New System.Drawing.Size(121, 20)
         Me.TXTnumeroBoleto.TabIndex = 33
         '
         'TXTdataFim
         '
-        Me.TXTdataFim.Location = New System.Drawing.Point(147, 325)
+        Me.TXTdataFim.Location = New System.Drawing.Point(173, 285)
         Me.TXTdataFim.Name = "TXTdataFim"
         Me.TXTdataFim.Size = New System.Drawing.Size(121, 20)
         Me.TXTdataFim.TabIndex = 32
         '
         'TXTdataInicio
         '
-        Me.TXTdataInicio.Location = New System.Drawing.Point(147, 285)
+        Me.TXTdataInicio.Location = New System.Drawing.Point(173, 245)
         Me.TXTdataInicio.Name = "TXTdataInicio"
         Me.TXTdataInicio.Size = New System.Drawing.Size(121, 20)
         Me.TXTdataInicio.TabIndex = 31
         '
         'TXTnomeCLiente
         '
-        Me.TXTnomeCLiente.Location = New System.Drawing.Point(147, 242)
+        Me.TXTnomeCLiente.Location = New System.Drawing.Point(173, 202)
         Me.TXTnomeCLiente.Name = "TXTnomeCLiente"
         Me.TXTnomeCLiente.Size = New System.Drawing.Size(121, 20)
         Me.TXTnomeCLiente.TabIndex = 30
         '
         'TXTidCliente
         '
-        Me.TXTidCliente.Location = New System.Drawing.Point(147, 200)
+        Me.TXTidCliente.Location = New System.Drawing.Point(173, 160)
         Me.TXTidCliente.Name = "TXTidCliente"
         Me.TXTidCliente.Size = New System.Drawing.Size(121, 20)
         Me.TXTidCliente.TabIndex = 29
         '
         'TXTIDreserva
         '
-        Me.TXTIDreserva.Location = New System.Drawing.Point(147, 158)
+        Me.TXTIDreserva.Location = New System.Drawing.Point(173, 118)
         Me.TXTIDreserva.Name = "TXTIDreserva"
         Me.TXTIDreserva.Size = New System.Drawing.Size(121, 20)
         Me.TXTIDreserva.TabIndex = 28
@@ -203,7 +203,7 @@ Partial Class EditarReserva
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(36, 439)
+        Me.Label8.Location = New System.Drawing.Point(62, 399)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(91, 13)
         Me.Label8.TabIndex = 27
@@ -212,7 +212,7 @@ Partial Class EditarReserva
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(36, 404)
+        Me.Label7.Location = New System.Drawing.Point(62, 364)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(49, 13)
         Me.Label7.TabIndex = 26
@@ -221,7 +221,7 @@ Partial Class EditarReserva
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(36, 364)
+        Me.Label6.Location = New System.Drawing.Point(62, 324)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(77, 13)
         Me.Label6.TabIndex = 25
@@ -230,7 +230,7 @@ Partial Class EditarReserva
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(36, 328)
+        Me.Label5.Location = New System.Drawing.Point(62, 288)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(49, 13)
         Me.Label5.TabIndex = 24
@@ -239,7 +239,7 @@ Partial Class EditarReserva
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(36, 285)
+        Me.Label4.Location = New System.Drawing.Point(62, 245)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(60, 13)
         Me.Label4.TabIndex = 23
@@ -248,7 +248,7 @@ Partial Class EditarReserva
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(36, 242)
+        Me.Label3.Location = New System.Drawing.Point(62, 202)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(70, 13)
         Me.Label3.TabIndex = 22
@@ -257,7 +257,7 @@ Partial Class EditarReserva
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(36, 200)
+        Me.Label2.Location = New System.Drawing.Point(62, 160)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(53, 13)
         Me.Label2.TabIndex = 21
@@ -266,7 +266,7 @@ Partial Class EditarReserva
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(36, 165)
+        Me.Label1.Location = New System.Drawing.Point(62, 125)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(61, 13)
         Me.Label1.TabIndex = 20
@@ -276,7 +276,7 @@ Partial Class EditarReserva
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1213, 670)
+        Me.ClientSize = New System.Drawing.Size(1244, 586)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label9)
