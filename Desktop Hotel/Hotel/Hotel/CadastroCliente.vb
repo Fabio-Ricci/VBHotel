@@ -418,4 +418,8 @@ Public Class CadastroCliente
             MsgBox(Exc.Message)
         End Try
     End Sub
+
+    Public Sub setSelectedTextCBEdicao(text As String)
+        cbxEdicaoIdCliente.Text = text
+    End Sub
 End Class

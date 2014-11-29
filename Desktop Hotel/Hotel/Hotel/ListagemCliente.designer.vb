@@ -28,10 +28,7 @@ Partial Class ListagemCliente
         Me.HosPDeirosDataSet6 = New Hotel.HosPDeirosDataSet6()
         Me.HClienteBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.HClienteTableAdapter = New Hotel.HosPDeirosDataSet6TableAdapters.hClienteTableAdapter()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.HosPDeirosDataSet7 = New Hotel.HosPDeirosDataSet7()
-        Me.HClienteBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.HClienteTableAdapter1 = New Hotel.HosPDeirosDataSet7TableAdapters.hClienteTableAdapter()
+        Me.dgListagemCliente = New System.Windows.Forms.DataGridView()
         Me.IdClienteDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NomeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataNascimentoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -45,12 +42,15 @@ Partial Class ListagemCliente
         Me.PaisDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SiglaUFDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CPFDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.HClienteBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.HosPDeirosDataSet7 = New Hotel.HosPDeirosDataSet7()
+        Me.HClienteTableAdapter1 = New Hotel.HosPDeirosDataSet7TableAdapters.hClienteTableAdapter()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.HosPDeirosDataSet6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.HClienteBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.HosPDeirosDataSet7, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgListagemCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.HClienteBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.HosPDeirosDataSet7, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'HosPDeirosDataSet6
@@ -67,36 +67,22 @@ Partial Class ListagemCliente
         '
         Me.HClienteTableAdapter.ClearBeforeFill = True
         '
-        'DataGridView1
+        'dgListagemCliente
         '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AllowUserToDeleteRows = False
-        Me.DataGridView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.dgListagemCliente.AllowUserToAddRows = False
+        Me.dgListagemCliente.AllowUserToDeleteRows = False
+        Me.dgListagemCliente.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DataGridView1.AutoGenerateColumns = False
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdClienteDataGridViewTextBoxColumn, Me.NomeDataGridViewTextBoxColumn, Me.DataNascimentoDataGridViewTextBoxColumn, Me.SexoDataGridViewTextBoxColumn, Me.EmailDataGridViewTextBoxColumn, Me.TelefoneDataGridViewTextBoxColumn, Me.CelularDataGridViewTextBoxColumn, Me.EnderecoDataGridViewTextBoxColumn, Me.BairroDataGridViewTextBoxColumn, Me.CidadeDataGridViewTextBoxColumn, Me.PaisDataGridViewTextBoxColumn, Me.SiglaUFDataGridViewTextBoxColumn, Me.CPFDataGridViewTextBoxColumn})
-        Me.DataGridView1.DataSource = Me.HClienteBindingSource1
-        Me.DataGridView1.Location = New System.Drawing.Point(12, 12)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.Size = New System.Drawing.Size(1343, 195)
-        Me.DataGridView1.TabIndex = 0
-        '
-        'HosPDeirosDataSet7
-        '
-        Me.HosPDeirosDataSet7.DataSetName = "HosPDeirosDataSet7"
-        Me.HosPDeirosDataSet7.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'HClienteBindingSource1
-        '
-        Me.HClienteBindingSource1.DataMember = "hCliente"
-        Me.HClienteBindingSource1.DataSource = Me.HosPDeirosDataSet7
-        '
-        'HClienteTableAdapter1
-        '
-        Me.HClienteTableAdapter1.ClearBeforeFill = True
+        Me.dgListagemCliente.AutoGenerateColumns = False
+        Me.dgListagemCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgListagemCliente.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdClienteDataGridViewTextBoxColumn, Me.NomeDataGridViewTextBoxColumn, Me.DataNascimentoDataGridViewTextBoxColumn, Me.SexoDataGridViewTextBoxColumn, Me.EmailDataGridViewTextBoxColumn, Me.TelefoneDataGridViewTextBoxColumn, Me.CelularDataGridViewTextBoxColumn, Me.EnderecoDataGridViewTextBoxColumn, Me.BairroDataGridViewTextBoxColumn, Me.CidadeDataGridViewTextBoxColumn, Me.PaisDataGridViewTextBoxColumn, Me.SiglaUFDataGridViewTextBoxColumn, Me.CPFDataGridViewTextBoxColumn})
+        Me.dgListagemCliente.DataSource = Me.HClienteBindingSource1
+        Me.dgListagemCliente.Location = New System.Drawing.Point(12, 12)
+        Me.dgListagemCliente.Name = "dgListagemCliente"
+        Me.dgListagemCliente.ReadOnly = True
+        Me.dgListagemCliente.Size = New System.Drawing.Size(1343, 195)
+        Me.dgListagemCliente.TabIndex = 0
         '
         'IdClienteDataGridViewTextBoxColumn
         '
@@ -189,22 +175,36 @@ Partial Class ListagemCliente
         Me.CPFDataGridViewTextBoxColumn.Name = "CPFDataGridViewTextBoxColumn"
         Me.CPFDataGridViewTextBoxColumn.ReadOnly = True
         '
+        'HClienteBindingSource1
+        '
+        Me.HClienteBindingSource1.DataMember = "hCliente"
+        Me.HClienteBindingSource1.DataSource = Me.HosPDeirosDataSet7
+        '
+        'HosPDeirosDataSet7
+        '
+        Me.HosPDeirosDataSet7.DataSetName = "HosPDeirosDataSet7"
+        Me.HosPDeirosDataSet7.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'HClienteTableAdapter1
+        '
+        Me.HClienteTableAdapter1.ClearBeforeFill = True
+        '
         'ListagemCliente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.ClientSize = New System.Drawing.Size(1367, 219)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.dgListagemCliente)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "ListagemCliente"
         Me.Text = "Listagem"
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.HosPDeirosDataSet6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.HClienteBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.HosPDeirosDataSet7, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgListagemCliente, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.HClienteBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.HosPDeirosDataSet7, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -212,7 +212,7 @@ Partial Class ListagemCliente
     Friend WithEvents HosPDeirosDataSet6 As Hotel.HosPDeirosDataSet6
     Friend WithEvents HClienteBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents HClienteTableAdapter As Hotel.HosPDeirosDataSet6TableAdapters.hClienteTableAdapter
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents dgListagemCliente As System.Windows.Forms.DataGridView
     Friend WithEvents HosPDeirosDataSet7 As Hotel.HosPDeirosDataSet7
     Friend WithEvents HClienteBindingSource1 As System.Windows.Forms.BindingSource
     Friend WithEvents HClienteTableAdapter1 As Hotel.HosPDeirosDataSet7TableAdapters.hClienteTableAdapter

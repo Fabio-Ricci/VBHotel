@@ -5,4 +5,5 @@
         Me.HConsumoTableAdapter.Fill(Me.HosPDeirosDataSet5.hConsumo)
 
     End Sub
+
 End Class

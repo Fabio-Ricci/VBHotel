@@ -5,10 +5,10 @@
 
     End Sub
 
-    Private Sub DataGridView1_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellDoubleClick
-        Dim idApartamento As Integer = DataGridView1.Item(0, Me.DataGridView1.CurrentRow.Index).Value
+    Private Sub dgListagemItem_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgListagemItem.CellDoubleClick
+        Dim idItem As Integer = dgListagemItem.Item(0, Me.dgListagemItem.CurrentRow.Index).Value
         CadastroItem.tcItem.SelectedIndex = 1
         CadastroItem.Show()
-        CadastroItem.setTextCbEdicao(idApartamento.ToString)
+        CadastroItem.setTextCbEdicao(idItem.ToString)
     End Sub
 End Class

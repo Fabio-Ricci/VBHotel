@@ -424,5 +424,9 @@ Public Class tipoQuarto
 
     End Sub
 
+    Public Sub setSelectedTextCBEdicao(text As String)
+        cbTipoEdicao.Text = text
+    End Sub
+
 End Class
 

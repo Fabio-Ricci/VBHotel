@@ -6,10 +6,11 @@
 
     End Sub
 
-    Private Sub DataGridView1_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellDoubleClick
-        Dim idApartamento As Integer = DataGridView1.Item(2, Me.DataGridView1.CurrentRow.Index).Value
+    Private Sub dgListagemApartamento_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgListagemApartamento.CellDoubleClick
+        'abre o formulário de edição do apartamento ao clicar duas vezes em uma célula da listagem
+        Dim numApartamento As Integer = dgListagemApartamento.Item(2, Me.dgListagemApartamento.CurrentRow.Index).Value
         CadastroApartamentos.tcApartamento.SelectedIndex = 1
         CadastroApartamentos.Show()
-        CadastroApartamentos.setSelectedTextCBEdicao(idApartamento)
+        CadastroApartamentos.setSelectedTextCBEdicao(numApartamento)
     End Sub
 End Class

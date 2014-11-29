@@ -126,4 +126,8 @@ Public Class CadastroTipoItem
             bd.fecharConexao()
         End If
     End Sub
+
+    Public Sub setSelectedTextCBEdicao(text As String)
+        cbxEdicaoIdTipoItem.Text = text
+    End Sub
 End Class

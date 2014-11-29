@@ -24,7 +24,7 @@ Partial Class ListagemItem
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ListagemItem))
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.dgListagemItem = New System.Windows.Forms.DataGridView()
         Me.IdItemDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TipoItemDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DescricaoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -32,27 +32,27 @@ Partial Class ListagemItem
         Me.HItemBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.HosPDeirosDataSet3 = New Hotel.HosPDeirosDataSet3()
         Me.HItemTableAdapter = New Hotel.HosPDeirosDataSet3TableAdapters.hItemTableAdapter()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgListagemItem, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.HItemBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.HosPDeirosDataSet3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'DataGridView1
+        'dgListagemItem
         '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AllowUserToDeleteRows = False
-        Me.DataGridView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.dgListagemItem.AllowUserToAddRows = False
+        Me.dgListagemItem.AllowUserToDeleteRows = False
+        Me.dgListagemItem.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DataGridView1.AutoGenerateColumns = False
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdItemDataGridViewTextBoxColumn, Me.TipoItemDataGridViewTextBoxColumn, Me.DescricaoDataGridViewTextBoxColumn, Me.CustoUnitarioDataGridViewTextBoxColumn})
-        Me.DataGridView1.DataSource = Me.HItemBindingSource
-        Me.DataGridView1.Location = New System.Drawing.Point(13, 13)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.Size = New System.Drawing.Size(443, 178)
-        Me.DataGridView1.TabIndex = 0
+        Me.dgListagemItem.AutoGenerateColumns = False
+        Me.dgListagemItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgListagemItem.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdItemDataGridViewTextBoxColumn, Me.TipoItemDataGridViewTextBoxColumn, Me.DescricaoDataGridViewTextBoxColumn, Me.CustoUnitarioDataGridViewTextBoxColumn})
+        Me.dgListagemItem.DataSource = Me.HItemBindingSource
+        Me.dgListagemItem.Location = New System.Drawing.Point(13, 13)
+        Me.dgListagemItem.Name = "dgListagemItem"
+        Me.dgListagemItem.ReadOnly = True
+        Me.dgListagemItem.Size = New System.Drawing.Size(443, 178)
+        Me.dgListagemItem.TabIndex = 0
         '
         'IdItemDataGridViewTextBoxColumn
         '
@@ -102,17 +102,17 @@ Partial Class ListagemItem
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.ClientSize = New System.Drawing.Size(468, 203)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.dgListagemItem)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "ListagemItem"
         Me.Text = "ListagemItem"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgListagemItem, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.HItemBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.HosPDeirosDataSet3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents dgListagemItem As System.Windows.Forms.DataGridView
     Friend WithEvents HosPDeirosDataSet3 As Hotel.HosPDeirosDataSet3
     Friend WithEvents HItemBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents HItemTableAdapter As Hotel.HosPDeirosDataSet3TableAdapters.hItemTableAdapter

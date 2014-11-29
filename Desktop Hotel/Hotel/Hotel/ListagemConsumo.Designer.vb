@@ -24,50 +24,36 @@ Partial Class ListagemConsumo
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ListagemConsumo))
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.HosPDeirosDataSet5 = New Hotel.HosPDeirosDataSet5()
-        Me.HConsumoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.HConsumoTableAdapter = New Hotel.HosPDeirosDataSet5TableAdapters.hConsumoTableAdapter()
+        Me.dgListagemConsumo = New System.Windows.Forms.DataGridView()
         Me.IdConsumoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.IdItemDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.IdHospedagemDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.QuantidadeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.HosPDeirosDataSet5, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.HConsumoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.HosPDeirosDataSet5 = New Hotel.HosPDeirosDataSet5()
+        Me.HConsumoTableAdapter = New Hotel.HosPDeirosDataSet5TableAdapters.hConsumoTableAdapter()
+        CType(Me.dgListagemConsumo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.HConsumoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.HosPDeirosDataSet5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'DataGridView1
+        'dgListagemConsumo
         '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AllowUserToDeleteRows = False
-        Me.DataGridView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.dgListagemConsumo.AllowUserToAddRows = False
+        Me.dgListagemConsumo.AllowUserToDeleteRows = False
+        Me.dgListagemConsumo.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DataGridView1.AutoGenerateColumns = False
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdConsumoDataGridViewTextBoxColumn, Me.IdItemDataGridViewTextBoxColumn, Me.IdHospedagemDataGridViewTextBoxColumn, Me.QuantidadeDataGridViewTextBoxColumn, Me.DataDataGridViewTextBoxColumn})
-        Me.DataGridView1.DataSource = Me.HConsumoBindingSource
-        Me.DataGridView1.Location = New System.Drawing.Point(12, 12)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.Size = New System.Drawing.Size(543, 175)
-        Me.DataGridView1.TabIndex = 0
-        '
-        'HosPDeirosDataSet5
-        '
-        Me.HosPDeirosDataSet5.DataSetName = "HosPDeirosDataSet5"
-        Me.HosPDeirosDataSet5.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'HConsumoBindingSource
-        '
-        Me.HConsumoBindingSource.DataMember = "hConsumo"
-        Me.HConsumoBindingSource.DataSource = Me.HosPDeirosDataSet5
-        '
-        'HConsumoTableAdapter
-        '
-        Me.HConsumoTableAdapter.ClearBeforeFill = True
+        Me.dgListagemConsumo.AutoGenerateColumns = False
+        Me.dgListagemConsumo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgListagemConsumo.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdConsumoDataGridViewTextBoxColumn, Me.IdItemDataGridViewTextBoxColumn, Me.IdHospedagemDataGridViewTextBoxColumn, Me.QuantidadeDataGridViewTextBoxColumn, Me.DataDataGridViewTextBoxColumn})
+        Me.dgListagemConsumo.DataSource = Me.HConsumoBindingSource
+        Me.dgListagemConsumo.Location = New System.Drawing.Point(12, 12)
+        Me.dgListagemConsumo.Name = "dgListagemConsumo"
+        Me.dgListagemConsumo.ReadOnly = True
+        Me.dgListagemConsumo.Size = New System.Drawing.Size(543, 175)
+        Me.dgListagemConsumo.TabIndex = 0
         '
         'IdConsumoDataGridViewTextBoxColumn
         '
@@ -104,23 +90,37 @@ Partial Class ListagemConsumo
         Me.DataDataGridViewTextBoxColumn.Name = "DataDataGridViewTextBoxColumn"
         Me.DataDataGridViewTextBoxColumn.ReadOnly = True
         '
+        'HConsumoBindingSource
+        '
+        Me.HConsumoBindingSource.DataMember = "hConsumo"
+        Me.HConsumoBindingSource.DataSource = Me.HosPDeirosDataSet5
+        '
+        'HosPDeirosDataSet5
+        '
+        Me.HosPDeirosDataSet5.DataSetName = "HosPDeirosDataSet5"
+        Me.HosPDeirosDataSet5.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'HConsumoTableAdapter
+        '
+        Me.HConsumoTableAdapter.ClearBeforeFill = True
+        '
         'ListagemConsumo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.ClientSize = New System.Drawing.Size(567, 199)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.dgListagemConsumo)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "ListagemConsumo"
         Me.Text = "ListagemConsumo"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.HosPDeirosDataSet5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgListagemConsumo, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.HConsumoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.HosPDeirosDataSet5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents dgListagemConsumo As System.Windows.Forms.DataGridView
     Friend WithEvents HosPDeirosDataSet5 As Hotel.HosPDeirosDataSet5
     Friend WithEvents HConsumoBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents HConsumoTableAdapter As Hotel.HosPDeirosDataSet5TableAdapters.hConsumoTableAdapter

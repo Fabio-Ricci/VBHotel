@@ -24,7 +24,7 @@ Partial Class ListagemApartamento
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ListagemApartamento))
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.dgListagemApartamento = New System.Windows.Forms.DataGridView()
         Me.IdApartamentoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.IdTipoApartamentoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NumeroDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -35,27 +35,27 @@ Partial Class ListagemApartamento
         Me.HApartamentoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.HosPDeirosDataSet2 = New Hotel.HosPDeirosDataSet2()
         Me.HApartamentoTableAdapter = New Hotel.HosPDeirosDataSet2TableAdapters.hApartamentoTableAdapter()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgListagemApartamento, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.HApartamentoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.HosPDeirosDataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'DataGridView1
+        'dgListagemApartamento
         '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AllowUserToDeleteRows = False
-        Me.DataGridView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.dgListagemApartamento.AllowUserToAddRows = False
+        Me.dgListagemApartamento.AllowUserToDeleteRows = False
+        Me.dgListagemApartamento.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DataGridView1.AutoGenerateColumns = False
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdApartamentoDataGridViewTextBoxColumn, Me.IdTipoApartamentoDataGridViewTextBoxColumn, Me.NumeroDataGridViewTextBoxColumn, Me.AndarDataGridViewTextBoxColumn, Me.CamaCasalDataGridViewTextBoxColumn, Me.CamaSolteiroDataGridViewTextBoxColumn, Me.FrigobarDataGridViewTextBoxColumn})
-        Me.DataGridView1.DataSource = Me.HApartamentoBindingSource
-        Me.DataGridView1.Location = New System.Drawing.Point(13, 13)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.Size = New System.Drawing.Size(744, 243)
-        Me.DataGridView1.TabIndex = 0
+        Me.dgListagemApartamento.AutoGenerateColumns = False
+        Me.dgListagemApartamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgListagemApartamento.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdApartamentoDataGridViewTextBoxColumn, Me.IdTipoApartamentoDataGridViewTextBoxColumn, Me.NumeroDataGridViewTextBoxColumn, Me.AndarDataGridViewTextBoxColumn, Me.CamaCasalDataGridViewTextBoxColumn, Me.CamaSolteiroDataGridViewTextBoxColumn, Me.FrigobarDataGridViewTextBoxColumn})
+        Me.dgListagemApartamento.DataSource = Me.HApartamentoBindingSource
+        Me.dgListagemApartamento.Location = New System.Drawing.Point(13, 13)
+        Me.dgListagemApartamento.Name = "dgListagemApartamento"
+        Me.dgListagemApartamento.ReadOnly = True
+        Me.dgListagemApartamento.Size = New System.Drawing.Size(744, 243)
+        Me.dgListagemApartamento.TabIndex = 0
         '
         'IdApartamentoDataGridViewTextBoxColumn
         '
@@ -126,17 +126,17 @@ Partial Class ListagemApartamento
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.ClientSize = New System.Drawing.Size(769, 268)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.dgListagemApartamento)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "ListagemApartamento"
         Me.Text = "ListagemApartamento"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgListagemApartamento, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.HApartamentoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.HosPDeirosDataSet2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents dgListagemApartamento As System.Windows.Forms.DataGridView
     Friend WithEvents HosPDeirosDataSet2 As Hotel.HosPDeirosDataSet2
     Friend WithEvents HApartamentoBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents HApartamentoTableAdapter As Hotel.HosPDeirosDataSet2TableAdapters.hApartamentoTableAdapter
