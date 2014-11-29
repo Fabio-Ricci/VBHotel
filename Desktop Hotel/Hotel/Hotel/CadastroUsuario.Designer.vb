@@ -45,7 +45,6 @@ Partial Class CadastroUsuario
         'RBfuncionario
         '
         Me.RBfuncionario.AutoSize = True
-        Me.RBfuncionario.BackColor = System.Drawing.Color.Transparent
         Me.RBfuncionario.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RBfuncionario.Location = New System.Drawing.Point(320, 215)
         Me.RBfuncionario.Name = "RBfuncionario"
@@ -53,12 +52,11 @@ Partial Class CadastroUsuario
         Me.RBfuncionario.TabIndex = 1
         Me.RBfuncionario.TabStop = True
         Me.RBfuncionario.Text = "Funcionário"
-        Me.RBfuncionario.UseVisualStyleBackColor = False
+        Me.RBfuncionario.UseVisualStyleBackColor = True
         '
         'RBgerente
         '
         Me.RBgerente.AutoSize = True
-        Me.RBgerente.BackColor = System.Drawing.Color.Transparent
         Me.RBgerente.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RBgerente.Location = New System.Drawing.Point(453, 215)
         Me.RBgerente.Name = "RBgerente"
@@ -66,7 +64,7 @@ Partial Class CadastroUsuario
         Me.RBgerente.TabIndex = 2
         Me.RBgerente.TabStop = True
         Me.RBgerente.Text = "Gerente"
-        Me.RBgerente.UseVisualStyleBackColor = False
+        Me.RBgerente.UseVisualStyleBackColor = True
         '
         'EDsenha
         '
@@ -100,7 +98,6 @@ Partial Class CadastroUsuario
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(329, 69)
         Me.Label1.Name = "Label1"
@@ -111,7 +108,6 @@ Partial Class CadastroUsuario
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(337, 117)
         Me.Label2.Name = "Label2"
@@ -122,7 +118,6 @@ Partial Class CadastroUsuario
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(264, 164)
         Me.Label3.Name = "Label3"
@@ -179,7 +174,6 @@ Partial Class CadastroUsuario
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(84, 82)
         Me.Label4.Name = "Label4"
