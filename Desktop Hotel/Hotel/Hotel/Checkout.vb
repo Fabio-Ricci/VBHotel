@@ -36,66 +36,70 @@ Public Class Checkout
     Dim notaFiscal As String
 
     Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click 'carrega todos os dados do cpf selecionado
-        cpf = txtCpf.Text
-        cpf = cpf.Replace(",", ".")
+        If (txtCpf.Text <> "   .   .   -  ") Then
+            cpf = txtCpf.Text
+            cpf = cpf.Replace(",", ".")
 
-        If (cpf <> "") Then
-            Dim dr As SqlDataReader
+            If (cpf <> "") Then
+                Dim dr As SqlDataReader
 
-            dr = bd.getDadosCheckout(cpf)
-            If (dr.HasRows) Then
-                dr.Read()
-                nome = dr.Item(0)
-                email = dr.Item(1)
+                dr = bd.getDadosCheckout(cpf)
+                If (dr.HasRows) Then
+                    dr.Read()
+                    nome = dr.Item(0)
+                    email = dr.Item(1)
 
-                idTipoApartamento = dr.Item(2)
-                diariaTipoQuarto = dr.Item(3)
-                tipoQuarto = dr.Item(4)
+                    idTipoApartamento = dr.Item(2)
+                    diariaTipoQuarto = dr.Item(3)
+                    tipoQuarto = dr.Item(4)
 
-                andar = dr.Item(5)
-                numero = dr.Item(6)
-                camasCasal = dr.Item(7)
-                camasSolteiro = dr.Item(8)
-                frigobar = dr.Item(9)
+                    andar = dr.Item(5)
+                    numero = dr.Item(6)
+                    camasCasal = dr.Item(7)
+                    camasSolteiro = dr.Item(8)
+                    frigobar = dr.Item(9)
 
-                idHospedagem = dr.Item(10)
-                bd.fecharConexao()
+                    idHospedagem = dr.Item(10)
+                    bd.fecharConexao()
 
-                dr = Nothing
-                ''''''''''''''''''''''''''''''''''''''''
-                qtdItensConsumidos = bd.qtdItensConsumidos(idHospedagem) 'conta quantos itens diferentes aquele cliente consumidos
-                '''''''''''''''''''''''''''''''''''''''
-                bd.fecharConexao()
+                    dr = Nothing
+                    ''''''''''''''''''''''''''''''''''''''''
+                    qtdItensConsumidos = bd.qtdItensConsumidos(idHospedagem) 'conta quantos itens diferentes aquele cliente consumidos
+                    '''''''''''''''''''''''''''''''''''''''
+                    bd.fecharConexao()
 
-                txtNome.Text = nome
-                txtEmail.Text = email
+                    txtNome.Text = nome
+                    txtEmail.Text = email
 
-                txtTipoQuarto.Text = tipoQuarto
-                txtDiaria.Text = diariaTipoQuarto
+                    txtTipoQuarto.Text = tipoQuarto
+                    txtDiaria.Text = diariaTipoQuarto
 
-                txtNumero.Text = numero
-                txtAndar.Text = andar
-                txtCamasCasal.Text = camasCasal
-                txtCamasSolteiro.Text = camasSolteiro
-                If frigobar = "S" Then
-                    rbSim.Checked = True
+                    txtNumero.Text = numero
+                    txtAndar.Text = andar
+                    txtCamasCasal.Text = camasCasal
+                    txtCamasSolteiro.Text = camasSolteiro
+                    If frigobar = "S" Then
+                        rbSim.Checked = True
+                    Else
+                        RbNao.Checked = True
+                    End If
+                    pnlCheckout.Visible = True
+
+                    txtConsumoTotal.Text = Convert.ToString(bd.gastoAtualHospedagem(idHospedagem))
+
+                    notaFiscal = bd.notaFiscal(idHospedagem)
+
+                    txtNotaFiscal.Text = notaFiscal.Replace(",", vbNewLine)
                 Else
-                    RbNao.Checked = True
+                    MsgBox("Esse cliente não está hospedado.")
                 End If
-                pnlCheckout.Visible = True
-
-                txtConsumoTotal.Text = Convert.ToString(bd.gastoAtualHospedagem(idHospedagem))
-
-                notaFiscal = bd.notaFiscal(idHospedagem)
-
-                txtNotaFiscal.Text = notaFiscal.Replace(",", vbNewLine)
             Else
-                MsgBox("Esse cliente não está hospedado.")
+                MsgBox("Digite o CPF.")
             End If
+            bd.fecharConexao()
         Else
             MsgBox("Digite o CPF.")
         End If
-        bd.fecharConexao()
     End Sub
     Private Sub btnCheckout_Click(sender As Object, e As EventArgs) Handles btnCheckout.Click 'realiza o checkout do cpf selecionado
         Dim escolha As MsgBoxResult = MsgBox("Deseja realmente realizar o checkout desse cliente?", MsgBoxStyle.YesNoCancel)
@@ -135,11 +139,11 @@ Public Class Checkout
         End If
     End Sub
 
-    Private Sub pnlCheckout_Paint(sender As Object, e As PaintEventArgs) Handles pnlCheckout.Paint
-
-    End Sub
-
-    Private Sub gbFrigobar_Enter(sender As Object, e As EventArgs) Handles gbFrigobar.Enter
-
+    Private Sub txtCpf_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCpf.KeyPress
+        If Asc(e.KeyChar) <> 8 Then
+            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+                e.Handled = True
+            End If
+        End If
     End Sub
 End Class
