@@ -22,7 +22,7 @@ Public Class CadastroItem
 
     Private Sub tcItem_SelectedIndexChanged(sender As Object, e As EventArgs) Handles tcItem.SelectedIndexChanged
         If tcItem.SelectedIndex = 0 Then
-            cbxTipoItem.Text = ""
+            cbxTipoItem.SelectedIndex = -1
             txtCustoUnitario.Text = ""
             txtDescricao.Text = ""
 
@@ -44,8 +44,8 @@ Public Class CadastroItem
         End If
 
         If tcItem.SelectedIndex = 1 Then
-            cbxEdicaoIdItem.Text = ""
-            cbxEdicaoTipoItem.Text = ""
+            cbxEdicaoIdItem.SelectedIndex = -1
+            cbxEdicaoTipoItem.SelectedIndex = -1
             txtEdicaoCustoUnitario.Text = ""
             txtEdicaoDescricao.Text = ""
 
@@ -77,8 +77,8 @@ Public Class CadastroItem
         End If
 
         If tcItem.SelectedIndex = 2 Then
-            cbxRemocaoIdItem.Text = ""
-            cbxRemocaoTipoItem.Text = ""
+            cbxRemocaoIdItem.SelectedIndex = -1
+            cbxRemocaoTipoItem.SelectedIndex = -1
             txtRemocaoCustoUnitario.Text = ""
             txtRemocaoDescricao.Text = ""
 

@@ -16,11 +16,11 @@ Public Class CadastroTipoItem
 
     Private Sub btnCadastarTipoItem_Click(sender As Object, e As EventArgs) Handles btnCadastarTipoItem.Click 'cadastra um novo tipo de item
         descricaoTipoItem = txtCadastroTipoItem.Text
-        txtCadastroTipoItem.Text = ""
 
         If (descricaoTipoItem <> "") Then
             bd.incluirTipoItem(descricaoTipoItem)
             MsgBox("Tipo de item cadastrado com sucesso.")
+            txtCadastroTipoItem.Text = ""
         Else
             MsgBox("Digite uma descrição para o tipo de item")
         End If
@@ -84,12 +84,13 @@ Public Class CadastroTipoItem
         If tcTipoItem.SelectedIndex = 0 Then
             txtCadastroTipoItem.Text = ""
 
+
             pnlEdicaoTipoItem.Visible = False
             pnlRemocaoTipoItem.Visible = False
         End If
 
         If tcTipoItem.SelectedIndex = 1 Then
-            cbxEdicaoIdTipoItem.Text = ""
+            cbxEdicaoIdTipoItem.SelectedIndex = -1
             txtEdicaoDescricaoTipoItem.Text = ""
 
             pnlRemocaoTipoItem.Visible = False
@@ -108,7 +109,7 @@ Public Class CadastroTipoItem
         End If
 
         If tcTipoItem.SelectedIndex = 2 Then
-            cbxRemocaoIdTipoItem.Text = ""
+            cbxRemocaoIdTipoItem.SelectedIndex = -1
             txtRemocaoDescricaoTipoItem.Text = ""
 
             pnlEdicaoTipoItem.Visible = False
