@@ -22,6 +22,7 @@ Partial Class Avaliacao
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Avaliacao))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.lblTotal = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -35,9 +36,9 @@ Partial Class Avaliacao
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.pnAtendimento = New System.Windows.Forms.Panel()
-        Me.pnQuarto = New System.Windows.Forms.Panel()
-        Me.pnRegiao = New System.Windows.Forms.Panel()
         Me.pnRestaurantes = New System.Windows.Forms.Panel()
+        Me.pnRegiao = New System.Windows.Forms.Panel()
+        Me.pnQuarto = New System.Windows.Forms.Panel()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -173,12 +174,12 @@ Partial Class Avaliacao
         Me.pnAtendimento.Size = New System.Drawing.Size(174, 19)
         Me.pnAtendimento.TabIndex = 11
         '
-        'pnQuarto
+        'pnRestaurantes
         '
-        Me.pnQuarto.Location = New System.Drawing.Point(25, 48)
-        Me.pnQuarto.Name = "pnQuarto"
-        Me.pnQuarto.Size = New System.Drawing.Size(174, 19)
-        Me.pnQuarto.TabIndex = 12
+        Me.pnRestaurantes.Location = New System.Drawing.Point(25, 94)
+        Me.pnRestaurantes.Name = "pnRestaurantes"
+        Me.pnRestaurantes.Size = New System.Drawing.Size(174, 19)
+        Me.pnRestaurantes.TabIndex = 12
         '
         'pnRegiao
         '
@@ -187,12 +188,12 @@ Partial Class Avaliacao
         Me.pnRegiao.Size = New System.Drawing.Size(174, 19)
         Me.pnRegiao.TabIndex = 13
         '
-        'pnRestaurantes
+        'pnQuarto
         '
-        Me.pnRestaurantes.Location = New System.Drawing.Point(25, 94)
-        Me.pnRestaurantes.Name = "pnRestaurantes"
-        Me.pnRestaurantes.Size = New System.Drawing.Size(174, 19)
-        Me.pnRestaurantes.TabIndex = 12
+        Me.pnQuarto.Location = New System.Drawing.Point(25, 48)
+        Me.pnQuarto.Name = "pnQuarto"
+        Me.pnQuarto.Size = New System.Drawing.Size(174, 19)
+        Me.pnQuarto.TabIndex = 12
         '
         'Avaliacao
         '
@@ -200,6 +201,7 @@ Partial Class Avaliacao
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(318, 195)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Avaliacao"
         Me.Text = "Avaliação"
         Me.GroupBox1.ResumeLayout(False)

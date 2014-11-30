@@ -99,6 +99,7 @@ Partial Class CadastroCliente
         Me.pageDelete = New System.Windows.Forms.TabPage()
         Me.btnRemover = New System.Windows.Forms.Button()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.txtRemocaoNome = New System.Windows.Forms.TextBox()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.cbxRemocaoIdCliente = New System.Windows.Forms.ComboBox()
         Me.Label21 = New System.Windows.Forms.Label()
@@ -116,6 +117,7 @@ Partial Class CadastroCliente
         Me.Label38 = New System.Windows.Forms.Label()
         Me.Label39 = New System.Windows.Forms.Label()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.txtRemocaoUF = New System.Windows.Forms.TextBox()
         Me.txtRemocaoPais = New System.Windows.Forms.TextBox()
         Me.Label40 = New System.Windows.Forms.Label()
         Me.Label41 = New System.Windows.Forms.Label()
@@ -125,8 +127,6 @@ Partial Class CadastroCliente
         Me.txtRemocaoBairro = New System.Windows.Forms.TextBox()
         Me.Label44 = New System.Windows.Forms.Label()
         Me.txtRemocaoEndereco = New System.Windows.Forms.TextBox()
-        Me.txtRemocaoNome = New System.Windows.Forms.TextBox()
-        Me.txtRemocaoUF = New System.Windows.Forms.TextBox()
         Me.gbLocalizacao.SuspendLayout()
         Me.gbPagamento.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -907,6 +907,14 @@ Partial Class CadastroCliente
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Dados básicos"
         '
+        'txtRemocaoNome
+        '
+        Me.txtRemocaoNome.Location = New System.Drawing.Point(117, 49)
+        Me.txtRemocaoNome.Name = "txtRemocaoNome"
+        Me.txtRemocaoNome.ReadOnly = True
+        Me.txtRemocaoNome.Size = New System.Drawing.Size(162, 20)
+        Me.txtRemocaoNome.TabIndex = 37
+        '
         'Label20
         '
         Me.Label20.AutoSize = True
@@ -1078,6 +1086,14 @@ Partial Class CadastroCliente
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Localização"
         '
+        'txtRemocaoUF
+        '
+        Me.txtRemocaoUF.Location = New System.Drawing.Point(103, 127)
+        Me.txtRemocaoUF.Name = "txtRemocaoUF"
+        Me.txtRemocaoUF.ReadOnly = True
+        Me.txtRemocaoUF.Size = New System.Drawing.Size(47, 20)
+        Me.txtRemocaoUF.TabIndex = 35
+        '
         'txtRemocaoPais
         '
         Me.txtRemocaoPais.Location = New System.Drawing.Point(103, 101)
@@ -1155,22 +1171,6 @@ Partial Class CadastroCliente
         Me.txtRemocaoEndereco.Size = New System.Drawing.Size(262, 20)
         Me.txtRemocaoEndereco.TabIndex = 24
         '
-        'txtRemocaoNome
-        '
-        Me.txtRemocaoNome.Location = New System.Drawing.Point(117, 49)
-        Me.txtRemocaoNome.Name = "txtRemocaoNome"
-        Me.txtRemocaoNome.ReadOnly = True
-        Me.txtRemocaoNome.Size = New System.Drawing.Size(162, 20)
-        Me.txtRemocaoNome.TabIndex = 37
-        '
-        'txtRemocaoUF
-        '
-        Me.txtRemocaoUF.Location = New System.Drawing.Point(103, 127)
-        Me.txtRemocaoUF.Name = "txtRemocaoUF"
-        Me.txtRemocaoUF.ReadOnly = True
-        Me.txtRemocaoUF.Size = New System.Drawing.Size(47, 20)
-        Me.txtRemocaoUF.TabIndex = 35
-        '
         'CadastroCliente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1178,6 +1178,7 @@ Partial Class CadastroCliente
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.ClientSize = New System.Drawing.Size(732, 390)
         Me.Controls.Add(Me.tbcCadastro)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "CadastroCliente"
         Me.Text = "Mountain Ville - Cliente"
         Me.gbLocalizacao.ResumeLayout(False)

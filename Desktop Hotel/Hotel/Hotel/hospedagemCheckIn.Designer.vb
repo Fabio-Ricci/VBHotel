@@ -22,6 +22,7 @@ Partial Class hospedagemCheckIn
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(hospedagemCheckIn))
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -303,6 +304,7 @@ Partial Class hospedagemCheckIn
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.ClientSize = New System.Drawing.Size(1244, 598)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label11)
@@ -326,6 +328,7 @@ Partial Class hospedagemCheckIn
         Me.Controls.Add(Me.TXTtelefoneFixo)
         Me.Controls.Add(Me.TXTemail)
         Me.Controls.Add(Me.TXTnome)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "hospedagemCheckIn"
         Me.Text = "hospedagemCheckIn"
         CType(Me.DGcliente, System.ComponentModel.ISupportInitialize).EndInit()

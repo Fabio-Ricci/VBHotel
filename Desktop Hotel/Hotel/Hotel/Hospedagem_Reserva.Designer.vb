@@ -22,6 +22,7 @@ Partial Class Hospedagem_Reserva
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Hospedagem_Reserva))
         Me.Label5 = New System.Windows.Forms.Label()
         Me.LBLgastoHospedagem = New System.Windows.Forms.Label()
         Me.BTNalterarReserva = New System.Windows.Forms.Button()
@@ -426,6 +427,7 @@ Partial Class Hospedagem_Reserva
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.ClientSize = New System.Drawing.Size(1241, 636)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.LBLgastoHospedagem)
@@ -468,6 +470,7 @@ Partial Class Hospedagem_Reserva
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.CBXtipoApartamento)
         Me.Controls.Add(Me.PBapartamento)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Hospedagem_Reserva"
         Me.Text = "Hospedagem_Reserva"
         CType(Me.PBapartamento, System.ComponentModel.ISupportInitialize).EndInit()
