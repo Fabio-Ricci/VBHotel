@@ -25,6 +25,8 @@ Partial Class Checkout
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Checkout))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.pnlCheckout = New System.Windows.Forms.Panel()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.txtNotaFiscal = New System.Windows.Forms.TextBox()
         Me.btnCheckout = New System.Windows.Forms.Button()
         Me.gbQuarto = New System.Windows.Forms.GroupBox()
         Me.txtDiaria = New System.Windows.Forms.TextBox()
@@ -52,8 +54,6 @@ Partial Class Checkout
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.txtCpf = New System.Windows.Forms.MaskedTextBox()
-        Me.txtNotaFiscal = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.pnlCheckout.SuspendLayout()
         Me.gbQuarto.SuspendLayout()
         Me.gbFrigobar.SuspendLayout()
@@ -101,6 +101,27 @@ Partial Class Checkout
         Me.pnlCheckout.Size = New System.Drawing.Size(568, 304)
         Me.pnlCheckout.TabIndex = 2
         Me.pnlCheckout.Visible = False
+        '
+        'Label5
+        '
+        Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(16, 161)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(92, 20)
+        Me.Label5.TabIndex = 28
+        Me.Label5.Text = "Nota Fiscal:"
+        '
+        'txtNotaFiscal
+        '
+        Me.txtNotaFiscal.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
+        Me.txtNotaFiscal.Location = New System.Drawing.Point(20, 184)
+        Me.txtNotaFiscal.Multiline = True
+        Me.txtNotaFiscal.Name = "txtNotaFiscal"
+        Me.txtNotaFiscal.ScrollBars = System.Windows.Forms.ScrollBars.Both
+        Me.txtNotaFiscal.Size = New System.Drawing.Size(249, 104)
+        Me.txtNotaFiscal.TabIndex = 27
         '
         'btnCheckout
         '
@@ -375,27 +396,6 @@ Partial Class Checkout
         Me.txtCpf.Name = "txtCpf"
         Me.txtCpf.Size = New System.Drawing.Size(155, 20)
         Me.txtCpf.TabIndex = 4
-        '
-        'txtNotaFiscal
-        '
-        Me.txtNotaFiscal.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
-        Me.txtNotaFiscal.Location = New System.Drawing.Point(20, 184)
-        Me.txtNotaFiscal.Multiline = True
-        Me.txtNotaFiscal.Name = "txtNotaFiscal"
-        Me.txtNotaFiscal.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.txtNotaFiscal.Size = New System.Drawing.Size(249, 104)
-        Me.txtNotaFiscal.TabIndex = 27
-        '
-        'Label5
-        '
-        Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(16, 161)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(92, 20)
-        Me.Label5.TabIndex = 28
-        Me.Label5.Text = "Nota Fiscal:"
         '
         'Checkout
         '

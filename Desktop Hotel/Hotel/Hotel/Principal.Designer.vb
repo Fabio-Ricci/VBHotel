@@ -47,14 +47,17 @@ Partial Class Principal
         Me.menuFuncionariosCadastro = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuFuncionariosListagem = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuAvaliacao = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.menuHospedagem = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuHospedagemEditar = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuHospedagemCheckIn = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuHospedagemCheckOut = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuHospedagemEditarReserva = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.PBfuncionario = New System.Windows.Forms.PictureBox()
+        Me.LBLfuncionario = New System.Windows.Forms.Label()
         Me.menu.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PBfuncionario, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'menu
@@ -210,17 +213,6 @@ Partial Class Principal
         Me.menuAvaliacao.Size = New System.Drawing.Size(76, 20)
         Me.menuAvaliacao.Text = "Estatísticas"
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(133, 53)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(336, 239)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 1
-        Me.PictureBox1.TabStop = False
-        '
         'menuHospedagem
         '
         Me.menuHospedagem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menuHospedagemEditar, Me.menuHospedagemCheckIn, Me.menuHospedagemCheckOut, Me.menuHospedagemEditarReserva})
@@ -252,12 +244,42 @@ Partial Class Principal
         Me.menuHospedagemEditarReserva.Size = New System.Drawing.Size(178, 22)
         Me.menuHospedagemEditarReserva.Text = "Editar Reserva"
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(244, 49)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(336, 239)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 1
+        Me.PictureBox1.TabStop = False
+        '
+        'PBfuncionario
+        '
+        Me.PBfuncionario.Location = New System.Drawing.Point(12, 49)
+        Me.PBfuncionario.Name = "PBfuncionario"
+        Me.PBfuncionario.Size = New System.Drawing.Size(210, 239)
+        Me.PBfuncionario.TabIndex = 2
+        Me.PBfuncionario.TabStop = False
+        '
+        'LBLfuncionario
+        '
+        Me.LBLfuncionario.AutoSize = True
+        Me.LBLfuncionario.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LBLfuncionario.Location = New System.Drawing.Point(12, 24)
+        Me.LBLfuncionario.Name = "LBLfuncionario"
+        Me.LBLfuncionario.Size = New System.Drawing.Size(0, 24)
+        Me.LBLfuncionario.TabIndex = 3
+        '
         'Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.ClientSize = New System.Drawing.Size(604, 320)
+        Me.Controls.Add(Me.LBLfuncionario)
+        Me.Controls.Add(Me.PBfuncionario)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.menu)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -268,6 +290,7 @@ Partial Class Principal
         Me.menu.ResumeLayout(False)
         Me.menu.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PBfuncionario, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -303,4 +326,6 @@ Partial Class Principal
     Friend WithEvents menuHospedagemCheckIn As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents menuHospedagemCheckOut As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents menuHospedagemEditarReserva As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents PBfuncionario As System.Windows.Forms.PictureBox
+    Friend WithEvents LBLfuncionario As System.Windows.Forms.Label
 End Class

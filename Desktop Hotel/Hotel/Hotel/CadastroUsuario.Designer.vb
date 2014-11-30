@@ -37,7 +37,6 @@ Partial Class CadastroUsuario
         Me.ofdFoto = New System.Windows.Forms.OpenFileDialog()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Button4 = New System.Windows.Forms.Button()
         Me.PBfoto = New System.Windows.Forms.PictureBox()
         CType(Me.PBfoto, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -47,7 +46,7 @@ Partial Class CadastroUsuario
         Me.RBfuncionario.AutoSize = True
         Me.RBfuncionario.BackColor = System.Drawing.Color.Transparent
         Me.RBfuncionario.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RBfuncionario.Location = New System.Drawing.Point(320, 215)
+        Me.RBfuncionario.Location = New System.Drawing.Point(327, 196)
         Me.RBfuncionario.Name = "RBfuncionario"
         Me.RBfuncionario.Size = New System.Drawing.Size(110, 24)
         Me.RBfuncionario.TabIndex = 1
@@ -60,7 +59,7 @@ Partial Class CadastroUsuario
         Me.RBgerente.AutoSize = True
         Me.RBgerente.BackColor = System.Drawing.Color.Transparent
         Me.RBgerente.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RBgerente.Location = New System.Drawing.Point(453, 215)
+        Me.RBgerente.Location = New System.Drawing.Point(460, 196)
         Me.RBgerente.Name = "RBgerente"
         Me.RBgerente.Size = New System.Drawing.Size(86, 24)
         Me.RBgerente.TabIndex = 2
@@ -71,7 +70,7 @@ Partial Class CadastroUsuario
         'EDsenha
         '
         Me.EDsenha.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.EDsenha.Location = New System.Drawing.Point(399, 117)
+        Me.EDsenha.Location = New System.Drawing.Point(406, 98)
         Me.EDsenha.MaxLength = 20
         Me.EDsenha.Name = "EDsenha"
         Me.EDsenha.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
@@ -81,7 +80,7 @@ Partial Class CadastroUsuario
         'EDusuario
         '
         Me.EDusuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.EDusuario.Location = New System.Drawing.Point(399, 69)
+        Me.EDusuario.Location = New System.Drawing.Point(406, 50)
         Me.EDusuario.MaxLength = 20
         Me.EDusuario.Name = "EDusuario"
         Me.EDusuario.Size = New System.Drawing.Size(168, 26)
@@ -90,7 +89,7 @@ Partial Class CadastroUsuario
         'EDconfirmarsenha
         '
         Me.EDconfirmarsenha.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.EDconfirmarsenha.Location = New System.Drawing.Point(399, 164)
+        Me.EDconfirmarsenha.Location = New System.Drawing.Point(406, 145)
         Me.EDconfirmarsenha.MaxLength = 20
         Me.EDconfirmarsenha.Name = "EDconfirmarsenha"
         Me.EDconfirmarsenha.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
@@ -102,7 +101,7 @@ Partial Class CadastroUsuario
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(329, 69)
+        Me.Label1.Location = New System.Drawing.Point(336, 50)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(64, 20)
         Me.Label1.TabIndex = 6
@@ -113,7 +112,7 @@ Partial Class CadastroUsuario
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(337, 117)
+        Me.Label2.Location = New System.Drawing.Point(344, 98)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(56, 20)
         Me.Label2.TabIndex = 7
@@ -124,7 +123,7 @@ Partial Class CadastroUsuario
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(264, 164)
+        Me.Label3.Location = New System.Drawing.Point(271, 145)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(129, 20)
         Me.Label3.TabIndex = 8
@@ -134,7 +133,7 @@ Partial Class CadastroUsuario
         '
         Me.btnTirarFoto.Enabled = False
         Me.btnTirarFoto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnTirarFoto.Location = New System.Drawing.Point(320, 270)
+        Me.btnTirarFoto.Location = New System.Drawing.Point(327, 251)
         Me.btnTirarFoto.Name = "btnTirarFoto"
         Me.btnTirarFoto.Size = New System.Drawing.Size(168, 30)
         Me.btnTirarFoto.TabIndex = 9
@@ -145,7 +144,7 @@ Partial Class CadastroUsuario
         'Button3
         '
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(320, 317)
+        Me.Button3.Location = New System.Drawing.Point(327, 298)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(168, 30)
         Me.Button3.TabIndex = 11
@@ -187,16 +186,6 @@ Partial Class CadastroUsuario
         Me.Label4.TabIndex = 14
         Me.Label4.Text = "Sua foto Aqui"
         '
-        'Button4
-        '
-        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(401, 23)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(166, 30)
-        Me.Button4.TabIndex = 16
-        Me.Button4.Text = "Voltar ao Menu"
-        Me.Button4.UseVisualStyleBackColor = True
-        '
         'PBfoto
         '
         Me.PBfoto.Image = CType(resources.GetObject("PBfoto.Image"), System.Drawing.Image)
@@ -214,7 +203,6 @@ Partial Class CadastroUsuario
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.ClientSize = New System.Drawing.Size(624, 380)
-        Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.PBfoto)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Button1)
@@ -252,5 +240,4 @@ Partial Class CadastroUsuario
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents PBfoto As System.Windows.Forms.PictureBox
-    Friend WithEvents Button4 As System.Windows.Forms.Button
 End Class

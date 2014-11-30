@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Net.Mail
 
 Public Class Checkout
     Dim bd As New BD
@@ -101,13 +102,11 @@ Public Class Checkout
 
         If (escolha = MsgBoxResult.Yes) Then
             bd.checkout(cpf)
-            MsgBox("Checkout realizado com sucesso.")
+            MsgBox("Checkout realizado com sucesso. Por favor faça a avaliação da hospedagem no site através do link enviado em seu e-mail")
             txtNome.Text = ""
             txtEmail.Text = ""
-
             txtTipoQuarto.Text = ""
             txtDiaria.Text = ""
-
             txtNumero.Text = ""
             txtAndar.Text = ""
             txtCamasCasal.Text = ""
@@ -117,6 +116,30 @@ Public Class Checkout
             txtConsumoTotal.Text = ""
             txtCpf.Text = ""
             pnlCheckout.Visible = False
+
+
+            Dim mensagemDeEmail As New MailMessage()
+            Try
+                mensagemDeEmail.From = New MailAddress("MountainVilleHotel@gmail.com")
+                mensagemDeEmail.To.Add(Me.email)
+                mensagemDeEmail.Subject = "Hotel Mountain Ville-Avalie a Sua Hospedagem !"
+                mensagemDeEmail.Body = "Visite a página de avaliação e avalie sua hospedagem:" 'URL aqui
+                Dim SMTP As New SmtpClient("smtp.gmail.com")
+                SMTP.Port = 587
+                SMTP.EnableSsl = True
+                SMTP.Credentials = New System.Net.NetworkCredential("MountainVilleHotel@gmail.com", "mountainvillehotelehlegal")
+                SMTP.Send(mensagemDeEmail)
+            Catch ex As Exception
+                MessageBox.Show("Erro ao enviar o questionario para o cliente:" + ex.ToString)
+            End Try
         End If
+    End Sub
+
+    Private Sub pnlCheckout_Paint(sender As Object, e As PaintEventArgs) Handles pnlCheckout.Paint
+
+    End Sub
+
+    Private Sub gbFrigobar_Enter(sender As Object, e As EventArgs) Handles gbFrigobar.Enter
+
     End Sub
 End Class

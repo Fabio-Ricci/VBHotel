@@ -98,11 +98,11 @@
                                 pbFoto.Image.Save(imgstr, System.Drawing.Imaging.ImageFormat.Jpeg)
                                 foto = imgstr.GetBuffer
                                 If (RBgerente.Checked) Then
-                                    banco.adicionaUsuario(EDusuario.Text, EDsenha.Text, 1, foto)
+                                    banco.adicionaUsuario(EDusuario.Text, EDsenha.Text, 2, foto)
                                     MessageBox.Show("Inclusao do Gerente efetuada com êxito", "Sucesso",
                                   MessageBoxButtons.OK, MessageBoxIcon.Information)
                                 Else
-                                    banco.adicionaUsuario(EDusuario.Text, EDsenha.Text, 2, foto)
+                                    banco.adicionaUsuario(EDusuario.Text, EDsenha.Text, 1, foto)
                                     MessageBox.Show("Inclusao do funcionario efetuada com êxito", "Sucesso",
                                    MessageBoxButtons.OK, MessageBoxIcon.Information)
                                 End If
@@ -144,7 +144,7 @@
 
 
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+    Private Sub Button4_Click(sender As Object, e As EventArgs)
         Me.menuopcao.Show()
         Me.Dispose()
     End Sub

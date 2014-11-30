@@ -16,6 +16,7 @@
                 Try
 
                     If (banco.logar(EDusuario.Text, EDsenha.Text)) Then 'se há o login no banco de dados
+                        'Se necessário, colocar as atualizações de reserva aqui
 
                         'nivel de privilégio 1 - funcionários no geral: abre o Principal sem o item Funcionários do menu 
                         If banco.nivelPrivilegio(EDusuario.Text) = 1 Then
@@ -28,7 +29,7 @@
                             Principal.Show()
 
                         End If
-
+                        Principal.setnome(EDusuario.Text)
                         Me.Hide()
 
                     Else
@@ -48,5 +49,9 @@
         'limpa os campos
         EDusuario.Text = ""
         EDsenha.Text = ""
+    End Sub
+
+    Private Sub login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

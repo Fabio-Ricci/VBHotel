@@ -74,7 +74,7 @@ Partial Class login
         'BTNlogar
         '
         Me.BTNlogar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BTNlogar.Location = New System.Drawing.Point(111, 180)
+        Me.BTNlogar.Location = New System.Drawing.Point(111, 170)
         Me.BTNlogar.Name = "BTNlogar"
         Me.BTNlogar.Size = New System.Drawing.Size(120, 30)
         Me.BTNlogar.TabIndex = 4

@@ -1,7 +1,12 @@
 ﻿Imports System.Windows.Forms
 
 Public Class Principal
-
+    Public Sub setnome(nome As String)
+        PBfuncionario.SizeMode = PictureBoxSizeMode.StretchImage
+        Me.LBLfuncionario.Text = nome
+        Dim banco As New BD()
+        banco.carregaFotoUsuario(PBfuncionario, nome)
+    End Sub
     Private Sub menuApartamentosCadastro_Click(sender As Object, e As EventArgs) Handles menuApartamentosCadastro.Click
         CadastroApartamentos.Show()
     End Sub
@@ -114,4 +119,7 @@ Public Class Principal
         Avaliacao.Close()
     End Sub
 
+    Private Sub Principal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class
