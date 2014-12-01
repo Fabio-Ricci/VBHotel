@@ -88,7 +88,7 @@ Partial Class Hospedagem_Reserva
         '
         'BTNalterarReserva
         '
-        Me.BTNalterarReserva.Location = New System.Drawing.Point(688, 537)
+        Me.BTNalterarReserva.Location = New System.Drawing.Point(680, 488)
         Me.BTNalterarReserva.Name = "BTNalterarReserva"
         Me.BTNalterarReserva.Size = New System.Drawing.Size(129, 23)
         Me.BTNalterarReserva.TabIndex = 85
@@ -97,7 +97,7 @@ Partial Class Hospedagem_Reserva
         '
         'BTNincluir
         '
-        Me.BTNincluir.Location = New System.Drawing.Point(796, 488)
+        Me.BTNincluir.Location = New System.Drawing.Point(710, 488)
         Me.BTNincluir.Name = "BTNincluir"
         Me.BTNincluir.Size = New System.Drawing.Size(75, 23)
         Me.BTNincluir.TabIndex = 84
@@ -330,7 +330,7 @@ Partial Class Hospedagem_Reserva
         '
         'BTNConfirmar
         '
-        Me.BTNConfirmar.Location = New System.Drawing.Point(653, 493)
+        Me.BTNConfirmar.Location = New System.Drawing.Point(710, 488)
         Me.BTNConfirmar.Name = "BTNConfirmar"
         Me.BTNConfirmar.Size = New System.Drawing.Size(75, 23)
         Me.BTNConfirmar.TabIndex = 57

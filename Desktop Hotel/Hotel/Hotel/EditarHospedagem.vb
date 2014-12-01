@@ -14,6 +14,8 @@ Public Class EditarHospedagem
 
 
     Public Function gerarStrindDebusca() As String
+
+        'Monta a String de busca de acordo com os campos que foram preenchidos
         Dim retorno As String = "select idHospedagem,idapartamento,idreserva,origem,destino,tipoGrupo,motivoviagem from "
         If (TXTidHospedagem.Text <> "") Then
             retorno += "  dbo.HospedagemEdicaoConsulta(" + TXTidHospedagem.Text + ")"
@@ -59,11 +61,11 @@ Public Class EditarHospedagem
     Private Sub DGHospedagem_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGHospedagem.CellClick
         If (e.RowIndex >= 0) Then
             Dim resposta As Integer = MessageBox.Show("Deseja seguir com a alteração desta Hospedagem ?", "alteração Hospedagem", MessageBoxButtons.YesNo)
-            If resposta = DialogResult.Yes Then
+            If resposta = DialogResult.Yes Then 'se o usuario quiser continuar com a alterção desta hospedagem
                 Dim Check As New Hospedagem_Reserva()
                 Check.setChamante(Me)
                 Check.Show()
-                Check.iniciarEdicaoHospedagem(Convert.ToInt32(DGHospedagem.Rows(e.RowIndex).Cells(0).Value))
+                Check.iniciarEdicaoHospedagem(Convert.ToInt32(DGHospedagem.Rows(e.RowIndex).Cells(0).Value)) 'iniciar a edição da hospedagem com de dados baseados nesta células
                 Me.Hide()
             End If
         End If
@@ -72,11 +74,12 @@ Public Class EditarHospedagem
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim dr As SqlDataReader = banco.consultaGenerica(Me.gerarStrindDebusca)
-        Dim cont As Integer = 0
+        Dim cont As Integer = 0 ' a consulta genéria é feita com base no campos preenchidos
         Dim banco2 As New BD()
         DGHospedagem.Rows.Clear()
-        '0,1,17,2,3,4,5,6
-        While (dr.Read)
+
+        While (dr.Read) 'enquanto há dados
+            'uma linha do string grid é preenchida por vez
             Dim linha As String() = New String() {CStr(dr.GetInt32(0)), CStr(dr.GetInt32(1)), CStr(dr.GetInt32(2)), dr.GetString(3), dr.GetString(4), CBXtipogrupo.Items(dr.GetInt32(5)).ToString, CBXmotivoViagem.Items(dr.GetInt32(6)).ToString}
             DGHospedagem.Rows.Add(linha)
             cont += 1
@@ -85,7 +88,7 @@ Public Class EditarHospedagem
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        chamante.Show()
+        chamante.Show() 'mostra o formulário que
         Me.Dispose()
     End Sub
 End Class

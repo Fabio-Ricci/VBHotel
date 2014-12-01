@@ -16,6 +16,8 @@ Public Class hospedagemCheckIn
         Me.chamante = chamante
     End Sub
 
+
+    'GERADOR DE STRING DE BUSCA, DE ACORDO COM OS CAMPOS PREENCHIDOS
     Private Function gerarStringDeBusca() As String
         Dim retorno As String = "select*from hCliente where idCliente not in(select idcliente from hreserva where idReserva in(select idreserva from HHospedagem)) "
         Dim jatemparametro As Boolean = False
@@ -74,19 +76,20 @@ Public Class hospedagemCheckIn
     End Function
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim dr As SqlDataReader = banco.consultaGenerica(Me.gerarStringDeBusca())
+        Dim dr As SqlDataReader = banco.consultaGenerica(Me.gerarStringDeBusca()) 'faz a pesquisa de acordo com a string de busca
         Dim cont As Integer = 0
         Dim banco2 As New BD()
         DGcliente.Rows.Clear()
-        '0,1,17,2,3,4,5,6
+
         While (dr.Read())
             Dim linha As String() = New String() {CStr(dr.GetInt32(0)), dr.GetString(1), CStr(dr.GetDateTime(2)), CStr(dr.GetString(3)), dr.GetString(4), dr.GetString(5), dr.GetString(6), dr.GetString(7)}
+            'preenche uma linha do string grid de acordo com a primeira linha retornada da consulta
             DGcliente.Rows.Add(linha)
-            If (banco2.reservaAtual(dr.GetInt32(0))) Then
-                DGcliente.Rows(cont).DefaultCellStyle.BackColor = System.Drawing.Color.Green
+            If (banco2.reservaAtual(dr.GetInt32(0))) Then 'verificação se há reserva atual para aquele cliente
+                DGcliente.Rows(cont).DefaultCellStyle.BackColor = System.Drawing.Color.Green 'linha verde
 
             Else
-                DGcliente.Rows(cont).DefaultCellStyle.BackColor = System.Drawing.Color.Red
+                DGcliente.Rows(cont).DefaultCellStyle.BackColor = System.Drawing.Color.Red 'linha vermelha
 
             End If
             cont += 1
@@ -104,14 +107,14 @@ Public Class hospedagemCheckIn
             DGcliente.Rows(e.RowIndex).Cells(1).Value + ", Portador do CPF:" + DGcliente.Rows(e.RowIndex).Cells(2).Value + "?",
             "Check-in", MessageBoxButtons.YesNo)
 
-            If resposta = DialogResult.Yes Then
+            If resposta = DialogResult.Yes Then 'se quer continuar com a hospedagem para aquela reserva
                 Dim Check As New Hospedagem_Reserva()
                 Check.setChamante(Me)
                 Check.Show()
                 If (banco.reservaAtual(Convert.ToInt32(DGcliente.Rows(e.RowIndex).Cells(0).Value))) Then
-                    Check.inicializar(Convert.ToInt32(DGcliente.Rows(e.RowIndex).Cells(0).Value))
+                    Check.inicializar(Convert.ToInt32(DGcliente.Rows(e.RowIndex).Cells(0).Value)) 'ocorre inicialização se  há reserva ela é baseada nesta
                 Else
-                    Check.InicializarSem(Convert.ToInt32(DGcliente.Rows(e.RowIndex).Cells(0).Value))
+                    Check.InicializarSem(Convert.ToInt32(DGcliente.Rows(e.RowIndex).Cells(0).Value)) 'senao ela nao é baseada nesta e é feita do zero
                 End If
                 Me.Hide()
             End If

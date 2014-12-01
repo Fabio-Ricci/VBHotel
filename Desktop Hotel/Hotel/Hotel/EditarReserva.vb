@@ -10,11 +10,11 @@ Public Class EditarReserva
 
     Public Function gerarStringDeBusca() As String
         Dim retorno As String
-        '
+        'Gera String de busca de acordo com os campos preenchidos
         retorno = " select idreserva,idCliente,nome,dataInicio,dataFim,numeroBoleto,situacao,tipo from"
 
         If (TXTIDreserva.Text <> "") Then
-            retorno += "dbo.reservaEdicaoConsulta(" + TXTIDreserva.Text + ")" 'POSTAR VERSAO NOVA NO SQL
+            retorno += "dbo.reservaEdicaoConsulta(" + TXTIDreserva.Text + ")"
         Else
 
             If (TXTidCliente.Text <> "") Then
@@ -56,7 +56,7 @@ Public Class EditarReserva
 
     Private Sub EditarReserva_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim tiposApto As SqlDataReader = banco.consultaGenerica("select tipo from htipoApartamento where idtipoApartamento in (select idTipoApartamento from hApartamento)")
-        While (tiposApto.Read())
+        While (tiposApto.Read()) 'adiciona o tipo de apartamentos que poderao ser utilizados na busca
             CBXtipoApartamento.Items.Add(tiposApto.Item(0))
         End While
         banco.fecharConexao()
@@ -67,8 +67,7 @@ Public Class EditarReserva
         Dim cont As Integer = 0
         Dim banco2 As New BD()
         DGreserva.Rows.Clear()
-        '0,1,17,2,3,4,5,6
-        ', numero boleto, situacao, tipo apartamento'
+        'atraves da consulta generica realizada adiciona todas as linhas retornadas no string grid
         While (dr.Read)
             Dim linha As String() = New String() {CStr(dr.GetInt32(0)), CStr(dr.GetInt32(1)), dr.GetString(2), CStr(dr.GetDateTime(3)), CStr(dr.GetDateTime(4)), CStr(dr.GetInt32(5)), CBXsituacao.Text, dr.GetString(7)}
             DGreserva.Rows.Add(linha)
@@ -82,7 +81,7 @@ Public Class EditarReserva
             Dim resposta As Integer = MessageBox.Show("Deseja seguir com o a alteração da hospedagem para o cliente:" +
               DGreserva.Rows(e.RowIndex).Cells(2).Value + ", do apartamento :" + DGreserva.Rows(e.RowIndex).Cells(7).Value + " no intervalo " + DGreserva.Rows(e.RowIndex).Cells(3).Value + " a " + DGreserva.Rows(e.RowIndex).Cells(4).Value + "?", "Check-in", MessageBoxButtons.YesNo)
             If resposta = DialogResult.Yes Then
-                Dim Check As New Hospedagem_Reserva()
+                Dim Check As New Hospedagem_Reserva() 'Cria uma nova edição de Reserva de acordo com os dados da celula clicada
                 Check.setChamante(Me)
                 Check.Show()
                 Check.InicializarEdicaoReserva(Convert.ToInt32(DGreserva.Rows(e.RowIndex).Cells(0).Value))
@@ -93,8 +92,8 @@ Public Class EditarReserva
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        chamante.Show()
-        Me.Dispose()
+        chamante.Show() 'mostra o formulario que chamou este
+        Me.Dispose() 'destroi este
 
     End Sub
 

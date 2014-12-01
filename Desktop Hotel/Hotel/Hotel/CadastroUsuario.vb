@@ -6,11 +6,11 @@
     Private menuopcao As Form
  
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click 'carrega uma imagem de um dispositivo de armazenamento
         Try
             btnTirarFoto.PerformClick()
-            If ofdFoto.ShowDialog = Windows.Forms.DialogResult.OK Then
-                PBfoto.Image = New Bitmap(ofdFoto.FileName)
+            If ofdFoto.ShowDialog = Windows.Forms.DialogResult.OK Then 'oepdialog abre
+                PBfoto.Image = New Bitmap(ofdFoto.FileName) 'passa a foto pro picture boz
                 PBfoto.SizeMode = PictureBoxSizeMode.StretchImage
                 Me.fotoInserida = True
             End If
@@ -25,12 +25,12 @@
         Dim bmp As Image
         cam.enviarMensagem() 'Mensagem com as constantes
         dados = Clipboard.GetDataObject()
-        If dados.GetDataPresent(GetType(System.Drawing.Bitmap)) Then
+        If dados.GetDataPresent(GetType(System.Drawing.Bitmap)) Then 'metodos associados a utilização de webcam pelo sistema
             bmp = CType(dados.GetData(GetType(System.Drawing.Bitmap)), Image)
-            pbFoto.Image = bmp
-            pbFoto.SizeMode = PictureBoxSizeMode.StretchImage
-            cam.enviarMensagemDriver()
-            cam.destruirjanela()
+            PBfoto.Image = bmp
+            PBfoto.SizeMode = PictureBoxSizeMode.StretchImage
+            cam.enviarMensagemDriver() 'envia mensagem pro driver da webcam
+            cam.destruirjanela() 'destoi a janela
             fotoInserida = True
         End If
 
@@ -38,13 +38,13 @@
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         cam.CarregaDispositivos()
-        If (cam.getQtdDispositivos > 0) Then
+        If (cam.getQtdDispositivos > 0) Then 'numero de dispositivos
             btnTirarFoto.Enabled = True
             btnTirarFoto.Visible = True
-            cam.abreVideo(pbFoto)
+            cam.abreVideo(PBfoto)
         Else
             MessageBox.Show("A camera nao foi encontrada", "Atenção",
-            MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBoxButtons.OK, MessageBoxIcon.Exclamation) 'alera de camera nao encontrada
         End If
     End Sub
 
@@ -61,6 +61,7 @@
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        'Verificação geral de preenchimento dos camposs
         If (EDusuario.Text.Trim = "") Then
             MessageBox.Show("O campo Usuário nao pode estar em branco", "Atenção",
             MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -95,18 +96,18 @@
                                 Dim foto() As Byte
                                 Dim imgstr As System.IO.MemoryStream
                                 imgstr = New System.IO.MemoryStream
-                                pbFoto.Image.Save(imgstr, System.Drawing.Imaging.ImageFormat.Jpeg)
+                                PBfoto.Image.Save(imgstr, System.Drawing.Imaging.ImageFormat.Jpeg)
                                 foto = imgstr.GetBuffer
                                 If (RBgerente.Checked) Then
-                                    banco.adicionaUsuario(EDusuario.Text, EDsenha.Text, 2, foto)
+                                    banco.adicionaUsuario(EDusuario.Text, EDsenha.Text, 2, foto) 'insercao de gerente (diferiações pelo radio group)
                                     MessageBox.Show("Inclusao do Gerente efetuada com êxito", "Sucesso",
                                   MessageBoxButtons.OK, MessageBoxIcon.Information)
                                 Else
-                                    banco.adicionaUsuario(EDusuario.Text, EDsenha.Text, 1, foto)
+                                    banco.adicionaUsuario(EDusuario.Text, EDsenha.Text, 1, foto) 'insercao de funcionario
                                     MessageBox.Show("Inclusao do funcionario efetuada com êxito", "Sucesso",
                                    MessageBoxButtons.OK, MessageBoxIcon.Information)
                                 End If
-                                fotoInserida = False
+                                fotoInserida = False 'ressete das variáveis globais para a proxima inserção
                                 EDsenha.Text = ""
                                 EDusuario.Text = ""
                                 EDconfirmarsenha.Text = ""
@@ -114,7 +115,7 @@
                                 btnTirarFoto.Enabled = False
                                 btnTirarFoto.Visible = False
                                 RBfuncionario_Click(Nothing, Nothing)
-                                ''PBfoto.Image = New Bitmap("D:\Cotuca\Informatica\4_semestre\Hotel\Desktop Hotel\Hotel\n.jpg")
+
                             Catch ex As Exception
                                 MessageBox.Show("Erro ao Inserir usuário do sistema. Erro:" + ex.ToString, "Erro",
                                MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -145,7 +146,7 @@
 
 
     Private Sub Button4_Click(sender As Object, e As EventArgs)
-        Me.menuopcao.Show()
-        Me.Dispose()
+        Me.menuopcao.Show() ' mostra o que chamou esse formulario
+        Me.Dispose() ' destroi o formulario atual
     End Sub
 End Class

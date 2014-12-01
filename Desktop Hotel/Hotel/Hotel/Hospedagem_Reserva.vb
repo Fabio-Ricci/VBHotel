@@ -1,18 +1,17 @@
 ﻿
 Imports System.Data.SqlClient
 Imports System.IO
-''NA HORA DE EDITAR RESERVA SELECIONAR PAGAMENTO
+
 Public Class Hospedagem_Reserva
-    'DESTRAVAR GRADUALMENTE'
-    Private IdCliente As Integer
-    Private chamante As Form
-    Private indiceFoto As Integer
-    Private fotosApartamento As New List(Of Byte())
-    Private banco, bancoAuxiliar As New BD()
+    Private IdCliente As Integer 'id do cliente da operação atual
+    Private chamante As Form 'formulario que chamou este
+    Private indiceFoto As Integer 'indice da foto atual na lista de exibições
+    Private fotosApartamento As New List(Of Byte()) 'lista de fotos
+    Private banco, bancoAuxiliar As New BD() 'objeto de vanco de dados
     Private Status As String 'CRIANDO HOSPEDAGEM POR RESERVA{CHPR},CRIANDO HOSPEDAGEM SEM RESERVA{CHSR},EDITANDO HOSPEDAGEM{EH},EDITANDO RESERVA {ER}
-    Private reserva As Integer
-    Private mudancaPermitida As Boolean
-    Private hospedagem As Integer
+    Private reserva As Integer 'id da reserva atual em uso
+    Private mudancaPermitida As Boolean 'mudança do componente por codigo, sem disparar o listener
+    Private hospedagem As Integer '
 
 
 
@@ -30,16 +29,16 @@ Public Class Hospedagem_Reserva
 
 
     Public Sub iniciarEdicaoHospedagem(idHospedagem As Integer)
-        PBapartamento.SizeMode = PictureBoxSizeMode.StretchImage
+        PBapartamento.SizeMode = PictureBoxSizeMode.StretchImage 'a foto carregada é redimensionada de acordo com o tamanho do picture box'
         LBLpagamento.Visible = False
         Me.hospedagem = idHospedagem
         Dim gasto As Double
         Dim consultan As SqlDataReader
-        consultan = banco.consultaGenerica("Select dbo.gastoAtual(" + CStr(idHospedagem) + ")")
+        consultan = banco.consultaGenerica("Select dbo.gastoAtual(" + CStr(idHospedagem) + ")") 'Carrega o gasto atual da hospedagem em questao
         consultan.Read()
         gasto = consultan.GetDouble(0)
         banco.fecharConexao()
-        LBLgastoHospedagem.Text = "O Gasto total atualmente para essa hospedagem é:" + CStr(gasto)
+        LBLgastoHospedagem.Text = "O Gasto total atualmente para essa hospedagem é:" + CStr(gasto) 'passa o valor do gasto pro label
 
 
 
@@ -48,10 +47,10 @@ Public Class Hospedagem_Reserva
         BTNConfirmar.Visible = False
         CBXpagamento.SelectedIndex = 1
         CBXpagamento.Visible = False
-        setStatus("EH")
+        setStatus("EH") ' Status editando reserva
 
 
-        Me.mudancaPermitida = True
+        Me.mudancaPermitida = True ' nao dispara o listener de index change do combo box, pois informa que a mudançao de seu conteudo é permitida
         CbxDiaInicio.Text = ""
         CbxMesInicio.Text = ""
         CbxAnoInicio.Text = ""
@@ -70,22 +69,22 @@ Public Class Hospedagem_Reserva
         Dim tiposApto As SqlDataReader
 
 
-        tiposApto = banco.consultaGenerica("select tipo from htipoApartamento where idtipoApartamento in (select idTipoApartamento from hApartamento)")
+        tiposApto = banco.consultaGenerica("select tipo from htipoApartamento where idtipoApartamento in (select idTipoApartamento from hApartamento)") 'seleciona todos os tipos de apartamento
         While (tiposApto.Read())
-            CBXtipoApartamento.Items.Add(tiposApto.Item(0))
+            CBXtipoApartamento.Items.Add(tiposApto.Item(0)) ' adiciona os tipos ao combobox
         End While
 
         banco.fecharConexao()
-        dadosReserva = banco.consultaGenerica("select * from dbo.HospedagemEdicaoConsulta(" + CStr(idHospedagem) + ")")
+        dadosReserva = banco.consultaGenerica("select * from dbo.HospedagemEdicaoConsulta(" + CStr(idHospedagem) + ")") 'dados da hospedagem em questao
         dadosReserva.Read()
         Me.IdCliente = dadosReserva.GetInt32(1)
         Me.reserva = dadosReserva.GetInt32(0)
-
+        'Bloco de inicialização de dados preexistentes da Hospedagem que será editada
+        '////////////////////////////////////////////////////////////////////////////////////////////
         lblDiaria.Text = CStr(dadosReserva.GetDouble(12))
         CBXfrigobar.Enabled = True
         CBXcamaCasal.Enabled = True
         CBXcamaSolteiro.Enabled = True
-
         CBXfrigobar.SelectedText = dadosReserva.GetString(8)
         CbxAnoInicio.Items.Clear()
         CbxDiaInicio.Items.Clear()
@@ -99,7 +98,6 @@ Public Class Hospedagem_Reserva
         CbxAnoInicio.Enabled = False
         CbxDiaInicio.Enabled = False
         CbxMesInicio.Enabled = False
-
         CBXdia.Items.Clear()
         CBXAno.Items.Clear()
         CBXmes.SelectedText = dadosReserva.GetDateTime(4).Month
@@ -112,9 +110,7 @@ Public Class Hospedagem_Reserva
         RTXTdescricao.Text = dadosReserva.GetValue(13)
         CBXtipoApartamento.SelectedText = dadosReserva.GetString(11)
         atualizarFotos(dadosReserva.GetInt32(2))
-
         dadosReserva = banco.consultaGenerica("select * from dbo.HospedagemEdicaoConsulta(" + CStr(idHospedagem) + ")")
-
         dadosReserva.Read()
         CBXcamaCasal.SelectedText = CStr(dadosReserva.GetInt32(9))
         CBXcamaSolteiro.SelectedText = CStr(dadosReserva.GetInt32(10))
@@ -124,8 +120,8 @@ Public Class Hospedagem_Reserva
         TXTdestino.Text = dadosReserva.GetString(17)
         banco.fecharConexao()
         Me.mudancaPermitida = False
-
-        mudancaTipo()
+        '//////////////////////////////////////////////////////////////////////////////////////////////////
+        mudancaTipo() 'Inicialização das opções de variação dos outros combobox em relação aos dados que entraram para edição
     End Sub
 
 
@@ -145,13 +141,9 @@ Public Class Hospedagem_Reserva
         TXTdestino.Visible = False
         LBLorigem.Visible = False
         TXTorigem.Visible = False
-
         LBLpagamento.Visible = True
         CBXpagamento.Visible = True
-        setStatus("ER")
-
-
-
+        setStatus("ER") 'Status editando reserva
 
         Me.mudancaPermitida = True
         CbxDiaInicio.Text = ""
@@ -171,13 +163,14 @@ Public Class Hospedagem_Reserva
         Dim dadosReserva As SqlDataReader
         Dim tiposApto As SqlDataReader
         Me.IdCliente = IdCliente
-
-        tiposApto = banco.consultaGenerica("select tipo from htipoApartamento where idtipoApartamento in (select idTipoApartamento from hApartamento)")
+        'Inicialização de dados da reserva para edição
+        '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        tiposApto = banco.consultaGenerica("select tipo from htipoApartamento where idtipoApartamento in (select idTipoApartamento from hApartamento)") 'consulta de tipos de apartamento
         While (tiposApto.Read())
-            CBXtipoApartamento.Items.Add(tiposApto.Item(0))
+            CBXtipoApartamento.Items.Add(tiposApto.Item(0)) 'Inicialização dos tipos de apartamento
         End While
         banco.fecharConexao()
-        dadosReserva = banco.consultaGenerica("select * from dbo.reservaEdicaoConsulta(" + CStr(idReserva) + ")")
+        dadosReserva = banco.consultaGenerica("select * from dbo.reservaEdicaoConsulta(" + CStr(idReserva) + ")") 'Consulta dos dados da reserva em questao
         dadosReserva.Read()
         Me.IdCliente = dadosReserva.GetInt32(0)
 
@@ -203,7 +196,7 @@ Public Class Hospedagem_Reserva
         CBXdia.Items.Clear()
         CBXAno.Items.Clear()
         CBXmes.SelectedText = dadosReserva.GetDateTime(3).Month
-        CBXAno.Items.Add(Date.Now.Year)
+        CBXAno.Items.Add(Date.Now.Year) 'Adiciona o ano atual e os proximos 3
         CBXAno.Items.Add(Date.Now.Year + 1)
         CBXAno.Items.Add(Date.Now.Year + 2)
         CBXAno.SelectedText = dadosReserva.GetDateTime(3).Year
@@ -221,13 +214,15 @@ Public Class Hospedagem_Reserva
         banco.fecharConexao()
         Me.mudancaPermitida = False
 
-
-        mudancaTipo()
+        '/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        mudancaTipo() 'População dos listbox de acordo com os dados atuais da reserva
 
     End Sub
 
 
-    Public Sub InicializarSem(idCliente As Integer)
+    Public Sub InicializarSem(idCliente As Integer) 'Inicializa o cadastro de hospedagem serm serva prévia
+
+        'inicia os dados apenas com as combinações possíveis, sem uma reserva ou hospedagem prévia
         PBapartamento.SizeMode = PictureBoxSizeMode.StretchImage
         BTNoriginal.Visible = False
         BTNalterarReserva.Visible = False
@@ -256,12 +251,12 @@ Public Class Hospedagem_Reserva
         setStatus("CHSR")
         BTNConfirmar.Visible = False
         Me.IdCliente = idCliente
-        'CBX()
+
     End Sub
 
 
 
-    Public Sub inicializar(idCliente As Integer)
+    Public Sub inicializar(idCliente As Integer) 'Inicializa o cadastro de uma hospedagem por uma reserva pre existente
         BTNalterarReserva.Visible = False
         btnExcluir.Visible = False
         PBapartamento.SizeMode = PictureBoxSizeMode.StretchImage
@@ -269,9 +264,10 @@ Public Class Hospedagem_Reserva
         CBXpagamento.Visible = False
         BTNincluir.Visible = False
 
-        setStatus("CHPR")
+        setStatus("CHPR") 'Status Cadastrando hospedagem por reservas
 
-
+        'Inicialização do cadastro da hospedagem por reserva, inicialização dos edits e combobox
+        '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         Me.mudancaPermitida = True
         CbxDiaInicio.Text = ""
         CbxMesInicio.Text = ""
@@ -338,9 +334,9 @@ Public Class Hospedagem_Reserva
         CBXcamaSolteiro.SelectedText = CStr(dadosReserva.GetInt32(9))
         banco.fecharConexao()
         Me.mudancaPermitida = False
+        '//////////////////
 
-
-        mudancaTipo()
+        mudancaTipo() 'inicialização dos itens do combobox de acordo com os dados preexistentes da reserva
 
 
     End Sub
@@ -351,53 +347,55 @@ Public Class Hospedagem_Reserva
 
     Public Sub atualizarFotos(tipoApartamento As Integer)
         banco.fecharConexao()
-        Dim fotosConsulta As SqlDataReader = banco.fotosApartamento(tipoApartamento)
+        Dim fotosConsulta As SqlDataReader = banco.fotosApartamento(tipoApartamento) 'retorna todas as fotos do apartamento daquele tipo
         fotosApartamento.Clear()
         indiceFoto = 0
-        While (fotosConsulta.Read())
-            fotosApartamento.Add(fotosConsulta.Item(0))
+        While (fotosConsulta.Read()) 'enquanto ainda há fotos
+            fotosApartamento.Add(fotosConsulta.Item(0)) 'elas sao adicionadas ao
         End While
-        If (fotosApartamento.Count > 0) Then
+        If (fotosApartamento.Count > 0) Then 'se pelo menos há um registro na lista
             Dim foto As Byte()
-            foto = fotosApartamento.Item(0)
+            foto = fotosApartamento.Item(0) 'carregue os Bytes da foto da primeira posição
             Dim bytesDaFoto As New MemoryStream(foto)
-            PBapartamento.Image = Image.FromStream(bytesDaFoto)
+            PBapartamento.Image = Image.FromStream(bytesDaFoto) 'coloca a foto no picture box
         End If
         banco.fecharConexao()
     End Sub
 
     Private Sub BTNproximaFoto_Click(sender As Object, e As EventArgs) Handles BTNproximaFoto.Click
         If (fotosApartamento.Count > 0) Then
-            indiceFoto += 1
-            If ((indiceFoto Mod fotosApartamento.Count) = 0) Then
-                indiceFoto = 0
+            indiceFoto += 1 'indice da foto na lista de fotos, vai pra proxima foto
+            If ((indiceFoto Mod fotosApartamento.Count) = 0) Then 'se o indice da foto é maior que o numero de fotos, o percurso nas fotos é retornado para a primeira
+                indiceFoto = 0 ' torna o indice igual ao da primeira foto
             End If
 
+
+            'a foto do determinado índice é carregada
             Dim foto As Byte() = fotosApartamento.Item(indiceFoto)
             Dim bytesDaFoto As New MemoryStream(foto)
             PBapartamento.Image = Image.FromStream(bytesDaFoto)
-            banco.fecharConexao()
+            banco.fecharConexao() ' 
 
         End If
     End Sub
 
 
 
-    Private Sub mudarDiasPorMes(mes As Integer, ano As Integer)
+    Private Sub mudarDiasPorMes(mes As Integer, ano As Integer) 'tem o objetivo de adicionar o numero de dias disponiveis para o respectivo mes de determinado ano no combo box
         CBXdia.Items.Clear()
 
-        If mudancaPermitida Then
-            Return
+        If mudancaPermitida Then 'se esse evento está sendo disparado por uma alteração feita seme estimulo do usuário
+            Return 'retorne ao fluxo onde essa função foi chamada
         End If
 
         Dim dia As Integer
         If (CBXdia.Text <> "") Then
-            dia = Convert.ToInt32(CBXdia.Text)
+            dia = Convert.ToInt32(CBXdia.Text) 'pega o dia no combobox dia
         End If
 
 
         Dim cont As Integer
-        Select Case mes
+        Select Case mes 'troca o numero de dias selecionáveis, de acordo com o mes informado
             Case 1, 3, 5, 7, 8, 10, 12
                 cont = 31
             Case 4, 6, 9, 11
@@ -412,13 +410,13 @@ Public Class Hospedagem_Reserva
 
         Dim d As Integer = 0
 
-        While (cont > 0)
+        While (cont > 0) 'adiciona os dias
             d += 1
             CBXdia.Items.Add(d)
             If (CBXdia.Text <> "") Then
-                If dia = d Then
+                If dia = d Then 'se o dia que estava selecionado antes da mudança é válido
                     mudancaPermitida = True
-                    CBXdia.Text = CStr(dia)
+                    CBXdia.Text = CStr(dia) 'entao ele é mantido como item selecionado no combobox
                     mudancaPermitida = False
                 End If
             End If
@@ -427,7 +425,7 @@ Public Class Hospedagem_Reserva
 
 
     End Sub
-    Private Sub mudarDiasPorMesInicio(mes As Integer, ano As Integer)
+    Private Sub mudarDiasPorMesInicio(mes As Integer, ano As Integer) 'Análoga à função acima, só que funciona para os combobox referentes à data inicial
 
         If mudancaPermitida Then
             Return
@@ -473,65 +471,7 @@ Public Class Hospedagem_Reserva
     End Sub
 
 
-    Private Function disponibilidaDinamica() As Boolean
-
-
-        'If (Status = "CHPR") Then
-        'consulta = banco.reservaClienteChekinDados(Me.IdCliente)
-        'consulta.Read()
-        'idReserva = consulta.GetInt32(0)
-        'banco.fecharConexao()
-        'consulta = banco.consultaGenerica("select*from hreserva where idReserva=" + CStr(idReserva))
-        'consulta.Read()
-        'inicial = consulta.GetDateTime(2)
-        'final = consulta.GetDateTime(3)
-        'numeroBoleto = consulta.GetInt32(4)
-        'pagamento = consulta.GetDateTime(5)
-        ' situacao = consulta.GetInt32(6)
-        'idApartamento = consulta.GetInt32(7)
-        'banco.fecharConexao()
-        'banco.consultaGenerica("delete from hreserva where idReserva=" + CStr(idReserva))
-        '        banco.fecharConexao()
-        '       End If
-
-
-        '        If (Status = "ER") Then
-        'consulta = banco.consultaGenerica("select*from hreserva where idReserva=" + CStr(Me.reserva))
-        'consulta.Read()
-        'inicial = consulta.GetDateTime(3)
-        'final = consulta.GetDateTime(4)
-        'numeroBoleto = consulta.GetInt32(5)
-        'pagamento = consulta.GetDateTime(6)
-        'situacao = consulta.GetInt32(7)
-        'idApartamento = consulta.GetInt32(8)
-        'banco.fecharConexao()
-        'banco.consultaGenerica("delete from hreserva where idReserva=" + CStr(Me.reserva))
-        'banco.fecharConexao()
-        'End If
-
-        'If (Status = "EH") Then
-        '        consulta = banco.consultaGenerica("select * from dbo.HospedagemEdicaoConsulta(" + CStr(hospedagem) + ")")
-        'consulta.Read()
-        'inicial = consulta.GetDateTime(3)
-        'final = consulta.GetDateTime(4)
-        'numeroBoleto = consulta.GetInt32(5)
-        'pagamento = consulta.GetDateTime(6)
-        'situacao = consulta.GetInt32(7)
-        'motivoViagem = consulta.GetInt32(15)
-        'tipoDogrupo = consulta.GetInt32(14)
-        'origem = consulta.GetString(16)
-        'destino = consulta.GetString(17)
-        'banco.fecharConexao()
-        'consulta = banco.consultaGenerica("select idApartamento from Hhospedagem where idHospedagem=" + CStr(hospedagem))
-        'consulta.Read()
-        'idApartamento = consulta.GetInt32(0)
-        'banco.fecharConexao()
-        'banco.consultaGenerica("delete from hHospedagem where idHospedagem=" + CStr(hospedagem))
-        'banco.fecharConexao()
-        'banco.consultaGenerica("delete from hreserva where idReserva=" + CStr(Me.reserva))
-        'banco.fecharConexao()
-        'End If
-
+    Private Function disponibilidaDinamica() As Boolean 'verifica a disponibilidade de acordo com os estimulos gerados pelo usuário
 
 
         Dim dataFim As String = CBXdia.Text + "-" + CBXmes.Text + "-" + CBXAno.Text 'ORDEM ERRADA
@@ -543,8 +483,8 @@ Public Class Hospedagem_Reserva
         If (CBXAno.Text <> "" And CBXdia.Text <> "" And CBXmes.Text <> "" And CbxAnoInicio.Text <> "" And CbxDiaInicio.Text <> "" And CbxMesInicio.Text <> "") Then
             Dim tiposApto As SqlDataReader
             tiposApto = banco.consultaGenerica("select tipo from htipoApartamento where ((select dbo.disponibilidadeApartamento(htipoApartamento.idTipoApartamento,'" + dataInicio.ToString + "','" + dataFim.ToString + "','N',0,0))=1) or ((select dbo.disponibilidadeApartamento(htipoApartamento.idTipoApartamento,'" + dataInicio.ToString + "','" + dataFim.ToString + "','S',0,0))=1)")
-            If Not tiposApto.HasRows Then
-
+            If Not tiposApto.HasRows Then 'se nao há tipo disponivel para as condições especificadas de data
+                'todos os campos sao limpos
                 Me.mudancaPermitida = True
                 CBXfrigobar.Text = ""
                 CBXfrigobar.Enabled = False
@@ -557,6 +497,7 @@ Public Class Hospedagem_Reserva
                 Me.mudancaPermitida = False
 
             Else
+                'senao os campos sao habilitados para a entrada de dados
                 CBXfrigobar.Enabled = True
                 CBXcamaCasal.Enabled = True
                 CBXcamaSolteiro.Enabled = True
@@ -564,11 +505,11 @@ Public Class Hospedagem_Reserva
 
             CBXtipoApartamento.Items.Clear()
             If (tiposApto.HasRows) Then
-                While (tiposApto.Read())
+                While (tiposApto.Read()) 'enquanto há tipos, adicionem eles ao combobox
                     CBXtipoApartamento.Items.Add(tiposApto.Item(0))
                     If strTipo = tiposApto.Item(0) Then
                         Me.mudancaPermitida = True
-                        CBXtipoApartamento.Text = tiposApto.Item(0)
+                        CBXtipoApartamento.Text = tiposApto.Item(0) 'se o tipo que ja estava selecionado for válido, matenha ele no texto do textbox
                         Me.mudancaPermitida = False
                     End If
 
@@ -583,27 +524,14 @@ Public Class Hospedagem_Reserva
         If (CBXAno.Text <> "" And CBXdia.Text <> "" And CBXmes.Text <> "" And CBXtipoApartamento.Text <> "" And CBXfrigobar.Text <> "" And CBXcamaCasal.Text <> "" And CBXcamaSolteiro.Text <> "") Then
             disponibilidade = banco.consultaGenerica("select dbo.disponibilidadeApartamento((select idtipoApartamento from htipoApartamento where tipo='" + CBXtipoApartamento.Text + "'),'" + dataInicio.ToString + "','" + dataFim.ToString + "','" + CBXfrigobar.Text + "'," + CBXcamaCasal.Text + "," + CBXcamaSolteiro.Text + " )")
             disponibilidade.Read()
-            retorno = disponibilidade.GetBoolean(0)
+            retorno = disponibilidade.GetBoolean(0) 'pega o valor boolean da função SQL server de disponibilidade do apartamento -> true disponivel, false nao disponivel
             banco.fecharConexao()
         Else
-            retorno = Nothing
+            retorno = Nothing 'siginifica que a validação nao pode ocorre pois os campos nao estavam preenchidos
 
         End If
 
-        'If (Status = "CHPR" Or Status = "ER" Or Status = "EH") Then
-        'banco.adicionaReserva(idApartamento, Me.IdCliente, inicial, final, numeroBoleto, pagamento, situacao)
-        'Dim consulan As SqlDataReader = banco.consultaGenerica("SELECT MAX(IDRESERVA) FROM HRESERVA")
-        'consulan.Read()
-        'Me.reserva = consulan.GetInt32(0)
-        'banco.fecharConexao()
-        'If (Status = "EH") Then
-        '        banco.adicionaHospedagem(idApartamento, idReserva, origem, destino, tipoDogrupo, motivoViagem)
-        'consulan = banco.consultaGenerica("SELECT MAX(IDHOSPEDAGEM) FROM hHOSPEDAGEM")
-        'consulan.Read()
-        'Me.hospedagem = consulan.GetInt32(0)
-        'banco.fecharConexao()
-        'End If
-        'End If
+        
 
         Return retorno
     End Function
@@ -614,16 +542,17 @@ Public Class Hospedagem_Reserva
     Private Sub BTNfotoAnterior_Click(sender As Object, e As EventArgs) Handles BTNfotoAnterior.Click
 
 
-
+        'Volta pra foto anterior subtraindo o indice, se o indice ficar negativo
+        'a foto atual se torna a última (semelhante a uma lista circular)
         If (fotosApartamento.Count > 0) Then
             indiceFoto -= 1
             If (indiceFoto = -1) Then
                 indiceFoto = fotosApartamento.Count - 1
             End If
 
-            Dim foto As Byte() = fotosApartamento.Item(indiceFoto)
+            Dim foto As Byte() = fotosApartamento.Item(indiceFoto) 'passa para um vetor de bytes o  valor do indice IndiceFoto na lista de bytes ListaFoto
             Dim bytesDaFoto As New MemoryStream(foto)
-            PBapartamento.Image = Image.FromStream(bytesDaFoto)
+            PBapartamento.Image = Image.FromStream(bytesDaFoto) 'Carrega a imagem contida no vetor Foto no picture box
             banco.fecharConexao()
 
         End If
@@ -636,109 +565,40 @@ Public Class Hospedagem_Reserva
 
 
 
-        Dim inicial As Date
-        Dim final As Date
-        Dim numeroBoleto As Integer
-        Dim pagamento As Date
-        Dim situacao As Integer
-        Dim idApartamento As Integer
-
-
-        'If (Status = "CHPR") Then
-        '        consulta = banco.reservaClienteChekinDados(Me.IdCliente)
-        'consulta.Read()
-        'idReserva = consulta.GetInt32(0)
-        'banco.fecharConexao()
-        'consulta = banco.consultaGenerica("select*from hreserva where idReserva=" + CStr(idReserva))
-        'consulta.Read()
-        'inicial = consulta.GetDateTime(2)
-        'final = consulta.GetDateTime(3)
-        'numeroBoleto = consulta.GetInt32(4)
-        'pagamento = consulta.GetDateTime(5)
-        'situacao = consulta.GetInt32(6)
-        'idApartamento = consulta.GetInt32(7)
-        'banco.fecharConexao()
-        'banco.consultaGenerica("delete from hreserva where idReserva=" + CStr(idReserva))
-        'banco.fecharConexao()
-        'End If
-
-
-        'If (Status = "ER") Then
-        'consulta = banco.consultaGenerica("select*from hreserva where idReserva=" + CStr(Me.reserva))
-        'consulta.Read()
-        'inicial = consulta.GetDateTime(3)
-        'final = consulta.GetDateTime(4)
-        'numeroBoleto = consulta.GetInt32(5)
-        'pagamento = consulta.GetDateTime(6)
-        'situacao = consulta.GetInt32(7)
-        'idApartamento = consulta.GetInt32(8)
-        'banco.fecharConexao()
-
-        '        banco.consultaGenerica("delete from hreserva where idReserva=" + CStr(Me.reserva))
-        '       banco.fecharConexao()
-        '      End If
-
-        'If (Status = "EH") Then
-        '    consulta = banco.consultaGenerica("select * from dbo.HospedagemEdicaoConsulta(" + CStr(hospedagem) + ")")
-        '    consulta.Read()
-        '    inicial = consulta.GetDateTime(3)
-        '    final = consulta.GetDateTime(4)
-        '    numeroBoleto = consulta.GetInt32(5)
-        '    pagamento = consulta.GetDateTime(6)
-        '    situacao = consulta.GetInt32(7)
-        '    motivoViagem = consulta.GetInt32(15)
-        '    tipoDogrupo = consulta.GetInt32(14)
-        '    origem = consulta.GetString(16)
-        '    destino = consulta.GetString(17)
-        '    banco.fecharConexao()
-        '    consulta = banco.consultaGenerica("select idApartamento from Hhospedagem where idHospedagem=" + CStr(hospedagem))
-        '    consulta.Read()
-        '    idApartamento = consulta.GetInt32(0)
-        '    banco.fecharConexao()
-        '    banco.consultaGenerica("delete from hreserva where idReserva=" + CStr(Me.reserva))
-        '    banco.fecharConexao()
-        '    banco.consultaGenerica("delete from hHospedagem where idHospedagem=" + CStr(hospedagem))
-        '    banco.fecharConexao()
-
-        'End If
-
-
-        'O TIPO TBM TEM QUE ESTAR PREENCHIDO ALTERAAAAAAAACAAAAAAAAO
-
         If (CBXAno.Text <> "" And CBXdia.Text <> "" And CBXmes.Text <> "" And CbxAnoInicio.Text <> "" And CbxDiaInicio.Text <> "" And CbxMesInicio.Text <> "" And CBXtipoApartamento.Text <> "") Then
 
-            'DADOS ORIGINAIS DEVEM SER MANTIDOS AQUi
 
             CBXfrigobar.Enabled = True
             CBXcamaCasal.Enabled = True
             CBXcamaSolteiro.Enabled = True
-            Dim dataFim As String = CBXdia.Text + "-" + CBXmes.Text + "-" + CBXAno.Text 'ORDEM ERRADA
-            Dim dataInicio As String = CbxDiaInicio.Text + "-" + CbxMesInicio.Text + "-" + CbxAnoInicio.Text 'ORDEM ERRADA
+            Dim dataFim As String = CBXdia.Text + "-" + CBXmes.Text + "-" + CBXAno.Text
+            Dim dataInicio As String = CbxDiaInicio.Text + "-" + CbxMesInicio.Text + "-" + CbxAnoInicio.Text
 
             Dim TemC As SqlDataReader = banco.consultaGenerica("select dbo.disponibilidadeApartamento((select idtipoApartamento from htipoApartamento where tipo='" + CBXtipoApartamento.Text + "'),'" + dataInicio.ToString() + "','" + dataFim.ToString + "','S',0,0)")
             TemC.Read()
             Dim temCom As Boolean = TemC.GetBoolean(0)
-            banco.fecharConexao()
+            banco.fecharConexao() 'consulta de disponibilidade do apartamento no intervalo e do tipo especificado com frigobar
             Dim temS As SqlDataReader = banco.consultaGenerica("select dbo.disponibilidadeApartamento((select idtipoApartamento from htipoApartamento where tipo='" + CBXtipoApartamento.Text + "'),'" + dataInicio.ToString + "','" + dataFim.ToString() + "','N',0,0)")
-            temS.Read()
+            temS.Read() 'consulta de disponibilidade do apartamento no intervalo e do tipo especificado sem frigobar
             Dim temSem As Boolean = temS.GetBoolean(0)
             banco.fecharConexao()
 
             If (Not temSem And temCom) Then
 
-
+                'se so tem com
                 Me.mudancaPermitida = True
                 CBXfrigobar.Text = ""
-                CBXfrigobar.SelectedText = "S"
+                CBXfrigobar.SelectedText = "S" 'o texto mostrado é com
                 Me.mudancaPermitida = False
 
                 CBXfrigobar.Enabled = False
 
             Else
                 If (temSem And Not temCom) Then
+                    'se so tem sem
                     Me.mudancaPermitida = True
                     CBXfrigobar.Text = ""
-                    CBXfrigobar.SelectedText = "N"
+                    CBXfrigobar.SelectedText = "N" ' o texto N é mostrado
                     Me.mudancaPermitida = False
 
                     CBXfrigobar.Enabled = False
@@ -746,6 +606,7 @@ Public Class Hospedagem_Reserva
                 Else
                     If (Not temSem And Not temCom) Then
                         MessageBox.Show("Esse apartamento reservado pelo cliente em questao, é o ultimo do exemplar. Se o seu tipo for locado, nao se deve alterar as especificações")
+                        'se nao tem os dois, entao o apartamento nao está disponivel
                         Return
 
                     End If
@@ -759,53 +620,53 @@ Public Class Hospedagem_Reserva
 
             Dim nCas As SqlDataReader = banco.consultaGenerica("SELECT MAX(CAMACASAL) from hApartamento where ((select dbo.disponibilidadeApartamento((select idTipoApartamento from hTipoApartamento where tipo='" + CBXtipoApartamento.Text + "'),'" + dataInicio.ToString + "','" + dataFim.ToString + "','" + CBXfrigobar.Text + "',(hApartamento.camaCasal),0))=1)")
             nCas.Read()
-            Dim nCasal As Integer
+            Dim nCasal As Integer 'pega o valor maximo de camaCasal com as condições especificadas
 
 
             If (nCas.IsDBNull(0)) Then
-                nCasal = Nothing
+                nCasal = Nothing 'se é zero, null é atribuido à variável
             Else
-                nCasal = nCas.GetValue(0)
+                nCasal = nCas.GetValue(0) 'senao o valor maximo de camaCasal de acordo com as condições especificadas é armazenada
             End If
             banco.fecharConexao()
 
 
             Dim nsol As SqlDataReader = banco.consultaGenerica("SELECT MAX(CAMASOLTEIRO) from hApartamento where ((select dbo.disponibilidadeApartamento((select idTipoApartamento from hTipoApartamento where tipo='" + CBXtipoApartamento.Text + "'),'" + dataInicio + "','" + dataFim + "','" + CBXfrigobar.Text + "',0, (hApartamento.camaSolteiro)))=1)")
-            nsol.Read()
+            nsol.Read() 'pega o numero maximo de camas de solteiro com as condições especificadas
 
             Dim nsolteiro As Integer
 
-            If (nsol.IsDBNull(0)) Then
+            If (nsol.IsDBNull(0)) Then 'se for 0 variáel que representa o numero de camas de solteiro recebe null
                 nsolteiro = Nothing
             Else
-                nsolteiro = nsol.GetValue(0)
+                nsolteiro = nsol.GetValue(0) ' senao ele recebe o valor retornado
             End If
             banco.fecharConexao()
 
 
 
-            Dim strCasal = CBXcamaCasal.Text
+            Dim strCasal = CBXcamaCasal.Text 'o numero no momento da modificação é guardado
             Dim strSol = CBXcamaSolteiro.Text
 
 
             CBXcamaCasal.Items.Clear()
             CBXcamaSolteiro.Items.Clear()
 
-            If (nCasal = Nothing) Then
+            If (nCasal = Nothing) Then 'se ele representa nada
                 Me.mudancaPermitida = True
-                CBXcamaCasal.Text = "0"
-                Me.mudancaPermitida = False
-                CBXcamaCasal.Enabled = False
+                CBXcamaCasal.Text = "0" ' o texto atual é da cama casal passa a ser 0
+                Me.mudancaPermitida = False ' como ele é zero, nao poderão ocorrer alterações
+                CBXcamaCasal.Enabled = False ' entao ocorre o travamento
 
             Else
                 Dim cont As Integer
                 cont = 0
 
-                While (cont <= nCasal)
-                    CBXcamaCasal.Items.Add(cont)
-                    If (CStr(cont) = strCasal) Then
+                While (cont <= nCasal) 'senao , todas as combinações possiveis sao adicionadas no combobox
+                    CBXcamaCasal.Items.Add(cont) ' os itens representados em numero pelo contador de cama casal sao adicionados ao combobox
+                    If (CStr(cont) = strCasal) Then ' se o numero a ser adicionado é referente ao numero que estava contido no texto do combobox no momento da mudança
                         Me.mudancaPermitida = True
-                        CBXcamaCasal.Text = strCasal
+                        CBXcamaCasal.Text = strCasal 'o numero é mantido
                         Me.mudancaPermitida = False
                     End If
                     cont += 1
@@ -813,7 +674,7 @@ Public Class Hospedagem_Reserva
 
             End If
 
-            If (nsolteiro = Nothing) Then
+            If (nsolteiro = Nothing) Then 'ANÁLOGO ÀS modificações acima, mas agr é referente ao numero de camas de solteiro
                 Me.mudancaPermitida = True
                 CBXcamaSolteiro.Text = "0"
                 Me.mudancaPermitida = False
@@ -840,33 +701,19 @@ Public Class Hospedagem_Reserva
             Dim consultaidTIpo As SqlDataReader
             diaria = banco.consultaGenerica("select tarifaDiaria from htipoApartamento where tipo='" + CBXtipoApartamento.Text + "'")
             diaria.Read()
-            lblDiaria.Text = CStr(diaria.GetDouble(0))
+            lblDiaria.Text = CStr(diaria.GetDouble(0)) 'exibe a diária referente ao tipo selecionado no label da diária
             banco.fecharConexao()
 
             consultaidTIpo = banco.consultaGenerica("Select idTipoApartamento from htipoApartamento where tipo='" + CBXtipoApartamento.Text + "'")
             consultaidTIpo.Read()
-            Me.atualizarFotos(consultaidTIpo.GetInt32(0))
+            Me.atualizarFotos(consultaidTIpo.GetInt32(0)) 'atualiza as fotos que serao mostradas na pesquisa referente ao tipo selecionado
 
 
-            'disponibilidaDinamica()
+
 
         End If
 
-        'If (Status = "CHPR" Or Status = "ER" Or Status = "EH") Then
-        'banco.adicionaReserva(idApartamento, Me.IdCliente, inicial, final, numeroBoleto, pagamento, situacao)
-        'Dim consulan As SqlDataReader = banco.consultaGenerica("SELECT MAX(IDRESERVA) FROM HRESERVA")
-        'consulan.Read()
-        'Me.reserva = consulan.GetInt32(0)
-        'banco.fecharConexao()
-        'If (Status = "EH") Then
-        '    banco.adicionaHospedagem(idApartamento, Me.reserva, origem, destino, tipoDogrupo, motivoViagem)
-        '    consulan = banco.consultaGenerica("SELECT MAX(IDHOSPEDAGEM) FROM hHOSPEDAGEM")
-        '    consulan.Read()
-        '    Me.hospedagem = consulan.GetInt32(0)
-        '    banco.fecharConexao()
-        'End If
 
-        'End If
 
 
     End Sub
@@ -875,7 +722,7 @@ Public Class Hospedagem_Reserva
             Return
         End If
 
-        If (Status = "CHSR") Then
+        If (Status = "CHSR") Then 'se o tipo for o cadastro de hospedagem serm reserva , são destravados os campos gradualmente à media que outros sao preenchidos
             If (CBXtipoApartamento.Text <> "") Then
                 CBXfrigobar.Enabled = True
                 BTNproximaFoto.Enabled = True
@@ -885,6 +732,7 @@ Public Class Hospedagem_Reserva
         End If
 
         Dim consulta As SqlDataReader = banco.consultaGenerica("select descricao from htipoApartamento where tipo='" + CBXtipoApartamento.Text + "'")
+        'quando se altera o tipo, deve ser alterada a descrição para a descrição referente àquele tipo
         consulta.Read()
         RTXTdescricao.Text = consulta.GetString(0)
         banco.fecharConexao()
@@ -907,7 +755,7 @@ Public Class Hospedagem_Reserva
 
         If (CBXfrigobar.Text <> "" And CBXcamaCasal.Text <> "" And CBXcamaSolteiro.Text <> "") Then
             If disponibilidaDinamica() = False Then
-                MessageBox.Show("opção inválida")
+                MessageBox.Show("opção inválida") ' alteração nao validada como válida, opção nao disponivel
             End If
         End If
 
@@ -926,7 +774,7 @@ Public Class Hospedagem_Reserva
         End If
 
 
-        If (CBXfrigobar.Text <> "" And CBXcamaCasal.Text <> "" And CBXcamaSolteiro.Text <> "") Then
+        If (CBXfrigobar.Text <> "" And CBXcamaCasal.Text <> "" And CBXcamaSolteiro.Text <> "") Then 'análogo à verificação do listener superior
             If disponibilidaDinamica() = False Then
                 MessageBox.Show("opção inválida")
             End If
@@ -952,7 +800,7 @@ Public Class Hospedagem_Reserva
             End If
         End If
 
-        If (CBXfrigobar.Text <> "" And CBXcamaCasal.Text <> "" And CBXcamaSolteiro.Text <> "") Then
+        If (CBXfrigobar.Text <> "" And CBXcamaCasal.Text <> "" And CBXcamaSolteiro.Text <> "") Then 'análogo à verificação do listener superior
             If disponibilidaDinamica() = False Then
                 MessageBox.Show("opção inválida")
             End If
@@ -961,6 +809,9 @@ Public Class Hospedagem_Reserva
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BTNoriginal.Click
+
+        'reinicializa os valores do formulário principal de acordo com o tipo de utilização do formulário atual
+
         If (Status = "CHPR") Then
             Me.inicializar(IdCliente)
         End If
@@ -974,9 +825,6 @@ Public Class Hospedagem_Reserva
 
         End If
 
-
-
-
     End Sub
 
     Private Sub BTNConfirmar_Click(sender As Object, e As EventArgs) Handles BTNConfirmar.Click
@@ -984,8 +832,8 @@ Public Class Hospedagem_Reserva
             CBXcamaCasal.Text <> "" And CBXcamaSolteiro.Text <> "" And TXTorigem.Text <> "" And TXTdestino.Text <> "" And CBXTipoGrupo.Text <> "" And CBXmotivoViagem.Text <> "") Then
             Dim da As Date = New Date(Convert.ToInt32(CbxAnoInicio.Text), Convert.ToInt32(CbxMesInicio.Text), Convert.ToInt32(CbxDiaInicio.Text))
             Dim dp As Date = New Date(Convert.ToInt32(CBXAno.Text), Convert.ToInt32(CBXmes.Text), Convert.ToInt32(CBXdia.Text))
-            If da.CompareTo(dp) = 1 Then
-                MessageBox.Show("a data Início nao pode ser maior que a data fim ")
+            If da.CompareTo(dp) = 1 Then ' se data inicio for maior que a data fim
+                MessageBox.Show("a data Início nao pode ser maior que a data fim ") 'informa usuário
             Else
                 If (CBXcamaCasal.Text = "0" And CBXcamaSolteiro.Text = "0") Then
                     MessageBox.Show("Nao se pode alugar um quarto sem cama")
@@ -994,7 +842,9 @@ Public Class Hospedagem_Reserva
                 Dim dadosOriginais As SqlDataReader = banco.reservaClienteChekinDados(Me.IdCliente)
                 dadosOriginais.Read()
                 If ((da.CompareTo(dadosOriginais.GetDateTime(2)) = 0) And (CBXfrigobar.Text = (dadosOriginais.GetString(7))) And (CBXcamaCasal.Text = CStr(dadosOriginais.GetInt32(8))) And (CBXcamaSolteiro.Text = CStr(dadosOriginais.GetInt32(9))) And (CBXtipoApartamento.Text = (dadosOriginais.GetString(10))) And (dp.CompareTo(dadosOriginais.GetDateTime(3)) = 0)) Then
+                    ' se os dados nao foram alterados em relaçao aos inciais
                     bancoAuxiliar.adicionaHospedagem(dadosOriginais.GetInt32(13), dadosOriginais.GetInt32(0), TXTorigem.Text, TXTdestino.Text, CBXTipoGrupo.SelectedIndex + 1, CBXmotivoViagem.SelectedIndex + 1)
+
                     banco.fecharConexao()
                     MessageBox.Show("Hospedagem Cadastrada com sucesso")
                     'Fechar esse e abrir o anterior
@@ -1002,19 +852,23 @@ Public Class Hospedagem_Reserva
                     banco.fecharConexao()
                     If Not disponibilidaDinamica() Then
                         MessageBox.Show("Nao há disponibilidade para as condições específicadas, por favor revise o numero de camas , a requisição do frigobar ")
+                        ' as condições especificadas sao inválidas
                     Else
 
                         Dim dadosFinais As SqlDataReader
                         dadosFinais = banco.consultaGenerica("select dbo.idApartamentoDisponivel('" + CBXtipoApartamento.Text + "','" + CBXfrigobar.Text + "',' " + CBXcamaCasal.Text + " ','" + CBXcamaSolteiro.Text + "','" + da.ToString + "','" + dp.ToString + "')")
+                        'pega o ID do apartamento que atende as condições especificadas
                         dadosFinais.Read()
                         Dim idApartamento As Integer = dadosFinais.GetInt32(0)
                         banco.fecharConexao()
                         dadosOriginais = banco.reservaClienteChekinDados(Me.IdCliente)
                         dadosOriginais.Read()
                         Dim idreserva As Integer = dadosOriginais.GetInt32(0)
+                        'realiza o update da reserva de acordo com as novas condições fornecidas
                         bancoAuxiliar.consultaGenerica(" update hreserva set dataInicio='" + da.ToString + "', datafim='" + dp.ToString() + "', idApartamento=" + CStr(idApartamento) + " where idReserva=" + CStr(idreserva))
                         bancoAuxiliar.fecharConexao()
                         bancoAuxiliar.adicionaHospedagem(idApartamento, idreserva, TXTorigem.Text, TXTdestino.Text, CBXTipoGrupo.SelectedIndex + 1, CBXmotivoViagem.SelectedIndex + 1)
+                        'adiciona uma hospedagem de acordo com as informações fornecidas
                         banco.fecharConexao()
                         MessageBox.Show("Hospedagem Cadastrada com sucesso")
                         BTNvoltar.PerformClick()
@@ -1029,28 +883,28 @@ Public Class Hospedagem_Reserva
 
     Private Sub CbxDiaInicio_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CbxDiaInicio.SelectedIndexChanged
         If (Status = "CHSR") Then
-            If (CbxDiaInicio.Text <> "" And CbxAnoInicio.Text <> "" And CbxMesInicio.Text <> "") Then
-                CBXdia.Enabled = True
+            If (CbxDiaInicio.Text <> "" And CbxAnoInicio.Text <> "" And CbxMesInicio.Text <> "") Then 'se o tipo é colocado e está sendo cadastrado sem reserva
+                CBXdia.Enabled = True 'os proximos 3 campos estao liberados
                 CBXAno.Enabled = True
                 CBXmes.Enabled = True
             End If
 
         End If
-        disponibilidaDinamica()
-        mudancaTipo()
+        disponibilidaDinamica() ' disponibilidade segundo fatores alterados
+        mudancaTipo() ' disponibilidade segundo mudança de tipo
     End Sub
 
     Private Sub CbxMesInicio_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CbxMesInicio.SelectedIndexChanged
         If (Status = "CHSR") Then
-            If (CbxDiaInicio.Text <> "" And CbxAnoInicio.Text <> "" And CbxMesInicio.Text <> "") Then
-                CBXdia.Enabled = True
+            If (CbxDiaInicio.Text <> "" And CbxAnoInicio.Text <> "" And CbxMesInicio.Text <> "") Then 'se os 3 campos da data inicial sao preenchidos
+                CBXdia.Enabled = True ' os proximos de data sao destravados
                 CBXAno.Enabled = True
                 CBXmes.Enabled = True
             End If
 
         End If
-        disponibilidaDinamica()
-        mudancaTipo()
+        disponibilidaDinamica() ' disponibilidade de recursos do apartamento e populaçao dos combobox de acordo com a data
+        mudancaTipo() 'disponibilidade de recursos do apartamento de acordo com o tipo atual
 
 
         If (CBXAno.Text <> "" And CBXmes.Text <> "") Then
@@ -1061,8 +915,8 @@ Public Class Hospedagem_Reserva
     Private Sub CbxAnoInicio_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CbxAnoInicio.SelectedIndexChanged
         If (Status = "CHSR") Then
             If (CbxDiaInicio.Text <> "" And CbxAnoInicio.Text <> "" And CbxMesInicio.Text <> "") Then
-                CBXdia.Enabled = True
-                CBXAno.Enabled = True
+                CBXdia.Enabled = True 'se todos os campos da data inicio sao preenchidos
+                CBXAno.Enabled = True 'os proximos campos a serem preenchidos serão destravados
                 CBXmes.Enabled = True
             End If
 
@@ -1070,14 +924,14 @@ Public Class Hospedagem_Reserva
         disponibilidaDinamica()
         mudancaTipo()
         If (CBXAno.Text <> "" And CBXmes.Text <> "") Then
-            mudarDiasPorMes(Convert.ToInt32(CBXmes.Text), Convert.ToInt32(CBXAno.Text))
+            mudarDiasPorMes(Convert.ToInt32(CBXmes.Text), Convert.ToInt32(CBXAno.Text)) 'preenche os dias disponiveis de acordo com o mes e ano selecionados
         End If
     End Sub
 
     Private Sub CBXdia_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CBXdia.SelectedIndexChanged
         If (Status = "CHSR") Then
             If (CBXdia.Text <> "" And CBXAno.Text <> "" And CBXmes.Text <> "") Then
-                CBXtipoApartamento.Enabled = True
+                CBXtipoApartamento.Enabled = True 'se as datas forem preenchidas o seletor de tipos é destravado
             End If
         End If
 
@@ -1088,28 +942,28 @@ Public Class Hospedagem_Reserva
 
     Private Sub CBXmes_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CBXmes.SelectedIndexChanged
         If (Status = "CHSR") Then
-            If (CBXdia.Text <> "" And CBXAno.Text <> "" And CBXmes.Text <> "") Then
-                CBXtipoApartamento.Enabled = True
+            If (CBXdia.Text <> "" And CBXAno.Text <> "" And CBXmes.Text <> "") Then 'se a data final é preenchoda
+                CBXtipoApartamento.Enabled = True 'o seletor de tipos é destravado
             End If
         End If
         disponibilidaDinamica()
         mudancaTipo()
         If (CBXAno.Text <> "" And CBXmes.Text <> "") Then
-            mudarDiasPorMes(Convert.ToInt32(CBXmes.Text), Convert.ToInt32(CBXAno.Text))
+            mudarDiasPorMes(Convert.ToInt32(CBXmes.Text), Convert.ToInt32(CBXAno.Text)) 'seleciona os dias validos de acordo com mes e ano
         End If
 
     End Sub
 
     Private Sub CBXAno_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CBXAno.SelectedIndexChanged
-        If (Status = "CHSR") Then
+        If (Status = "CHSR") Then 'condição cadastrando hospedagem sem reserva
             If (CBXdia.Text <> "" And CBXAno.Text <> "" And CBXmes.Text <> "") Then
-                CBXtipoApartamento.Enabled = True
+                CBXtipoApartamento.Enabled = True ' se as datas forem preenhcidas o seletor de tipó é destravado
             End If
         End If
         disponibilidaDinamica()
         mudancaTipo()
         If (CBXAno.Text <> "" And CBXmes.Text <> "") Then
-            mudarDiasPorMes(Convert.ToInt32(CBXmes.Text), Convert.ToInt32(CBXAno.Text))
+            mudarDiasPorMes(Convert.ToInt32(CBXmes.Text), Convert.ToInt32(CBXAno.Text)) 'preenche a variação de dias de acordo com mes e ano atual
         End If
     End Sub
 
@@ -1122,27 +976,28 @@ Public Class Hospedagem_Reserva
             CBXcamaCasal.Text <> "" And CBXcamaSolteiro.Text <> "" And TXTorigem.Text <> "" And TXTdestino.Text <> "" And CBXTipoGrupo.Text <> "" And CBXmotivoViagem.Text <> "") Then
             Dim da As Date = New Date(Convert.ToInt32(CbxAnoInicio.Text), Convert.ToInt32(CbxMesInicio.Text), Convert.ToInt32(CbxDiaInicio.Text))
             Dim dp As Date = New Date(Convert.ToInt32(CBXAno.Text), Convert.ToInt32(CBXmes.Text), Convert.ToInt32(CBXdia.Text))
-            If da.CompareTo(dp) = 1 Then
-                MessageBox.Show("a data Início nao pode ser maior que a data fim ")
+            If da.CompareTo(dp) = 1 Then ' compare to -> se data inicio maior que data fim
+                MessageBox.Show("a data Início nao pode ser maior que a data fim ") 'alerta
             Else
-                If (CBXcamaCasal.Text = "0" And CBXcamaSolteiro.Text = "0") Then
-                    MessageBox.Show("Nao se pode alugar um quarto sem cama")
+                If (CBXcamaCasal.Text = "0" And CBXcamaSolteiro.Text = "0") Then 'se o numero das duas camas for zero
+                    MessageBox.Show("Nao se pode alugar um quarto sem cama") 'alerta
                 End If
 
 
 
-                If Not disponibilidaDinamica() Then
-                    MessageBox.Show("Nao há disponibilidade para as condições específicadas, por favor revise o numero de camas , a requisição do frigobar ")
+                If Not disponibilidaDinamica() Then ' se nao há disponibilidade segundo às condições especificadas
+                    MessageBox.Show("Nao há disponibilidade para as condições específicadas, por favor revise o numero de camas , a requisição do frigobar ") 'alerta
                 Else
                     Dim dadosFinais As SqlDataReader
                     dadosFinais = banco.consultaGenerica(" select dbo.idApartamentoDisponivel('" + CBXtipoApartamento.Text + "','" + CBXfrigobar.Text + "', " + CBXcamaCasal.Text + " ," + CBXcamaSolteiro.Text + ",'" + da.ToString() + "','" + dp.ToString() + "')")
-                    dadosFinais.Read()
+                    dadosFinais.Read() 'ID do apartamento das condições especificadas
                     Dim idApartamento As Integer = dadosFinais.GetInt32(0)
                     banco.fecharConexao()
-                    bancoAuxiliar.adicionaReserva(idApartamento, Me.IdCliente, da, dp, 0, dp, 2)
+                    bancoAuxiliar.adicionaReserva(idApartamento, Me.IdCliente, da, dp, 0, dp, 2) 'adiciona reserva com as condições editadas
                     dadosFinais = bancoAuxiliar.reservaClienteChekinDados(Me.IdCliente)
                     dadosFinais.Read()
                     banco.adicionaHospedagem(idApartamento, dadosFinais.GetInt32(0), TXTorigem.Text, TXTdestino.Text, CBXTipoGrupo.SelectedIndex + 1, CBXmotivoViagem.SelectedIndex + 1)
+                    'adiciona a hospedagem com os valores especificadas
                     bancoAuxiliar.fecharConexao()
                     MessageBox.Show("Hospedagem Cadastrada com sucesso")
                     BTNvoltar.PerformClick()
@@ -1164,7 +1019,7 @@ Public Class Hospedagem_Reserva
     Private Sub btnExcluir_Click(sender As Object, e As EventArgs) Handles btnExcluir.Click
 
         Try
-            banco.consultaGenerica("delete from hreserva where idreserva=" + CStr(reserva))
+            banco.consultaGenerica("delete from hreserva where idreserva=" + CStr(reserva)) 'exclui a reserva
             MessageBox.Show("Exclusao efetuada com êxito")
             BTNvoltar.PerformClick()
         Catch ex As Exception
@@ -1173,7 +1028,7 @@ Public Class Hospedagem_Reserva
 
         If (Status = "EH") Then
             Try
-                banco.consultaGenerica("delete from Hhospedagem where idReserva=" + CStr(reserva))
+                banco.consultaGenerica("delete from Hhospedagem where idReserva=" + CStr(reserva)) 'exclui da hospedagem depois
                 MessageBox.Show("Exclusao efetuada com êxito")
                 BTNvoltar.PerformClick()
             Catch ex As Exception
@@ -1187,14 +1042,14 @@ Public Class Hospedagem_Reserva
 
     Private Sub BTNalterar_Click(sender As Object, e As EventArgs) Handles BTNalterarReserva.Click
         If (Convert.ToInt32(CBXcamaCasal.Text) = 0 And Convert.ToInt32(CBXcamaSolteiro.Text) = 0) Then
-            MessageBox.Show("Nao se pode escolher quarto sem camas")
+            MessageBox.Show("Nao se pode escolher quarto sem camas") 'verificação se os valores de camas sao 0
             Return
         End If
 
         Dim da As Date = New Date(Convert.ToInt32(CbxAnoInicio.Text), Convert.ToInt32(CbxMesInicio.Text), Convert.ToInt32(CbxDiaInicio.Text))
         Dim dp As Date = New Date(Convert.ToInt32(CBXAno.Text), Convert.ToInt32(CBXmes.Text), Convert.ToInt32(CBXdia.Text))
 
-        If (dp.CompareTo(da) < 0) Then
+        If (dp.CompareTo(da) < 0) Then 'verifica se data inicio é maior que data fim
             MessageBox.Show("A data final deve ser maior que a inicial")
             Return
         End If
@@ -1204,11 +1059,11 @@ Public Class Hospedagem_Reserva
             Dim dadosFinais As SqlDataReader
             dadosFinais = banco.consultaGenerica("select dbo.idApartamentoDisponivel('" + CBXtipoApartamento.Text + "','" + CBXfrigobar.Text + "',' " + CBXcamaCasal.Text + " ','" + CBXcamaSolteiro.Text + "','" + da.ToString + "','" + dp.ToString + "')")
             dadosFinais.Read()
-            Dim idApartamento As Integer = dadosFinais.GetInt32(0)
+            Dim idApartamento As Integer = dadosFinais.GetInt32(0) 'pega o id do apartamento disponvel
             banco.fecharConexao()
             Try
                 bancoAuxiliar.consultaGenerica("update hreserva set dataInicio='" + da.ToString + "', datafim='" + dp.ToString() + "', idApartamento=" + CStr(idApartamento) + ", situacao =" + CStr(CBXpagamento.SelectedIndex + 1) + " where idReserva=" + CStr(reserva))
-            Catch ex As Exception
+            Catch ex As Exception 'atualiza reserva
                 MessageBox.Show("Erro na atualização da reserva:" + ex.Message)
                 banco.fecharConexao()
                 Return
@@ -1216,7 +1071,7 @@ Public Class Hospedagem_Reserva
 
         Else
             MessageBox.Show("Nao hé disponibilidade para as condições especificadas")
-            banco.fecharConexao()
+            banco.fecharConexao() ' atualiza hospedagem
             banco.consultaGenerica("update hHospedagem set tipoDogrupo=" + CStr(CBXTipoGrupo.SelectedIndex + 1) + ",motivoViagem=" + CStr(CBXmotivoViagem.SelectedIndex + 1) + ",origem='" + TXTorigem.Text + "',destino='" + TXTdestino.Text + "' where idHospedagem=" + CStr(Me.hospedagem) + "")
         End If
 
@@ -1228,5 +1083,5 @@ Public Class Hospedagem_Reserva
     End Sub
 End Class
 
-'A edição é igual à inclusao, só que o botao da update. Na edição de só reserva os 3 campos da hospedagem some e para incluir sem reserva os campos vao ter que destraar gradativamente
+'A edição é igual à inclusao, só que o botao da update. Na edição de só reserva os 3 campos da hospedagem somem e para incluir sem reserva os campos vao ter que destraar gradativamente
 

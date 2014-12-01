@@ -3,6 +3,9 @@
     Dim bd As New BD
 
     Private Sub btnLoad_Click(sender As Object, e As EventArgs) Handles btnLoad.Click
+
+        '
+
         Dim total = bd.qtasRespostas()
         Dim mediaAtendimento As Double = bd.somaRespostaAtendimento() / total
         Dim mediaQuarto As Double = bd.somaRespostaQuarto() / total
@@ -72,5 +75,9 @@
 
     Private Sub Avaliacao_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         btnLoad_Click(sender, e)
+    End Sub
+
+    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
+
     End Sub
 End Class

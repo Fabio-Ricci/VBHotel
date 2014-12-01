@@ -127,7 +127,7 @@ Public Class Checkout
                 mensagemDeEmail.From = New MailAddress("MountainVilleHotel@gmail.com")
                 mensagemDeEmail.To.Add(Me.email)
                 mensagemDeEmail.Subject = "Hotel Mountain Ville-Avalie a Sua Hospedagem !"
-                mensagemDeEmail.Body = "Visite a página de avaliação e avalie sua hospedagem:" 'URL aqui
+                mensagemDeEmail.Body = "Visite a página de avaliação e avalie sua hospedagem: http://localhost:2391/pages/avaliacao.aspx"
                 Dim SMTP As New SmtpClient("smtp.gmail.com")
                 SMTP.Port = 587
                 SMTP.EnableSsl = True
