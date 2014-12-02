@@ -22,14 +22,15 @@
                         If banco.nivelPrivilegio(EDusuario.Text) = 1 Then
                             Dim Principal As New Principal
                             Principal.menuFuncionarios.Visible = False
+                            Principal.setnome(EDusuario.Text)
                             Principal.Show()
                         Else
                             'nivel de privilégio 2 - gerente: abre o Principal com o item Funcionários do menu 
                             Dim Principal As New Principal
+                            Principal.setnome(EDusuario.Text)
                             Principal.Show()
 
                         End If
-                        Principal.setnome(EDusuario.Text)
                         Me.Hide()
 
                     Else

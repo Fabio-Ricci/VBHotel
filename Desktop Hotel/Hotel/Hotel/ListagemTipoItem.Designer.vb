@@ -49,7 +49,7 @@ Partial Class ListagemTipoItem
         Me.dgListagemTipoItem.Location = New System.Drawing.Point(13, 13)
         Me.dgListagemTipoItem.Name = "dgListagemTipoItem"
         Me.dgListagemTipoItem.ReadOnly = True
-        Me.dgListagemTipoItem.Size = New System.Drawing.Size(244, 179)
+        Me.dgListagemTipoItem.Size = New System.Drawing.Size(243, 179)
         Me.dgListagemTipoItem.TabIndex = 0
         '
         'NOMEDataGridViewTextBoxColumn
@@ -85,7 +85,7 @@ Partial Class ListagemTipoItem
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
-        Me.ClientSize = New System.Drawing.Size(269, 204)
+        Me.ClientSize = New System.Drawing.Size(268, 204)
         Me.Controls.Add(Me.dgListagemTipoItem)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "ListagemTipoItem"

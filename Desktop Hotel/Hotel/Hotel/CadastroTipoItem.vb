@@ -131,4 +131,23 @@ Public Class CadastroTipoItem
     Public Sub setSelectedTextCBEdicao(text As String)
         cbxEdicaoIdTipoItem.Text = text
     End Sub
+
+    Private Sub tbEdicaoTipoItem_Enter(sender As Object, e As EventArgs) Handles tbEdicaoTipoItem.Enter
+        cbxEdicaoIdTipoItem.SelectedIndex = -1
+        txtEdicaoDescricaoTipoItem.Text = ""
+
+        pnlRemocaoTipoItem.Visible = False
+
+        Dim dr As SqlDataReader
+        dr = bd.getIdTipoItens()
+        If dr.HasRows Then
+            cbxEdicaoIdTipoItem.Items.Clear()
+            cbxEdicaoIdTipoItem.Items.Add(dr(0))
+
+            While dr.Read
+                cbxEdicaoIdTipoItem.Items.Add(dr(0))
+            End While
+        End If
+        bd.fecharConexao()
+    End Sub
 End Class

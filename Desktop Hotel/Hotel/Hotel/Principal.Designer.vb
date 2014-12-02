@@ -42,7 +42,6 @@ Partial Class Principal
         Me.menuPergunta = New System.Windows.Forms.ToolStripMenuItem()
         Me.ListagemPerguntasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ListagemDePerguntasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.menuCheckout = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuFuncionarios = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuFuncionariosCadastro = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuFuncionariosListagem = New System.Windows.Forms.ToolStripMenuItem()
@@ -63,7 +62,7 @@ Partial Class Principal
         'menu
         '
         Me.menu.BackColor = System.Drawing.Color.Gainsboro
-        Me.menu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menuApartamentos, Me.menuClientes, Me.menuItens, Me.menuPergunta, Me.menuCheckout, Me.menuFuncionarios, Me.menuAvaliacao, Me.menuHospedagem})
+        Me.menu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menuApartamentos, Me.menuClientes, Me.menuItens, Me.menuPergunta, Me.menuFuncionarios, Me.menuAvaliacao, Me.menuHospedagem})
         Me.menu.Location = New System.Drawing.Point(0, 0)
         Me.menu.Name = "menu"
         Me.menu.Size = New System.Drawing.Size(604, 24)
@@ -182,12 +181,6 @@ Partial Class Principal
         Me.ListagemDePerguntasToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
         Me.ListagemDePerguntasToolStripMenuItem.Text = "Listagem de Perguntas"
         '
-        'menuCheckout
-        '
-        Me.menuCheckout.Name = "menuCheckout"
-        Me.menuCheckout.Size = New System.Drawing.Size(70, 20)
-        Me.menuCheckout.Text = "Checkout"
-        '
         'menuFuncionarios
         '
         Me.menuFuncionarios.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menuFuncionariosCadastro, Me.menuFuncionariosListagem})
@@ -248,7 +241,7 @@ Partial Class Principal
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(244, 49)
+        Me.PictureBox1.Location = New System.Drawing.Point(246, 51)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(336, 239)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -257,7 +250,7 @@ Partial Class Principal
         '
         'PBfuncionario
         '
-        Me.PBfuncionario.Location = New System.Drawing.Point(12, 49)
+        Me.PBfuncionario.Location = New System.Drawing.Point(12, 51)
         Me.PBfuncionario.Name = "PBfuncionario"
         Me.PBfuncionario.Size = New System.Drawing.Size(210, 239)
         Me.PBfuncionario.TabIndex = 2
@@ -277,7 +270,7 @@ Partial Class Principal
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
-        Me.ClientSize = New System.Drawing.Size(604, 320)
+        Me.ClientSize = New System.Drawing.Size(604, 310)
         Me.Controls.Add(Me.LBLfuncionario)
         Me.Controls.Add(Me.PBfuncionario)
         Me.Controls.Add(Me.PictureBox1)
@@ -307,7 +300,6 @@ Partial Class Principal
     Friend WithEvents menuItensCadastro As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents menuItensCadastroTipo As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents menuPergunta As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents menuCheckout As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents menuFuncionarios As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents menuFuncionariosCadastro As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents menuFuncionariosListagem As System.Windows.Forms.ToolStripMenuItem

@@ -40,7 +40,8 @@ Public Class EditarReserva
                                     If (CBXsituacao.Text <> "") Then
                                         retorno = "select idreserva,c.idCliente,nome,dataInicio,dataFim,numeroBoleto,situacao,tipo from hcliente c,hreserva r,hTipoApartamento ht where r.situacao=" + CStr(CBXsituacao.SelectedIndex + 1) + " and c.idCliente=r.idCliente and ht.idTipoApartamento in(select idtipoApartamento from hapartamento where idApartamento in(r.idApartamento))"
                                     Else
-                                        retorno = "select idreserva,c.idCliente,nome,dataInicio,dataFim,numeroBoleto,situacao,tipo from hcliente c,hreserva r,hTipoApartamento ht where r.idCliente=c.idCliente and ht.idTipoApartamento in(select idTIpoApartamento from htipoApartamento where idApartamento in(r.idApartamento))"
+                                        retorno = " select idreserva,c.idCliente,nome,dataInicio,dataFim,numeroBoleto,situacao,tipo from hcliente c,hreserva r,hTipoApartamento ht, hApartamento a  where  c.idCliente = r.idCliente And r.idApartamento = a.idApartamento And ht.idTipoApartamento = a.idTipoApartamento"
+
 
                                     End If
                                 End If

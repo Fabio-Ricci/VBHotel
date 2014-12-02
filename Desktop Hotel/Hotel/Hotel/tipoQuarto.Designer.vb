@@ -378,7 +378,7 @@ Partial Class tipoQuarto
         Me.lblDescricao.AutoSize = True
         Me.lblDescricao.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDescricao.Location = New System.Drawing.Point(23, 329)
-        Me.lblDescricao.MaximumSize = New System.Drawing.Size(400, 0)
+        Me.lblDescricao.MaximumSize = New System.Drawing.Size(360, 0)
         Me.lblDescricao.Name = "lblDescricao"
         Me.lblDescricao.Size = New System.Drawing.Size(80, 20)
         Me.lblDescricao.TabIndex = 7

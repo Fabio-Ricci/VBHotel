@@ -97,7 +97,7 @@ Partial Class CadastroApartamentos
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(24, 39)
+        Me.Label1.Location = New System.Drawing.Point(25, 48)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(73, 20)
         Me.Label1.TabIndex = 1
@@ -108,10 +108,11 @@ Partial Class CadastroApartamentos
         Me.cbxTipoApartamento.DataSource = Me.HTipoApartamentoBindingSource
         Me.cbxTipoApartamento.DisplayMember = "tipo"
         Me.cbxTipoApartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxTipoApartamento.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbxTipoApartamento.FormattingEnabled = True
         Me.cbxTipoApartamento.Location = New System.Drawing.Point(192, 11)
         Me.cbxTipoApartamento.Name = "cbxTipoApartamento"
-        Me.cbxTipoApartamento.Size = New System.Drawing.Size(121, 21)
+        Me.cbxTipoApartamento.Size = New System.Drawing.Size(121, 28)
         Me.cbxTipoApartamento.TabIndex = 6
         Me.cbxTipoApartamento.ValueMember = "idTipoApartamento"
         '
@@ -129,7 +130,7 @@ Partial Class CadastroApartamentos
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(25, 9)
+        Me.Label4.Location = New System.Drawing.Point(25, 14)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(166, 20)
         Me.Label4.TabIndex = 5
@@ -137,10 +138,11 @@ Partial Class CadastroApartamentos
         '
         'txtNumero
         '
-        Me.txtNumero.Location = New System.Drawing.Point(192, 41)
+        Me.txtNumero.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtNumero.Location = New System.Drawing.Point(192, 45)
         Me.txtNumero.MaxLength = 3
         Me.txtNumero.Name = "txtNumero"
-        Me.txtNumero.Size = New System.Drawing.Size(100, 20)
+        Me.txtNumero.Size = New System.Drawing.Size(100, 26)
         Me.txtNumero.TabIndex = 3
         '
         'HTipoApartamentoTableAdapter
@@ -150,7 +152,7 @@ Partial Class CadastroApartamentos
         'btnIncluir
         '
         Me.btnIncluir.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnIncluir.Location = New System.Drawing.Point(171, 226)
+        Me.btnIncluir.Location = New System.Drawing.Point(171, 242)
         Me.btnIncluir.Name = "btnIncluir"
         Me.btnIncluir.Size = New System.Drawing.Size(161, 30)
         Me.btnIncluir.TabIndex = 9
@@ -162,7 +164,7 @@ Partial Class CadastroApartamentos
         Me.gbFrigobar.Controls.Add(Me.rbSim)
         Me.gbFrigobar.Controls.Add(Me.rbNao)
         Me.gbFrigobar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbFrigobar.Location = New System.Drawing.Point(9, 149)
+        Me.gbFrigobar.Location = New System.Drawing.Point(9, 165)
         Me.gbFrigobar.Name = "gbFrigobar"
         Me.gbFrigobar.Size = New System.Drawing.Size(323, 71)
         Me.gbFrigobar.TabIndex = 10
@@ -219,10 +221,10 @@ Partial Class CadastroApartamentos
         Me.tbCadastro.Controls.Add(Me.txtAndar)
         Me.tbCadastro.Controls.Add(Me.txtNumero)
         Me.tbCadastro.Controls.Add(Me.gbFrigobar)
-        Me.tbCadastro.Location = New System.Drawing.Point(4, 29)
+        Me.tbCadastro.Location = New System.Drawing.Point(4, 22)
         Me.tbCadastro.Name = "tbCadastro"
         Me.tbCadastro.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbCadastro.Size = New System.Drawing.Size(346, 285)
+        Me.tbCadastro.Size = New System.Drawing.Size(346, 292)
         Me.tbCadastro.TabIndex = 0
         Me.tbCadastro.Text = "Cadastro de Apartamento"
         Me.tbCadastro.UseVisualStyleBackColor = True
@@ -231,7 +233,7 @@ Partial Class CadastroApartamentos
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(25, 121)
+        Me.Label9.Location = New System.Drawing.Point(25, 136)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(147, 20)
         Me.Label9.TabIndex = 17
@@ -239,25 +241,27 @@ Partial Class CadastroApartamentos
         '
         'txtCamaSolteiro
         '
-        Me.txtCamaSolteiro.Location = New System.Drawing.Point(192, 123)
+        Me.txtCamaSolteiro.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCamaSolteiro.Location = New System.Drawing.Point(192, 133)
         Me.txtCamaSolteiro.MaxLength = 1
         Me.txtCamaSolteiro.Name = "txtCamaSolteiro"
-        Me.txtCamaSolteiro.Size = New System.Drawing.Size(100, 20)
+        Me.txtCamaSolteiro.Size = New System.Drawing.Size(100, 26)
         Me.txtCamaSolteiro.TabIndex = 16
         '
         'txtCamaCasal
         '
-        Me.txtCamaCasal.Location = New System.Drawing.Point(192, 97)
+        Me.txtCamaCasal.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCamaCasal.Location = New System.Drawing.Point(192, 103)
         Me.txtCamaCasal.MaxLength = 1
         Me.txtCamaCasal.Name = "txtCamaCasal"
-        Me.txtCamaCasal.Size = New System.Drawing.Size(100, 20)
+        Me.txtCamaCasal.Size = New System.Drawing.Size(100, 26)
         Me.txtCamaCasal.TabIndex = 15
         '
         'Label8
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(25, 95)
+        Me.Label8.Location = New System.Drawing.Point(25, 106)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(133, 20)
         Me.Label8.TabIndex = 14
@@ -267,7 +271,7 @@ Partial Class CadastroApartamentos
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(25, 69)
+        Me.Label2.Location = New System.Drawing.Point(25, 76)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(60, 20)
         Me.Label2.TabIndex = 2
@@ -275,10 +279,11 @@ Partial Class CadastroApartamentos
         '
         'txtAndar
         '
-        Me.txtAndar.Location = New System.Drawing.Point(192, 71)
+        Me.txtAndar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAndar.Location = New System.Drawing.Point(192, 73)
         Me.txtAndar.MaxLength = 2
         Me.txtAndar.Name = "txtAndar"
-        Me.txtAndar.Size = New System.Drawing.Size(100, 20)
+        Me.txtAndar.Size = New System.Drawing.Size(100, 26)
         Me.txtAndar.TabIndex = 4
         '
         'tbEdicao

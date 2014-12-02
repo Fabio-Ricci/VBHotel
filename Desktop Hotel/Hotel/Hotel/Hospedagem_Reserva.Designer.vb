@@ -70,7 +70,7 @@ Partial Class Hospedagem_Reserva
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(707, 108)
+        Me.Label5.Location = New System.Drawing.Point(707, 120)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(55, 13)
         Me.Label5.TabIndex = 87
@@ -88,7 +88,7 @@ Partial Class Hospedagem_Reserva
         '
         'BTNalterarReserva
         '
-        Me.BTNalterarReserva.Location = New System.Drawing.Point(680, 488)
+        Me.BTNalterarReserva.Location = New System.Drawing.Point(680, 500)
         Me.BTNalterarReserva.Name = "BTNalterarReserva"
         Me.BTNalterarReserva.Size = New System.Drawing.Size(129, 23)
         Me.BTNalterarReserva.TabIndex = 85
@@ -97,7 +97,7 @@ Partial Class Hospedagem_Reserva
         '
         'BTNincluir
         '
-        Me.BTNincluir.Location = New System.Drawing.Point(710, 488)
+        Me.BTNincluir.Location = New System.Drawing.Point(710, 500)
         Me.BTNincluir.Name = "BTNincluir"
         Me.BTNincluir.Size = New System.Drawing.Size(75, 23)
         Me.BTNincluir.TabIndex = 84
@@ -106,7 +106,7 @@ Partial Class Hospedagem_Reserva
         '
         'btnExcluir
         '
-        Me.btnExcluir.Location = New System.Drawing.Point(992, 450)
+        Me.btnExcluir.Location = New System.Drawing.Point(992, 462)
         Me.btnExcluir.Name = "btnExcluir"
         Me.btnExcluir.Size = New System.Drawing.Size(75, 23)
         Me.btnExcluir.TabIndex = 83
@@ -117,7 +117,7 @@ Partial Class Hospedagem_Reserva
         '
         Me.CBXpagamento.FormattingEnabled = True
         Me.CBXpagamento.Items.AddRange(New Object() {"S", "N"})
-        Me.CBXpagamento.Location = New System.Drawing.Point(1041, 222)
+        Me.CBXpagamento.Location = New System.Drawing.Point(1041, 234)
         Me.CBXpagamento.Name = "CBXpagamento"
         Me.CBXpagamento.Size = New System.Drawing.Size(121, 21)
         Me.CBXpagamento.TabIndex = 82
@@ -126,7 +126,7 @@ Partial Class Hospedagem_Reserva
         '
         Me.LBLpagamento.AutoSize = True
         Me.LBLpagamento.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.LBLpagamento.Location = New System.Drawing.Point(928, 225)
+        Me.LBLpagamento.Location = New System.Drawing.Point(928, 237)
         Me.LBLpagamento.Name = "LBLpagamento"
         Me.LBLpagamento.Size = New System.Drawing.Size(107, 13)
         Me.LBLpagamento.TabIndex = 81
@@ -135,7 +135,7 @@ Partial Class Hospedagem_Reserva
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(153, 460)
+        Me.Label2.Location = New System.Drawing.Point(153, 472)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(45, 13)
         Me.Label2.TabIndex = 80
@@ -144,7 +144,7 @@ Partial Class Hospedagem_Reserva
         'CbxDiaInicio
         '
         Me.CbxDiaInicio.FormattingEnabled = True
-        Me.CbxDiaInicio.Location = New System.Drawing.Point(190, 4)
+        Me.CbxDiaInicio.Location = New System.Drawing.Point(190, 16)
         Me.CbxDiaInicio.Name = "CbxDiaInicio"
         Me.CbxDiaInicio.Size = New System.Drawing.Size(42, 21)
         Me.CbxDiaInicio.TabIndex = 79
@@ -153,7 +153,7 @@ Partial Class Hospedagem_Reserva
         '
         Me.CbxMesInicio.FormattingEnabled = True
         Me.CbxMesInicio.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"})
-        Me.CbxMesInicio.Location = New System.Drawing.Point(266, 4)
+        Me.CbxMesInicio.Location = New System.Drawing.Point(266, 16)
         Me.CbxMesInicio.Name = "CbxMesInicio"
         Me.CbxMesInicio.Size = New System.Drawing.Size(37, 21)
         Me.CbxMesInicio.TabIndex = 78
@@ -161,7 +161,7 @@ Partial Class Hospedagem_Reserva
         'CbxAnoInicio
         '
         Me.CbxAnoInicio.FormattingEnabled = True
-        Me.CbxAnoInicio.Location = New System.Drawing.Point(333, 4)
+        Me.CbxAnoInicio.Location = New System.Drawing.Point(333, 16)
         Me.CbxAnoInicio.Name = "CbxAnoInicio"
         Me.CbxAnoInicio.Size = New System.Drawing.Size(84, 21)
         Me.CbxAnoInicio.TabIndex = 77
@@ -169,7 +169,7 @@ Partial Class Hospedagem_Reserva
         'CBXcamaSolteiro
         '
         Me.CBXcamaSolteiro.FormattingEnabled = True
-        Me.CBXcamaSolteiro.Location = New System.Drawing.Point(333, 537)
+        Me.CBXcamaSolteiro.Location = New System.Drawing.Point(333, 549)
         Me.CBXcamaSolteiro.Name = "CBXcamaSolteiro"
         Me.CBXcamaSolteiro.Size = New System.Drawing.Size(121, 21)
         Me.CBXcamaSolteiro.TabIndex = 76
@@ -177,7 +177,7 @@ Partial Class Hospedagem_Reserva
         'CBXcamaCasal
         '
         Me.CBXcamaCasal.FormattingEnabled = True
-        Me.CBXcamaCasal.Location = New System.Drawing.Point(333, 498)
+        Me.CBXcamaCasal.Location = New System.Drawing.Point(333, 510)
         Me.CBXcamaCasal.Name = "CBXcamaCasal"
         Me.CBXcamaCasal.Size = New System.Drawing.Size(121, 21)
         Me.CBXcamaCasal.TabIndex = 75
@@ -186,7 +186,7 @@ Partial Class Hospedagem_Reserva
         '
         Me.CBXfrigobar.FormattingEnabled = True
         Me.CBXfrigobar.Items.AddRange(New Object() {"S", "N"})
-        Me.CBXfrigobar.Location = New System.Drawing.Point(333, 460)
+        Me.CBXfrigobar.Location = New System.Drawing.Point(333, 472)
         Me.CBXfrigobar.Name = "CBXfrigobar"
         Me.CBXfrigobar.Size = New System.Drawing.Size(121, 21)
         Me.CBXfrigobar.TabIndex = 74
@@ -194,14 +194,14 @@ Partial Class Hospedagem_Reserva
         'lblDataInicio
         '
         Me.lblDataInicio.AutoSize = True
-        Me.lblDataInicio.Location = New System.Drawing.Point(176, 100)
+        Me.lblDataInicio.Location = New System.Drawing.Point(176, 112)
         Me.lblDataInicio.Name = "lblDataInicio"
         Me.lblDataInicio.Size = New System.Drawing.Size(0, 13)
         Me.lblDataInicio.TabIndex = 73
         '
         'BTNvoltar
         '
-        Me.BTNvoltar.Location = New System.Drawing.Point(560, 4)
+        Me.BTNvoltar.Location = New System.Drawing.Point(560, 16)
         Me.BTNvoltar.Name = "BTNvoltar"
         Me.BTNvoltar.Size = New System.Drawing.Size(75, 23)
         Me.BTNvoltar.TabIndex = 72
@@ -210,7 +210,7 @@ Partial Class Hospedagem_Reserva
         '
         'RTXTdescricao
         '
-        Me.RTXTdescricao.Location = New System.Drawing.Point(601, 142)
+        Me.RTXTdescricao.Location = New System.Drawing.Point(601, 154)
         Me.RTXTdescricao.Name = "RTXTdescricao"
         Me.RTXTdescricao.Size = New System.Drawing.Size(270, 318)
         Me.RTXTdescricao.TabIndex = 71
@@ -218,7 +218,7 @@ Partial Class Hospedagem_Reserva
         '
         'BTNoriginal
         '
-        Me.BTNoriginal.Location = New System.Drawing.Point(498, 49)
+        Me.BTNoriginal.Location = New System.Drawing.Point(498, 61)
         Me.BTNoriginal.Name = "BTNoriginal"
         Me.BTNoriginal.Size = New System.Drawing.Size(218, 25)
         Me.BTNoriginal.TabIndex = 70
@@ -228,7 +228,7 @@ Partial Class Hospedagem_Reserva
         'lblDiaria
         '
         Me.lblDiaria.AutoSize = True
-        Me.lblDiaria.Location = New System.Drawing.Point(187, 139)
+        Me.lblDiaria.Location = New System.Drawing.Point(187, 151)
         Me.lblDiaria.Name = "lblDiaria"
         Me.lblDiaria.Size = New System.Drawing.Size(0, 13)
         Me.lblDiaria.TabIndex = 69
@@ -237,7 +237,7 @@ Partial Class Hospedagem_Reserva
         '
         Me.CBXTipoGrupo.FormattingEnabled = True
         Me.CBXTipoGrupo.Items.AddRange(New Object() {"individual", "família", "casal", "amigos", "excursao", "outros"})
-        Me.CBXTipoGrupo.Location = New System.Drawing.Point(1041, 184)
+        Me.CBXTipoGrupo.Location = New System.Drawing.Point(1041, 196)
         Me.CBXTipoGrupo.Name = "CBXTipoGrupo"
         Me.CBXTipoGrupo.Size = New System.Drawing.Size(121, 21)
         Me.CBXTipoGrupo.TabIndex = 68
@@ -245,7 +245,7 @@ Partial Class Hospedagem_Reserva
         'LBLtipogrupo
         '
         Me.LBLtipogrupo.AutoSize = True
-        Me.LBLtipogrupo.Location = New System.Drawing.Point(939, 184)
+        Me.LBLtipogrupo.Location = New System.Drawing.Point(939, 196)
         Me.LBLtipogrupo.Name = "LBLtipogrupo"
         Me.LBLtipogrupo.Size = New System.Drawing.Size(73, 13)
         Me.LBLtipogrupo.TabIndex = 67
@@ -254,7 +254,7 @@ Partial Class Hospedagem_Reserva
         'LBLviagem
         '
         Me.LBLviagem.AutoSize = True
-        Me.LBLviagem.Location = New System.Drawing.Point(939, 141)
+        Me.LBLviagem.Location = New System.Drawing.Point(939, 153)
         Me.LBLviagem.Name = "LBLviagem"
         Me.LBLviagem.Size = New System.Drawing.Size(76, 13)
         Me.LBLviagem.TabIndex = 66
@@ -264,7 +264,7 @@ Partial Class Hospedagem_Reserva
         '
         Me.CBXmotivoViagem.FormattingEnabled = True
         Me.CBXmotivoViagem.Items.AddRange(New Object() {"turismo", "congresso ou eventos", "trabalho", "motivo de saúde", "lua de mel", "visita a terceiros", "outros"})
-        Me.CBXmotivoViagem.Location = New System.Drawing.Point(1041, 138)
+        Me.CBXmotivoViagem.Location = New System.Drawing.Point(1041, 150)
         Me.CBXmotivoViagem.Name = "CBXmotivoViagem"
         Me.CBXmotivoViagem.Size = New System.Drawing.Size(121, 21)
         Me.CBXmotivoViagem.TabIndex = 65
@@ -272,7 +272,7 @@ Partial Class Hospedagem_Reserva
         'LBLdestino
         '
         Me.LBLdestino.AutoSize = True
-        Me.LBLdestino.Location = New System.Drawing.Point(939, 91)
+        Me.LBLdestino.Location = New System.Drawing.Point(939, 103)
         Me.LBLdestino.Name = "LBLdestino"
         Me.LBLdestino.Size = New System.Drawing.Size(43, 13)
         Me.LBLdestino.TabIndex = 64
@@ -280,14 +280,14 @@ Partial Class Hospedagem_Reserva
         '
         'TXTdestino
         '
-        Me.TXTdestino.Location = New System.Drawing.Point(1041, 88)
+        Me.TXTdestino.Location = New System.Drawing.Point(1041, 100)
         Me.TXTdestino.Name = "TXTdestino"
         Me.TXTdestino.Size = New System.Drawing.Size(100, 20)
         Me.TXTdestino.TabIndex = 63
         '
         'TXTorigem
         '
-        Me.TXTorigem.Location = New System.Drawing.Point(1041, 48)
+        Me.TXTorigem.Location = New System.Drawing.Point(1041, 60)
         Me.TXTorigem.Name = "TXTorigem"
         Me.TXTorigem.Size = New System.Drawing.Size(100, 20)
         Me.TXTorigem.TabIndex = 62
@@ -295,7 +295,7 @@ Partial Class Hospedagem_Reserva
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(153, 537)
+        Me.Label7.Location = New System.Drawing.Point(153, 549)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(146, 13)
         Me.Label7.TabIndex = 61
@@ -304,7 +304,7 @@ Partial Class Hospedagem_Reserva
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(153, 498)
+        Me.Label6.Location = New System.Drawing.Point(153, 510)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(136, 13)
         Me.Label6.TabIndex = 60
@@ -312,7 +312,7 @@ Partial Class Hospedagem_Reserva
         '
         'BTNfotoAnterior
         '
-        Me.BTNfotoAnterior.Location = New System.Drawing.Point(3, 281)
+        Me.BTNfotoAnterior.Location = New System.Drawing.Point(3, 293)
         Me.BTNfotoAnterior.Name = "BTNfotoAnterior"
         Me.BTNfotoAnterior.Size = New System.Drawing.Size(75, 23)
         Me.BTNfotoAnterior.TabIndex = 59
@@ -321,7 +321,7 @@ Partial Class Hospedagem_Reserva
         '
         'BTNproximaFoto
         '
-        Me.BTNproximaFoto.Location = New System.Drawing.Point(476, 254)
+        Me.BTNproximaFoto.Location = New System.Drawing.Point(476, 266)
         Me.BTNproximaFoto.Name = "BTNproximaFoto"
         Me.BTNproximaFoto.Size = New System.Drawing.Size(75, 23)
         Me.BTNproximaFoto.TabIndex = 58
@@ -330,7 +330,7 @@ Partial Class Hospedagem_Reserva
         '
         'BTNConfirmar
         '
-        Me.BTNConfirmar.Location = New System.Drawing.Point(710, 488)
+        Me.BTNConfirmar.Location = New System.Drawing.Point(710, 500)
         Me.BTNConfirmar.Name = "BTNConfirmar"
         Me.BTNConfirmar.Size = New System.Drawing.Size(75, 23)
         Me.BTNConfirmar.TabIndex = 57
@@ -340,7 +340,7 @@ Partial Class Hospedagem_Reserva
         'CBXdia
         '
         Me.CBXdia.FormattingEnabled = True
-        Me.CBXdia.Location = New System.Drawing.Point(190, 44)
+        Me.CBXdia.Location = New System.Drawing.Point(190, 56)
         Me.CBXdia.Name = "CBXdia"
         Me.CBXdia.Size = New System.Drawing.Size(42, 21)
         Me.CBXdia.TabIndex = 56
@@ -349,7 +349,7 @@ Partial Class Hospedagem_Reserva
         '
         Me.CBXmes.FormattingEnabled = True
         Me.CBXmes.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"})
-        Me.CBXmes.Location = New System.Drawing.Point(267, 44)
+        Me.CBXmes.Location = New System.Drawing.Point(267, 56)
         Me.CBXmes.Name = "CBXmes"
         Me.CBXmes.Size = New System.Drawing.Size(36, 21)
         Me.CBXmes.TabIndex = 55
@@ -357,7 +357,7 @@ Partial Class Hospedagem_Reserva
         'LBLorigem
         '
         Me.LBLorigem.AutoSize = True
-        Me.LBLorigem.Location = New System.Drawing.Point(939, 51)
+        Me.LBLorigem.Location = New System.Drawing.Point(939, 63)
         Me.LBLorigem.Name = "LBLorigem"
         Me.LBLorigem.Size = New System.Drawing.Size(40, 13)
         Me.LBLorigem.TabIndex = 54
@@ -366,7 +366,7 @@ Partial Class Hospedagem_Reserva
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(107, 138)
+        Me.Label4.Location = New System.Drawing.Point(107, 150)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(64, 13)
         Me.Label4.TabIndex = 53
@@ -375,7 +375,7 @@ Partial Class Hospedagem_Reserva
         'CBXAno
         '
         Me.CBXAno.FormattingEnabled = True
-        Me.CBXAno.Location = New System.Drawing.Point(333, 44)
+        Me.CBXAno.Location = New System.Drawing.Point(333, 56)
         Me.CBXAno.Name = "CBXAno"
         Me.CBXAno.Size = New System.Drawing.Size(84, 21)
         Me.CBXAno.TabIndex = 52
@@ -383,7 +383,7 @@ Partial Class Hospedagem_Reserva
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(114, 52)
+        Me.Label3.Location = New System.Drawing.Point(114, 64)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(49, 13)
         Me.Label3.TabIndex = 51
@@ -392,7 +392,7 @@ Partial Class Hospedagem_Reserva
         'lblx
         '
         Me.lblx.AutoSize = True
-        Me.lblx.Location = New System.Drawing.Point(107, 9)
+        Me.lblx.Location = New System.Drawing.Point(107, 21)
         Me.lblx.Name = "lblx"
         Me.lblx.Size = New System.Drawing.Size(66, 13)
         Me.lblx.TabIndex = 50
@@ -401,7 +401,7 @@ Partial Class Hospedagem_Reserva
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(114, 100)
+        Me.Label1.Location = New System.Drawing.Point(114, 112)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(94, 13)
         Me.Label1.TabIndex = 49
@@ -410,14 +410,14 @@ Partial Class Hospedagem_Reserva
         'CBXtipoApartamento
         '
         Me.CBXtipoApartamento.FormattingEnabled = True
-        Me.CBXtipoApartamento.Location = New System.Drawing.Point(239, 100)
+        Me.CBXtipoApartamento.Location = New System.Drawing.Point(239, 112)
         Me.CBXtipoApartamento.Name = "CBXtipoApartamento"
         Me.CBXtipoApartamento.Size = New System.Drawing.Size(121, 21)
         Me.CBXtipoApartamento.TabIndex = 48
         '
         'PBapartamento
         '
-        Me.PBapartamento.Location = New System.Drawing.Point(96, 169)
+        Me.PBapartamento.Location = New System.Drawing.Point(96, 181)
         Me.PBapartamento.Name = "PBapartamento"
         Me.PBapartamento.Size = New System.Drawing.Size(337, 253)
         Me.PBapartamento.TabIndex = 47
@@ -472,7 +472,7 @@ Partial Class Hospedagem_Reserva
         Me.Controls.Add(Me.PBapartamento)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Hospedagem_Reserva"
-        Me.Text = "Hospedagem_Reserva"
+        Me.Text = "Mountain Ville - Hospedagem/Reserva"
         CType(Me.PBapartamento, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

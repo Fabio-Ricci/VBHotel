@@ -1062,7 +1062,10 @@ Public Class Hospedagem_Reserva
             Dim idApartamento As Integer = dadosFinais.GetInt32(0) 'pega o id do apartamento disponvel
             banco.fecharConexao()
             Try
-                bancoAuxiliar.consultaGenerica("update hreserva set dataInicio='" + da.ToString + "', datafim='" + dp.ToString() + "', idApartamento=" + CStr(idApartamento) + ", situacao =" + CStr(CBXpagamento.SelectedIndex + 1) + " where idReserva=" + CStr(reserva))
+                bancoAuxiliar.consultaGenerica("update hreserva set dataInicio='" + da.ToString + "', datafim='" + dp.ToString() + "', idApartamento=" + CStr(idApartamento) + ", situacao =" + CStr(CBXpagamento.SelectedIndex + 2) + " where idReserva=" + CStr(reserva))
+                banco.fecharConexao()
+                MsgBox("Alterações efetuadas com êxito")
+                Me.Hide()
             Catch ex As Exception 'atualiza reserva
                 MessageBox.Show("Erro na atualização da reserva:" + ex.Message)
                 banco.fecharConexao()

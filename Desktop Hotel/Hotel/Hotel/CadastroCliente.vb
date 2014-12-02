@@ -189,6 +189,17 @@ Public Class CadastroCliente
         carregarPaises(cbPaises)
 
         btnLoad_Click(sender, e)
+        Dim dr As SqlDataReader
+        dr = bd.getUFs()
+        If dr.Read Then
+            cbUF.Items.Clear()
+            'cbUF.Items.Add(dr.Item(0))
+
+            While dr.Read
+                cbUF.Items.Add(dr.Item(0))
+            End While
+        End If
+        bd.fecharConexao()
     End Sub
 
     Private Sub cbUF_DropDown(sender As Object, e As EventArgs) Handles cbUF.DropDown
@@ -358,9 +369,10 @@ Public Class CadastroCliente
             If (isEmpty) Then
                 MsgBox("Preencha todos os campos")
             Else
-                If Not bd.ehUF(cbUF.Text) Then
+                If Not bd.ehUF(cbEdicaoUF.Text) Then
                     MsgBox("Apenas UF brasileiros. Use dois hífens (--) para pessoas não brasileiras")
                 Else
+                    bd.fecharConexao()
                     Dim data As DateTime
                     data = CDate(txtEdicaoData.Text)
                     If DateDiff(DateInterval.Year, data, Date.Now) < 18 Then
@@ -370,8 +382,10 @@ Public Class CadastroCliente
                     Else
                         bd.updateCliente(cbxEdicaoIdCliente.Text, nome, dataNascimento, sexo, eMail, telefone, celular, endereco, bairro, cidade, pais, uf, cpf)
                         MsgBox("O cliente foi alterado com sucesso")
+                        bd.fecharConexao()
                     End If
                 End If
+
             End If
         Catch Exc As System.Exception
             MsgBox(Exc.Message)
@@ -421,5 +435,17 @@ Public Class CadastroCliente
 
     Public Sub setSelectedTextCBEdicao(text As String)
         cbxEdicaoIdCliente.Text = text
+    End Sub
+
+    Private Sub TabPage2_Enter(sender As Object, e As EventArgs) Handles TabPage2.Enter
+        Dim dr As SqlDataReader
+        dr = bd.getUFs()
+        If dr.Read Then
+            cbEdicaoUF.Items.Clear()
+            While dr.Read
+                cbEdicaoUF.Items.Add(dr.Item(0))
+            End While
+        End If
+        bd.fecharConexao()
     End Sub
 End Class
